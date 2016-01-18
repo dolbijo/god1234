@@ -15,7 +15,7 @@
     <div id="pageContainer">
     
     	<c:import url="/WEB-INF/views/include/header.jsp" />
-        
+        <hr>
         <div id="content">
         	<br /><br /><br /><br /><br />
         	<h2 style='text-aling:center'>
