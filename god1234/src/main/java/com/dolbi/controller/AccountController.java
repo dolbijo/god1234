@@ -45,7 +45,7 @@ public class AccountController {
 			session.setAttribute("loginuser", member);//로그인 처리
 			if (returnUrl != null && returnUrl.length() > 0) {
 				//spring mvc에서 redirect 경로는 application이름을 포함할 수 없습니다.
-				return "redirect:" + returnUrl.replace("/spring-mvc-demoweb5", "");
+				return "redirect:" + returnUrl.replace("/dolbi", "");
 			} else {
 				return "redirect:/home.action";
 			}

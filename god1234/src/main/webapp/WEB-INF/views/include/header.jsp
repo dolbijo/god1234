@@ -6,12 +6,12 @@
 
 		<div id="header">
             <div class="title">
-                <a href="/spring-mvc-demoweb5/home.action">DEMO WEBSITE</a>
+                <a href="/dolbi/home.action">DEMO WEBSITE</a>
             </div>
             <div class="links">
             <c:choose>
             	<c:when test="${ empty sessionScope.loginuser }">
-            	<a href="/spring-mvc-demoweb5/account/login.action">
+            	<a href="/dolbi/account/login.action">
             		<spring:message code="account.login" />
             	</a>
                 <a href="#">
@@ -21,7 +21,7 @@
             	<c:otherwise>
             	<%-- ${ loginuser.memberId }<spring:message code="general.welcome" /> --%>
             	<spring:message code="general.welcome" arguments="${ loginuser.memberId }" />
-            	<a href="/spring-mvc-demoweb5/account/logout.action">
+            	<a href="/dolbi/account/logout.action">
             		<spring:message code="account.logout" />
             	</a>
             	</c:otherwise>
@@ -32,13 +32,13 @@
             <div>
                 <ul>
                 	<!-- a : 페이지 이동을 처리하는 마크업 -->
-                    <li><a href="/spring-mvc-demoweb5/member/list.action">
+                    <li><a href="/dolbi/member/list.action">
 						<spring:message code="menu.member" />			
 					</a></li>
 					<li><a href="#">
 						<spring:message code="menu.email" />
 					</a></li>
-					<li><a href="/spring-mvc-demoweb5/upload/list.action">
+					<li><a href="/dolbi/upload/list.action">
 						<spring:message code="menu.library" /> 
 					</a></li>
 					<li><a href="#">

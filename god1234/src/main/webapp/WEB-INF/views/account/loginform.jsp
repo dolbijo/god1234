@@ -6,8 +6,8 @@
 <head>
 	<meta charset="utf-8" />
 	<title>로그인</title>
-	<link rel="Stylesheet" href="/spring-mvc-demoweb5/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/spring-mvc-demoweb5/resources/styles/input.css" />	
+	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
+	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" />	
 	<script type="text/javascript">
 		window.onload = function() {
 			
@@ -31,7 +31,7 @@
 		    <div id="inputmain">
 		        <div class="inputsubtitle">로그인정보</div>
 		        
-		        <form action="/spring-mvc-demoweb5/account/login.action" method="post">
+		        <form action="/dolbi/account/login.action" method="post">
 		        
 		        <!-- input type="hidden" : 사용자에게 보이지 않지만 서버로 전송되는 입력 요소 -->
 		        <input type="hidden" name="returnurl" value='${ empty requestScope.returnurl ? "" : requestScope.returnurl }' />

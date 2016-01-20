@@ -8,8 +8,8 @@
 <head>
 	<meta charset="EUC-KR" />
 	<title>자료업로드</title>
-	<link rel="Stylesheet" href="/spring-mvc-demoweb5/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/spring-mvc-demoweb5/resources/styles/input2.css" />
+	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
+	<link rel="Stylesheet" href="/dolbi/resources/styles/input2.css" />
 </head>
 <body>
 

@@ -9,8 +9,8 @@
 <head>
 	<meta charset="utf-8" />
 	<title>사용자 정보</title>
-	<link rel="Stylesheet" href="/spring-mvc-demoweb5/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/spring-mvc-demoweb5/resources/styles/input.css" />		
+	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
+	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" />		
 </head>
 <body>
 

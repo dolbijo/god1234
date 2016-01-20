@@ -54,7 +54,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		
 		if (redirect) {			
 			resp.sendRedirect(
-				"/spring-mvc-demoweb5/account/login.action?returnurl=" + uri + queryString);
+				"/dolbi/account/login.action?returnurl=" + uri + queryString);
 			return false;//컨트롤러 호출 중단
 		} else {
 			return true;//정상 진행
