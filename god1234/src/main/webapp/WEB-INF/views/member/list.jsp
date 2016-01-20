@@ -1,6 +1,6 @@
-<%@page import="com.mvcdemoweb.model.dto.Member"%>
+<%@page import="com.dolbi.model.dto.Member"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.mvcdemoweb.model.dao.MemberDao"%>
+<%@page import="com.dolbi.model.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     

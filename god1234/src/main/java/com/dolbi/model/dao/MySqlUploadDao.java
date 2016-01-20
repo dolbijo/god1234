@@ -54,7 +54,7 @@ public class MySqlUploadDao implements UploadDao {
 	public void insertUploadFile(UploadFile file) {
 		
 		sqlSessionTemplate.insert(
-			"com.mvcdemoweb.model.mapper.UploadMapper.insertUploadFile", file);
+			"com.dolbi.model.mapper.UploadMapper.insertUploadFile", file);
 		
 	}
 	
@@ -62,7 +62,7 @@ public class MySqlUploadDao implements UploadDao {
 	public ArrayList<Upload> getUploadList() {
 		
 		List<Upload> uploads = sqlSessionTemplate.selectList(
-			"com.mvcdemoweb.model.mapper.UploadMapper.selectUploadList");
+			"com.dolbi.model.mapper.UploadMapper.selectUploadList");
 		
 		return (ArrayList<Upload>)uploads;
 				
@@ -77,7 +77,7 @@ public class MySqlUploadDao implements UploadDao {
 		
 		//중첩 select 방식
 		Upload upload = sqlSessionTemplate.selectOne(
-			"com.mvcdemoweb.model.mapper.UploadMapper.selectUploadByUploadNo2", uploadNo);
+			"com.dolbi.model.mapper.UploadMapper.selectUploadByUploadNo2", uploadNo);
 		
 		return upload;
 		
