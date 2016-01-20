@@ -45,8 +45,8 @@
 		<beans:property name="transactionManager" ref="txManager" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.mvcdemoweb.controller" />
-	<context:component-scan base-package="com.mvcdemoweb.aop" />
+	<context:component-scan base-package="com.dolbi.controller" />
+	<context:component-scan base-package="com.dolbi.aop" />
 	
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
@@ -82,13 +82,13 @@
 		<beans:property name="defaultLocale" value="ko" />
 	</beans:bean>
 	
-	<beans:bean id="authInterceptor" class="com.mvcdemoweb.interceptor.AuthInterceptor" />
+	<beans:bean id="authInterceptor" class="com.dolbi.interceptor.AuthInterceptor" />
 	
 	<interceptors>		
 		<interceptor>
 			<mapping path="/**"/>
 			<exclude-mapping path="/resources/**"/>
-			<beans:bean class="com.mvcdemoweb.interceptor.AuthInterceptor" />
+			<beans:bean class="com.dolbi.interceptor.AuthInterceptor" />
 			<!-- <beans:ref bean="authInterceptor"></beans:ref> -->
 		</interceptor>
 	</interceptors>

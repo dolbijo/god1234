@@ -34,7 +34,7 @@
 	<!-- MapperFactoryBean은 FactoryBean 인터페이스 구현한 클래스 -->
 	<!-- 그러므로 MemberMapper memberMapper = new MapperFactoryBean().getObject() -->
 	<bean id="memberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.mvcdemoweb.model.mapper.MemberMapper" />
+		<property name="mapperInterface" value="com.dolbi.model.mapper.MemberMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
