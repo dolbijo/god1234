@@ -44,6 +44,9 @@
 					<li><a href="#">
 						<spring:message code="menu.board" />
 					</a></li>
+					<li><a href="/dolbi/individual/list.action">
+						<spring:message code="menu.individual" />			
+					</a></li>
                 </ul>
             </div>
         </div>
