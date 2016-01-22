@@ -8,10 +8,12 @@
 
 	<properties>
 		<property name="driver" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/demoweb" />
-		<property name="username" value="devadmin" />
-		<property name="password" value="mysql" />
+		<property name="url" value="jdbc:mysql://210.16.214.202:3306/dolbi" />
+		<property name="username" value="dolbi" />
+		<property name="password" value="1234" />
 	</properties>
+	
+
 	
 	<typeAliases>
 		<typeAlias type="com.dolbi.model.dto.Member" alias="Member" />
