@@ -43,6 +43,6 @@
 		<!--
 		<mapper resource="com/mvcdemoweb/model/mapper/BoardMapper.xml" />
 		-->
-	</mappers>
+	</mappers> 
 
 </configuration>
