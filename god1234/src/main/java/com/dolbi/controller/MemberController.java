@@ -75,7 +75,7 @@ public class MemberController {
 		return "redirect:/member/list.action";
 	}
 	
-	@RequestMapping(value = "usertype.action", method = RequestMethod.POST)
+	@RequestMapping(value = "usertype.action", method = RequestMethod.GET)
 	public String usertype(Member member) {
 		
 		member.setPasswd(Util.getHashedString(member.getPasswd(), "SHA-1"));
