@@ -23,6 +23,13 @@
 		        <div class="inputsubtitle">회원기본정보</div>
 		        <form action="register.action" method="post"><!-- 상대경로표시 -->
 		        <table>
+		        <tr>
+		                <th>이름</th>
+		                <td>
+		                    <input type="text" name="memberId" style="width:280px" />
+		                </td>
+		            </tr>
+		            
 		            <tr>
 		                <th>아이디(ID)</th>
 		                <td>
@@ -42,6 +49,18 @@
 		                </td>
 		            </tr>
 		            <tr>
+		                <th>주소</th>
+		                <td>
+		                	<input type="text" name="email" style="width:280px" />
+		                </td>
+		            </tr>
+		            <tr>
+		                <th>전화번호</th>
+		                <td>
+		                	<input type="text" name="email" style="width:280px" />
+		                </td>
+		            </tr>
+		            <tr>
 		                <th>이메일</th>
 		                <td>
 		                	<input type="text" name="email" style="width:280px" />
@@ -50,14 +69,7 @@
 		            <tr>
 		                <th>사용자구분</th>
 		                <td>
-		                	<input type="radio" name="userType" value="user" checked="checked">사용자</input>
-		                	<input type="radio" name="userType" value="admin">관리자</input>
-		                </td>
-		            </tr>
-		            <tr>
-		                <th>활성화여부</th>
-		                <td>
-		                	<input type="checkbox" name="active" value="true">활성사용자</input>
+		                	
 		                </td>
 		            </tr>
 		        </table>
