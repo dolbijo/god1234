@@ -6,7 +6,7 @@
 
 		<div id="header">
             <div class="title">
-                <a href="/dolbi/home.action">DEMO WEBSITE</a>
+                <a href="/dolbi/home.action"><img src="/WEB-INF/images/hanbi2.JPG"></a>
             </div>
             <div class="links">
             <c:choose>

@@ -16,6 +16,7 @@
 	<div id="pageContainer">
 	
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
+	
 		
 		<div style="padding-top:25px;text-align:center">
 		<div id="inputcontent">
@@ -129,8 +130,11 @@
 		        </form>
 		    </div>
 		</div>   	
-	
+
 	</div>
+	</div>
+<div>
+		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
 
 </body>
