@@ -83,6 +83,7 @@ public class MemberController {
 		memberDao.insert(member);
 		
 		return "member/usertype";
+		
 	}
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
