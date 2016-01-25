@@ -14,7 +14,7 @@
             	<a href="/dolbi/account/login.action">
             		<spring:message code="account.login" />
             	</a>
-                <a href="#">
+                <a href="/dolbi/member/register.action">
                 	<spring:message code="account.join" />
                 </a>
             	</c:when>
