@@ -75,6 +75,16 @@ public class MemberController {
 		return "redirect:/member/list.action";
 	}
 	
+	@RequestMapping(value = "usertype.action", method = RequestMethod.POST)
+	public String usertype(Member member) {
+		
+		member.setPasswd(Util.getHashedString(member.getPasswd(), "SHA-1"));
+		
+		memberDao.insert(member);
+		
+		return "member/usertype";
+		
+	}
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
 	public String editForm(
