@@ -17,7 +17,7 @@
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		
 		<div style="padding-top:25px;text-align:center">
-			<c:url var="writeform" value="/upload/write.action" />
+			<c:url var="writeform" value="/jobboard/register.action" />
 			[ <a href="${ writeform }">자료 등록</a> ]
 			<br /><br />
 
@@ -51,14 +51,5 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
