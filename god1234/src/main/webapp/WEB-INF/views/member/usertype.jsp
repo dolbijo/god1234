@@ -19,7 +19,7 @@
 		<c:import url="/WEB-INF/views/include/header.jsp" />
 	<table border="1" bordercolor="navy" bgcolor="skyblue" width="500" height="100">
 		<tr>
-		<td>개인 회원 가입</td>
+		<td onclick="registerform.action">개인 회원 가입</td>
 		<td>기업 회원 가입</td>
     	</tr>
 	</table>
