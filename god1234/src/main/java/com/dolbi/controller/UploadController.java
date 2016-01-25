@@ -49,7 +49,7 @@ public class UploadController {
 	@RequestMapping(value = "list.action", method=RequestMethod.GET)
 	public ModelAndView getUploadList(HttpServletRequest request) {
 		
-		//로그인 체크 -> 로그인 되지 않은 사용자는 로그인 서블릿으로 이동
+		/*//로그인 체크 -> 로그인 되지 않은 사용자는 로그인 서블릿으로 이동
 		HttpSession session = request.getSession(true);
 		if (session.getAttribute("loginuser") == null) {
 			ModelAndView mav = new ModelAndView();
@@ -57,7 +57,7 @@ public class UploadController {
 			"redirect:/loginform.action?returnurl=" + request.getRequestURI());
 			return mav;
 		}
-		
+		*/
 		List<Upload> uploads = dao.getUploadList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("uploads", uploads);
@@ -70,65 +70,7 @@ public class UploadController {
 		return "upload/uploadwriteform";
 	}
 	
-//	@RequestMapping(value = "write.action", method = RequestMethod.POST)
-//	public String registerUploadTx(MultipartHttpServletRequest request) throws Exception {
-//		
-//		//업로드된 파일을 저장할 경로 (가상경로 -> 물리경로) 추출
-//		String path = 
-//			request.getSession().getServletContext()
-//			.getRealPath("/WEB-INF/uploadfiles");
-//		
-//		//Upload 객체 생성 및 파일이 아닌 데이터 저장
-//		Upload upload = new Upload();		
-//		upload.setTitle(request.getParameter("title"));
-//		upload.setUploader(request.getParameter("uploader"));
-//		upload.setContent(request.getParameter("content"));
-//		
-//		PlatformTransactionManager txManager = txTemplate.getTransactionManager();
-//		TransactionStatus txStatus = 
-//			txManager.getTransaction(new DefaultTransactionDefinition());
-//		
-//		try {
-//			int newUploadNo = dao.insertUpload(upload);
-//			
-//			Iterator<String> iterator = request.getFileNames();			
-//			while (iterator.hasNext()) {
-//			
-//				String fileName = iterator.next();
-//				MultipartFile file = request.getFile(fileName);
-//				
-//				if (file != null && file.getSize() > 0) {
-//					
-//					String savedName = Util.getUniqueFileName(path, file.getOriginalFilename());
-//			
-//					UploadFile temp = new UploadFile();
-//					temp.setSavedFileName(savedName);
-//					temp.setUserFileName(file.getOriginalFilename());
-//					temp.setUploadNo(newUploadNo);
-//					dao.insertUploadFile(temp);
-//					
-//					//int x = 10 / 0;//force throw exception
-//					
-//					FileOutputStream ostream = new FileOutputStream(path + "/" + savedName);
-//					InputStream istream = file.getInputStream();
-//					byte[] buffer = new byte[512];
-//					while (true) {
-//						int count = istream.read(buffer, 0, buffer.length);
-//						if (count == -1) break;
-//						ostream.write(buffer, 0, count);
-//					}
-//					
-//					istream.close();
-//					ostream.close();					
-//				}
-//			}
-//			txManager.commit(txStatus);
-//		} catch (Exception ex) {
-//			txManager.rollback(txStatus);
-//		}
-//
-//		return "redirect:/upload/list.action";
-//	}
+
 	
 	@RequestMapping(value = "write.action", method = RequestMethod.POST)
 	public String registerUploadTx(MultipartHttpServletRequest request) throws Exception {

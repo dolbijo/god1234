@@ -40,12 +40,12 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 				redirect = true;
 				queryString = Util.makeQueryString(queryString, null, null, null);
 			}
-		} else if (uri.contains("board") && !uri.contains("list.action")) {
+		} /*else if (uri.contains("board") && !uri.contains("list.action")) {
 			if (member == null) {
 				redirect = true;
 				queryString = Util.makeQueryString(queryString, null, null, null);
 			}
-		} else if (uri.contains("upload")) {
+		}*/ else if (uri.contains("upload")) {
 			if (member == null) {
 				redirect = true;
 				queryString = Util.makeQueryString(queryString, null, null, null);

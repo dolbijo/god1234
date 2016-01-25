@@ -34,7 +34,7 @@ public class AccountController {
 		HttpSession session, HttpServletRequest req,
 		String memberId, String passwd, @RequestParam("returnurl") String returnUrl) {
 		
-		passwd = Util.getHashedString(passwd, "SHA-1");
+		//passwd = Util.getHashedString(passwd, "SHA-1");
 		
 		//요청 데이터 (아이디, 열쇠글)으로 데이터베이스에서 조회
 		//MySqlMemberDao memberDao = new MySqlMemberDao();
