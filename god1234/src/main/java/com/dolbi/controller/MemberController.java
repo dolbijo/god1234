@@ -75,6 +75,7 @@ public class MemberController {
 		return "redirect:/member/list.action";
 	}
 	
+	
 	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
 	public String editForm(
 		@RequestParam("memberid") String memberId,		
