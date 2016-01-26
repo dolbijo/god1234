@@ -51,7 +51,8 @@
 		            <tr>
 		                <th>성별</th>
 		                <td>
-		                    <input type="text" name="gender" style="width:280px" />
+		                    <input type="radio" name="gender" value="male"> 남자
+		                    <input type="radio" name="gender" value="female"> 여자
 		                </td>
 		            </tr>
 		            <tr>
