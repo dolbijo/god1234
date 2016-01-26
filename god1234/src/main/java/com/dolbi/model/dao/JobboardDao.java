@@ -2,16 +2,18 @@ package com.dolbi.model.dao;
 
 import java.util.ArrayList;
 
+import com.dolbi.model.dto.Jobboard;
+import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Upload;
 import com.dolbi.model.dto.UploadFile;
 
 public interface JobboardDao {
 
-	int insertUpload(Upload upload);
+	int insertJobboard(Jobboard jobboard);
 
-	void insertUploadFile(UploadFile file);
+	void insertJobboardFile(JobboardAttachment file);
 
-	ArrayList<Upload> getUploadList();
+	/*ArrayList<Upload> getJobboardList();
 
 	Upload getUploadByUploadNo(int JobboardNo);
 
@@ -20,5 +22,5 @@ public interface JobboardDao {
 	UploadFile getUploadFileByUploadFileNo(int JobboardFileNo);
 	
 	void increaseUploadFileDownloadCount(int JobboardNo);
-
+*/
 }

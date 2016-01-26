@@ -26,15 +26,15 @@
 		        <table>
 		            <tr>
 		                <th>제목</th>
-		                <td>${ upload.title }</td>
+		                <td>${ JOBBOARD.J_TITLE }</td>
 		            </tr>
 		            <tr>
 		                <th>작성자</th>
-		                <td>${ upload.uploader }</td>
+		                <td>${ JOBBOARD.M_ID }</td>
 		            </tr>
 		            <tr>
 		            	<th>등록일자</th>
-		            	<td>${ upload.regDate }</td>
+		            	<td>${ JOBBOARD.J_REGDATE}</td>
 		            </tr>
 		            <tr>
 		            	<th>등록일자</th>
@@ -51,9 +51,9 @@
 		            <tr>
 		                <th>첨부자료</th>
 		                <td>
-		                	<c:forEach var="file" items="${ upload.files }">		                	
-		                	<a href='download.action?uploadfileno=${ file.uploadFileNo }'>
-		                		${ file.userFileName }
+		                	<c:forEach var="Attachment" items="${ upload.files }">		                	
+		                	<a href='download.action?JA_NO=${ JOBBOARDATTACHMENT.JA_NO }'>
+		                		${ JOBBOARDATTACHMENT.JA_FILENAME }
 		                	</a>
 		                	&nbsp;
 		                	[${ file.downloadCount }]
@@ -62,7 +62,7 @@
 		            </tr>
 		            <tr>
 		                <th>자료설명</th>
-		                <td>${ upload.content }</td>
+		                <td>${ JOBBOARD.J_CONTENT }</td>
 		            </tr>
 		        </table>
 		        <div class="buttons">

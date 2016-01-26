@@ -19,6 +19,9 @@
 		<typeAlias type="com.dolbi.model.dto.Member" alias="Member" />
 		<typeAlias type="com.dolbi.model.dto.Upload" alias="Upload" />
 		<typeAlias type="com.dolbi.model.dto.UploadFile" alias="UploadFile" />
+		<typeAlias type="com.dolbi.model.dto.Jobboard" alias="Jobboard" />
+		<typeAlias type="com.dolbi.model.dto.JobboardAttachment" alias="JobboardAttachment" />
+		
 	</typeAliases>
 
 	<environments default="development">
@@ -40,9 +43,6 @@
 		<!-- Code에서 분리된 SQL문이 작성되고 객체와의 매핑 정보가 정의되는 파일들 -->		 
 		<mapper resource="com/dolbi/model/mapper/MemberMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/UploadMapper.xml" />
-		<!--
-		<mapper resource="com/mvcdemoweb/model/mapper/BoardMapper.xml" />
-		-->
-	</mappers> 
+	</mappers>
 
 </configuration>
