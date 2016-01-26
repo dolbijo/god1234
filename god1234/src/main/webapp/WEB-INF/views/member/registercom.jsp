@@ -20,18 +20,11 @@
 		<div id="inputcontent">
 			<br /><br />
 		    <div id="inputmain">
-		        <div class="inputsubtitle">회원기본정보</div>
-		        <form action="register.action" method="post"><!-- 상대경로표시 -->
+		        <div class="inputsubtitle">기업회원정보</div>
+		        <form action="registercom.action" method="post"><!-- 상대경로표시 -->
 		        <table>
 		        <tr>
-		                <th>이름</th>
-		                <td>
-		                    <input type="text" name="memberId" style="width:280px" />
-		                </td>
-		            </tr>
-		            
-		            <tr>
-		                <th>아이디(ID)</th>
+		                <th>아이디</th>
 		                <td>
 		                    <input type="text" name="memberId" style="width:280px" />
 		                </td>
@@ -49,15 +42,39 @@
 		                </td>
 		            </tr>
 		            <tr>
-		                <th>주소</th>
+		                <th>회사/점포명</th>
 		                <td>
-		                	<input type="text" name="email" style="width:280px" />
+		                    <input type="text" name="memberName" style="width:280px" />
+		                </td>
+		            </tr>
+		            <tr>
+		                <th>대표자명</th>
+		                <td>
+		                    <input type="text" name="ceoId" style="width:280px" />
+		                </td>
+		            </tr>
+		            <tr>
+		                <th>사업자등록번호</th>
+		                <td>
+		                    <input type="text" name="companyNo" style="width:280px" />
+		                </td>
+		            </tr>
+		            <tr>
+		                <th>회사/점포주소</th>
+		                <td>
+		                	<input type="text" name="memberAddress" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>전화번호</th>
 		                <td>
-		                	<input type="text" name="email" style="width:280px" />
+		                	<input type="text" name="phoneNo" style="width:280px" />
+		                </td>
+		            </tr>
+		            <tr>
+		                <th>회사/점포 홈페이지</th>
+		                <td>
+		                	<input type="text" name="homepage" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
@@ -67,10 +84,16 @@
 		                </td>
 		            </tr>
 		            <tr>
-		                <th>사용자구분</th>
-		                
-		                <td>
-		                	
+		                <th>회사구분</th>
+		                 <td style="text-align: left">
+		                <input type="radio" name="jobCategory" value="service"> 서비스
+		                <input type="radio" name="jobCategory" value="sale"> 영업
+		                <input type="radio" name="jobCategory" value="office"> 사무직
+		                <input type="radio" name="jobCategory" value="construction"> 건설
+		                <input type="radio" name="jobCategory" value="production"> 생산
+		                <input type="radio" name="jobCategory" value="it"> IT/프로그래밍
+		                <input type="radio" name="jobCategory" value="design"> 디자인
+		                <input type="radio" name="jobCategory" value="education"> 교육/강사
 		                </td>
 		            </tr>
 		        </table>
@@ -82,7 +105,9 @@
 		        </form>
 		    </div>
 		</div>   	
-	
+	<div>
+		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+	</div>
 	</div>
 
 </body>
