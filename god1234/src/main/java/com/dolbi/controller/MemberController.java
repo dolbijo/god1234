@@ -64,9 +64,9 @@ public class MemberController {
 	public String registerForm(@RequestParam(value="usertype") String usertype) {
 		
 		if (usertype.equals("individual")) {
-			return "";
+			return "member/registerindi";
 		} else {
-			return "";
+			return "member/registercom";
 		}
 		
 	}
