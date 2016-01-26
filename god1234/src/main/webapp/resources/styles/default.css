@@ -1,4 +1,4 @@
-﻿body, h3, textarea, input, select
+body, h3, textarea, input, select
 {
 	font-family: Tahoma,Arial,Helvetica;
 	font-size:12px;
@@ -210,3 +210,87 @@ body
 {
 	padding-left:72px;
 }
+
+
+#services {
+
+  background-color: #306d9f;
+color: #ffffff;
+
+}
+#services .glyphicon {
+
+  border: 2px solid #FFFFFF;
+
+  border-radius: 50%;
+
+  display: inline-block;
+
+  font-size: 60px;
+
+  height: 140px;
+
+  line-height: 140px;
+
+  text-align: center;
+
+  vertical-align: middle;
+
+  width: 140px;
+
+}
+
+
+#information {
+
+  background: url(../images/estate.jpg) no-repeat center center fixed;
+
+  display: table;
+
+  height: 800px;
+
+  position: relative;
+
+  width: 100%;
+
+  -webkit-background-size: cover;
+
+  -moz-background-size: cover;
+
+  -o-background-size: cover;
+
+  background-size: cover;
+
+}
+#information .panel {
+
+  opacity: 0.85;
+
+}
+
+#google_map {
+
+  height: 500px;
+
+}
+
+footer {
+
+  padding: 20px 0;
+
+}
+
+footer .glyphicon {
+
+  color: #333333;
+
+  font-size: 60px;
+
+}
+
+footer .glyphicon:hover {
+
+  color: #306d9f;
+
+}
+
