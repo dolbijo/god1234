@@ -10,13 +10,14 @@
 	<meta charset="utf-8" />
 	<title>자료업로드</title>
 	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" />
+	
 </head>
 <body>
 
 	<div id="pageContainer">
 	
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
+		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 		
 		<div style="padding-top:25px;text-align:center">
 		<div id="inputcontent">
@@ -72,6 +73,9 @@
 		</div>   	
 	
 	</div>
+	</div>
+	<div>
+		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
 
 </body>
