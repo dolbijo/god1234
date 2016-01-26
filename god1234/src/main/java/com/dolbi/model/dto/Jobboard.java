@@ -25,7 +25,7 @@ public class Jobboard implements Serializable {
 
 
 	//Upload 테이블과 UploadFile 테이블 사이의 1:Many 관계를 구현한 필드(변수)
-	private ArrayList<UploadFile> files;
+	private ArrayList<JobboardAttachment> files;
 	
 	public Jobboard() {}
 	
@@ -150,14 +150,14 @@ public class Jobboard implements Serializable {
 		J_CAREER = j_CAREER;
 	}
 
-	public ArrayList<UploadFile> getFiles() {
-		return files;
+	/*public ArrayList<JobboardAttachment> getAttachments() {
+		return Attachments;
 	}
 
-	public void setFiles(ArrayList<UploadFile> files) {
-		this.files = files;
+	public void setFiles(ArrayList<JobboardAttachment> Attachments) {
+		this.Attachments = Attachments;
 	}
-
+*/
 	
 	
 	
