@@ -72,17 +72,18 @@
 		                </td>
 		            </tr>
 		            <tr>
-		                <th>회사/점포 홈페이지</th>
-		                <td>
-		                	<input type="text" name="homepage" style="width:280px" />
-		                </td>
-		            </tr>
-		            <tr>
 		                <th>이메일</th>
 		                <td>
 		                	<input type="text" name="email" style="width:280px" />
 		                </td>
 		            </tr>
+		            <tr>
+		                <th>회사/점포 홈페이지</th>
+		                <td>
+		                	<input type="text" name="homepage" style="width:280px" />
+		                </td>
+		            </tr>
+		            
 		            <tr>
 		                <th>회사구분</th>
 		                 <td style="text-align: left">

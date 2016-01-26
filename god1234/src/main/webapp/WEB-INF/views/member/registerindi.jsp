@@ -23,13 +23,7 @@
 		        <div class="inputsubtitle">개인회원정보</div>
 		        <form action="register.action" method="post"><!-- 상대경로표시 -->
 		        <table>
-		        <tr>
-		                <th>이름</th>
-		                <td>
-		                    <input type="text" name="memberId" style="width:280px" />
-		                </td>
-		            </tr>
-		            
+		        		            
 		            <tr>
 		                <th>아이디(ID)</th>
 		                <td>
@@ -49,15 +43,33 @@
 		                </td>
 		            </tr>
 		            <tr>
+		                <th>이름</th>
+		                <td>
+		                    <input type="text" name="memberName" style="width:280px" />
+		                </td>
+		            </tr>
+		            <tr>
+		                <th>성별</th>
+		                <td>
+		                    <input type="text" name="gender" style="width:280px" />
+		                </td>
+		            </tr>
+		            <tr>
+		                <th>나이</th>
+		                <td>
+		                    <input type="text" name="age" style="width:280px" />
+		                </td>
+		            </tr>
+		            <tr>
 		                <th>주소</th>
 		                <td>
-		                	<input type="text" name="email" style="width:280px" />
+		                	<input type="text" name="address" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>전화번호</th>
 		                <td>
-		                	<input type="text" name="email" style="width:280px" />
+		                	<input type="text" name="phoneNo" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
@@ -66,13 +78,7 @@
 		                	<input type="text" name="email" style="width:280px" />
 		                </td>
 		            </tr>
-		            <tr>
-		                <th>사용자구분</th>
-		                
-		                <td>
-		                	
-		                </td>
-		            </tr>
+		            
 		        </table>
 		        <div class="buttons">
 		        	<input type="submit" value="등록" style="height:25px" />
