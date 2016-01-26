@@ -20,8 +20,8 @@
 		<div id="inputcontent">
 			<br /><br />
 		    <div id="inputmain">
-		        <div class="inputsubtitle">회원기본정보</div>
-		        <form action="register.action" method="post"><!-- 상대경로표시 -->
+		        <div class="inputsubtitle">기업회원정보</div>
+		        <form action="registercom.action" method="post"><!-- 상대경로표시 -->
 		        <table>
 		        <tr>
 		                <th>이름</th>
