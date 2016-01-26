@@ -48,7 +48,10 @@
 						<spring:message code="menu.individual" />			
 					</a></li>
 					<li><a href="/dolbi/jobboard/list.action">
-						<spring:message code="memu.jobboard" />			
+						<spring:message code="menu.jobboard" />			
+					</a></li>
+					<li><a href="/dolbi/company/servicemain.action">
+						<spring:message code="menu.company" />			
 					</a></li>
 					
                 </ul>
