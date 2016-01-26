@@ -7,22 +7,16 @@
 <mapper namespace="com.dolbi.model.mapper.MemberMapper"><!-- 클래스 또는 인터페이스 역할 -->
 	
 	<sql id="memberColumns">
-		memberId, email, userType, active, regDate 
+		M_ID, M_NAME, M_ADDRESS, M_PHONENO, M_TYPE, M_MAIL
 	</sql>
 	
-	<!-- <resultMap type="com.mvcdemoweb.model.dto.Member" id="memberMap"> -->
-	<resultMap type="Member" id="memberMap">
-		<id property="memberId" column="memberId" />
-		<result property="email" column="email" />
-		<result property="userType" column="userType" 
-			typeHandler="com.dolbi.model.mapper.MemberTypeHandler" />
-		<result property="active" column="active" />
-		<result property="regDate" column="regDate" />
-	</resultMap>
-	<select id="selectMembers2" resultMap="memberMap">
-		SELECT memberId, email, userType, active, regDate 
-		FROM member
-	</select>
+	<sql id="individualColumns">
+		M_GENDER, M_AGE 
+	</sql>
+	
+	<sql id="companyColumns">
+		C_NO, C_HOMEPAGEM, JC_NO, C_CEONAME
+	</sql>
 	
 	<!-- 메서드 역할 -->
 	<select id="selectMembers" resultType="Member">
