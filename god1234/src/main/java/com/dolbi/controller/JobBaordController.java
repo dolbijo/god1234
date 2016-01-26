@@ -148,11 +148,11 @@ public class JobBaordController {
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") Member member) {//읽기 + view로 전달
 		
-		member.setPasswd(Util.getHashedString(member.getPasswd(), "SHA-1"));
+		member.setM_PW(Util.getHashedString(member.getM_PW(), "SHA-1"));
 		
 		//memberDao.update(member);//과제	
 		
-		return "redirect:/jobboard/view.action?memberid=" + member.getMemberId();
+		return "redirect:/jobboard/view.action?memberid=" + member.getM_ID();
 	}
 
 }

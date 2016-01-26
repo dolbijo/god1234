@@ -14,7 +14,6 @@ public class Member implements Serializable {
 	private String M_MAIL;
 	private String GENDER;
 	private int M_AGE;
-	private String M_USERTYPE;
 	private int C_NO;
 	private String C_HOMEPAGE;
 	private int JC_NO;
@@ -73,12 +72,6 @@ public class Member implements Serializable {
 	}
 	public void setM_AGE(int m_AGE) {
 		M_AGE = m_AGE;
-	}
-	public String getM_USERTYPE() {
-		return M_USERTYPE;
-	}
-	public void setM_USERTYPE(String m_USERTYPE) {
-		M_USERTYPE = m_USERTYPE;
 	}
 	public int getC_NO() {
 		return C_NO;
