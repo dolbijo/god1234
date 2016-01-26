@@ -26,19 +26,21 @@
 				<tr style="background-color:orange;height:30px">
 					<th style="width:50px">번호</th>
 					<th style="width:400px">제목</th>
+					<th style="width:150px">작성자</th>
 					<th style="width:150px;text-align:center">작성일</th>
 				</tr>
 				
-				<c:forEach var="upload" items="${ uploads }">
+				<c:forEach var="jobboard" items="${ JOBBOARDS }">
 				<tr style="height:30px">
-					<td>${ upload.uploadNo }</td>
+					<td>${ JOBBOARD.J_NO }</td>
 					<td style="text-align:left;padding-left:10px">
 						<c:url var="view" value="view.action">
-							<c:param name="uploadno" value="${ upload.uploadNo }" />
+							<c:param name="Jobboardno" value="${ JOBBOARD.J_NO }" />
 						</c:url>
-						<a href='${ view }'>${ upload.title }</a>
+						<a href='${ view }'>${ JOBBOARD.J_TITLE }</a>
 					</td>
-					<td>${ upload.regDate }</td>
+					<td>${ JOBBOARD.M_ID }</td>
+					<td>${ JOBBOARD.J_REGDATE }</td>
 				</tr>
 				</c:forEach>
 				
