@@ -21,7 +21,7 @@
 		<div style="padding-top:25px;text-align:center">
 		<div id="inputcontent">
 		    <div id="inputmain">
-		        <div class="inputsubtitle">채용 자료 정보</div>
+		        <div class="inputsubtitle">채용 자료 등록</div>
 		        <form action="write.action" method="post" enctype="multipart/form-data">
 		        <table>
 		            <tr>
@@ -37,6 +37,14 @@
 		                	${ sessionScope.loginuser.memberId }
 		                </td>
 		            </tr>
+		            
+		             <tr>
+		                <th>등록날짜</th>
+		                <td>
+							<input type ="date" name = "regdate">
+							
+		                </td>
+		            </tr>
 		                 
 		            <tr>
 		                <th>첨부자료</th>
@@ -45,7 +53,7 @@
 		                </td>
 		            </tr>
 		            <tr>
-		                <th>채용내용</th>
+		                <th>상세 모집 요강</th>
 		                <td>
 		                	<textarea name="content" style="width:580px" rows="15"></textarea>
 		                </td>
