@@ -61,8 +61,14 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "register.action", method = RequestMethod.GET)
-	public String registerForm() {
-		return "member/registerform";
+	public String registerForm(@RequestParam(value="usertype") String usertype) {
+		
+		if (usertype.equals("individual")) {
+			return "";
+		} else {
+			return "";
+		}
+		
 	}
 	
 	@RequestMapping(value = "register.action", method = RequestMethod.POST)
@@ -77,10 +83,6 @@ public class MemberController {
 	
 	@RequestMapping(value = "usertype.action", method = RequestMethod.GET)
 	public String usertype(Member member) {
-		
-		member.setPasswd(Util.getHashedString(member.getPasswd(), "SHA-1"));
-		
-		memberDao.insert(member);
 		
 		return "member/usertype";
 		
@@ -116,17 +118,4 @@ public class MemberController {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
