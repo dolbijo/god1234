@@ -43,14 +43,6 @@
 		<!-- Code에서 분리된 SQL문이 작성되고 객체와의 매핑 정보가 정의되는 파일들 -->		 
 		<mapper resource="com/dolbi/model/mapper/MemberMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/UploadMapper.xml" />
-<<<<<<< HEAD
-		<!--
-		<mapper resource="com/mvcdemoweb/model/mapper/BoardMapper.xml" />
-		-->
-	</mappers> 
-=======
-		<mapper resource="com/dolbi/model/mapper/JobboardMapper.xml" />
 	</mappers>
->>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
 
 </configuration>
