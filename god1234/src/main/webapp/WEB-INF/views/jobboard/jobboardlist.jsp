@@ -29,16 +29,16 @@
 					<th style="width:150px;text-align:center">작성일</th>
 				</tr>
 				
-				<c:forEach var="upload" items="${ uploads }">
+				<c:forEach var="jobboard" items="${ JOBBOARDS }">
 				<tr style="height:30px">
-					<td>${ upload.uploadNo }</td>
+					<td>${ JOBBOARD.J_NO }</td>
 					<td style="text-align:left;padding-left:10px">
 						<c:url var="view" value="view.action">
-							<c:param name="uploadno" value="${ upload.uploadNo }" />
+							<c:param name="Jobboardno" value="${ JOBBOARD.J_NO }" />
 						</c:url>
-						<a href='${ view }'>${ upload.title }</a>
+						<a href='${ view }'>${ JOBBOARD.J_TITLE }</a>
 					</td>
-					<td>${ upload.regDate }</td>
+					<td>${ JOBBOARD.J_REGDATE }</td>
 				</tr>
 				</c:forEach>
 				
