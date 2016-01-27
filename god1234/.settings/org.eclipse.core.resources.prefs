@@ -1,5 +1,8 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/main/java/com/dolbi/controller/AccountController.java=UTF-8
+=======
+>>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
 encoding//src/main/java/com/dolbi/controller/JobBaordController.java=UTF-8
 encoding//src/main/java/com/dolbi/controller/MemberController.java=UTF-8
 encoding//src/main/java/com/dolbi/model/dao/MySqlJobboardDao.java=UTF-8

@@ -87,18 +87,18 @@ public class JobBaordController {
 		
 		//Upload 媛앹껜 �깮�꽦 諛� �뙆�씪�씠 �븘�땶 �뜲�씠�꽣 ���옣
 		Jobboard jobboard = new Jobboard();		
-		jobboard.setJ_NO(Integer.parseInt(request.getParameter("J_NO")));
-		jobboard.setJ_TITLE(request.getParameter("J_TITLE"));
-		jobboard.setJ_READCOUNT(Integer.parseInt(request.getParameter("J_READCOUNT")));
+		jobboard.setJobboardNo(Integer.parseInt(request.getParameter("J_NO")));
+		jobboard.setJobboardTitle(request.getParameter("J_TITLE"));
+		jobboard.setJobboardReadCount(Integer.parseInt(request.getParameter("J_READCOUNT")));
 		//jobboard.setJ_DELETED(request.getParameter("J_TITLE"));
 		//jobboard.setJ_DEADLINE(Integer.parseInt(request.getParameter("J_READCOUNT")));
-		jobboard.setJ_JOINNO(Integer.parseInt(request.getParameter("J_JOINNO")));
-		jobboard.setJ_GENDER(request.getParameter("J_GENDER"));
-		jobboard.setJ_AGE(Integer.parseInt(request.getParameter("J_AGE")));
-		jobboard.setJ_EDUCATION(request.getParameter("J_EDUCATION"));
-		jobboard.setM_ID(request.getParameter("M_ID"));
-		jobboard.setJ_PAYMENT(Integer.parseInt(request.getParameter("J_PAYMENT")));
-		jobboard.setJ_CAREER(request.getParameter("J_CAREER"));
+		jobboard.setJobboardJoinNo(Integer.parseInt(request.getParameter("J_JOINNO")));
+		jobboard.setJobboardGender(request.getParameter("J_GENDER"));
+		jobboard.setJobboardAge(Integer.parseInt(request.getParameter("J_AGE")));
+		jobboard.setJobboardEducation(request.getParameter("J_EDUCATION"));
+		jobboard.setMemberId(request.getParameter("M_ID"));
+		jobboard.setJobboardPayment(Integer.parseInt(request.getParameter("J_PAYMENT")));
+		jobboard.setJobboardCareer(request.getParameter("J_CAREER"));
 		
 		
 		
