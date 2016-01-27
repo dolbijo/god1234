@@ -30,7 +30,7 @@
     <div class="row">
 
       <div class="col-sm-12 text-center">
-      <img src="../WEB-INF/images/hanbi2.JPG" alt="알바몸">
+      <img src="/dolbi/resources/image/hanbi2.JPG" alt="알바몸">
 
         <h3>Parallax scrolling effect is in action</h3>
 
