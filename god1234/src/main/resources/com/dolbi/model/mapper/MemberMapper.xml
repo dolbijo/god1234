@@ -28,7 +28,7 @@
 		parameterType="hashMap" resultType="Member">
 		SELECT <include refid="memberColumns" /> 
 		FROM member
-		WHERE memberId = #{memberId} AND passwd = #{passwd} AND active = true
+		WHERE memberId = #{memberId} AND passWd = #{passWd} AND active = true
 	</select>
 	
 	<select id="selectMemberById" 
