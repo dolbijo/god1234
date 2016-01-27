@@ -78,6 +78,13 @@
 		
 		                </td>
 		            </tr>
+		            <tr>
+		                <th>모집인원</th>
+		                <td>
+		                    <input type="text" name="title1" style="width:100px"> 명 </input>
+		                </td>
+		            </tr>
+		            
 		             <tr>
 		                <th>성별</th>
 		                <td>

@@ -18,7 +18,7 @@
 		
 		
 		<div style="padding-top:25px;text-align:center">
-			<c:url var="writeform" value="/jobboard/register.action" />
+			<c:url var="writeform" value="/freeboard/register.action" />
 			[ <a href="${ writeform }">자료 등록</a> ]
 			<br /><br />
 
@@ -26,9 +26,8 @@
 				<tr style="background-color:orange;height:30px">
 					<th style="width:50px">번호</th>
 					<th style="width:400px">제목</th>
-					<th style="width:200px">작성자</th>
+					<th style="width:150px">작성자</th>
 					<th style="width:150px;text-align:center">작성일</th>
-					<th style="width:150px;text-align:center">마감일</th>
 				</tr>
 				
 				<c:forEach var="jobboard" items="${ JOBBOARDS }">

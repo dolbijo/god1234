@@ -2,16 +2,17 @@ package com.dolbi.model.dao;
 
 import java.util.ArrayList;
 
+import com.dolbi.model.dto.Freeboard;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Upload;
 import com.dolbi.model.dto.UploadFile;
 
-public interface JobboardDao {
+public interface FreeboardDao {
 
-	int insertJobboard(Jobboard jobboard);
+	int insertFreeboard(Freeboard freeboard);
 
-	void insertJobboardFile(JobboardAttachment file);
+	//void insertFreeboardFile(JobboardAttachment file);
 
 	/*ArrayList<Upload> getJobboardList();
 
