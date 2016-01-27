@@ -28,6 +28,7 @@ public class MySqlMemberDao implements MemberDao {
 
 	}
 	
+	@Override
 	public void insertindi(Member member) {
 				
 		memberMapper.insertindiMember(member);
