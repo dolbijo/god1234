@@ -55,7 +55,7 @@ public class MemberController {
 	@RequestMapping(value = "registerindi.action", method = RequestMethod.POST)
 	public String registerindi(Member member) {
 		
-		member.setM_PW(Util.getHashedString(member.getM_PW(), "SHA-1"));
+		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 		System.out.println("controller:registerindi");
 		memberDao.insertindi(member);
 		
@@ -73,11 +73,11 @@ public class MemberController {
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") Member member) {//읽기 + view로 전달
 		
-		member.setM_PW(Util.getHashedString(member.getM_PW(), "SHA-1"));
+		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 		
 		//memberDao.update(member);//과제	
 		
-		return "redirect:/member/view.action?memberid=" + member.getM_ID();
+		return "redirect:/member/view.action?memberid=" + member.getMemberId();
 	}
 
 }

@@ -5,97 +5,98 @@ import java.sql.Date;
 
 public class Member implements Serializable {
 	
-	private String M_ID;
-	private String M_PW;
-	private String M_NAME;
-	private String M_ADDRESS;
-	private int M_PHONENO;
-	private String M_TYPE;
-	private String M_MAIL;
-	private String GENDER;
-	private Date M_AGE;
-	private int C_NO;
-	private String C_HOMEPAGE;
-	private int JC_NO;
-	private String C_CEONAME;
+	private String memberId;
+	private String passWd;
+	private String memberName;
+	private String memberAddress;
+	private int phoneNo;
+	private String memberType;
+	private String email;
+	private String gender;
+	private Date age;
+	private int companyNo;
+	private String homepage;
+	private int categoryNo;
+	private String ceoName;
 	
-	public String getM_ID() {
-		return M_ID;
+	public String getMemberId() {
+		return memberId;
 	}
-	public void setM_ID(String m_ID) {
-		M_ID = m_ID;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
-	public String getM_PW() {
-		return M_PW;
+	public String getPassWd() {
+		return passWd;
 	}
-	public void setM_PW(String m_PW) {
-		M_PW = m_PW;
+	public void setPassWd(String passWd) {
+		this.passWd = passWd;
 	}
-	public String getM_NAME() {
-		return M_NAME;
+	public String getMemberName() {
+		return memberName;
 	}
-	public void setM_NAME(String m_NAME) {
-		M_NAME = m_NAME;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
-	public String getM_ADDRESS() {
-		return M_ADDRESS;
+	public String getMemberAddress() {
+		return memberAddress;
 	}
-	public void setM_ADDRESS(String m_ADDRESS) {
-		M_ADDRESS = m_ADDRESS;
+	public void setMemberAddress(String memberAddress) {
+		this.memberAddress = memberAddress;
 	}
-	public int getM_PHONENO() {
-		return M_PHONENO;
+	public int getPhoneNo() {
+		return phoneNo;
 	}
-	public void setM_PHONENO(int m_PHONENO) {
-		M_PHONENO = m_PHONENO;
+	public void setPhoneNo(int phoneNo) {
+		this.phoneNo = phoneNo;
 	}
-	public String getM_TYPE() {
-		return M_TYPE;
+	public String getMemberType() {
+		return memberType;
 	}
-	public void setM_TYPE(String m_TYPE) {
-		M_TYPE = m_TYPE;
+	public void setMemberType(String memberType) {
+		this.memberType = memberType;
 	}
-	public String getM_MAIL() {
-		return M_MAIL;
+	public String getEmail() {
+		return email;
 	}
-	public void setM_MAIL(String m_MAIL) {
-		M_MAIL = m_MAIL;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getGENDER() {
-		return GENDER;
+	public String getGender() {
+		return gender;
 	}
-	public void setGENDER(String gENDER) {
-		GENDER = gENDER;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
-	public Date getM_AGE() {
-		return M_AGE;
+	public Date getAge() {
+		return age;
 	}
-	public void setM_AGE(Date m_AGE) {
-		M_AGE = m_AGE;
+	public void setAge(Date age) {
+		this.age = age;
 	}
-	public int getC_NO() {
-		return C_NO;
+	public int getCompanyNo() {
+		return companyNo;
 	}
-	public void setC_NO(int c_NO) {
-		C_NO = c_NO;
+	public void setCompanyNo(int companyNo) {
+		this.companyNo = companyNo;
 	}
-	public String getC_HOMEPAGE() {
-		return C_HOMEPAGE;
+	public String getHomepage() {
+		return homepage;
 	}
-	public void setC_HOMEPAGE(String c_HOMEPAGE) {
-		C_HOMEPAGE = c_HOMEPAGE;
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
 	}
-	public int getJC_NO() {
-		return JC_NO;
+	public int getCategoryNo() {
+		return categoryNo;
 	}
-	public void setJC_NO(int jC_NO) {
-		JC_NO = jC_NO;
+	public void setCategoryNo(int categoryNo) {
+		this.categoryNo = categoryNo;
 	}
-	public String getC_CEONAME() {
-		return C_CEONAME;
+	public String getCeoName() {
+		return ceoName;
 	}
-	public void setC_CEONAME(String c_CEONAME) {
-		C_CEONAME = c_CEONAME;
+	public void setCeoName(String ceoName) {
+		this.ceoName = ceoName;
 	}
-
+	
+	
 }
