@@ -80,29 +80,29 @@ public class JobBaordController {
 	@RequestMapping(value = "write.action", method = RequestMethod.POST)
 	public String JobboardUploadTx(MultipartHttpServletRequest request) throws Exception {
 		
-		//업로드된 파일을 저장할 경로 (가상경로 -> 물리경로) 추출
+		//�뾽濡쒕뱶�맂 �뙆�씪�쓣 ���옣�븷 寃쎈줈 (媛��긽寃쎈줈 -> 臾쇰━寃쎈줈) 異붿텧
 		String path = 
 			request.getSession().getServletContext()
 			.getRealPath("/WEB-INF/uploadfiles");
 		
-		//Upload 객체 생성 및 파일이 아닌 데이터 저장
+		//Upload 媛앹껜 �깮�꽦 諛� �뙆�씪�씠 �븘�땶 �뜲�씠�꽣 ���옣
 		Jobboard jobboard = new Jobboard();		
-		jobboard.setJ_NO(Integer.parseInt(request.getParameter("J_NO")));
-		jobboard.setJ_TITLE(request.getParameter("J_TITLE"));
-		jobboard.setJ_READCOUNT(Integer.parseInt(request.getParameter("J_READCOUNT")));
+		jobboard.setJobboardNo(Integer.parseInt(request.getParameter("J_NO")));
+		jobboard.setJobboardTitle(request.getParameter("J_TITLE"));
+		jobboard.setJobboardReadCount(Integer.parseInt(request.getParameter("J_READCOUNT")));
 		//jobboard.setJ_DELETED(request.getParameter("J_TITLE"));
 		//jobboard.setJ_DEADLINE(Integer.parseInt(request.getParameter("J_READCOUNT")));
-		jobboard.setJ_JOINNO(Integer.parseInt(request.getParameter("J_JOINNO")));
-		jobboard.setJ_GENDER(request.getParameter("J_GENDER"));
-		jobboard.setJ_AGE(Integer.parseInt(request.getParameter("J_AGE")));
-		jobboard.setJ_EDUCATION(request.getParameter("J_EDUCATION"));
-		jobboard.setM_ID(request.getParameter("M_ID"));
-		jobboard.setJ_PAYMENT(Integer.parseInt(request.getParameter("J_PAYMENT")));
-		jobboard.setJ_CAREER(request.getParameter("J_CAREER"));
+		jobboard.setJobboardJoinNo(Integer.parseInt(request.getParameter("J_JOINNO")));
+		jobboard.setJobboardGender(request.getParameter("J_GENDER"));
+		jobboard.setJobboardAge(Integer.parseInt(request.getParameter("J_AGE")));
+		jobboard.setJobboardEducation(request.getParameter("J_EDUCATION"));
+		jobboard.setMemberId(request.getParameter("M_ID"));
+		jobboard.setJobboardPayment(Integer.parseInt(request.getParameter("J_PAYMENT")));
+		jobboard.setJobboardCareer(request.getParameter("J_CAREER"));
 		
 		
 		
-		//아래 try 영역 내부에서 오류가 발생하면 모든 db연동 작업을 취소하도록 처리
+		//�븘�옒 try �쁺�뿭 �궡遺��뿉�꽌 �삤瑜섍� 諛쒖깮�븯硫� 紐⑤뱺 db�뿰�룞 �옉�뾽�쓣 痍⑥냼�븯�룄濡� 泥섎━
 		try {
 			int newUploadNo = jobboardDao.insertJobboard(jobboard);
 			
@@ -146,11 +146,11 @@ public class JobBaordController {
 	}
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
-	public String update(@ModelAttribute("member") Member member) {//읽기 + view로 전달
+	public String update(@ModelAttribute("member") Member member) {//�씫湲� + view濡� �쟾�떖
 		
 		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 		
-		//memberDao.update(member);//과제	
+		//memberDao.update(member);//怨쇱젣	
 		
 		return "redirect:/jobboard/view.action?memberid=" + member.getMemberId();
 	}

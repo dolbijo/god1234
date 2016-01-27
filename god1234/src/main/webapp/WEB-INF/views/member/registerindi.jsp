@@ -27,13 +27,13 @@
 		            <tr>
 		                <th>아이디(ID)</th>
 		                <td>
-		                    <input type="text" name="M_ID" style="width:280px" />
+		                    <input type="text" name="memberId" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>비밀번호</th>
 		                <td>
-		                	<input type="password" name="M_PW" style="width:280px" />
+		                	<input type="password" name="passWd" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
@@ -45,38 +45,38 @@
 		            <tr>
 		                <th>이름</th>
 		                <td>
-		                    <input type="text" name="M_NAME" style="width:280px" />
+		                    <input type="text" name="memberName" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>성별</th>
 		                <td>
-		                    <input type="radio" name="GENDER" value="male"> 남자
-		                    <input type="radio" name="GENDER" value="female"> 여자
+		                    <input type="radio" name="gender" value="male"> 남자
+		                    <input type="radio" name="gender" value="female"> 여자
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>나이</th>
 		                <td>
-		                    <input type="date" name="M_AGE" style="width:280px" />
+		                    <input type="date" name="age" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>주소</th>
 		                <td>
-		                	<input type="text" name="M_ADDRESS" style="width:280px" />
+		                	<input type="text" name="memberAddress" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>전화번호</th>
 		                <td>
-		                	<input type="text" name="M_PHONENO" style="width:280px" />
+		                	<input type="text" name="phoneNo" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>이메일</th>
 		                <td>
-		                	<input type="text" name="M_MAIL" style="width:280px" />
+		                	<input type="text" name="email" style="width:280px" />
 		                </td>
 		            </tr>
 		            
