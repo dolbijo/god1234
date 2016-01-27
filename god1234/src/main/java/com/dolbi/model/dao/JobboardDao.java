@@ -21,6 +21,6 @@ public interface JobboardDao {
 
 	UploadFile getUploadFileByUploadFileNo(int JobboardFileNo);
 	
-	void increaseUploadFileDownloadCount(int JobboardNo);
-*/
+	void increaseUploadFileDownloadCount(int JobboardNo);*/
+
 }

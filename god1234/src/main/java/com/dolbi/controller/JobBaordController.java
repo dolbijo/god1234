@@ -36,9 +36,7 @@ public class JobBaordController {
 	@Resource(name = "jobboardDao")
 	private JobboardDao jobboardDao;
 	
-	@Autowired()
-	@Qualifier("individualService")
-	private IndividualService individualService;
+	
 	
 	@RequestMapping(value = "list.action", method = RequestMethod.GET)
 	public String list(Model model) {
@@ -63,7 +61,7 @@ public class JobBaordController {
 	public String register(Member member) {
 		
 		
-		return "redirect:/member/list.action";
+		return "redirect:/jobboard/list.action";
 	}
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
@@ -75,6 +73,7 @@ public class JobBaordController {
 		
 	}
 	
+	/*
 	//////////////////////////////  JObboardUPloadTx
 	
 	@RequestMapping(value = "write.action", method = RequestMethod.POST)
@@ -153,7 +152,7 @@ public class JobBaordController {
 		//memberDao.update(member);//怨쇱젣	
 		
 		return "redirect:/jobboard/view.action?memberid=" + member.getMemberId();
-	}
+	}*/
 
 }
 
