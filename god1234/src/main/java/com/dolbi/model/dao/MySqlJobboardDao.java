@@ -1,4 +1,4 @@
-package com.dolbi.model.dao;
+/*package com.dolbi.model.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,7 +34,7 @@ public class MySqlJobboardDao implements JobboardDao {
 	@Override
 	public int insertJobboard(Jobboard jobboard) {
 		
-		//mapper연결코드
+		//mapper�뿰寃곗퐫�뱶
 		
 		return jobboard.getJ_NO();
 
@@ -43,14 +43,14 @@ public class MySqlJobboardDao implements JobboardDao {
 	@Override
 	public void insertJobboardFile(JobboardAttachment file) {
 		
-		//mapper연결코드
+		//mapper�뿰寃곗퐫�뱶
 		
 	}
 
-	/*@Override
+	@Override
 	public ArrayList<Jobboard> getJobboardList() {
 		
-		//mapper연결코드
+		//mapper�뿰寃곗퐫�뱶
 		
 		return (ArrayList<Jobboard>)uploads;
 				
@@ -125,7 +125,7 @@ public class MySqlJobboardDao implements JobboardDao {
 			"UPDATE uploadfile SET downloadcount = downloadcount + 1 WHERE uploadfileno = ?";
 		jdbcTemplate.update(sql, uploadFileNo);
 		
-	}*/
+	}
 
 }
 
@@ -139,3 +139,4 @@ public class MySqlJobboardDao implements JobboardDao {
 
 
 
+*/

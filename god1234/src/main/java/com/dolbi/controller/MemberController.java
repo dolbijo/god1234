@@ -62,6 +62,14 @@ public class MemberController {
 		return "redirect:/home.action";
 	}
 	
+	@RequestMapping(value = "registercom.action", method = RequestMethod.POST)
+	public String registercom(Member member) {
+
+		memberDao.insertcom(member);
+		
+		return "redirect:/home.action";
+	}
+	
 	@RequestMapping(value = "usertype.action", method = RequestMethod.GET)
 	public String usertype(Member member) {
 		

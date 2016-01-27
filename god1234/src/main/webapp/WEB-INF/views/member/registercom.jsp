@@ -50,7 +50,7 @@
 		            <tr>
 		                <th>대표자명</th>
 		                <td>
-		                    <input type="text" name="ceoId" style="width:280px" />
+		                    <input type="text" name="ceoName" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
@@ -87,14 +87,14 @@
 		            <tr>
 		                <th>회사구분</th>
 		                 <td>
-		                <input type="radio" name="jobCategory" value="service"> 서비스
-		                <input type="radio" name="jobCategory" value="sale"> 영업
-		                <input type="radio" name="jobCategory" value="office"> 사무직
-		                <input type="radio" name="jobCategory" value="construction"> 건설
-		                <input type="radio" name="jobCategory" value="production"> 생산
-		                <input type="radio" name="jobCategory" value="it"> IT/프로그래밍
-		                <input type="radio" name="jobCategory" value="design"> 디자인
-		                <input type="radio" name="jobCategory" value="education"> 교육/강사
+		                <input type="radio" name="categoryNo" value="1"> 서비스
+		                <input type="radio" name="categoryNo" value="2"> 영업
+		                <input type="radio" name="categoryNo" value="3"> 사무직
+		                <input type="radio" name="categoryNo" value="4"> 건설
+		                <input type="radio" name="categoryNo" value="5"> 생산
+		                <input type="radio" name="categoryNo" value="6"> IT/프로그래밍
+		                <input type="radio" name="categoryNo" value="7"> 디자인
+		                <input type="radio" name="categoryNo" value="8"> 교육/강사
 		                </td>
 		            </tr>
 		        </table>

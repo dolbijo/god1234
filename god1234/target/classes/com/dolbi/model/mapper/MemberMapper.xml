@@ -7,15 +7,15 @@
 <mapper namespace="com.dolbi.model.mapper.MemberMapper"><!-- 클래스 또는 인터페이스 역할 -->
 	
 	<sql id="memberColumns">
-		memberId, memberName, memberAddress, phoneNo, memberType, email
+		M_ID, M_NAME, M_ADDRESS, M_PHONENO, M_TYPE, M_MAIL
 	</sql>
 	
 	<sql id="individualColumns">
-		gender, age
+		GENDER, M_AGE
 	</sql>
 	
 	<sql id="companyColumns">
-		companyNo, homepage, categoryNo, ceoName
+		C_NO, C_HOMEPAGE, JC_NO, C_CEONAME
 	</sql>
 	
 	<!-- 메서드 역할 -->
@@ -45,6 +45,10 @@
 	
 	<insert id="insertindiMember" parameterType="Member">
 		call INSERTINDI(#{memberId}, #{passWd}, #{memberName}, #{memberAddress}, #{phoneNo}, #{email}, #{gender}, #{age});
+	</insert>
+	
+	<insert id="insertcomMember" parameterType="Member">
+		call INSERTCOM(#{memberId}, #{passWd}, #{memberName}, #{ceoName}, #{companyNo}, #{memberAddress}, #{phoneNo}, #{email}, #{homepage}, #{categoryNo});
 	</insert>
 	
 </mapper>

@@ -13,6 +13,6 @@ public interface JobboardMapper {
 	/*Jobboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
 	Jobboard selectMemberById(String M_ID);*/
 	
-	void insertJobboard(Jobboard J_NO);
+	void insertJobboard(Jobboard jobboardNo);
 
 }
