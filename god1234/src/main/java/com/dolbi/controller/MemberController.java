@@ -23,8 +23,6 @@ import com.dolbi.model.service.MemberService;
 @RequestMapping("/member")
 public class MemberController {
 	
-	//@Autowired
-	//@Qualifier("memberDao")
 	@Resource(name = "memberDao")
 	private MemberDao memberDao;
 	
@@ -42,8 +40,6 @@ public class MemberController {
 		return "member/list";
 	}
 	
-
-	
 	@RequestMapping(value = "register.action", method = RequestMethod.GET)
 	public String registerForm(@RequestParam(value="usertype") String usertype) {
 		
@@ -55,14 +51,15 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping(value = "register.action", method = RequestMethod.POST)
-	public String register(Member member) {
+	
+	@RequestMapping(value = "registerindi.action", method = RequestMethod.POST)
+	public String registerindi(Member member) {
 		
 		member.setM_PW(Util.getHashedString(member.getM_PW(), "SHA-1"));
+		System.out.println("controller:registerindi");
+		memberDao.insertindi(member);
 		
-		memberDao.insert(member);
-		
-		return "redirect:/member/list.action";
+		return "redirect:/home.action";
 	}
 	
 	@RequestMapping(value = "usertype.action", method = RequestMethod.GET)

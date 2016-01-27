@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-
+    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -21,19 +22,22 @@
 			<br /><br />
 		    <div id="inputmain">
 		        <div class="inputsubtitle">개인회원정보</div>
-		        <form action="registerindi.action" method="post"><!-- 상대경로표시 -->
+		       <form action="registercom.action" method="post">
 		        <table>
 		        		            
 		            <tr>
 		                <th>아이디(ID)</th>
 		                <td>
-		                    <input type="text" name="M_ID" style="width:280px" />
+		                	<!-- ((Member)request.getAttribute("member")).getMemberId() -->
+		                	<!-- ${ member.memberId } -->
+		                    <form:input type="text" path="memberId"
+		                    	cssStyle="width:280px;" readonly="true" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>비밀번호</th>
 		                <td>
-		                	<input type="password" name="M_PW" style="width:280px" />
+		                	<input type="password" name="passwd" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
@@ -45,38 +49,37 @@
 		            <tr>
 		                <th>이름</th>
 		                <td>
-		                    <input type="text" name="M_NAME" style="width:280px" />
+		                    <input type="text" name="memberName" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>성별</th>
 		                <td>
-		                    <input type="radio" name="GENDER" value="male"> 남자
-		                    <input type="radio" name="GENDER" value="female"> 여자
+		                    <input type="text" name="gender" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>나이</th>
 		                <td>
-		                    <input type="date" name="M_AGE" style="width:280px" />
+		                    <input type="text" name="age" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>주소</th>
 		                <td>
-		                	<input type="text" name="M_ADDRESS" style="width:280px" />
+		                	<input type="text" name="address" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>전화번호</th>
 		                <td>
-		                	<input type="text" name="M_PHONENO" style="width:280px" />
+		                	<input type="text" name="phoneNo" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>이메일</th>
 		                <td>
-		                	<input type="text" name="M_MAIL" style="width:280px" />
+		                	<input type="text" name="email" style="width:280px" />
 		                </td>
 		            </tr>
 		            

@@ -13,7 +13,7 @@ public class Member implements Serializable {
 	private String M_TYPE;
 	private String M_MAIL;
 	private String GENDER;
-	private int M_AGE;
+	private Date M_AGE;
 	private int C_NO;
 	private String C_HOMEPAGE;
 	private int JC_NO;
@@ -67,10 +67,10 @@ public class Member implements Serializable {
 	public void setGENDER(String gENDER) {
 		GENDER = gENDER;
 	}
-	public int getM_AGE() {
+	public Date getM_AGE() {
 		return M_AGE;
 	}
-	public void setM_AGE(int m_AGE) {
+	public void setM_AGE(Date m_AGE) {
 		M_AGE = m_AGE;
 	}
 	public int getC_NO() {

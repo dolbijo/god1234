@@ -13,5 +13,6 @@ public interface MemberMapper {
 	Member selectMemberById(String id);
 	
 	void insertMember(Member member);
+	void insertindiMember(Member member);
 
 }

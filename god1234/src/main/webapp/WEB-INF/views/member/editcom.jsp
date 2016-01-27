@@ -86,7 +86,7 @@
 		            
 		            <tr>
 		                <th>회사구분</th>
-		                 <td>
+		                 <td style="text-align: left">
 		                <input type="radio" name="jobCategory" value="service"> 서비스
 		                <input type="radio" name="jobCategory" value="sale"> 영업
 		                <input type="radio" name="jobCategory" value="office"> 사무직
