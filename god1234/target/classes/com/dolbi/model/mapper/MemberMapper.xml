@@ -26,7 +26,7 @@
 	
 	<select id="selectMemberByIdAndPasswd" 
 		parameterType="hashMap" resultType="Member">
-		SELECT <include refid="memberColumns" /> 
+		SELECT M_ID 
 		FROM member
 		WHERE M_ID = #{memberId} AND M_PW = #{passWd}
 	</select>

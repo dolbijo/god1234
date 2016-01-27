@@ -37,7 +37,7 @@ public class AccountController {
 		passWd = Util.getHashedString(passWd, "SHA-1");
 		System.out.println("accountcontroller : 로그인post요청" + passWd);
 		Member member = memberDao.getMemberByIdAndPasswd(memberId, passWd);
-		
+		System.out.println("accountcontroller : 로그인post요청dao후" + member.getEmail());
 		if (member != null) {
 			session.setAttribute("loginuser", member);
 			if (returnUrl != null && returnUrl.length() > 0) {
