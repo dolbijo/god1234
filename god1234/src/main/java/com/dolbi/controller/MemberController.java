@@ -54,6 +54,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "registerindi.action", method = RequestMethod.POST)
 	public String registerindi(Member member) {
+		
+		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 
 		memberDao.insertindi(member);
 		
@@ -69,7 +71,7 @@ public class MemberController {
 	
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
-	public String update(@ModelAttribute("member") Member member) {//�씫湲� + view濡� �쟾�떖
+	public String update(@ModelAttribute("member") Member member) {
 		
 		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 		
