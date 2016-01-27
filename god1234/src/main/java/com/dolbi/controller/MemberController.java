@@ -23,8 +23,6 @@ import com.dolbi.model.service.MemberService;
 @RequestMapping("/member")
 public class MemberController {
 	
-	//@Autowired
-	//@Qualifier("memberDao")
 	@Resource(name = "memberDao")
 	private MemberDao memberDao;
 	
@@ -42,62 +40,40 @@ public class MemberController {
 		return "member/list";
 	}
 	
-	@RequestMapping(value = "view.action", method = RequestMethod.GET)
-	public String findById(
-		@RequestParam("memberid") String memberId, @ModelAttribute("member") Member member) {
-		
-		Member member2 = memberDao.getMemberById(memberId);		
-		if (member2 != null) {
-			member.setMemberId(member2.getMemberId());
-			member.setEmail(member2.getEmail());
-			member.setUserType(member2.getUserType());
-			member.setActive(member2.isActive());
-			member.setRegDate(member2.getRegDate());
-			return "member/view";
-		} else {
-			return "redirect:/member/list.action";
-		}
-		
-	}
-	
 	@RequestMapping(value = "register.action", method = RequestMethod.GET)
-	public String registerForm() {
-		return "member/registerform";
-	}
-	
-	@RequestMapping(value = "register.action", method = RequestMethod.POST)
-	public String register(Member member) {
+	public String registerForm(@RequestParam(value="usertype") String usertype) {
 		
-		member.setPasswd(Util.getHashedString(member.getPasswd(), "SHA-1"));
-		
-		memberDao.insert(member);
-		
-		return "redirect:/member/list.action";
-	}
-	
-	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
-	public String editForm(
-		@RequestParam("memberid") String memberId,		
-		@ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
-		
-		Member member2 = memberDao.getMemberById(memberId);
-		if (member2 == null) {
-			return "redirect:/member/list.action";
+		if (usertype.equals("individual")) {
+			return "member/registerindi";
 		} else {
-			member.setMemberId(member2.getMemberId());
-			member.setEmail(member2.getEmail());
-			member.setUserType(member2.getUserType());
-			member.setActive(member2.isActive());
-			member.setRegDate(member2.getRegDate());
-			return "member/editform";
+			return "member/registercom";
 		}
 		
 	}
+	
+	
+	@RequestMapping(value = "registerindi.action", method = RequestMethod.POST)
+	public String registerindi(Member member) {
+		
+		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
+		System.out.println("controller:registerindi");
+		memberDao.insertindi(member);
+		
+		return "redirect:/home.action";
+	}
+	
+	@RequestMapping(value = "usertype.action", method = RequestMethod.GET)
+	public String usertype(Member member) {
+		
+		return "member/usertype";
+		
+	}
+	
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") Member member) {//읽기 + view로 전달
 		
-		member.setPasswd(Util.getHashedString(member.getPasswd(), "SHA-1"));
+		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 		
 		//memberDao.update(member);//과제	
 		
@@ -105,17 +81,4 @@ public class MemberController {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

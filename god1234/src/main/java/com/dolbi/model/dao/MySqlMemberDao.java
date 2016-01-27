@@ -24,29 +24,24 @@ public class MySqlMemberDao implements MemberDao {
 
 	public void insert(Member member) {
 		
-//		sqlSessionTemplate.insert(
-//			"com.mvcdemoweb.model.mapper.MemberMapper.insertMember", member);
 		memberMapper.insertMember(member);
+
+	}
+	
+	public void insertindi(Member member) {
+				
+		memberMapper.insertindiMember(member);
 
 	}
 
 	public List<Member> getList() {
 
-//		List<Member> members = sqlSessionTemplate.selectList(
-//			"com.mvcdemoweb.model.mapper.MemberMapper.selectMembers");
-		
-//		List<Member> members = sqlSessionTemplate.selectList(
-//			"com.mvcdemoweb.model.mapper.MemberMapper.selectMembers2");
-		
 		List<Member> members = memberMapper.selectMembers();
 		
 		return members;
 	}
 
 	public Member getMemberById(String id) {
-		
-//		Member member = sqlSessionTemplate.selectOne(
-//			"com.mvcdemoweb.model.mapper.MemberMapper.selectMemberById", id);
 		
 		Member member = memberMapper.selectMemberById(id);
 			
@@ -58,10 +53,7 @@ public class MySqlMemberDao implements MemberDao {
 		HashMap<String, Object> params = new HashMap<>();
 		params.put("memberId", id);
 		params.put("passwd", passwd);
-		
-//		Member member = sqlSessionTemplate.selectOne(
-//			"com.mvcdemoweb.model.mapper.MemberMapper.selectMemberByIdAndPasswd", params);
-		
+	
 		Member member = memberMapper.selectMemberByIdAndPasswd(params);
 		
 		return member;

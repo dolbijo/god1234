@@ -14,7 +14,7 @@
             	<a href="/dolbi/account/login.action">
             		<spring:message code="account.login" />
             	</a>
-                <a href="#">
+                <a href="/dolbi/member/usertype.action">
                 	<spring:message code="account.join" />
                 </a>
             	</c:when>
@@ -44,11 +44,17 @@
 					<li><a href="#">
 						<spring:message code="menu.board" />
 					</a></li>
-					<li><a href="/dolbi/individual/list.action">
+					<li><a href="/dolbi/individual/individualmain.action">
 						<spring:message code="menu.individual" />			
 					</a></li>
 					<li><a href="/dolbi/jobboard/list.action">
 						<spring:message code="menu.jobboard" />			
+<<<<<<< HEAD
+=======
+					</a></li>
+					<li><a href="/dolbi/company/servicemain.action">
+						<spring:message code="menu.company" />			
+>>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
 					</a></li>
 					<li><a href="/dolbi/jobboard/list.action">
 						<spring:message code="menu.freeboard" />			

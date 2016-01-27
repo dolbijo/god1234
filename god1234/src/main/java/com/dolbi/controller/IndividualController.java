@@ -32,49 +32,30 @@ public class IndividualController {
 	@Qualifier("individualService")
 	private IndividualService individualService;
 	
-	@RequestMapping(value = "list.action", method = RequestMethod.GET)
-	public String list(Model model) {
+	@RequestMapping(value = "individualmain.action", method = RequestMethod.GET)
+	public String individualmain() {
 		
-		return "individual/list";
+		return "individual/individualmain";
 	}
 	
-	@RequestMapping(value = "view.action", method = RequestMethod.GET)
-	public String findById(
-		@RequestParam("memberid") String memberId, @ModelAttribute("member") Member member) {
+	@RequestMapping(value = "resumeview.action", method = RequestMethod.GET)
+	public String resumeview(@RequestParam("memberid") String memberId) {
 		
-		return "";
-		
-	}
-	
-	@RequestMapping(value = "register.action", method = RequestMethod.GET)
-	public String registerForm() {
-		return "member/registerform";
-	}
-	
-	@RequestMapping(value = "register.action", method = RequestMethod.POST)
-	public String register(Member member) {
-		
-		
-		return "redirect:/member/list.action";
-	}
-	
-	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
-	public String editForm(
-		@RequestParam("memberid") String memberId,		
-		@ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
-		
-			return "member/editform";
+		return "individual/resumeview";
 		
 	}
 	
-	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
-	public String update(@ModelAttribute("member") Member member) {//읽기 + view로 전달
+	
+	@RequestMapping(value = "applicationlist.action", method = RequestMethod.GET)
+	public String applicationlist(@RequestParam("memberid") String memberId) {
 		
-		member.setPasswd(Util.getHashedString(member.getPasswd(), "SHA-1"));
+		return "individual/applicationlist";
 		
-		//memberDao.update(member);//과제	
-		
-		return "redirect:/member/view.action?memberid=" + member.getMemberId();
+	}
+	
+	@RequestMapping(value = "recommendationlist.action", method = RequestMethod.GET)
+	public String recommendationlist() {
+		return "individual/recommendationlist";
 	}
 
 }
