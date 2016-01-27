@@ -56,11 +56,11 @@ public class MySqlMemberDao implements MemberDao {
 		return member;
 	}
 
-	public Member getMemberByIdAndPasswd(String id, String passwd) {
+	public Member getMemberByIdAndPasswd(String id, String passWd) {
 		
 		HashMap<String, Object> params = new HashMap<>();
 		params.put("memberId", id);
-		params.put("passwd", passwd);
+		params.put("passWd", passWd);
 	
 		Member member = memberMapper.selectMemberByIdAndPasswd(params);
 		
