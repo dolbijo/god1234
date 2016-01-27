@@ -46,10 +46,10 @@
 	</select> -->
 	
 	<insert id="insertJobboard" parameterType="Jobboard">
-		INSERT INTO JOBBOARD (jobboardNo, jobboardTitle, jobboardContent, jobboardRegDate, jobboardReadCount, jobboardDeleted, jobboardSUBTITLE,J_DEADLINE,J_JOINNO,
-		J_GENDER,J_AGE,J_EDUCATION,M_ID,J_PAYMENT,J_CAREER)
-		VALUES (#{J_No}, #{J_TITLE}, #{J_CONTENT}, #{J_REGDATE}, #{J_READCOUNT},#{J_DELETED},#{J_SUBTITLE}
-		,#{J_DEADLINE},#{J_JOINNO},#{J_GENDER},#{J_AGE},#{J_EDUCATION},#{M_ID},#{J_PAYMENT},#{J_CAREER})
+		INSERT INTO JOBBOARD (jobboardNo, jobboardTitle, jobboardContent, jobboardRegDate, jobboardReadCount, jobboardDeleted, jobboardSubTitle, jobboardDeadLine, jobboardJoinNo, 
+		jobboardGender, jobboardAge, jobboardEducation, memberId, jobboardPayment, jobboardCareer)
+		VALUES (#{jobboardNo}, #{jobboardTitle}, #{jobboardContent}, #{jobboardRegDate}, #{jobboardReadCount},#{jobboardDeleted},#{jobboardSubTitle}
+		,#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardCareer})
 	</insert>
 	
 </mapper>

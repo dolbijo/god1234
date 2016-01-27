@@ -36,7 +36,7 @@ public class MySqlJobboardDao implements JobboardDao {
 		
 		//mapper연결코드
 		
-		return jobboard.getJ_NO();
+		return jobboard.getJobboardNo();
 
 	}
 	
