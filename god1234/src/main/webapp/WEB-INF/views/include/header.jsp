@@ -6,7 +6,7 @@
 
 		<div id="header">
             <div class="title">
-                <a href="/dolbi/home.action"><img src="/dolbi/resources/image/hanbi2.JPG"></a>
+                <a href="/dolbi/home.action"></a>
             </div>
             <div class="links">
             <c:choose>
@@ -48,9 +48,11 @@
 						<spring:message code="menu.individual" />			
 					</a></li>
 					<li><a href="/dolbi/jobboard/list.action">
-						<spring:message code="memu.jobboard" />			
+						<spring:message code="menu.jobboard" />			
 					</a></li>
-					
+					<li><a href="/dolbi/jobboard/list.action">
+						<spring:message code="menu.freeboard" />			
+					</a></li>
                 </ul>
             </div>
         </div>
