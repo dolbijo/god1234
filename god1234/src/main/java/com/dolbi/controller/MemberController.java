@@ -56,7 +56,7 @@ public class MemberController {
 	public String registerindi(Member member) {
 		
 		member.setM_PW(Util.getHashedString(member.getM_PW(), "SHA-1"));
-		System.out.println("controller:registerindi");
+		System.out.println("controller:registerindi +" + member.getM_NAME());
 		memberDao.insertindi(member);
 		
 		return "redirect:/home.action";

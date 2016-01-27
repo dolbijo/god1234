@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Context path="/spring-mvc-demoweb3" reloadable="true">
+<Context path="/dolbi" reloadable="true">
 
 	<Resource 
-		name="jdbc/mvc-demoweb" 
+		name="jdbc/dolbi" 
 		auth="Container" type="javax.sql.DataSource"
 		maxTotal="100" maxIdle="30" maxWaitMillis="10000" 
-		username="devadmin" password="mysql" 
-		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/demoweb" />
+		username="dolbi" password="1234" 
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://210.16.214.202:3306/dolbi" />
 
 </Context>

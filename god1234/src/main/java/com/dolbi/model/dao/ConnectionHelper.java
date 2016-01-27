@@ -14,7 +14,7 @@ public class ConnectionHelper {
 				Class.forName("oracle.jdbc.OracleDriver");				
 				Connection conn = 
 					DriverManager.getConnection(
-					"jdbc:oracle:thin:@localhost:1521:xe", "devadmin", "oracle");
+					"jdbc:oracle:thin:@210.16.214.202:1521:xe", "dolbi", "1234");
 				
 				return conn;
 			} catch (Exception ex) {
@@ -27,7 +27,7 @@ public class ConnectionHelper {
 				
 				Connection conn = 
 					DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/demoweb", "devadmin", "mysql");
+					"jdbc:mysql://210.16.214.202:3306/dolbi", "dolbi", "1234");
 				
 				return conn;
 			} catch (Exception ex) {

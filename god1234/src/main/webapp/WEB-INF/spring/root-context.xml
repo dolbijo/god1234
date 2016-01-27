@@ -15,7 +15,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
 	<!-- DataSource (Connection Pool) Bean Configuration -->
-	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/mvc-demoweb" />
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/dolbi" />
 		
 	<!--  JDBC Template Bean Configuration -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
