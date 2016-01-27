@@ -6,7 +6,7 @@
 
 		<div id="header">
             <div class="title">
-                <a href="/dolbi/home.action"><img src="/dolbi/resources/image/hanbi2.JPG"></a>
+                <a href="/dolbi/home.action"><img src="/dolbi/resources/image/p3logo3.png" widht="100px" height="50px"></a>
             </div>
             <div class="links">
             <c:choose>
@@ -32,17 +32,9 @@
             <div>
                 <ul>
                 	<!-- a : 페이지 이동을 처리하는 마크업 -->
-                    <li><a href="/dolbi/member/list.action">
-						<spring:message code="menu.member" />			
-					</a></li>
-					<li><a href="#">
-						<spring:message code="menu.email" />
-					</a></li>
+                   
 					<li><a href="/dolbi/upload/list.action">
 						<spring:message code="menu.library" /> 
-					</a></li>
-					<li><a href="#">
-						<spring:message code="menu.board" />
 					</a></li>
 					<li><a href="/dolbi/individual/individualmain.action">
 						<spring:message code="menu.individual" />			
