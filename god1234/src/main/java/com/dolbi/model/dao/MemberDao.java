@@ -8,6 +8,8 @@ import com.dolbi.model.dto.Member;
 public interface MemberDao {
 
 	void insert(Member member);
+	
+	void insertindi(Member member);
 
 	List<Member> getList();
 

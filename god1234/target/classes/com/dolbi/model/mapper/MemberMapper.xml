@@ -43,6 +43,10 @@
 		VALUES (#{memberId}, #{passwd}, #{email}, #{userType}, #{active})
 	</insert>
 	
+	<insert id="insertindiMember" parameterType="Member">
+		call INSERTINDI(#{M_ID}, #{M_PW}, #{M_NAME}, #{M_ADDRESS}, #{M_PHONENO}, #{M_MAIL}, #{GENDER}, #{M_AGE});
+	</insert>
+	
 </mapper>
 
 
