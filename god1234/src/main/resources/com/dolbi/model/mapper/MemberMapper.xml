@@ -26,7 +26,7 @@
 	
 	<select id="selectMemberByIdAndPasswd" 
 		parameterType="hashMap" resultType="Member">
-		SELECT M_ID 
+		SELECT M_ID memberId 
 		FROM member
 		WHERE M_ID = #{memberId} AND M_PW = #{passWd}
 	</select>

@@ -63,7 +63,7 @@ public class MySqlMemberDao implements MemberDao {
 		params.put("passWd", passWd);
 		System.out.println("accountcontroller : 로그인post요청DAO" + passWd);
 		Member member = memberMapper.selectMemberByIdAndPasswd(params);
-		System.out.println("accountcontroller : 로그인post요청DAO2" + member.getEmail());
+		System.out.println("accountcontroller : 로그인post요청DAO2" + member.getMemberName());
 		return member;
 	}
 
