@@ -18,7 +18,7 @@
   
   </div>
   <hr>
-  <div class="Award" align="center" style= "margin-top:1px; border:solid:1px;padding:5px">
+  <div class="Award" align="center" style= "margin-top:1px; border:solid:1px;padding:1px">
   
   		
   		<ul>

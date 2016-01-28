@@ -20,6 +20,7 @@
 		<typeAlias type="com.dolbi.model.dto.Upload" alias="Upload" />
 		<typeAlias type="com.dolbi.model.dto.UploadFile" alias="UploadFile" />
 		<typeAlias type="com.dolbi.model.dto.Jobboard" alias="Jobboard" />
+		
 		<typeAlias type="com.dolbi.model.dto.Freeboard" alias="Freeboard" />
 		<typeAlias type="com.dolbi.model.dto.JobboardAttachment" alias="JobboardAttachment" />
 		
@@ -45,6 +46,7 @@
 		<mapper resource="com/dolbi/model/mapper/MemberMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/UploadMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/JobboardMapper.xml" />
+	
 		<mapper resource="com/dolbi/model/mapper/FreeboardMapper.xml" />
 	</mappers>
 

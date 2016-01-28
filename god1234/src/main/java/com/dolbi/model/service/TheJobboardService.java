@@ -22,15 +22,15 @@ public class TheJobboardService implements JobboardService {
 		return individualDao.getList();
 	}
 
-	@Override
-	public Member searchMemberById(String id) {
-		return null;
-	}
-
-	@Override
-	public Member searchMemberByIdAndPasswd(String id, String passwd) {
-		return null;
-	}
+//	@Override
+//	public Member searchMemberById(String id) {
+//		return null;
+//	}
+//
+//	@Override
+//	public Member searchMemberByIdAndPasswd(String id, String passwd) {
+//		return null;
+//	}
 
 	@Override
 	public void registerMember(Member member) {

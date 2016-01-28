@@ -8,9 +8,9 @@ public interface JobboardService {
 
 	List<Member> getAllMembers();
 
-	Member searchMemberById(String id);
-
-	Member searchMemberByIdAndPasswd(String id, String passwd);
+//	Member searchMemberById(String id);
+//
+//	Member searchMemberByIdAndPasswd(String id, String passwd);
 
 	void registerMember(Member member);
 

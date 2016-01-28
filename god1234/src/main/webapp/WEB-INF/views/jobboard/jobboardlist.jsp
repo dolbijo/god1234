@@ -18,6 +18,8 @@
 		
 		
 		<div style="padding-top:25px;text-align:center">
+			 <img src ="/dolbi/resources/image/alb.JPG">
+			 <br>
 			<c:url var="writeform" value="/jobboard/register.action" />
 			[ <a href="${ writeform }">자료 등록</a> ]
 			<br /><br />

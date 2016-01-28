@@ -22,6 +22,25 @@
 				Hello Demo Web Site Main Page !!!
 			</h2>
         </div>
+        
+        <div class="wrap" id="dev_wrap">
+        		<h4 class ="skip"> 알바 LIST</h4>
+        		<ul class="fs a7">
+        		<dl>
+        		<dt>
+        			<a href ="#" onclick=""; return false;"></a>
+        			
+        		</dt>
+        		<dd class="vBtn">
+        				<button type="button" class="pView" id="simple">미리보기</button>
+        				<a href="#" onclick="";return false;" class="dView">상세보기</a>
+        			
+        			</dd>
+        		</dl>
+        		</ul>
+        
+        
+        </div>
     </div>
     
     	<c:import url="/WEB-INF/views/include/footer.jsp" />
