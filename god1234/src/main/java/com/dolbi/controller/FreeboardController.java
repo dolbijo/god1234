@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.dolbi.common.Util;
+import com.dolbi.model.dao.FreeboardDao;
 import com.dolbi.model.dao.IndividualDao;
 import com.dolbi.model.dao.JobboardDao;
 import com.dolbi.model.dto.Jobboard;
@@ -30,38 +31,38 @@ import com.dolbi.model.dto.UploadFile;
 import com.dolbi.model.service.IndividualService;
 
 @Controller
-@RequestMapping("/jobboard")
-public class JobBaordController {
+@RequestMapping("/freeboard")
+public class FreeboardController {
 	
-	@Resource(name = "jobboardDao")
-	private JobboardDao jobboardDao;
+	@Resource(name = "freeboardDao")
+	private FreeboardDao freeboardDao;
 	
 	
 	
 	@RequestMapping(value = "list.action", method = RequestMethod.GET)
 	public String list(Model model) {
 		
-		return "jobboard/jobboardlist";
+		return "freeboard/freeboardlist";
 	}
 	
 	@RequestMapping(value = "view.action", method = RequestMethod.GET)
 	public String findById(
 		@RequestParam("memberid") String memberId, @ModelAttribute("member") Member member) {
 		
-		return "jobboard/jobboardview";
+		return "freeboard/freeboardview";
 		
 	}
 	
 	@RequestMapping(value = "register.action", method = RequestMethod.GET)
 	public String registerForm() {
-		return "jobboard/jobboardwriteform";
+		return "freeboard/freeboardwriteform";
 	}
 	
 	@RequestMapping(value = "register.action", method = RequestMethod.POST)
 	public String register(Member member) {
 		
 		
-		return "redirect:/jobboard/list.action";
+		return "redirect:/freeboard/list.action";
 	}
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
@@ -69,7 +70,7 @@ public class JobBaordController {
 		@RequestParam("memberid") String memberId,		
 		@ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
 		
-			return "jobboard/editform";
+			return "freeboard/editform";
 		
 	}
 	

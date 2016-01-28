@@ -47,14 +47,16 @@
 						<spring:message code="menu.jobboard" />			
 
 					</a></li>
+					
+					<li><a href="/dolbi/freeboard/list.action">
+						<spring:message code="menu.freeboard" />			
+					</a></li>
+					
 					<li><a href="/dolbi/company/servicemain.action">
 						<spring:message code="menu.company" />			
 
 					</a></li>
-					<li><a href="/dolbi/jobboard/list.action">
-						<spring:message code="menu.freeboard" />			
-					</a></li>
-                </ul>
+						
             </div>
         </div>
         <div style="text-align:right;margin-top:1px;
