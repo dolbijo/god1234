@@ -17,6 +17,6 @@ public interface MemberDao {
 
 	Member getMemberById(String id);
 
-	Member getMemberByIdAndPasswd(String id, String passwd);
+	Member getMemberByIdAndPasswd(String id, String passWd);
 
 }

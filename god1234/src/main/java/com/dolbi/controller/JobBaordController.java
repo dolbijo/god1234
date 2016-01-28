@@ -1,4 +1,4 @@
-package com.dolbi.controller;
+/*package com.dolbi.controller;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -153,19 +153,3 @@ public class JobBaordController {
 		
 		return "redirect:/jobboard/view.action?memberid=" + member.getMemberId();
 	}*/
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -26,31 +26,27 @@ public class AccountController {
 	@RequestMapping(value = "login.action", method = RequestMethod.GET)
 	public String loginForm() {
 		
-		return "account/loginform"; // /WEB-INF/views/ + account/loginform + .jsp
+		return "account/loginform";
 	}	
 	
 	@RequestMapping(value = "login.action", method = RequestMethod.POST)
 	public String login(
 		HttpSession session, HttpServletRequest req,
-		String memberId, String passwd, @RequestParam("returnurl") String returnUrl) {
+		String memberId, String passWd, @RequestParam("returnurl") String returnUrl) {
 		
-		//passwd = Util.getHashedString(passwd, "SHA-1");
-		
-		//요청 데이터 (아이디, 열쇠글)으로 데이터베이스에서 조회
-		//MySqlMemberDao memberDao = new MySqlMemberDao();
-		Member member = memberDao.getMemberByIdAndPasswd(memberId, passwd);
-		
-		//조회 결과에 따라 이동 처리
+		passWd = Util.getHashedString(passWd, "SHA-1");
+		System.out.println("accountcontroller : 로그인post요청" + passWd);
+		Member member = memberDao.getMemberByIdAndPasswd(memberId, passWd);
+		System.out.println("accountcontroller : 로그인post요청dao후" + member.getEmail());
 		if (member != null) {
-			session.setAttribute("loginuser", member);//로그인 처리
+			session.setAttribute("loginuser", member);
 			if (returnUrl != null && returnUrl.length() > 0) {
-				//spring mvc에서 redirect 경로는 application이름을 포함할 수 없습니다.
 				return "redirect:" + returnUrl.replace("/dolbi", "");
+				//return "redirect:/home.action";
 			} else {
 				return "redirect:/home.action";
 			}
 		} else {
-			//request객체에 데이터 저장
 			req.setAttribute("loginid", memberId);
 			return "account/loginform"; 
 		}

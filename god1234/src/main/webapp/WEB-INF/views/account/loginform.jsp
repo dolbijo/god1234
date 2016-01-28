@@ -31,7 +31,7 @@
 		    <div id="inputmain">
 		        <div class="inputsubtitle">로그인정보</div>
 		        
-		        <form action="/dolbi/account/login.action" method="post">
+		        <form action="login.action" method="post">
 		        
 		        <!-- input type="hidden" : 사용자에게 보이지 않지만 서버로 전송되는 입력 요소 -->
 		        <input type="hidden" name="returnurl" value='${ empty requestScope.returnurl ? "" : requestScope.returnurl }' />
@@ -45,7 +45,7 @@
 		            <tr>
 		                <th>비밀번호</th>
 		                <td>
-		                	<input type="password" name="passwd" style="width:280px" />
+		                	<input type="password" name="passWd" style="width:280px" />
 		                </td>
 		            </tr>
 		        </table>
