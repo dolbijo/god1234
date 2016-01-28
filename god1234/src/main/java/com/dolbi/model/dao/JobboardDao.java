@@ -13,9 +13,9 @@ public interface JobboardDao {
 
 	void insertJobboardFile(JobboardAttachment file);
 
-	/*ArrayList<Upload> getJobboardList();
+	ArrayList<Upload> getJobboardList();
 
-	Upload getUploadByUploadNo(int JobboardNo);
+	/*Upload getUploadByUploadNo(int JobboardNo);
 
 	ArrayList<UploadFile> getUploadFilesByUploadNo(int JobboardNo);
 

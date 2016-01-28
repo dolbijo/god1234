@@ -6,7 +6,11 @@
 
 		<div id="header">
             <div class="title">
+
+               
+
                 <a href="/dolbi/home.action"><img src="/dolbi/resources/image/p3logo3.png" widht="100px" height="50px"></a>
+
             </div>
             <div class="links">
             <c:choose>
@@ -41,6 +45,7 @@
 					</a></li>
 					<li><a href="/dolbi/jobboard/list.action">
 						<spring:message code="menu.jobboard" />			
+
 					</a></li>
 					
 					<li><a href="/dolbi/freeboard/list.action">
@@ -49,10 +54,9 @@
 					
 					<li><a href="/dolbi/company/servicemain.action">
 						<spring:message code="menu.company" />			
+
 					</a></li>
-					
-					
-                </ul>
+						
             </div>
         </div>
         <div style="text-align:right;margin-top:1px;
