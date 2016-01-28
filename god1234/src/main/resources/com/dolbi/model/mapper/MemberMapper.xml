@@ -26,7 +26,7 @@
 	
 	<select id="selectMemberByIdAndPasswd" 
 		parameterType="hashMap" resultType="Member">
-		SELECT M_ID memberId 
+		SELECT M_ID memberId
 		FROM member
 		WHERE M_ID = #{memberId} AND M_PW = #{passWd}
 	</select>
@@ -39,8 +39,8 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="Member">
-		INSERT INTO member (memberid, passwd, email, usertype, active)
-		VALUES (#{memberId}, #{passwd}, #{email}, #{userType}, #{active})
+		INSERT INTO member (memberId, passWd, email, userType, active)
+		VALUES (#{memberId}, #{passWd}, #{email}, #{userType}, #{active})
 	</insert>
 	
 	<insert id="insertindiMember" parameterType="Member">
