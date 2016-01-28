@@ -58,6 +58,12 @@
 		                	<textarea name="content" style="width:580px" rows="15"></textarea>
 		                </td>
 		            </tr>
+		             <tr>
+		                <th>모집 인원 수 </th>
+		                <td>
+		                	<textarea name="content" style="width:100px" rows="15"></textarea>
+		                </td>
+		            </tr>
 		            <tr>
 		                <th>마감일</th>
 		                <td>

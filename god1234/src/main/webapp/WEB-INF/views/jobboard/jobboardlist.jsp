@@ -32,15 +32,15 @@
 				
 				<c:forEach var="jobboard" items="${ JOBBOARDS }">
 				<tr style="height:30px">
-					<td>${ JOBBOARD.J_NO }</td>
+					<td>${ JOBBOARD.jobboardNo }</td>
 					<td style="text-align:left;padding-left:10px">
 						<c:url var="view" value="view.action">
-							<c:param name="Jobboardno" value="${ JOBBOARD.J_NO }" />
+							<c:param name="Jobboardno" value="${ JOBBOARD.jobboardNo }" />
 						</c:url>
-						<a href='${ view }'>${ JOBBOARD.J_TITLE }</a>
+						<a href='${ view }'>${ JOBBOARD.jobboardTitle }</a>
 					</td>
 					<td>${ JOBBOARD.M_ID }</td>
-					<td>${ JOBBOARD.J_REGDATE }</td>
+					<td>${ JOBBOARD.jobboardRegDate }</td>
 				</tr>
 				</c:forEach>
 				

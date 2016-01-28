@@ -34,7 +34,7 @@ public class MySqlJobboardDao implements JobboardDao {
 	@Override
 	public int insertJobboard(Jobboard jobboard) {
 		
-		//mapper연결코드
+		//mapper�뿰寃곗퐫�뱶
 		
 		return jobboard.getJobboardNo();
 
@@ -43,14 +43,20 @@ public class MySqlJobboardDao implements JobboardDao {
 	@Override
 	public void insertJobboardFile(JobboardAttachment file) {
 		
-		//mapper연결코드
+		//mapper�뿰寃곗퐫�뱶
 		
+	}
+
+	@Override
+	public ArrayList<Upload> getJobboardList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/*@Override
 	public ArrayList<Jobboard> getJobboardList() {
 		
-		//mapper연결코드
+		//mapper�뿰寃곗퐫�뱶
 		
 		return (ArrayList<Jobboard>)uploads;
 				
