@@ -58,6 +58,7 @@
 		                	<textarea name="content" style="width:580px" rows="15"></textarea>
 		                </td>
 		            </tr>
+		         
 		            <tr>
 		                <th>마감일</th>
 		                <td>

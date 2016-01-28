@@ -48,6 +48,12 @@ public class MySqlJobboardDao implements JobboardDao {
 	}
 
 	@Override
+	public ArrayList<Upload> getJobboardList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public ArrayList<Jobboard> getJobboardList() {
 		
 		//mapper�뿰寃곗퐫�뱶
