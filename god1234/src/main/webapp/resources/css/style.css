@@ -373,7 +373,7 @@ section.section {
 	vertical-align: middle;
 	color: #fff;
 	font-weight: 700;
-	font-size: 13px;
+	font-size: 15px;
 	letter-spacing: .1em;
 	text-transform: uppercase;
 }
@@ -432,7 +432,7 @@ h1 a.navbar-brand {
 
 section.featured {
 	padding: 200px 0 60px;
-	background: #70B9B0;
+	background: lightcoral;
 	color: #fdfdfd;
 }
 

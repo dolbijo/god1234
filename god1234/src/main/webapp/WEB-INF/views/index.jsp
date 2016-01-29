@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -10,13 +11,13 @@
         <title>Amoeba free one page responsive bootstrap site template</title>
         <meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="/dolbi/resources/css/isotope.css" media="screen" />	
+		<link rel="stylesheet" type="text/css" href="/dolbi/sources/css/isotope.css" media="screen" />	
 		<link rel="stylesheet" href="/dolbi/resources/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="/dolbi/resources/css/bootstrap.css">
 		<link rel="stylesheet" href="/dolbi/resources/css/bootstrap-theme.css">
         <link rel="stylesheet" href="/dolbi/resources/css/style.css">
 		<!-- skin -->
-		<link rel="stylesheet" href="/dolbi/resources/skin/default.css">
+		<link rel="stylesheet" href="/dolbi/sources/skin/default.css">
     </head>
 	 
     <body>
@@ -27,15 +28,18 @@
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="fa fa-bars color-white"></span>
 					</button>
-					<h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;">			Amoeba
+					<h1><a class="navbar-brand" href="/dolbi/home.action" data-0="line-height:90px;" data-300="line-height:50px;">			Albamong
 					</a></h1>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="#section-about">About</a></li>
-						<li><a href="#section-works">Portfolio</a></li>
-						<li><a href="#section-contact">Contact</a></li>
+					<!-- <li class="active"><a href="#">Home</a></li>  -->
+					<li><a href="http://localhost:8085/dolbi/#section-services">개인서비스</a></li>
+						<li><a href="http://localhost:8085/dolbi/#section-about">기업서비스</a></li>
+						<li><a href="http://localhost:8085/dolbi/#section-works">알바TALK</a></li>
+						<li><a href="http://localhost:8085/dolbi/#section-works">채용게시판</a></li>
+						<li><a href="/dolbi/account/login.action">LogIn</a></li>
+						<li><a href="/dolbi/member/usertype.action">Sign Up</a></li>
 					</ul>
 				</div><!--/.navbar-collapse -->
 			</div>
@@ -47,13 +51,11 @@
 					<div class="col-md-6 col-md-offset-3">
 						
 						<div class="align-center">
-							<i class="fa fa-flask fa-5x mar-bot20"></i>
-							<h2 class="slogan">Welcome to Amoeba</h2>
+					<!-- 	<i class="fa fa-flask fa-5x mar-bot20"></i>  -->
+					<img src = "/dolbi/resources/img/mong_main.png">
+							<h2 class="slogan">Welcome to Albamong!</h2>
 							<p>
-							Lorem ipsum dolor sit amet, natum bonorum expetendis usu ut. 
-							Eum impetus offendit disputationi eu, at vim aliquip lucilius praesent. 
-							Alia laudem antiopam te ius, sed ad munere integre, ubique facete sapientem nam ut. 
-				
+							
 							</p>	
 						</div>
 					</div>
@@ -94,7 +96,7 @@
 						Mei cu dicat voluptaria volumus.
 						</p>
 					</div>
-				</div>
+				</div> 
 			
 			</div>	
 
@@ -340,77 +342,21 @@
             </div>
 		</section>
 
-		<!-- contact -->
-		<section id="section-contact" class="section appear clearfix">
-			<div class="container">
-				
-				<div class="row mar-bot40">
-					<div class="col-md-offset-3 col-md-6">
-						<div class="section-header">
-							<h2 class="section-heading animated" data-animation="bounceInUp">Contact us</h2>
-							<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="cform" id="contact-form">
-							<div id="sendmessage">
-								 Your message has been sent. Thank you!
-							</div>
-							<form action="contact/contact.php" method="post" role="form" class="contactForm">
-							  <div class="form-group">
-								<label for="name">Your Name</label>
-								<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
-								<div class="validation"></div>
-							  </div>
-							  <div class="form-group">
-								<label for="email">Your Email</label>
-								<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-								<div class="validation"></div>
-							  </div>
-							  <div class="form-group">
-								<label for="subject">Subject</label>
-								<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="maxlen:4" data-msg="Please enter at least 8 chars of subject" />
-								<div class="validation"></div>
-							  </div>
-							  <div class="form-group">
-								<label for="message">Message</label>
-								<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
-								<div class="validation"></div>
-							  </div>
-							  
-							  <button type="submit" class="btn btn-theme pull-left">SEND MESSAGE</button>
-							</form>
 
-						</div>
-					</div>
-					<!-- ./span12 -->
-				</div>
-				
-			</div>
-		</section>
-		<!-- map -->
-		<section id="section-map" class="clearfix">
-			<div id="map"></div>
-		</section>
-		
 	<section id="footer" class="section footer">
 		<div class="container">
 			<div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
 				<div class="col-sm-12 align-center">
                     <ul class="social-network social-circle">
-                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="http://www.facebook.com" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="http://www.twitter.com" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://www.google.co.kr" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
                     </ul>				
 				</div>
 			</div>
 
 			<div class="row align-center copyright">
-					<div class="col-sm-12"><p>Copyright &copy; 2014 Amoeba - by <a href="http://bootstraptaste.com">Bootstrap Themes</a></p></div>
+					<div class="col-sm-12"><p>Copyright &copy; 2014 Albamong & Dolbi <a href="http://bootstraptaste.com">Bootstrap Themes</a></p></div>
                     <!-- 
                         All links in the footer should remain intact. 
                         Licenseing information is available at: http://bootstraptaste.com/license/
@@ -426,7 +372,6 @@
 	<script src="/dolbi/resources/js/jquery.js"></script>
 	<script src="/dolbi/resources/js/jquery.easing.1.3.js"></script>
     <script src="/dolbi/resources/js/bootstrap.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
 	<script src="/dolbi/resources/js/jquery.isotope.min.js"></script>
 	<script src="/dolbi/resources/js/jquery.nicescroll.min.js"></script>
 	<script src="/dolbi/resources/js/fancybox/jquery.fancybox.pack.js"></script>
@@ -437,32 +382,6 @@
 	<script src="/dolbi/resources/js/jquery.appear.js"></script>
 	<script src="/dolbi/resources/js/validate.js"></script>
     <script src="/dolbi/resources/js/main.js"></script>
-        <script type="text/javascript">
-            // When the window has finished loading create our google map below
-            google.maps.event.addDomListener(window, 'load', init);
         
-            function init() {
-                // Basic options for a simple Google Map
-                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-                var mapOptions = {
-                    // How zoomed in you want the map to start at (always required)
-                    zoom: 11,
-
-                    // The latitude and longitude to center the map (always required)
-                    center: new google.maps.LatLng(40.6700, -73.9400), // New York
-
-                    // How you would like to style the map. 
-                    // This is where you would paste any style found on Snazzy Maps.
-                    styles: [	{		featureType:"all",		elementType:"all",		stylers:[		{			invert_lightness:true		},		{			saturation:10		},		{			lightness:30		},		{			gamma:0.5		},		{			hue:"#1C705B"		}		]	}	]
-                };
-
-                // Get the HTML DOM element that will contain your map 
-                // We are using a div with id="map" seen below in the <body>
-                var mapElement = document.getElementById('map');
-
-                // Create the Google Map using out element and options defined above
-                var map = new google.maps.Map(mapElement, mapOptions);
-            }
-        </script>
 	</body>
 </html>
