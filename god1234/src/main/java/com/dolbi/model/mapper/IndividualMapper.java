@@ -7,11 +7,6 @@ import com.dolbi.model.dto.Member;
 
 public interface IndividualMapper {
 	
-	List<Member> selectMembers();
-	List<Member> selectMembers2();
-	Member selectMemberByIdAndPasswd(HashMap<String, Object> params);
-	Member selectMemberById(String id);
-	
-	void insertMember(Member member);
+	int selectResumeBymemberId(String id);
 
 }

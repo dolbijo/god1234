@@ -28,15 +28,13 @@ public class IndividualController {
 	@Resource(name = "individualDao")
 	private IndividualDao individualDao;
 	
-	@Autowired()
-	@Qualifier("individualService")
-	private IndividualService individualService;
-	
-	@RequestMapping(value = "individualmain.action", method = RequestMethod.GET)
-	public String individualmain() {
+	/*@RequestMapping(value = "individualmain.action", method = RequestMethod.GET)
+	public String individualmain(@RequestParam("memberid") String memberId) {
+		
+		int individualDao.getResumeById(memberId);
 		
 		return "individual/individualmain";
-	}
+	}*/
 	
 	@RequestMapping(value = "resumeview.action", method = RequestMethod.GET)
 	public String resumeview(@RequestParam("memberid") String memberId) {

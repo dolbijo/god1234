@@ -22,37 +22,13 @@ public class MySqlIndividualDao implements IndividualDao {
 	@Qualifier("individualMapper")
 	private IndividualMapper individualMapper;
 
-	public void insert(Member member) {
+	public int getResumeById(String id) {
 		
-		individualMapper.insertMember(member);
-
+		int resume = individualMapper.selectResumeBymemberId(id);
+		
+		return resume;
+		
 	}
-
-	public List<Member> getList() {
-	
-		List<Member> members = individualMapper.selectMembers();
-		
-		return members;
-	}
-
-	public Member getMemberById(String id) {
-		
-		Member member = individualMapper.selectMemberById(id);
-			
-		return member;
-	}
-
-	public Member getMemberByIdAndPasswd(String id, String passwd) {
-		
-		HashMap<String, Object> params = new HashMap<>();
-		params.put("memberId", id);
-		params.put("passwd", passwd);
-			
-		Member member = individualMapper.selectMemberByIdAndPasswd(params);
-		
-		return member;
-	}
-
 }
 
 
