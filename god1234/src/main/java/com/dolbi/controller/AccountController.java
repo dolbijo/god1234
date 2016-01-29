@@ -42,7 +42,6 @@ public class AccountController {
 			session.setAttribute("loginuser", member);
 			if (returnUrl != null && returnUrl.length() > 0) {
 				return "redirect:" + returnUrl.replace("/dolbi", "");
-				//return "redirect:/home.action";
 			} else {
 				return "redirect:/home.action";
 			}

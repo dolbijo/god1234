@@ -18,6 +18,15 @@
 		C_NO, C_HOMEPAGE, JC_NO, C_CEONAME
 	</sql>
 	
+	<resultMap type="Member" id="memberMap">
+		<id column="M_ID" property="memberId" />
+		<result column="M_NAME" property="memberName" />
+		<result column="M_ADDRESS" property="memberAddress" />
+		<result column="M_PHONENO" property="phoneNo" />
+		<result column="M_TYPE" property="memberType" />
+		<result column="M_MAIL" property="email" />
+	</resultMap>
+	
 	<!-- 메서드 역할 -->
 	<select id="selectMembers" resultType="Member">
 		SELECT <include refid="memberColumns" /> 
@@ -25,8 +34,8 @@
 	</select>
 	
 	<select id="selectMemberByIdAndPasswd" 
-		parameterType="hashMap" resultType="Member">
-		SELECT M_ID memberId 
+		parameterType="hashMap" resultMap="memberMap">
+		SELECT <include refid="memberColumns" />
 		FROM member
 		WHERE M_ID = #{memberId} AND M_PW = #{passWd}
 	</select>
@@ -48,7 +57,7 @@
 	</insert>
 	
 	<insert id="insertcomMember" parameterType="Member">
-		call INSERTCOM(#{memberId}, #{passWd}, #{memberName}, #{ceoName}, #{companyNo}, #{memberAddress}, #{phoneNo}, #{email}, #{homepage}, #{categoryNo});
+		call INSERTCOM(#{memberId}, #{passWd}, #{memberName}, #{ceoName}, #{companyNo}, #{memberAddress}, #{phoneNo}, #{homepage}, #{email}, #{categoryNo});
 	</insert>
 	
 </mapper>
