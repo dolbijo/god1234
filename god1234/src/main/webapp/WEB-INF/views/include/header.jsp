@@ -23,7 +23,7 @@
                 </a>
             	</c:when>
             	<c:otherwise>
-            	<%-- ${ loginuser.memberId }<spring:message code="general.welcome" /> --%>
+            	
             	<spring:message code="general.welcome" arguments="${ loginuser.memberId }" />
             	<a href="/dolbi/account/logout.action">
             		<spring:message code="account.logout" />
@@ -40,9 +40,6 @@
 					<li><a href="/dolbi/upload/list.action">
 						<spring:message code="menu.library" /> 
 					</a></li>
-					<li><a href="/dolbi/individual/individualmain.action">
-						<spring:message code="menu.individual" />			
-					</a></li>
 					<li><a href="/dolbi/jobboard/list.action">
 						<spring:message code="menu.jobboard" />			
 
@@ -52,10 +49,31 @@
 						<spring:message code="menu.freeboard" />			
 					</a></li>
 					
+					
+					
+					<c:choose>
+            		<c:when test="${ empty sessionScope.loginuser }">
+            		<li><a href="/dolbi/individual/individualmain.action">
+						<spring:message code="menu.individual" />			
+					</a></li>
+					
 					<li><a href="/dolbi/company/servicemain.action">
 						<spring:message code="menu.company" />			
 
 					</a></li>
+					</c:when>
+					<c:when test="${loginuser.memberType == individual }">
+					<li><a href="/dolbi/individual/individualmain.action">
+						<spring:message code="menu.individual" />			
+					</a></li>
+					</c:when>
+					<c:otherwise>
+					<li><a href="/dolbi/company/servicemain.action">
+						<spring:message code="menu.company" />			
+
+					</a></li>
+					</c:otherwise>
+            		</c:choose>
 						
             </div>
         </div>
