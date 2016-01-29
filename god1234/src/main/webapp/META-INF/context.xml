@@ -3,10 +3,16 @@
 <Context path="/dolbi" reloadable="true">
 
 	<Resource 
-		name="jdbc/dolbi" 
+		name="jdbc/dolbiMysql" 
 		auth="Container" type="javax.sql.DataSource"
 		maxTotal="100" maxIdle="30" maxWaitMillis="10000" 
 		username="dolbi" password="1234" 
 		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://210.16.214.202:3306/dolbi" />
 
+   <Resource 
+      name="jdbc/dolbiOracle" 
+      auth="Container" type="javax.sql.DataSource"
+      maxTotal="100" maxIdle="30" maxWaitMillis="10000" 
+      username="dolbi" password="1234" 
+      driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@210.16.214.202:1521:xe" />
 </Context>

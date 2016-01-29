@@ -50,7 +50,7 @@
 		            </tr>
 		        </table>
 		        <div class="buttons">
-		        	<input type="submit" value="로그인" style="height:25px" onclick/>
+		        	<input type="submit" value="로그인" style="height:25px"/>
 		        	<input type="button" value="취소" style="height:25px" />
 		        </div>
 		        </form>
