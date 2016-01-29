@@ -62,7 +62,7 @@
 
 					</a></li>
 					</c:when>
-					<c:when test="${loginuser.memberType == individual }">
+					<c:when test="${loginuser.memberType eq 'individual' }">
 					<li><a href="/dolbi/individual/individualmain.action">
 						<spring:message code="menu.individual" />			
 					</a></li>
