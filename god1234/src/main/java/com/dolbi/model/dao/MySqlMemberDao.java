@@ -30,14 +30,14 @@ public class MySqlMemberDao implements MemberDao {
 	
 	@Override
 	public void insertindi(Member member) {
-				
+		System.out.println("insertindiDAO");
 		memberMapper.insertindiMember(member);
 
 	}
 	
 	@Override
 	public void insertcom(Member member) {
-				
+		System.out.println("insertcomDAO");
 		memberMapper.insertcomMember(member);
 
 	}

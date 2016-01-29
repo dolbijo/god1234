@@ -32,7 +32,7 @@
 		            <tr>
 		                <th>비밀번호</th>
 		                <td>
-		                	<input type="password" name="passwd" style="width:280px" />
+		                	<input type="password" name="passWd" style="width:280px" />
 		                </td>
 		            </tr>
 		            <tr>

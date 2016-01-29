@@ -22,7 +22,7 @@
         
         <div id="content">
         	
-        	<a href="resumeview.action">이력서 등록 / 수정</a>
+        	<a href="resumeview.action">이력서 등록 /수정</a>
         	<a href="applicationlist.action">지원현황</a>
         	<a href="recommendationlist.action">맞춤알바정보</a>
         	
