@@ -103,6 +103,7 @@
 		<section id="section-individual" class="section appear clearfix">
 		<div class="container">
 
+				<a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }">more</a>
 				<div class="row mar-bot40">
 					<div class="col-md-offset-3 col-md-6">
 						<div class="section-header">

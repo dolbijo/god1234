@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dolbi.common.Util;
 import com.dolbi.model.dao.IndividualDao;
@@ -28,24 +29,41 @@ public class IndividualController {
 	@Resource(name = "individualDao")
 	private IndividualDao individualDao;
 	
-	/*@RequestMapping(value = "individualmain.action", method = RequestMethod.GET)
-	public String individualmain(@RequestParam("memberid") String memberId) {
+	@RequestMapping(value = "individualmain.action", method = RequestMethod.GET)
+	public String individualmain(String memberId, Model model) {
 		
-		int individualDao.getResumeById(memberId);
+		ModelAndView mav = new ModelAndView();
+		String resume = String.valueOf(individualDao.getResumeById(memberId));
+		
+		System.out.println("individualController resume : " + resume);
+		model.addAttribute("resume", resume);
 		
 		return "individual/individualmain";
-	}*/
+	}
 	
 	@RequestMapping(value = "resumeview.action", method = RequestMethod.GET)
-	public String resumeview(@RequestParam("memberid") String memberId) {
+	public String resumeview(String memberId) {
 		
 		return "individual/resumeview";
 		
 	}
 	
+	@RequestMapping(value = "resumeform.action", method = RequestMethod.GET)
+	public String resumeform(String memberId) {
+		
+		return "individual/resumeform";
+		
+	}
 	
+	@RequestMapping(value = "resumeform.action", method = RequestMethod.POST)
+	public String resumeRegister(String memberId) {
+		
+		return "redirect:/individual/resumeview.action?memberId=" + memberId;
+		
+	}
+
 	@RequestMapping(value = "applicationlist.action", method = RequestMethod.GET)
-	public String applicationlist(@RequestParam("memberid") String memberId) {
+	public String applicationlist(String memberId) {
 		
 		return "individual/applicationlist";
 		

@@ -26,7 +26,7 @@
 					
 					<c:choose>
             		<c:when test="${ empty sessionScope.loginuser }">
-            		<li><a href="/dolbi/individual/individualmain.action">
+            		<li><a href="/dolbi/#section-individual">
 						<spring:message code="menu.individual" />			
 					</a></li>
 					
@@ -36,7 +36,7 @@
 					</a></li>
 					</c:when>
 					<c:when test="${loginuser.memberType eq 'individual' }">
-					<li><a href="/dolbi/individual/individualmain.action">
+					<li><a href="/dolbi/#section-individual">
 						<spring:message code="menu.individual" />			
 					</a></li>
 					</c:when>
