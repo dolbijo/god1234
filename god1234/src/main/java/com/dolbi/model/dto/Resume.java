@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 
-public class resume implements Serializable {
+public class Resume implements Serializable {
 
 	private String memberId;
 	private String resumeTitle;
