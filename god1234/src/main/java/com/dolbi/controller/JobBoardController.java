@@ -60,6 +60,7 @@ public class JobBoardController {
    @RequestMapping(value = "register.action", method = RequestMethod.POST)
    public String register(Member member) {
       
+	   
       
       return "redirect:/jobboard/list.action";
    }
