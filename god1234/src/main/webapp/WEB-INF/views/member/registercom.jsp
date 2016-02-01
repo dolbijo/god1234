@@ -8,8 +8,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>사용자등록</title>
-	<!-- 
-	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
+<!-- 	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
 	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" /> -->
 </head>
 <body>
@@ -73,17 +72,18 @@
 		                </td>
 		            </tr>
 		            <tr>
-		                <th>이메일</th>
-		                <td>
-		                	<input type="text" name="email" style="width:280px" />
-		                </td>
-		            </tr>
-		            <tr>
 		                <th>회사/점포 홈페이지</th>
 		                <td>
 		                	<input type="text" name="homepage" style="width:280px" />
 		                </td>
 		            </tr>
+		            <tr>
+		                <th>이메일</th>
+		                <td>
+		                	<input type="text" name="email" style="width:280px" />
+		                </td>
+		            </tr>
+
 		            
 		            <tr>
 		                <th>회사구분</th>

@@ -68,7 +68,7 @@ public class MemberController {
 		
 		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 
-		System.out.println(member.getCeoName());
+		System.out.println("memberController");
 		memberDao.insertcom(member);
 		
 		return "redirect:/home.action";
