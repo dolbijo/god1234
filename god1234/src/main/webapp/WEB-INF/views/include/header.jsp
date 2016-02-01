@@ -41,7 +41,7 @@
 					</a></li>
 					</c:when>
 					<c:otherwise>
-					<li><a href="/dolbi/company/servicemain.action">
+					<li><a href="/dolbi/#section-company">
 						<spring:message code="menu.company" />			
 
 					</a></li>
