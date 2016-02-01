@@ -9,10 +9,13 @@ import com.dolbi.model.dto.Member;
 public interface JobboardMapper {
 	
 	List<Jobboard> selectJobboards();
+	List<Jobboard> selectJobboards2();
 
-	/*Jobboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
-	Jobboard selectMemberById(String M_ID);*/
+	Jobboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
+	Jobboard selectMemberById(String M_ID);
 	
 	void insertJobboard(Jobboard jobboardNo);
+	void insertindiJobboard(Jobboard jobboard);
+	void insertcomJobboard(Jobboard jobboard);
 
 }

@@ -40,12 +40,12 @@ public class MySqlJobboardDao implements JobboardDao {
 
    }
    
-   @Override
-   public void insertJobboardFile(JobboardAttachment file) {
-      
-      //mapper연결코드
-      
-   }
+  // @Override
+//   public void insertJobboardFile(JobboardAttachment file) {
+//      
+//      //mapper연결코드
+//      
+//   }
 
    /*@Override
    public ArrayList<Jobboard> getJobboardList() {
@@ -128,5 +128,4 @@ public class MySqlJobboardDao implements JobboardDao {
    }*/
 
 }
-
 

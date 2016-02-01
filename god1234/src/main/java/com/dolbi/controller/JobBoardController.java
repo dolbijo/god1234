@@ -61,6 +61,7 @@ public class JobBoardController {
    public String register(Member member) {
       
       
+      
       return "redirect:/jobboard/list.action";
    }
    
@@ -155,7 +156,6 @@ public class JobBoardController {
    }*/
 
 }
-
 
 
 
