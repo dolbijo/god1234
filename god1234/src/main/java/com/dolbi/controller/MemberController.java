@@ -57,6 +57,7 @@ public class MemberController {
 		
 		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 
+		System.out.println(member.getEmail());
 		memberDao.insertindi(member);
 		
 		return "redirect:/home.action";
@@ -67,6 +68,7 @@ public class MemberController {
 		
 		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 
+		System.out.println(member.getCeoName());
 		memberDao.insertcom(member);
 		
 		return "redirect:/home.action";

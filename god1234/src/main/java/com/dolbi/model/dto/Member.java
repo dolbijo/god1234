@@ -97,6 +97,5 @@ public class Member implements Serializable {
 	public void setCeoName(String ceoName) {
 		this.ceoName = ceoName;
 	}
-	
-	
+		
 }

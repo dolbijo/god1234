@@ -1,4 +1,4 @@
-00<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -8,8 +8,9 @@
 <head>
 	<meta charset="utf-8" />
 	<title>사용자등록</title>
+	<!-- 
 	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" />
+	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" /> -->
 </head>
 <body>
 
