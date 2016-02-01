@@ -9,8 +9,6 @@ public class JobboardAttachment implements Serializable {
 	private int jobboardNo;
 	private String userFileName;
 	private String savedFileName;
-	private Date regDate;
-	private int downloadCount;
 	
 	public JobboardAttachment() {}
 
@@ -45,22 +43,5 @@ public class JobboardAttachment implements Serializable {
 	public void setSavedFileName(String savedFileName) {
 		this.savedFileName = savedFileName;
 	}
-
-	public Date getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
-
-	public int getDownloadCount() {
-		return downloadCount;
-	}
-
-	public void setDownloadCount(int downloadCount) {
-		this.downloadCount = downloadCount;
-	}
-	
 	
 }

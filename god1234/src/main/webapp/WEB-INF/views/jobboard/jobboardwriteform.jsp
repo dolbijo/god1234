@@ -39,11 +39,7 @@
 		            </tr>
 		            
 		             <tr>
-		                <th>등록날짜</th>
-		                <td>
-							<input type ="date" name = "regdate">
-							
-		                </td>
+
 		            </tr>
 		                 
 		            <tr>
@@ -89,27 +85,22 @@
 		             <tr>
 		                <th>성별</th>
 		                <td>
-		                    <input type="radio" name="gender" value="female" />
-		                    <label for="radio1">여</label>
-							<input type="radio" name="gender" value="male" />
-							<label for="radio2">남</label>
+		                    <input type="radio" name="gender" value="female" />여
+		             
+							<input type="radio" name="gender" value="male" />남
+							
+							<input type="radio" name="gender" value="mf" />남녀무관
 		                </td>
 		            </tr>
 		              <tr>
 		                <th>학력</th>
 		                <td>
-		                    <input type="radio" name="edu" value="1" />
-		                    <label for="radio1">학력무관</label>
-							<input type="radio" name="edu" value="2" />
-							<label for="radio2">초졸</label>
-							<input type="radio" name="edu" value="3" />
-							<label for="radio2">중졸</label>
-							<input type="radio" name="edu" value="4" />
-							<label for="radio2">고졸</label>
-							<input type="radio" name="edu" value="5" />
-							<label for="radio2">초대졸</label>
-							<input type="radio" name="edu" value="6" />
-							<label for="radio2">초대졸이상</label>
+		                    <input type="radio" name="edu" value="grade0" />학력무관
+							<input type="radio" name="edu" value="grade1" />초졸
+							<input type="radio" name="edu" value="grade2" />중졸
+							<input type="radio" name="edu" value="grade3" />고졸
+							<input type="radio" name="edu" value="grade4" />초대졸
+							<input type="radio" name="edu" value="grade5" />초대졸이상
 		                </td>
 		            </tr>
 		            

@@ -1,7 +1,7 @@
 package com.dolbi.model.dto;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 public class Jobboard implements Serializable {
@@ -17,7 +17,7 @@ public class Jobboard implements Serializable {
 	private Date jobboardDeadLine;
 	private int jobboardJoinNo;
 	private String jobboardGender;
-	private Date jobboardAge;
+	private int jobboardAge;
 	private String jobboardEducation;
 	private String memberId;
 	private String jobboardPayment;
@@ -109,11 +109,11 @@ public class Jobboard implements Serializable {
 		this.jobboardGender = jobboardGender;
 	}
 
-	public Date getJobboardAge() {
+	public int getJobboardAge() {
 		return jobboardAge;
 	}
 
-	public void setJobboardAge(Date jobboardAge) {
+	public void setJobboardAge(int jobboardAge) {
 		this.jobboardAge = jobboardAge;
 	}
 

@@ -2,6 +2,9 @@ package com.dolbi.controller;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -53,24 +56,27 @@ public class JobBoardController {
    }
    
    @RequestMapping(value = "write.action", method = RequestMethod.POST)
-	public String getJobboardWriteForm(MultipartHttpServletRequest request) {
+	public String getJobboardWriteForm(MultipartHttpServletRequest request) throws Exception {
 
 		//업로드된 파일을 저장할 경로 (가상경로 -> 물리경로) 추출
 		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/uploadfiles");
 		
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat transFormat2 = new SimpleDateFormat("yyyy");
 		//Upload 객체 생성 및 파일이 아닌 데이터 저장
 		Jobboard jobboard = new Jobboard();      
 	    jobboard.setJobboardTitle(request.getParameter("title"));
 	    jobboard.setJobboardContent(request.getParameter("content"));
-	    //jobboard.setJ_DEADLINE(request.getParameter("J_READCOUNT"));
 	    jobboard.setJobboardJoinNo(Integer.parseInt(request.getParameter("joinnum")));
 	    jobboard.setJobboardGender(request.getParameter("gender"));
-	    //jobboard.setJobboardAge(request.getParameter("birthday"));
 	    jobboard.setJobboardEducation(request.getParameter("edu"));
 	    jobboard.setMemberId(request.getParameter("uploader"));
 	    jobboard.setJobboardPayment(request.getParameter("payment"));
 	    jobboard.setJobboardSalary(Integer.parseInt(request.getParameter("salary")));
 	    jobboard.setJobboardCareer(request.getParameter("career"));
+	    jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
+	    Date deadline = transFormat.parse(request.getParameter("deadline"));
+		jobboard.setJobboardDeadLine(deadline);
 		
 		//아래 try 영역 내부에서 오류가 발생하면 모든 db연동 작업을 취소하도록 처리
 		try {
@@ -91,8 +97,6 @@ public class JobBoardController {
 					temp.setUserFileName(file.getOriginalFilename());
 					temp.setJobboardNo(newJobboardNo);
 					jobboardDao.insertJobboardFile(temp);
-					
-					int x = 10 / 0;//force throw exception
 					
 					FileOutputStream ostream = new FileOutputStream(path + "/" + savedName);
 					InputStream istream = file.getInputStream();
