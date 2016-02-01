@@ -157,11 +157,12 @@
 		<!-- /about -->
 		
 		<!-- spacer section:stats -->
-		<section id="company" class="section pad-top40 pad-bot40" data-stellar-background-ratio="0.5">
+		<section id="section-company" class="section pad-top40 pad-bot40" data-stellar-background-ratio="0.5">
 			<div class="container">
             <div class="align-center pad-top40 pad-bot40">
                 <blockquote class="bigquote color-white">Indoctum accusamus comprehensam</blockquote>
 				<p class="color-white">Bootstraptaste</p>
+				<a href="/dolbi/company/servicemain.action" >자세히 보러가기</a>
             </div>
 			</div>	
 		</section>

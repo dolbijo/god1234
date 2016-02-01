@@ -89,7 +89,25 @@ public class CompanyController {
 //		}
 //		
 //	}
-	
+	@RequestMapping(value = "ingsearch.action", method = RequestMethod.POST)
+	public String ingsearch(@ModelAttribute("member") Member member) {//읽기 + view로 전달
+		
+		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
+		
+		//memberDao.update(member);//과제	
+		
+		return "redirect:/member/view.action?memberid=" + member.getMemberId();
+	}
+	@RequestMapping(value = "endsearch.action", method = RequestMethod.POST)
+	public String endsearch(@ModelAttribute("member") Member member) {//읽기 + view로 전달
+		
+		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
+		
+		//memberDao.update(member);//과제	
+		
+		return "redirect:/member/view.action?memberid=" + member.getMemberId();
+	}
+
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") Member member) {//읽기 + view로 전달
 		
