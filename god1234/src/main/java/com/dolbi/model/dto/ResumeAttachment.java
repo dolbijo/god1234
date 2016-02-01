@@ -5,8 +5,17 @@ import java.sql.Date;
 
 public class ResumeAttachment implements Serializable {
 
+	private String memberId;
 	private String resumeSavedFilename;
 	private String resumeFilename;
+	
+	
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
 	public String getResumeSavedFilename() {
 		return resumeSavedFilename;
 	}

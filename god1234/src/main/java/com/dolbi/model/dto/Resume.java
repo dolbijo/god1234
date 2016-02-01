@@ -13,6 +13,10 @@ public class Resume implements Serializable {
 	private int readcount;
 	private Date lastmodified;
 	
+	private ResumeAttachment resumeFiles;
+	private ArrayList<Career> arrCareer;
+	private ArrayList<Education> arrEdu;
+	
 	
 	public String getMemberId() {
 		return memberId;
@@ -50,7 +54,23 @@ public class Resume implements Serializable {
 	public void setLastmodified(Date lastmodified) {
 		this.lastmodified = lastmodified;
 	}
-	
-	
+	public ResumeAttachment getResumeFiles() {
+		return resumeFiles;
+	}
+	public void setResumeFiles(ResumeAttachment resumeFiles) {
+		this.resumeFiles = resumeFiles;
+	}
+	public ArrayList<Career> getArrCareer() {
+		return arrCareer;
+	}
+	public void setArrCareer(ArrayList<Career> arrCareer) {
+		this.arrCareer = arrCareer;
+	}
+	public ArrayList<Education> getArrEdu() {
+		return arrEdu;
+	}
+	public void setArrEdu(ArrayList<Education> arrEdu) {
+		this.arrEdu = arrEdu;
+	}
 	
 }

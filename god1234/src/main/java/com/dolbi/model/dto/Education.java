@@ -1,15 +1,32 @@
 package com.dolbi.model.dto;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 public class Education implements Serializable {
-
+	
+	private int eduNo;
 	private String schoolName;
 	private String major;
 	private Date edStartDate;
 	private Date edEndDate;
+	private String memberId;
+	
+	
+	
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+	public int getEduNo() {
+		return eduNo;
+	}
+	public void setEduNo(int eduNo) {
+		this.eduNo = eduNo;
+	}
 	public String getSchoolName() {
 		return schoolName;
 	}
