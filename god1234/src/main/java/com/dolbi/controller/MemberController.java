@@ -64,6 +64,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "registercom.action", method = RequestMethod.POST)
 	public String registercom(Member member) {
+		
+		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 
 		memberDao.insertcom(member);
 		

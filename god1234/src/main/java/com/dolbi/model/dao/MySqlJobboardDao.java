@@ -34,98 +34,43 @@ public class MySqlJobboardDao implements JobboardDao {
    @Override
    public int insertJobboard(Jobboard jobboard) {
       
-      //mapper연결코드
       
-      return jobboard.getJobboardNo();
+	int newJobboardNo = jobboardMapper.insertJobboard(jobboard);
+	
+	return newJobboardNo;
 
    }
    
-  // @Override
-//   public void insertJobboardFile(JobboardAttachment file) {
-//      
-//      //mapper연결코드
-//      
-//   }
+   @Override
+   public void insertJobboardFile(JobboardAttachment file) {
+      
+      //mapper연결코드
+	   jobboardMapper.insertJobboardFile(file);
+      
+   }
 
-   /*@Override
+   @Override
    public ArrayList<Jobboard> getJobboardList() {
       
       //mapper연결코드
-      
-      return (ArrayList<Jobboard>)uploads;
-            
+	   List<Jobboard> jobboards = jobboardMapper.selectJobboards();
+		
+	   return (ArrayList<Jobboard>) jobboards;
    }
    
-   @Override
-   public Upload getUploadByUploadNo(int uploadNo) {
+ 
    
-      Upload upload = sqlSessionTemplate.selectOne(
-         "com.dolbi.model.mapper.UploadMapper.selectUploadByUploadNo2", uploadNo);
+   @Override
+   public Jobboard getJobboardByJobboardNo(int jobboardNo) {
+   
+      Jobboard jobboard = sqlSessionTemplate.selectOne(
+         "com.dolbi.model.mapper.JobboardMapper.selectJobboardByJobboardNo2", jobboardNo);
       
-      return upload;
+      return jobboard;
       
       
    }
    
-   @Override
-   public ArrayList<UploadFile> getUploadFilesByUploadNo(int uploadNo) {
-      
-      String sql = 
-         "SELECT uploadFileNo, uploadNo, savedFileName, userFileName " + 
-         "FROM uploadfile WHERE uploadno = ?";
-         
-      List<UploadFile> files = 
-         jdbcTemplate.query(sql, new Object[] { uploadNo }, new RowMapper<UploadFile>() {
-
-            @Override
-            public UploadFile mapRow(ResultSet rs, int rowNum) throws SQLException {
-               UploadFile file = new UploadFile();
-               file.setUploadFileNo(rs.getInt(1));
-               file.setUploadNo(rs.getInt(2));
-               file.setSavedFileName(rs.getString(3));
-               file.setUserFileName(rs.getString(4));
-               return file;
-            }
-            
-         });
-      
-      return (ArrayList<UploadFile>)files;
-   }
-   
-   @Override
-   public UploadFile getUploadFileByUploadFileNo(int uploadFileNo) {
-
-      String sql = 
-         "SELECT uploadFileNo, uploadNo, savedFileName, userFileName " + 
-         "FROM uploadfile WHERE uploadfileno = ?";
-      
-      UploadFile file = 
-         jdbcTemplate.queryForObject(sql, new Object[] { uploadFileNo }, new RowMapper<UploadFile>() {
-
-            @Override
-            public UploadFile mapRow(ResultSet rs, int rowNum) throws SQLException {
-               UploadFile file = new UploadFile();
-               file = new UploadFile();
-               file.setUploadFileNo(rs.getInt(1));
-               file.setUploadNo(rs.getInt(2));
-               file.setSavedFileName(rs.getString(3));
-               file.setUserFileName(rs.getString(4));
-               return file;
-            }
-            
-         });
-      
-      return file;
-      
-   }
-
-   @Override
-   public void increaseUploadFileDownloadCount(int uploadFileNo) {
-      String sql = 
-         "UPDATE uploadfile SET downloadcount = downloadcount + 1 WHERE uploadfileno = ?";
-      jdbcTemplate.update(sql, uploadFileNo);
-      
-   }*/
 
 }
 

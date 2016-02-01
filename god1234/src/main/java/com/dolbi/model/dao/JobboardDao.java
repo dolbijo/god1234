@@ -11,16 +11,10 @@ public interface JobboardDao {
 
    int insertJobboard(Jobboard jobboard);
 
-  // void insertJobboardFile(JobboardAttachment file);
+   void insertJobboardFile(JobboardAttachment file);
 
-//   ArrayList<Jobboard> getJobboardList();
-//
-//   Jobboard getJobboardByJobboardNo(int JobboardNo);
-//
-//   ArrayList<UploadFile> getUploadFilesByUploadNo(int JobboardNo);
-//
-//   UploadFile getUploadFileByUploadFileNo(int JobboardFileNo);
+   ArrayList<Jobboard> getJobboardList();
    
-  // void increaseUploadFileDownloadCount(int JobboardNo);*/
+   Jobboard getJobboardByJobboardNo(int jobboardNo);
 
 }

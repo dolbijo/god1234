@@ -9,7 +9,6 @@
 	<sql id="JobboardColumns">
 		J_No,J_TITLE,J_CONTENT,J_REGDATE,J_READCOUNT,J_DELETED,J_SUBTITLE,J_DEADLINE,J_JOINNO,
 		J_GENDER,J_AGE,J_EDUCATION,M_ID,J_PAYMENT,J_CAREER
-		FROM JOBBOARD
 	</sql>
 	
 	<!-- <resultMap type="com.mvcdemoweb.model.dto.Member" id="memberMap"> -->
@@ -31,25 +30,10 @@
 		FROM JOBBOARD
 	</select>
 	
-	<!-- <select id="selectMemberByIdAndPasswd" 
-		parameterType="hashMap" resultType="Jobboard">
-		SELECT <include refid="MemberColumns" /> 
-		FROM JOBBOARD
-		WHERE memberId = #{M_ID} AND M_PW = #{M_PW} AND active = true
-	</select>
-	
-	<select id="selectMemberById" 
-		parameterType="String" resultType="Member">
-		SELECT <include refid="memberColumns" /> 
-		FROM JOBBOARD
-		WHERE M_ID = #{M_ID}
-	</select> -->
-	
 	<insert id="insertJobboard" parameterType="Jobboard">
-		INSERT INTO JOBBOARD (jobboardNo, jobboardTitle, jobboardContent, jobboardRegDate, jobboardReadCount, jobboardDeleted, jobboardSubTitle, jobboardDeadLine, jobboardJoinNo, 
+		INSERT INTO JOBBOARD ( jobboardNo,jobboardTitle, jobboardContent, jobboardDeadLine, jobboardJoinNo, 
 		jobboardGender, jobboardAge, jobboardEducation, memberId, jobboardPayment, jobboardCareer)
-		VALUES (#{jobboardNo}, #{jobboardTitle}, #{jobboardContent}, #{jobboardRegDate}, #{jobboardReadCount},#{jobboardDeleted},#{jobboardSubTitle}
-		,#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardCareer})
+		VALUES ( #{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardCareer})
 	</insert>
 	
 </mapper>

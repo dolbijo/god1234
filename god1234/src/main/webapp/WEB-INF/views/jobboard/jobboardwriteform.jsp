@@ -82,33 +82,33 @@
 		            <tr>
 		                <th>모집인원</th>
 		                <td>
-		                    <input type="text" name="title1" style="width:100px"> 명 </input>
+		                    <input type="text" name="joinnum" style="width:100px"> 명 </input>
 		                </td>
 		            </tr>
 		            
 		             <tr>
 		                <th>성별</th>
 		                <td>
-		                    <input type="radio" name="radio1" id="radio1" value="Y" />
-		                    <label for="radio1">남</label>
-							<input type="radio" name="radio1" id="radio2" value="N" />
-							<label for="radio2">여</label>
+		                    <input type="radio" name="gender" value="female" />
+		                    <label for="radio1">여</label>
+							<input type="radio" name="gender" value="male" />
+							<label for="radio2">남</label>
 		                </td>
 		            </tr>
 		              <tr>
 		                <th>학력</th>
 		                <td>
-		                    <input type="radio" name="radio3" id="radio3" value="Y" />
+		                    <input type="radio" name="edu" value="1" />
 		                    <label for="radio1">학력무관</label>
-							<input type="radio" name="radio3" id="radio4" value="N" />
+							<input type="radio" name="edu" value="2" />
 							<label for="radio2">초졸</label>
-							<input type="radio" name="radio3" id="radio5" value="N" />
+							<input type="radio" name="edu" value="3" />
 							<label for="radio2">중졸</label>
-							<input type="radio" name="radio3" id="radio6" value="N" />
+							<input type="radio" name="edu" value="4" />
 							<label for="radio2">고졸</label>
-							<input type="radio" name="radio3" id="radio7" value="N" />
+							<input type="radio" name="edu" value="5" />
 							<label for="radio2">초대졸</label>
-							<input type="radio" name="radio3" id="radio8" value="N" />
+							<input type="radio" name="edu" value="6" />
 							<label for="radio2">초대졸이상</label>
 		                </td>
 		            </tr>
@@ -116,25 +116,19 @@
 		             <tr>
 		                <th>급여</th>
 		                <td>
-		                	<input type="radio" name="radio4" id="radio9" value="Y" />
-		                    <label for="radio1">시급</label>
-		                     <input type="text" name="title" style="width:100px" />
-							<input type="radio" name="radio4" id="radio10" value="N" />
-							<label for="radio2">월급</label>
-							<input type="text" name="title" style="width:100px" />
-							<input type="radio" name="radio4" id="radio11" value="N" />
-							<label for="radio2">주급</label>
-							<input type="text" name="title" style="width:100px" />
-		                    
+		                	<input type="radio" name="payment" value="perhour">시급
+		                	<input type="radio" name="payment" value="perweek">주급
+		                	<input type="radio" name="payment" value="permonth">월급
+		                	<input type="text" name="salary">
 		                </td>
 		            </tr>
 		            
 		             <tr>
 		                <th>경력정보</th>
 		                <td>
-		                    <input type="radio" name="radio5" id="radio12" value="Y" />
+		                    <input type="radio" name="career" value="old" />
 		                    <label for="radio1">경력</label>
-							<input type="radio" name="radio5" id="radio13" value="N" />
+							<input type="radio" name="career" value="new" />
 							<label for="radio2">신입</label>
 		                </td>
 		            </tr>
