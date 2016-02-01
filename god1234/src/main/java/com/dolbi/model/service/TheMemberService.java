@@ -36,5 +36,6 @@ public class TheMemberService implements MemberService {
 	public void registerMember(Member member) {
 		
 	}
+
 	
 }
