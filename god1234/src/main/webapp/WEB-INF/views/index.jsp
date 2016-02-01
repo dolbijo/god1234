@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    
     <head>
 		<!-- BASICS -->
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Amoeba free one page responsive bootstrap site template</title>
+        <title>Albamong</title>
         <meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="/dolbi/sources/css/isotope.css" media="screen" />	
@@ -22,41 +21,16 @@
 	 
     <body>
 		<section id="header" class="appear"></section>
-		<div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
-			 <div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="fa fa-bars color-white"></span>
-					</button>
-					<h1><a class="navbar-brand" href="/dolbi/home.action" data-0="line-height:90px;" data-300="line-height:50px;">			Albamong
-					</a></h1>
-				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
-					<!-- <li class="active"><a href="#">Home</a></li>  -->
-					<li><a href="http://localhost:8085/dolbi/#section-services">개인서비스</a></li>
-						<li><a href="http://localhost:8085/dolbi/#section-about">기업서비스</a></li>
-						<li><a href="http://localhost:8085/dolbi/#section-works">알바TALK</a></li>
-						<li><a href="http://localhost:8085/dolbi/#section-works">채용게시판</a></li>
-						<li><a href="/dolbi/account/login.action">LogIn</a></li>
-						<li><a href="/dolbi/member/usertype.action">Sign Up</a></li>
-					</ul>
-				</div><!--/.navbar-collapse -->
-			</div>
-		</div>
+		
+			<c:import url="/WEB-INF/views/include/header.jsp" />
 
 		<section class="featured">
 			<div class="container"> 
 				<div class="row mar-bot40">
 					<div class="col-md-6 col-md-offset-3">
-						
 						<div class="align-center">
-					<!-- 	<i class="fa fa-flask fa-5x mar-bot20"></i>  -->
-					<img src = "/dolbi/resources/img/mong_main.png">
-							<h2 class="slogan">Welcome to Albamong!</h2>
-							<p>
-							
-							</p>	
+							<img src = "/dolbi/resources/img/mong_main.png">
+							<h2 class="slogan">Welcome to Albamong!</h2>	
 						</div>
 					</div>
 				</div>
@@ -64,7 +38,7 @@
 		</section>
 		
 		<!-- services -->
-		<section id="section-services" class="section pad-bot30 bg-white">
+		<section id="section-jobboard" class="section pad-bot30 bg-white">
 		<div class="container"> 
 		
 			<div class="row mar-bot40">
@@ -104,7 +78,7 @@
 		</section>
 			
 		<!-- spacer section:testimonial -->
-		<section id="testimonials" class="section" data-stellar-background-ratio="0.5">
+		<section id="section-freeboard" class="section" data-stellar-background-ratio="0.5">
 		<div class="container">
 			<div class="row">				
 					<div class="col-lg-12">
@@ -126,9 +100,10 @@
 		</section>
 			
 		<!-- about -->
-		<section id="section-about" class="section appear clearfix">
+		<section id="section-individual" class="section appear clearfix">
 		<div class="container">
 
+				<a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }">more</a>
 				<div class="row mar-bot40">
 					<div class="col-md-offset-3 col-md-6">
 						<div class="section-header">
@@ -182,7 +157,7 @@
 		<!-- /about -->
 		
 		<!-- spacer section:stats -->
-		<section id="parallax1" class="section pad-top40 pad-bot40" data-stellar-background-ratio="0.5">
+		<section id="company" class="section pad-top40 pad-bot40" data-stellar-background-ratio="0.5">
 			<div class="container">
             <div class="align-center pad-top40 pad-bot40">
                 <blockquote class="bigquote color-white">Indoctum accusamus comprehensam</blockquote>
@@ -192,7 +167,7 @@
 		</section>
 		
 		<!-- section works -->
-		<section id="section-works" class="section appear clearfix">
+		<section id="section-login" class="section appear clearfix">
 			<div class="container">
 				
 				<div class="row mar-bot40">
