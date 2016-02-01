@@ -58,7 +58,7 @@
         			
         			<c:choose>
             		<c:when test="${ resume eq '0' }">
-        			<a href="resumeform.action">이력서 등록</a>
+        			<a href="resumeform.action?memberId=${ loginuser.memberId }">이력서 등록</a>
         			</c:when>
         			<c:otherwise>
         			<a href="resumeview.action">이력서 보러가기</a>
