@@ -81,6 +81,13 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping(value = "list.action", method = RequestMethod.GET)
+	public String list(Member member) {
+		
+		return "member/list";
+		
+	}
+	
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") Member member) {
@@ -91,6 +98,7 @@ public class MemberController {
 		
 		return "redirect:/member/view.action?memberid=" + member.getMemberId();
 	}
+
 
 }
 
