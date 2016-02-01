@@ -24,6 +24,11 @@
 		<typeAlias type="com.dolbi.model.dto.Freeboard" alias="Freeboard" />
 		<typeAlias type="com.dolbi.model.dto.JobboardAttachment" alias="JobboardAttachment" />
 		
+		<typeAlias type="com.dolbi.model.dto.Resume" alias="Resume" />
+		<typeAlias type="com.dolbi.model.dto.ResumeAttachment" alias="ResumeAttachment" />
+		<typeAlias type="com.dolbi.model.dto.Career" alias="Career" />
+		<typeAlias type="com.dolbi.model.dto.Education" alias="Education" />
+		
 	</typeAliases>
 
 	<environments default="development">
@@ -46,7 +51,7 @@
 		<mapper resource="com/dolbi/model/mapper/MemberMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/UploadMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/JobboardMapper.xml" />
-	
+		<mapper resource="com/dolbi/model/mapper/IndividualMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/FreeboardMapper.xml" />
 	</mappers>
 
