@@ -13,8 +13,8 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
-@Aspect
-@Component("transactionAspect")
+//@Aspect
+//@Component("transactionAspect")
 public class TransactionAspect {
 	
 	@Autowired

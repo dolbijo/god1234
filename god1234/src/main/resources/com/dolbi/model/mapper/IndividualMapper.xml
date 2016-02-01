@@ -6,14 +6,56 @@
 
 <mapper namespace="com.dolbi.model.mapper.IndividualMapper"><!-- 클래스 또는 인터페이스 역할 -->
 	
+	<sql id="individualColumns">
+		M_ID, M_GENDER, M_AGE
+	</sql>
+	
+	<resultMap type="Member" id="individualMap">
+		<id column="M_ID" property="memberId" />
+		<result column="M_GENDER" property="gender" />
+		<result column="M_AGE" property="age" />
+	</resultMap>
 
 	<!-- 메서드 역할 -->
+	<!-- 이력서 있는지 없는지 확인작업 -->
 	<select id="selectResumeBymemberId" resultType="int" parameterType="String">
 		SELECT COUNT(*)
 		FROM resume
 		where m_id = #{id}
 	</select>
 	
+	<!-- 개인회원의 정보 가져오기 -->
+	<select id="selectIndividualByMemberId" resultMap="individualMap" parameterType="String">
+		SELECT <include refid="individualColumns" />
+		FROM individual
+		WHERE m_id = #{id}
+	</select>
+	
+	<insert id="insertResume" parameterType="Resume">
+		insert into resume (m_id, r_title, r_selfintroduction, r_ispublic)
+		values (#{memberId}, #{resumeTitle}, #{selfintroduction}, #{ispublic})
+	</insert>
+	
+	<insert id="insertResumeAttachment" parameterType="ResumeAttachment">
+		insert into resumeattachment (m_id, ra_savedfilename, ra_filename)
+		values (#{memberId}, #{resumeSavedFilename}, #{resumeFilename})
+	</insert>
+	
+	<insert id="insertCareer" parameterType="Career" >
+		<selectKey keyProperty="careerNo" resultType="int" order="BEFORE">
+			SELECT COUNT(*)+1 from career
+		</selectKey>
+		insert into career (c_no, c_companyname, c_companytype, c_startdate, c_enddate, m_id)
+		values (#{careerNo}, #{companyName}, #{companyType}, #{caStartDate}, #{caEndDate}, #{memberId})
+	</insert>
+	
+	<insert id="insertEducation" parameterType="Education">
+		<selectKey keyProperty="eduNo" resultType="int" order="BEFORE">
+			SELECT COUNT(*)+1 from education
+		</selectKey>
+		insert into education (e_no, e_schoolname, e_major, e_startdate, e_enddate, m_id)
+		values (#{eduNo}, #{schoolName}, #{major}, #{edStartDate}, #{edEndDate}, #{memberId})
+	</insert>
 	
 </mapper>
 
