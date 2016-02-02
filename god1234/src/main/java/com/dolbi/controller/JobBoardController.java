@@ -121,10 +121,9 @@ public class JobBoardController {
    
    
    @RequestMapping(value = "view.action", method = RequestMethod.GET)
-	public ModelAndView getJobboard(
-			@RequestParam(value="JobboardNo") int jobboardNo) {
+	public ModelAndView getJobboard(String jobboardNo) {
 		ModelAndView mav = new ModelAndView();
-		Jobboard jobboard = jobboardDao.getJobboardByJobboardNo(jobboardNo);
+		Jobboard jobboard = jobboardDao.getJobboardByJobboardNo(Integer.parseInt(jobboardNo));
 		mav.addObject(jobboard);
 		mav.setViewName("jobboard/jobboardview");
 		return mav;

@@ -38,10 +38,7 @@
 				<tr style="height:30px">
 					<td>${ jobboard.jobboardNo }</td>
 					<td style="text-align:left;padding-left:10px">
-						<c:url var="view" value="view.action">
-							<c:param name="Jobboardno" value="${ joboard.jobboardNo }" />
-						</c:url>
-						<a href='${ view }'>${ jobboard.jobboardTitle }</a>
+						<a href="view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
 					<td>${ jobboard.memberId }</td>
 					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
