@@ -29,10 +29,10 @@
         	<table border="1" align="center" width="700px">
         		<tr style="height:30px;background-color:orange">
         			<td>아이디</td>
+        			<td>이름</td>
+        			<td>성별</td>
+        			<td>나이</td>
         			<td>이메일</td>
-        			<td>사용자구분</td>
-        			<td>활성화여부</td>
-        			<td>등록일자</td>
         		</tr>        	
         	<c:forEach var="member" items="${ members }">
         		<tr style="height:30px">
@@ -42,10 +42,10 @@
         				</c:url>
         				<a href="${ viewUrl }">${ member.memberId }</a>
         			</td>
+        			<td>${ member.memberName }</td>
+        			<td>${ member.gender }</td>
+        			<td>${ member.age }</td>
         			<td>${ member.email }</td>
-        			<td>${ member.userType }</td>
-        			<td>${ member.active }</td>
-        			<td>${ member.regDate }</td>
         		</tr>
         	</c:forEach>
         	</table>

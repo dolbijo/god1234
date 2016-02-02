@@ -13,6 +13,10 @@
          <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
             
+            	<li><a href="/dolbi/member/list.action">
+                  <spring:message code="menu.member" />         
+               </a></li>
+            
                <li><a href="/dolbi/jobboard/list.action">
                   <spring:message code="menu.jobboard" />         
                </a></li>

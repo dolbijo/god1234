@@ -41,6 +41,18 @@ public class MySqlMemberDao implements MemberDao {
 		memberMapper.insertcomMember(member);
 
 	}
+	
+	@Override
+	public void getindiMemberlist() {
+		memberMapper.selectindiMember();
+
+	}
+	
+	@Override
+	public void getcomMemberlist() {
+		memberMapper.selectcomMember();
+
+	}
 
 	public List<Member> getList() {
 

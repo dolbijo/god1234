@@ -79,6 +79,31 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping(value = "list.action", method = RequestMethod.GET)
+	public String listForm(@RequestParam(value="usertype") String usertype) {
+		
+		if (usertype.equals("individual")) {
+			return "member/listindi";
+		} else {
+			return "member/listcom";
+		}
+		
+	}
+	
+	@RequestMapping(value = "listindi.action", method = RequestMethod.GET)
+	public String listindi(Member member) {
+		
+		return "member/listindi";
+		
+	}
+	
+	@RequestMapping(value = "listcom.action", method = RequestMethod.GET)
+	public String listcom(Member member) {
+		
+		return "member/listcom";
+		
+	}
+	
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") Member member) {
