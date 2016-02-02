@@ -12,16 +12,11 @@ public interface FreeboardDao {
 
 	int insertFreeboard(Freeboard freeboard);
 
-	//void insertFreeboardFile(JobboardAttachment file);
 
-	/*ArrayList<Upload> getJobboardList();
+	ArrayList<Freeboard> getFreeboardList();
 
-	Upload getUploadByUploadNo(int JobboardNo);
+	Freeboard getFreeboardByFreeboardNo(int FreeboardNo);
 
-	ArrayList<UploadFile> getUploadFilesByUploadNo(int JobboardNo);
-
-	UploadFile getUploadFileByUploadFileNo(int JobboardFileNo);
 	
-	void increaseUploadFileDownloadCount(int JobboardNo);*/
 
 }

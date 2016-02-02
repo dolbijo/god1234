@@ -10,7 +10,11 @@ import com.dolbi.model.dto.Member;
 public interface FreeboardMapper {
 	
 	List<Freeboard> selectFreeboards();
+	List<Jobboard> selectFreeboards2();
 	
-	void insertFreeboard(Freeboard freeboard);
+	Freeboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
+	Freeboard selectMemberById(String M_ID);
+	
+	int insertFreeboard(Freeboard freeboard);
 
 }

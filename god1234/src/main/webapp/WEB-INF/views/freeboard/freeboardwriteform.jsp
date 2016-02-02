@@ -46,14 +46,8 @@
 		                </td>
 		            </tr>
 		                 
-		            <tr>
-		                <th>첨부자료</th>
-		                <td>
-		                    <input type="file" name="attach" style="width:580px;height:20px" />
-		                </td>
-		            </tr>
-		            
 		          
+		   
 		            
 		            <tr>
 		                <th>질문 </th>
