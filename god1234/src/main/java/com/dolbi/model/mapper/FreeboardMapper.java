@@ -11,6 +11,9 @@ public interface FreeboardMapper {
 	
 	List<Freeboard> selectFreeboards();
 	
+	Freeboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
+	Freeboard selectMemberById(String M_ID);
+	
 	void insertFreeboard(Freeboard freeboard);
 
 }

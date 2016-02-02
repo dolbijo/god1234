@@ -34,94 +34,37 @@ public class MySqlFreeboardDao implements FreeboardDao {
 	private FreeboardMapper freeboardMapper;
 
 	@Override
-	public int insertFreeboard(Freeboard freeboard) {
+	public void insertFreeboard(Freeboard freeboard) {
 		
 		//mapper연결코드
-		
-		return freeboard.getFreeboardNo();
-
+		freeboardMapper.insertFreeboard(freeboard);
 	}
 	
 
-	/*@Override
-	public ArrayList<Jobboard> getJobboardList() {
+
+	public ArrayList<Freeboard> getFreeboardList() {
 		
 		//mapper연결코드
 		
-		return (ArrayList<Jobboard>)uploads;
-				
-	}
-	
-	@Override
-	public Upload getUploadByUploadNo(int uploadNo) {
-	
-		Upload upload = sqlSessionTemplate.selectOne(
-			"com.dolbi.model.mapper.UploadMapper.selectUploadByUploadNo2", uploadNo);
-		
-		return upload;
-		
-		
-	}
-	
-	@Override
-	public ArrayList<UploadFile> getUploadFilesByUploadNo(int uploadNo) {
-		
-		String sql = 
-			"SELECT uploadFileNo, uploadNo, savedFileName, userFileName " + 
-			"FROM uploadfile WHERE uploadno = ?";
+		 List<Freeboard> freeboards = freeboardMapper.selectFreeboards();
 			
-		List<UploadFile> files = 
-			jdbcTemplate.query(sql, new Object[] { uploadNo }, new RowMapper<UploadFile>() {
-
-				@Override
-				public UploadFile mapRow(ResultSet rs, int rowNum) throws SQLException {
-					UploadFile file = new UploadFile();
-					file.setUploadFileNo(rs.getInt(1));
-					file.setUploadNo(rs.getInt(2));
-					file.setSavedFileName(rs.getString(3));
-					file.setUserFileName(rs.getString(4));
-					return file;
-				}
+		   return (ArrayList<Freeboard>) freeboards;
 				
-			});
-		
-		return (ArrayList<UploadFile>)files;
 	}
 	
 	@Override
-	public UploadFile getUploadFileByUploadFileNo(int uploadFileNo) {
-
-		String sql = 
-			"SELECT uploadFileNo, uploadNo, savedFileName, userFileName " + 
-			"FROM uploadfile WHERE uploadfileno = ?";
+	public Freeboard getFreeboardByFreeboardNo(int freeboardNo) {
+	
+		Freeboard freeboard = sqlSessionTemplate.selectOne(
+			"com.dolbi.model.mapper.FreeboardMapper.selectFreeboardByFreeboardNo2", freeboardNo);
 		
-		UploadFile file = 
-			jdbcTemplate.queryForObject(sql, new Object[] { uploadFileNo }, new RowMapper<UploadFile>() {
-
-				@Override
-				public UploadFile mapRow(ResultSet rs, int rowNum) throws SQLException {
-					UploadFile file = new UploadFile();
-					file = new UploadFile();
-					file.setUploadFileNo(rs.getInt(1));
-					file.setUploadNo(rs.getInt(2));
-					file.setSavedFileName(rs.getString(3));
-					file.setUserFileName(rs.getString(4));
-					return file;
-				}
-				
-			});
+		return freeboard;
 		
-		return file;
 		
 	}
+	
+	
 
-	@Override
-	public void increaseUploadFileDownloadCount(int uploadFileNo) {
-		String sql = 
-			"UPDATE uploadfile SET downloadcount = downloadcount + 1 WHERE uploadfileno = ?";
-		jdbcTemplate.update(sql, uploadFileNo);
-		
-	}*/
 
 }
 

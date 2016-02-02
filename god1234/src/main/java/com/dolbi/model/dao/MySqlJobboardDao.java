@@ -53,9 +53,9 @@ public class MySqlJobboardDao implements JobboardDao {
    public ArrayList<Jobboard> getJobboardList() {
       
       //mapper연결코드
-	   List<Jobboard> jobboards = jobboardMapper.selectJobboards();
+	   ArrayList<Jobboard> jobboards = jobboardMapper.selectJobboards();
 		
-	   return (ArrayList<Jobboard>) jobboards;
+	   return jobboards;
    }
    
  
