@@ -65,7 +65,7 @@
         			</c:otherwise>
         			</c:choose>
         			<br />
-        			<a href="applicationlist.action">지원현황</a>
+        			<a href="applicationlist.action?memberId=${ loginuser.memberId }">지원현황</a>
 					<br />
         			<a href="recommendationlist.action">맞춤알바정보</a>
         		</div>

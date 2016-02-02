@@ -57,6 +57,18 @@
 		values (#{eduNo}, #{schoolName}, #{major}, #{edStartDate}, #{edEndDate}, #{memberId})
 	</insert>
 	
+	<resultMap type="Application" id="applicationMap">
+		<id column="M_ID" property="memberId" />
+		<result column="M_GENDER" property="gender" />
+		<result column="M_AGE" property="age" />
+	</resultMap>
+	
+	<select id="selectApplicationBymemberId" parameterType="String" resultMap="applicationMap">
+		select *
+		from application
+		where m_id = #{memberId}
+	</select>
+	
 </mapper>
 
 
