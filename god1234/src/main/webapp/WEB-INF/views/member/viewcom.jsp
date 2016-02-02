@@ -63,7 +63,7 @@
 		            </tr>		            		            
 		        </table>
 		        <div class="buttons">
-		        	<a href="list.action">목록</a>
+		        	<a href="listcom.action">목록</a>
 		        	&nbsp;&nbsp;
 		        	<a href="edit.action?memberid=${ member.memberId }">정보수정</a>
 		        </div>
