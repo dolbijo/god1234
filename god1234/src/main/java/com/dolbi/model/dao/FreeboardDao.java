@@ -12,11 +12,7 @@ public interface FreeboardDao {
 
 	void insertFreeboard(Freeboard freeboard);
 
-
 	ArrayList<Freeboard> getFreeboardList();
 
 	Freeboard getFreeboardByFreeboardNo(int FreeboardNo);
-
-	
-
 }

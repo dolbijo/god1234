@@ -11,12 +11,25 @@
 		
 	</sql>
 	
+	<resultMap type="Freeboard" id="freeboardListMap">
+		<id property="freeboardNo" column="F_NO" />
+		<result property="freeboardTitle" column="F_TITLE" />
+		<result property="freeboardContent" column="F_CONTENT" />
+		<result property="freeboardRegDate" column="F_REGDATE" />
+		<result property="freeboardReadCount" column="F_READCOUNT" />
+		<result property="freeboardDeleted" column="F_DELETED" />
+		<result property="freeboardtype" column="F_TYPE" />
+		<result property="memberId" column="M_ID" />
+		
+	</resultMap>
 	
-	<!-- 메서드 역할 -->
-	<select id="selectFreeboards" resultType="Freeboard">
+	<select id="selectFreeboards" resultMap="freeboardListMap">
 		SELECT <include refid="FreeboardColumns" /> 
 		FROM FREEBOARD
 	</select>
+	
+	
+
 
 	<insert id="insertFreeboard" parameterType="Freeboard">
 		<selectKey keyProperty="freeboardNo" resultType="int" order="BEFORE">

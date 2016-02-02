@@ -9,7 +9,7 @@ public interface FreeboardService {
 
 	List<Freeboard> getAllfreeboards();
 
-	//Member searchMemberById(String id);
+	Freeboard searchMemberById(String id);
 
 	//Member searchMemberByIdAndPasswd(String id, String passwd);
 

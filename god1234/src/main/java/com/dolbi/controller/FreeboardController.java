@@ -44,35 +44,33 @@ public class FreeboardController {
 	
 	
 	  @RequestMapping(value = "list.action", method = RequestMethod.GET)
-	   public ModelAndView list(Model model) {
+	   public String list(Model model) {
 	      
 			//List<Upload> uploads = dao.getUploadList();
 			List<Freeboard> freeboards = freeboardDao.getFreeboardList();
-			ModelAndView mav = new ModelAndView();
-			mav.addObject("freeboard", freeboards);
-			mav.setViewName("freeboard/freeboardlist");
+			model.addAttribute("freeboards", freeboards);
 			
-			return mav;
+			return "freeboard/freeboardlist";
 	   }
 	  
 	  
 	   @RequestMapping(value = "write.action", method = RequestMethod.POST)
 		public String getFreeboardWriteForm(Freeboard freeboard) throws Exception {
-
 		   freeboardDao.insertFreeboard(freeboard);
 
 			return "redirect:/freeboard/list.action";
 		}
 		
 	  
-	  
-	@RequestMapping(value = "view.action", method = RequestMethod.GET)
-	public String findById(
-		@RequestParam("memberid") String memberId, @ModelAttribute("member") Member member) {
-		
-		return "freeboard/freeboardview";
-		
-	}
+	   @RequestMapping(value = "view.action", method = RequestMethod.GET)
+		public ModelAndView getFreeboard(
+				@RequestParam(value="FreeboardNo") int freeboardNo) {
+			ModelAndView mav = new ModelAndView();
+			Freeboard freeboard = freeboardDao.getFreeboardByFreeboardNo(freeboardNo);
+			mav.addObject(freeboard);
+			mav.setViewName("freeboard/freeboardview");
+			return mav;
+		}
 	
 	@RequestMapping(value = "register.action", method = RequestMethod.GET)
 	public String registerForm() {
@@ -80,11 +78,12 @@ public class FreeboardController {
 	}
 	
 	@RequestMapping(value = "register.action", method = RequestMethod.POST)
-	public String register(Member member) {
-		
-		
-		return "redirect:/freeboard/list.action";
-	}
+	   public String register(Member member) {
+	    
+	      
+	      return "redirect:/freeboard/list.action";
+	   }
+	   
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
 	public String editForm(

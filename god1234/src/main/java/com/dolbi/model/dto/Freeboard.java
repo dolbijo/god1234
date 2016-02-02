@@ -15,6 +15,10 @@ public class Freeboard implements Serializable {
 	private boolean freeboardDeleted;
 	private String freeboardtype;
 	private String memberId;
+	
+	
+	public Freeboard() {}
+	
 	public int getFreeboardNo() {
 		return freeboardNo;
 	}
@@ -63,8 +67,9 @@ public class Freeboard implements Serializable {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-
-
+	
+	
+	
 
 	
 
