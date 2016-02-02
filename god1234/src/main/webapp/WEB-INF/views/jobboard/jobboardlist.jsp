@@ -29,21 +29,24 @@
 					<th style="width:50px">번호</th>
 					<th style="width:400px">제목</th>
 					<th style="width:200px">작성자</th>
-					<th style="width:150px;text-align:center">작성일</th>
+					<th style="width:150px;text-align:center">급여</th>
+					<th style="width:150px;text-align:center">조회수</th>
 					<th style="width:150px;text-align:center">마감일</th>
 				</tr>
 				
-				<c:forEach var="jobboard" items="${ JOBBOARDS }">
+				<c:forEach var="jobboard" items="${ jobboards }">
 				<tr style="height:30px">
-					<td>${ JOBBOARD.jobboardNo }</td>
+					<td>${ jobboard.jobboardNo }</td>
 					<td style="text-align:left;padding-left:10px">
 						<c:url var="view" value="view.action">
-							<c:param name="Jobboardno" value="${ JOBBOARD.jobboardNo }" />
+							<c:param name="Jobboardno" value="${ joboard.jobboardNo }" />
 						</c:url>
-						<a href='${ view }'>${ JOBBOARD.jobboardTitle }</a>
+						<a href='${ view }'>${ jobboard.jobboardTitle }</a>
 					</td>
-					<td>${ JOBBOARD.M_ID }</td>
-					<td>${ JOBBOARD.jobboardRegDate }</td>
+					<td>${ jobboard.memberId }</td>
+					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
+					<td>${ jobboard.jobboardReadCount }</td>
+					<td>${ jobboard.jobboardDeadLine }</td>
 				</tr>
 				</c:forEach>
 				
