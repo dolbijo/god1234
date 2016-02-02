@@ -80,13 +80,13 @@ public class MemberController {
 		return "member/usertype";
 		
 	}
-	
-	@RequestMapping(value = "list.action", method = RequestMethod.GET)
-	public String list(Member member) {
-		
-		return "member/list";
-		
-	}
+
+//	@RequestMapping(value = "list.action", method = RequestMethod.GET)
+//	public String list(Member member) {
+//		
+//		return "member/list";
+//		
+//	}
 	
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
