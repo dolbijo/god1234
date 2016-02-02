@@ -26,43 +26,16 @@
 		        <table>
 		            <tr>
 		                <th>제목</th>
-		                <td>${ JOBBOARD.J_TITLE }</td>
+		                <td>${ freeboard.freeboardTitle}</td>
 		            </tr>
 		            <tr>
 		                <th>작성자</th>
-		                <td>${ JOBBOARD.M_ID }</td>
+		                <td>${ freeboard.memberId}</td>
 		            </tr>
+		            
 		            <tr>
-		            	<th>등록일자</th>
-		            	<td>${ JOBBOARD.J_REGDATE}</td>
-		            </tr>
-		            <tr>
-		            	<th>등록일자</th>
-		            	<td>${ upload.regDate }</td>
-		            </tr>
-		            <tr>
-		            	<th>등록일자</th>
-		            	<td>${ upload.regDate }</td>
-		            </tr>
-		            <tr>
-		            	<th>등록일자</th>
-		            	<td>${ upload.regDate }</td>
-		            </tr>
-		            <tr>
-		                <th>첨부자료</th>
-		                <td>
-		                	<c:forEach var="Attachment" items="${ upload.files }">		                	
-		                	<a href='download.action?JA_NO=${ JOBBOARDATTACHMENT.JA_NO }'>
-		                		${ JOBBOARDATTACHMENT.JA_FILENAME }
-		                	</a>
-		                	&nbsp;
-		                	[${ file.downloadCount }]
-		                	</c:forEach>
-		                </td>
-		            </tr>
-		            <tr>
-		                <th>자료설명</th>
-		                <td>${ JOBBOARD.J_CONTENT }</td>
+		                <th>질문</th>
+		                <td>${ freeboard.freeboardContent }</td>
 		            </tr>
 		        </table>
 		        <div class="buttons">
