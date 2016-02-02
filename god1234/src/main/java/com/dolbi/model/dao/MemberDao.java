@@ -23,4 +23,8 @@ public interface MemberDao {
 
 	Member getMemberByIdAndPasswd(String id, String passWd);
 
+	Member getindiMemberview(String id);
+
+	Member getcomMemberview(String id);
+
 }

@@ -26,7 +26,14 @@
 		<result column="M_PHONENO" property="phoneNo" />
 		<result column="M_TYPE" property="memberType" />
 		<result column="M_MAIL" property="email" />
+		<result column="M_GENDER" property="gender" />
+		<result column="M_AGE" property="age" />
+		<result column="C_NO" property="companyNo" />
+		<result column="C_HOMEPAGE" property="homepage" />
+		<result column="JC_NO" property="categoryNo" />
+		<result column="C_CEONAME" property="ceoName" />
 	</resultMap>
+	 
 	
 	<!-- 메서드 역할 -->
 	<select id="selectMembers" resultType="Member">
@@ -61,14 +68,33 @@
 		call INSERTCOM(#{memberId}, #{passWd}, #{memberName}, #{ceoName}, #{companyNo}, #{memberAddress}, #{phoneNo}, #{homepage}, #{email}, #{categoryNo});
 	</insert>
 	
-	<select id="selectindiMember" resultType="Member">
+	<select id="selectindiMember" resultMap="memberMap">
 		SELECT <include refid="memberColumns" />
 		FROM member
+		WHERE m_type = 'individual'
 	</select>
 	
-	<select id="selectcomMember" resultType="Member">
+	<select id="selectcomMember" resultMap="memberMap">
 		SELECT <include refid="memberColumns" />
 		FROM member
+		WHERE m_type = 'company'
+	</select>
+	
+	<select id="selectindiMemberview" parameterType="String" resultMap="memberMap">
+		SELECT 
+			m.m_id, m.m_name, i.m_gender, i.m_age, m.m_address, m.m_phoneNo, m.m_mail
+		FROM member m 
+		LEFT OUTER JOIN individual i
+		ON m.m_id = i.m_id
+		WHERE m.m_id = #{id}
+	</select>
+	<select id="selectcomMemberview" parameterType="String" resultMap="memberMap">
+		SELECT 
+			m.m_id, m.m_name, m.m_address, m.m_phoneNo, m.m_mail, c.c_ceoname, c.c_no, c.c_homepage, c.jc_no
+		FROM member m 
+		LEFT OUTER JOIN company c
+		ON m.m_id = c.m_id
+		WHERE m.m_id = #{id}
 	</select>
 	
 </mapper>
