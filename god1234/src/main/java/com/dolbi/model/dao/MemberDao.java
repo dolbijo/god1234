@@ -12,6 +12,10 @@ public interface MemberDao {
 	void insertindi(Member member);
 	
 	void insertcom(Member member);
+	
+	List<Member> getcomMemberlist();
+	
+	List<Member> getindiMemberlist();
 
 	List<Member> getList();
 

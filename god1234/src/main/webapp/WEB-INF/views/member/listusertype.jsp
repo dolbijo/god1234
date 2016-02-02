@@ -19,8 +19,9 @@
 		<c:import url="/WEB-INF/views/include/header.jsp" />
 	<table border="1" bordercolor="navy" bgcolor="skyblue" width="500" height="100">
 		<tr>
-		<td><a href="/dolbi/member/register.action?usertype=individual">개인 회원 가입</td>
-		<td><a href="/dolbi/member/register.action?usertype=company">기업 회원 가입</td>
+		<td><a href="/dolbi/member/list.action?usertype=individual">개인 회원 관리</td>
+		<td><a href="/dolbi/member/list.action?usertype=company">기업 회원 관리</td>
+		<td><a href="#">회원 통계</td>
     	</tr>
 	</table>
 

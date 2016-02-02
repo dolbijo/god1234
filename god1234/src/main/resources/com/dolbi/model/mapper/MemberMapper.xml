@@ -18,6 +18,7 @@
 		C_NO, C_HOMEPAGE, JC_NO, C_CEONAME
 	</sql>
 	
+	
 	<resultMap type="Member" id="memberMap">
 		<id column="M_ID" property="memberId" />
 		<result column="M_NAME" property="memberName" />
@@ -59,6 +60,16 @@
 	<insert id="insertcomMember" parameterType="Member">
 		call INSERTCOM(#{memberId}, #{passWd}, #{memberName}, #{ceoName}, #{companyNo}, #{memberAddress}, #{phoneNo}, #{homepage}, #{email}, #{categoryNo});
 	</insert>
+	
+	<select id="selectindiMember" resultType="Member">
+		SELECT <include refid="memberColumns" />
+		FROM member
+	</select>
+	
+	<select id="selectcomMember" resultType="Member">
+		SELECT <include refid="memberColumns" />
+		FROM member
+	</select>
 	
 </mapper>
 
