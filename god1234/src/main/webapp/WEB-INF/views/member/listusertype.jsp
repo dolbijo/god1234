@@ -9,8 +9,8 @@
 <head>
 	<meta charset="utf-8" />
 	<title>사용자 정보</title>
-	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" />		
+<!-- 	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
+	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" />	 -->	
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 	<table border="1" bordercolor="navy" bgcolor="skyblue" width="500" height="100">
 		<tr>
 		<td><a href="/dolbi/member/list.action?usertype=individual">개인 회원 관리</td>
-		<td><a href="/dolbi/member/list.action?usertype=campany">기업 회원 관리</td>
+		<td><a href="/dolbi/member/list.action?usertype=company">기업 회원 관리</td>
 		<td><a href="#">회원 통계</td>
     	</tr>
 	</table>

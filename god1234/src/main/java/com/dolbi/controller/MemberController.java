@@ -30,15 +30,6 @@ public class MemberController {
 	@Qualifier("memberService")
 	private MemberService memberService;
 	
-	@RequestMapping(value = "list.action", method = RequestMethod.GET)
-	public String list(Model model) {
-		
-		List<Member> members = memberDao.getList();
-		//List<Member> members = memberService.getAllMembers();
-		model.addAttribute("members", members);//HttpServletRequest.setAttribute("members", members);
-		
-		return "member/list";
-	}
 	
 	@RequestMapping(value = "register.action", method = RequestMethod.GET)
 	public String registerForm(@RequestParam(value="usertype") String usertype) {
@@ -79,26 +70,28 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping(value = "list.action", method = RequestMethod.GET)
-	public String listForm(@RequestParam(value="usertype") String usertype) {
+	@RequestMapping(value = "listusertype.action", method = RequestMethod.GET)
+	public String listForm() {
 		
-		if (usertype.equals("individual")) {
-			return "member/listindi";
-		} else {
-			return "member/listcom";
-		}
+		return "member/listusertype";
 		
 	}
 	
 	@RequestMapping(value = "listindi.action", method = RequestMethod.GET)
-	public String listindi(Member member) {
+	public String listindi(Member member, Model model) {
+		
+		List<Member> members= memberDao.getindiMemberlist();
+		model.addAttribute("members", members);
 		
 		return "member/listindi";
 		
 	}
 	
 	@RequestMapping(value = "listcom.action", method = RequestMethod.GET)
-	public String listcom(Member member) {
+	public String listcom(Member member, Model model) {
+		
+		List<Member> members= memberDao.getcomMemberlist();
+		model.addAttribute("members", members);
 		
 		return "member/listcom";
 		
