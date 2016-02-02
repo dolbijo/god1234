@@ -13,6 +13,7 @@ public interface FreeboardMapper {
 	
 	Freeboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
 	Freeboard selectMemberById(String M_ID);
+	Freeboard selectFreeboardByfreeboardNo(int freeboardNo);
 	
 	void insertFreeboard(Freeboard freeboard);
 

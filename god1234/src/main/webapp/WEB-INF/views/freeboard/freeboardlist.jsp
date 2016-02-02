@@ -35,7 +35,7 @@
 					<td>${ freeboard.freeboardNo }</td>
 					<td style="text-align:left;padding-left:10px">
 						<c:url var="view" value="view.action">
-							<c:param name="Freeboardno" value="${ freeboard.freeboardNo }" />
+							<c:param name="FreeboardNo" value="${ freeboard.freeboardNo }" />
 						</c:url>
 						<a href='${ view }'>${ freeboard.freeboardTitle }</a>
 					</td>
