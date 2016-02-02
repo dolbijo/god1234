@@ -5,29 +5,27 @@ import java.sql.Date;
 
 public class JobboardAttachment implements Serializable {
 
-	private int uploadFileNo;
-	private int uploadNo;
+	private int jobboardAttachmentNo;
+	private int jobboardNo;
 	private String userFileName;
 	private String savedFileName;
-	private Date regDate;
-	private int downloadCount;
 	
 	public JobboardAttachment() {}
 
-	public int getUploadFileNo() {
-		return uploadFileNo;
+	public int getJobboardAttachmentNo() {
+		return jobboardAttachmentNo;
 	}
 
-	public void setUploadFileNo(int uploadFileNo) {
-		this.uploadFileNo = uploadFileNo;
+	public void setJobboardAttachmentNo(int jobboardAttachmentNo) {
+		this.jobboardAttachmentNo = jobboardAttachmentNo;
 	}
 
-	public int getUploadNo() {
-		return uploadNo;
+	public int getJobboardNo() {
+		return jobboardNo;
 	}
 
-	public void setUploadNo(int uploadNo) {
-		this.uploadNo = uploadNo;
+	public void setJobboardNo(int jobboardNo) {
+		this.jobboardNo = jobboardNo;
 	}
 
 	public String getUserFileName() {
@@ -45,22 +43,5 @@ public class JobboardAttachment implements Serializable {
 	public void setSavedFileName(String savedFileName) {
 		this.savedFileName = savedFileName;
 	}
-
-	public Date getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
-
-	public int getDownloadCount() {
-		return downloadCount;
-	}
-
-	public void setDownloadCount(int downloadCount) {
-		this.downloadCount = downloadCount;
-	}
-	
 	
 }

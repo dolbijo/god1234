@@ -13,14 +13,8 @@ public interface JobboardDao {
 
    void insertJobboardFile(JobboardAttachment file);
 
-   /*ArrayList<Upload> getJobboardList();
-
-   Upload getUploadByUploadNo(int JobboardNo);
-
-   ArrayList<UploadFile> getUploadFilesByUploadNo(int JobboardNo);
-
-   UploadFile getUploadFileByUploadFileNo(int JobboardFileNo);
+   ArrayList<Jobboard> getJobboardList();
    
-   void increaseUploadFileDownloadCount(int JobboardNo);*/
+   Jobboard getJobboardByJobboardNo(int jobboardNo);
 
 }

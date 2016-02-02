@@ -82,14 +82,14 @@
 		            <tr>
 		                <th>카테고리</th>
 		                <td>
-		                	<input type="checkbox" name="categoryNo" value="1" />서비스
-		                	<input type="checkbox" name="categoryNo" value="2" />영업
-		                	<input type="checkbox" name="categoryNo" value="3" />사무직
-		                	<input type="checkbox" name="categoryNo" value="4" />건설
-		                	<input type="checkbox" name="categoryNo" value="5" />생산
-		                	<input type="checkbox" name="categoryNo" value="6" />IT/프로그래밍
-		                	<input type="checkbox" name="categoryNo" value="7" />디자인
-		                	<input type="checkbox" name="categoryNo" value="8" />교육/강사
+		                	<input type="checkbox" name="likedCategory" value="1" />서비스
+		                	<input type="checkbox" name="likedCategory" value="2" />영업
+		                	<input type="checkbox" name="likedCategory" value="3" />사무직
+		                	<input type="checkbox" name="likedCategory" value="4" />건설
+		                	<input type="checkbox" name="likedCategory" value="5" />생산
+		                	<input type="checkbox" name="likedCategory" value="6" />IT/프로그래밍
+		                	<input type="checkbox" name="likedCategory" value="7" />디자인
+		                	<input type="checkbox" name="likedCategory" value="8" />교육/강사
 		                </td>
 		            </tr>	            
 		            
