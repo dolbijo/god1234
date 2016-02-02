@@ -26,20 +26,18 @@
 		        <table>
 		            <tr>
 		                <th>제목</th>
-		                <td>${ JOBBOARD.J_TITLE }</td>
+		                <td>${ jobboard.jobboardTitle }</td>
+		                
 		            </tr>
 		            <tr>
 		                <th>작성자</th>
-		                <td>${ JOBBOARD.M_ID }</td>
+		                <td>${ requestScope.jobboard.memberId }</td>
 		            </tr>
 		            <tr>
 		            	<th>등록일자</th>
-		            	<td>${ JOBBOARD.J_REGDATE}</td>
+		            	<td>${ jobboard.regDate}</td>
 		            </tr>
-		            <tr>
-		            	<th>등록일자</th>
-		            	<td>${ upload.regDate }</td>
-		            </tr>
+		         
 		            <tr>
 		            	<th>등록일자</th>
 		            	<td>${ upload.regDate }</td>

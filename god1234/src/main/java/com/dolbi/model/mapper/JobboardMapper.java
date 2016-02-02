@@ -1,5 +1,6 @@
 package com.dolbi.model.mapper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import com.dolbi.model.dto.Member;
 
 public interface JobboardMapper {
 	
-	List<Jobboard> selectJobboards();
+	ArrayList<Jobboard> selectJobboards();
 	List<Jobboard> selectJobboards2();
 
 	Jobboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
