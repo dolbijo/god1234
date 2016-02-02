@@ -36,7 +36,7 @@ public class MySqlFreeboardDao implements FreeboardDao {
 	@Override
 	public void insertFreeboard(Freeboard freeboard) {
 		
-		//mapper연결코드
+		//mapper�뿰寃곗퐫�뱶
 		freeboardMapper.insertFreeboard(freeboard);
 	}
 	
@@ -44,7 +44,7 @@ public class MySqlFreeboardDao implements FreeboardDao {
 
 	public ArrayList<Freeboard> getFreeboardList() {
 		
-		//mapper연결코드
+		//mapper�뿰寃곗퐫�뱶
 		
 		 List<Freeboard> freeboards = freeboardMapper.selectFreeboards();
 			
@@ -55,8 +55,7 @@ public class MySqlFreeboardDao implements FreeboardDao {
 	@Override
 	public Freeboard getFreeboardByFreeboardNo(int freeboardNo) {
 	
-		Freeboard freeboard = sqlSessionTemplate.selectOne(
-			"com.dolbi.model.mapper.FreeboardMapper.selectFreeboardByFreeboardNo2", freeboardNo);
+		Freeboard freeboard = freeboardMapper.selectFreeboardByfreeboardNo(freeboardNo);
 		
 		return freeboard;
 		

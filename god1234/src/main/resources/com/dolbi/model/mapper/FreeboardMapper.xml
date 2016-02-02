@@ -23,6 +23,13 @@
 		
 	</resultMap>
 	
+	<select id="selectFreeboardByfreeboardNo" resultMap="freeboardListMap" parameterType="int">
+		SELECT <include refid="FreeboardColumns" /> 
+		FROM FREEBOARD 
+		where f_no = #{freeboardNo}
+	</select> 
+	
+	
 	<select id="selectFreeboards" resultMap="freeboardListMap">
 		SELECT <include refid="FreeboardColumns" /> 
 		FROM FREEBOARD

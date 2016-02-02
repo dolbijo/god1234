@@ -43,27 +43,27 @@
 		            </tr>
 		            <tr>
 		            	<th>나이</th>
-		            	<td>${ jobboard.jobboardContent }</td>
+		            	<td>${ jobboard.jobboardAge }</td>
 		            </tr>
 		            <tr>
 		            	<th>모집인원</th>
-		            	<td>${ jobboard.jobboardContent }</td>
+		            	<td>${ jobboard.jobboardJoinNo }</td>
 		            </tr>
 		            <tr>
 		            	<th>성별</th>
-		            	<td>${ jobboard.jobboardContent }</td>
+		            	<td>${ jobboard.jobboardGender }</td>
 		            </tr>
 		            <tr>
 		            	 <th>학력</th>
-		            	<td>${ jobboard.jobboardContent }</td>
+		            	<td>${ jobboard.jobboardEducation }</td>
 		            </tr>
 		            <tr>
 		            	<th>급여</th>
-		            	<td>${ jobboard.jobboardContent }</td>
+		            	<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
 		            </tr>
 		            <tr>
 		            	<th>경력정보</th>
-		            	<td>${ jobboard.jobboardContent }</td>
+		            	<td>${ jobboard.jobboardCareer }</td>
 		            </tr>
 		            
 		             
