@@ -78,7 +78,6 @@ public class MemberController {
 		return "member/usertype";
 		
 	}
-
 	
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)

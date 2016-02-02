@@ -2,16 +2,15 @@ package com.dolbi.model.service;
 
 import java.util.List;
 
-import com.dolbi.model.dto.Member;
+import com.dolbi.model.dto.Jobboard;
+
 
 public interface JobboardService {
 
-	List<Member> getAllMembers();
+	List<Jobboard> getAllJobboards();
 
-//	Member searchMemberById(String id);
-//
-//	Member searchMemberByIdAndPasswd(String id, String passwd);
+	Jobboard searchMemberById(String id);
 
-	void registerMember(Member member);
+	void registerJobboard(Jobboard jobboard);
 
 }
