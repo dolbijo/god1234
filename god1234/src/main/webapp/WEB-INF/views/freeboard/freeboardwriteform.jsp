@@ -22,43 +22,39 @@
 		<div id="inputcontent">
 		    <div id="inputmain">
 		        <div class="inputsubtitle">알바 TALK 게시판</div>
-		        <form action="write.action" method="post" enctype="multipart/form-data">
+		        <form action="write.action" method="post">
 		        <table>
+		        	<tr>
+		        		<th></th>
+		        		<td>
+		        			<select name="freeboardtype">
+		        				<option value="freetalk">공감TALK</option>
+		        				<option value="infotalk">정보TALK</option>
+		        			</select>
+		        		</td>
+		        	</tr>
 		            <tr>
 		                <th>제목</th>
 		                <td>
-		                    <input type="text" name="title" style="width:580px" />
+		                    <input type="text" name="freeboardTitle" style="width:580px" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>작성자</th>
 		                <td>
-		                	<input type="hidden" name="uploader" value='${ sessionScope.loginuser.memberId }' />
+		                	<input type="hidden" name="memberId" value='${ sessionScope.loginuser.memberId }' />
 		                	${ sessionScope.loginuser.memberId }
 		                </td>
 		            </tr>
 		            
-		             <tr>
-		                <th>등록날짜</th>
-		                <td>
-							<input type ="date" name = "regdate">
-							
-		                </td>
-		            </tr>
-		                 
-		          
-		   
-		            
+
 		            <tr>
 		                <th>질문 </th>
 		                <td>
-		                	<textarea name="content" style="width:580px" rows="15"></textarea>
+		                	<textarea name="freeboardContent" style="width:580px" rows="15"></textarea>
 		                </td>
 		            </tr>
 		 
-		 
-		          
-	
 		        </table>
 		        <div class="buttons">
 		        	<input type="submit" value="자료등록" style="height:25px" onclick="document.forms[0].submit();" />

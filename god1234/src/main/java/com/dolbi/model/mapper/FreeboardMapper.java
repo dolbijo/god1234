@@ -15,6 +15,6 @@ public interface FreeboardMapper {
 	Freeboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
 	Freeboard selectMemberById(String M_ID);
 	
-	int insertFreeboard(Freeboard freeboard);
+	void insertFreeboard(Freeboard freeboard);
 
 }

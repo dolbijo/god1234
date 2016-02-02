@@ -57,58 +57,9 @@ public class FreeboardController {
 	  
 	  
 	   @RequestMapping(value = "write.action", method = RequestMethod.POST)
-		public String getFreeboardWriteForm(MultipartHttpServletRequest request) throws Exception {
+		public String getFreeboardWriteForm(Freeboard freeboard) throws Exception {
 
-			//업로드된 파일을 저장할 경로 (가상경로 -> 물리경로) 추출
-			String path = request.getSession().getServletContext().getRealPath("/WEB-INF/uploadfiles");
-			
-			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-			SimpleDateFormat transFormat2 = new SimpleDateFormat("yyyy");
-			//Upload 객체 생성 및 파일이 아닌 데이터 저장
-			Freeboard freeboard = new Freeboard();      
-		    freeboard.setFreeboardTitle(request.getParameter("title"));
-		    freeboard.setFreeboardContent(request.getParameter("content"));
-		    freeboard.setMemberId(request.getParameter("uploader"));
-		    //Date regdate = transFormat.parse(request.getParameter("regdate"));
-			//freeboard.setFreeboardRegdate(regdate);
-			
-			//아래 try 영역 내부에서 오류가 발생하면 모든 db연동 작업을 취소하도록 처리
-			try {
-				int newFreeboardNo = freeboardDao.insertFreeboard(freeboard);			
-				
-				Iterator<String> iterator = request.getFileNames();			
-				while (iterator.hasNext()) {
-				
-					String fileName = iterator.next();
-					MultipartFile file = request.getFile(fileName);
-					
-					if (file != null && file.getSize() > 0) {
-						
-						String savedName = Util.getUniqueFileName(path, file.getOriginalFilename());
-				
-						JobboardAttachment temp = new JobboardAttachment();
-						temp.setSavedFileName(savedName);
-						temp.setUserFileName(file.getOriginalFilename());
-						temp.setJobboardNo(newFreeboardNo);
-					//	freeboardDao.insertFreeboardFile(temp);
-						
-						FileOutputStream ostream = new FileOutputStream(path + "/" + savedName);
-						InputStream istream = file.getInputStream();
-						byte[] buffer = new byte[512];
-						while (true) {
-							int count = istream.read(buffer, 0, buffer.length);
-							if (count == -1) break;
-							ostream.write(buffer, 0, count);
-						}
-						
-						istream.close();
-						ostream.close();					
-					}
-				}
-			} catch (Exception ex) {
-				ex.printStackTrace();
-				throw new RuntimeException("redirect:/upload/list.action");
-			}
+		   freeboardDao.insertFreeboard(freeboard);
 
 			return "redirect:/freeboard/list.action";
 		}

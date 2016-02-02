@@ -10,7 +10,7 @@ import com.dolbi.model.dto.UploadFile;
 
 public interface FreeboardDao {
 
-	int insertFreeboard(Freeboard freeboard);
+	void insertFreeboard(Freeboard freeboard);
 
 
 	ArrayList<Freeboard> getFreeboardList();

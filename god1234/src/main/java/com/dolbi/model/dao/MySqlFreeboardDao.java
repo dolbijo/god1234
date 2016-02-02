@@ -34,12 +34,10 @@ public class MySqlFreeboardDao implements FreeboardDao {
 	private FreeboardMapper freeboardMapper;
 
 	@Override
-	public int insertFreeboard(Freeboard freeboard) {
+	public void insertFreeboard(Freeboard freeboard) {
 		
 		//mapper연결코드
-		
-		return freeboard.getFreeboardNo();
-
+		freeboardMapper.insertFreeboard(freeboard);
 	}
 	
 
