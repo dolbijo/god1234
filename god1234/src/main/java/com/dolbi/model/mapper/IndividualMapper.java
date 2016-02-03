@@ -27,5 +27,5 @@ public interface IndividualMapper {
 	void insertCareer(Career career);
 	void insertEducation(Education edu);
 	
-	Application selectApplicationBymemberId(String memberId);
+	ArrayList<Application> selectApplicationBymemberId(String memberId);
 }

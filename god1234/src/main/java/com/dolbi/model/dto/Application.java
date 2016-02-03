@@ -30,17 +30,18 @@ public class Application implements Serializable {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public boolean isCheck() {
-		return isCheck;
-	}
-	public void setCheck(boolean isCheck) {
-		this.isCheck = isCheck;
-	}
+	
 	public Date getApplicationRegdate() {
 		return applicationRegdate;
 	}
 	public void setApplicationRegdate(Date applicationRegdate) {
 		this.applicationRegdate = applicationRegdate;
+	}
+	public boolean getIsCheck() {
+		return isCheck;
+	}
+	public void setIsCheck(boolean isCheck) {
+		this.isCheck = isCheck;
 	}
 	
 }

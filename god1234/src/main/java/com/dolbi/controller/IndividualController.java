@@ -198,9 +198,10 @@ public class IndividualController {
 	}
 
 	@RequestMapping(value = "applicationlist.action", method = RequestMethod.GET)
-	public String applicationlist(String memberId) {
+	public String applicationlist(String memberId, Model model) {
 		
-		Application application = individualDao.getApplicationList(memberId);
+		List<Application> applications = individualDao.getApplicationList(memberId);
+		model.addAttribute("applications", applications);
 		
 		return "individual/applicationlist";
 		

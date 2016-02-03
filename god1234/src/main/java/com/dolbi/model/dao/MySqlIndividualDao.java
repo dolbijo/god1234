@@ -79,10 +79,10 @@ public class MySqlIndividualDao implements IndividualDao {
 		individualMapper.insertEducation(edu);
 	}
 	
-	public Application getApplicationList(String memberId) {
-		Application application = individualMapper.selectApplicationBymemberId(memberId);
+	public ArrayList<Application> getApplicationList(String memberId) {
+		ArrayList<Application> applications = individualMapper.selectApplicationBymemberId(memberId);
 		
-		return application;
+		return applications;
 	}
 	
 }

@@ -1,4 +1,5 @@
 <%@page import="com.dolbi.model.dto.Member"%>
+<%@page import="com.dolbi.model.dto.Application"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dolbi.model.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"

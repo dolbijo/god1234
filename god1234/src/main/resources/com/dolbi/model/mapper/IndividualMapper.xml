@@ -119,7 +119,7 @@
 		<result column="j_no" property="jobboardNo" />
 		<result column="M_id" property="memberId" />
 		<result column="a_ischeck" property="isCheck" />
-		<result column="a_ragdate" property="applicationRegdate" />
+		<result column="a_regdate" property="applicationRegdate" />
 	</resultMap>
 	
 	<select id="selectApplicationBymemberId" parameterType="String" resultMap="applicationMap">

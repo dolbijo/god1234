@@ -26,5 +26,5 @@ public interface IndividualDao {
 	void insertCareer(Career career);
 	void insertEducation(Education edu);
 	
-	Application getApplicationList(String memberId);
+	ArrayList<Application> getApplicationList(String memberId);
 }
