@@ -26,6 +26,18 @@
 <link rel="stylesheet" href="/dolbi/resources/css/style.css">
 <!-- skin -->
 <link rel="stylesheet" href="/dolbi/sources/skin/default.css">
+<script type="text/javascript">
+		window.onload = function() {
+			
+			var deadline = '${ requestScope.loginid }';
+			
+			if (failedLoginId) { 
+				alert('로그인 실패');
+				document.getElementById("memberId").value = failedLoginId;
+			}
+			
+		}
+	</script>
 </head>
 <body>
 	<section id="header" class="appear"></section>
@@ -64,10 +76,10 @@
 
 					
             		
-        			<a href="ingsearch.action">진행중인 공고</a>
+        			<a href="ingjobboard.action?memberId=${ loginuser.memberId }">진행중인 공고</a>
         			
         			
-        			<a href="endsearch.action">마감된 공고</a>
+        			<a href="endjobboard.action?memberId=${ loginuser.memberId }">마감된 공고</a>
         			
         			
 						<!-- <input type="button" value="진행중인 공고"
