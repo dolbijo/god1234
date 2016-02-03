@@ -17,6 +17,7 @@ public class Member implements Serializable {
 	private int companyNo;
 	private String homepage;
 	private int categoryNo;
+	private int likedCategory;
 	private String ceoName;
 	
 	public String getMemberId() {
@@ -97,6 +98,11 @@ public class Member implements Serializable {
 	public void setCeoName(String ceoName) {
 		this.ceoName = ceoName;
 	}
-	
-	
+	public int getLikedCategory() {
+		return likedCategory;
+	}
+	public void setLikedCategory(int likedCategory) {
+		this.likedCategory = likedCategory;
+	}
+		
 }

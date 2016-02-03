@@ -325,8 +325,8 @@
 				<div class="col-sm-12 align-center">
                     <ul class="social-network social-circle">
                         <li><a href="http://www.facebook.com" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="http://www.twitter.com" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="http://www.google.co.kr" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="http://www.twitter.com" target="_blank" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://www.google.co.kr" target="_blank" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
                     </ul>				
 				</div>
 			</div>
