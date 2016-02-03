@@ -6,24 +6,61 @@
 
 <mapper namespace="com.dolbi.model.mapper.JobboardMapper"><!-- 클래스 또는 인터페이스 역할 -->
 	
-	<sql id="JobboardColumns">
-		J_No,J_TITLE,J_CONTENT,J_REGDATE,J_READCOUNT,J_DELETED,J_DEADLINE,J_JOINNO,
-		J_GENDER,J_AGE,J_EDUCATION,M_ID,J_PAYMENT,J_CAREER
+	<sql id="JobboardListColumns">
+		J_NO,J_TITLE,J_READCOUNT,J_DEADLINE,M_ID,J_PAYMENT,J_SALARY,J_DELETED
+	</sql>
+	<sql id="JobboardViewColumns">
+		J_NO,J_TITLE,J_CONTENT,J_DEADLINE,M_ID,J_PAYMENT,J_SALARY,J_DELETED,J_JOINNO,J_GENDER,J_AGE,J_EDUCATION,J_CAREER
 	</sql>
 	
 	<!-- <resultMap type="com.mvcdemoweb.model.dto.Member" id="memberMap"> -->
-	<resultMap type="Jobboard" id="JobboardMap">
-		<id property="J_NO" column="J_NO" />
-		<result property="email" column="email" />
-		<result property="userType" column="userType" />
-		<result property="active" column="active" />
-		<result property="J_regDate" column="J_regDate" />
+	<resultMap type="Jobboard" id="jobboardListMap">
+		<id property="jobboardNo" column="J_NO" />
+		<result property="jobboardTitle" column="J_TITLE" />
+		<result property="jobboardReadCount" column="J_READCOUNT" />
+		<result property="jobboardDeadLine" column="J_DEADLINE" />
+		<result property="memberId" column="M_ID" />
+		<result property="jobboardPayment" column="J_PAYMENT" />
+		<result property="jobboardSalary" column="J_SALARY" />
+		<result property="jobboardDeleted" column="J_DELETED" />
 	</resultMap>
 	
 	<!-- 메서드 역할 -->
-	<select id="selectJobboards" resultType="Jobboard">
-		SELECT <include refid="JobboardColumns" /> 
+	<select id="selectJobboards" resultMap="jobboardListMap">
+		SELECT <include refid="JobboardListColumns" /> 
 		FROM JOBBOARD
+	</select>
+	
+	<resultMap type="JobboardAttachment" id="jobboardFileMap">
+		<id column="ja_no" property="jobboardAttachmentNo" />
+		<result column="j_no" property="jobboardNo" />
+		<result column="ja_savedfilename" property="savedFileName" />
+		<result column="ja_filename" property="userFileName" />
+	</resultMap>
+	
+	<resultMap type="Jobboard" id="jobboardViewMap">
+		<id property="jobboardNo" column="J_NO" />
+		<result property="jobboardTitle" column="J_TITLE" />
+		<result property="jobboardContent" column="J_CONTENT" />
+		<result property="jobboardDeadLine" column="J_DEADLINE" />
+		<result property="memberId" column="M_ID" />
+		<result property="jobboardPayment" column="J_PAYMENT" />
+		<result property="jobboardSalary" column="J_SALARY" />
+		<result property="jobboardDeleted" column="J_DELETED" />
+		<result property="jobboardJoinNo" column="J_JOINNO" />
+		<result property="jobboardGender" column="J_GENDER" />
+		<result property="jobboardAge" column="J_AGE" />
+		<result property="jobboardEducation" column="J_EDUCATION" />
+		<result property="jobboardCareer" column="J_CAREER" />
+		<collection property="files" column="j_no" resultMap="jobboardFileMap" />
+	</resultMap>
+	
+	<select id="selectJobboardByjobboardNo" resultMap="jobboardViewMap" parameterType="int">
+		SELECT j.J_NO,j.J_TITLE,j.J_CONTENT,j.J_DEADLINE,j.M_ID,j.J_PAYMENT,j.J_SALARY,j.J_DELETED,j.J_JOINNO,j.J_GENDER,j.J_AGE,j.J_EDUCATION,j.J_CAREER,ja.ja_savedfilename
+		FROM JOBBOARD j
+		LEFT OUTER JOIN JOBBOARDATTACHMENT ja
+		ON j.j_no = ja.j_no
+		where j.j_no = #{jobboardNo}
 	</select>
 	
 	<insert id="insertJobboard" parameterType="Jobboard">
@@ -40,6 +77,14 @@
 		</selectKey>
 		insert into jobboardattachment (ja_no, j_no, ja_savedfilename, ja_filename)
 		values (#{jobboardAttachmentNo}, #{jobboardNo}, #{savedFileName}, #{userFileName})
+	</insert>
+	
+	<insert id="insertApplication" parameterType="hashMap">
+		<selectKey keyProperty="applicationNo" resultType="int" order="BEFORE">
+			SELECT COUNT(*)+1 from application
+		</selectKey>
+		insert into application (a_no, j_no, m_id)
+		values (#{applicationNo}, #{jobboardNo}, #{memberId})
 	</insert>
 	
 </mapper>

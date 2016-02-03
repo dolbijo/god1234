@@ -48,7 +48,7 @@ public class JobBoardController {
       
 		List<Jobboard> jobboards = jobboardDao.getJobboardList();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("jobboard", jobboards);
+		mav.addObject("jobboards", jobboards);
 		mav.setViewName("jobboard/jobboardlist");
 		
 		return mav;
@@ -121,10 +121,9 @@ public class JobBoardController {
    
    
    @RequestMapping(value = "view.action", method = RequestMethod.GET)
-	public ModelAndView getJobboard(
-			@RequestParam(value="JobboardNo") int jobboardNo) {
+	public ModelAndView getJobboard(String jobboardNo) {
 		ModelAndView mav = new ModelAndView();
-		Jobboard jobboard = jobboardDao.getJobboardByJobboardNo(jobboardNo);
+		Jobboard jobboard = jobboardDao.getJobboardByJobboardNo(Integer.parseInt(jobboardNo));
 		mav.addObject(jobboard);
 		mav.setViewName("jobboard/jobboardview");
 		return mav;
@@ -150,6 +149,15 @@ public class JobBoardController {
       @ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
       
          return "jobboard/editform";
+      
+   }
+   
+   @RequestMapping(value = "application.action", method = RequestMethod.GET)
+   public String application(String memberId, String jobboardNo) {//HttpServletRequest.setAttribute("member", member)
+      
+	   jobboardDao.insertApplication(memberId, jobboardNo);
+	   
+       return "redirect:/jobboard/view.action?jobboardNo="+jobboardNo;
       
    }
 

@@ -13,11 +13,18 @@ public interface MemberDao {
 	
 	void insertcom(Member member);
 	
-
+	List<Member> getcomMemberlist();
+	
+	List<Member> getindiMemberlist();
+	
 	List<Member> getList();
 
 	Member getMemberById(String id);
 
 	Member getMemberByIdAndPasswd(String id, String passWd);
+
+	Member getindiMemberview(String id);
+
+	Member getcomMemberview(String id);
 
 }

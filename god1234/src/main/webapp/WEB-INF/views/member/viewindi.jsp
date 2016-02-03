@@ -26,27 +26,39 @@
 		        <table>
 		            <tr>
 		                <th>아이디(ID)</th>
-		                <td>${ requestScope.member.memberId }</td>
+		                <td>${ member.memberId }</td>
 		            </tr>
+					<tr>
+		                <th>이름</th>
+		                <td>${ member.memberName }</td>
+		            </tr>
+		            <tr>
+		                <th>성별</th>
+		                <td>${ member.gender }</td>
+		            </tr>		            
+		            <tr>
+		                <th>나이</th>
+		                <td>${ member.age }</td>
+		            </tr>
+		            <tr>
+		                <th>주소</th>
+		                <td>${ member.memberAddress }</td>
+		            </tr>	
+		            <tr>
+		                <th>전화번호</th>
+		                <td>${ member.phoneNo }</td>
+		            </tr>	
 		            <tr>
 		                <th>이메일</th>
 		                <td>${ requestScope["member"].email }</td>
-		            </tr>
-		            <tr>
-		                <th>등록일</th>
-		                <td>${ member.regDate }</td>
-		            </tr>		            
-		            <tr>
-		                <th>사용자구분</th>
-		                <td>${ member.userType eq 'uesr' or member.userType eq 'user' ? "사용자" : "관리자" }</td>
-		            </tr>
-		            <tr>
-		                <th>활성화여부</th>
-		                <td>${ member.active eq true ? "활성사용자" : "비활성사용자" }</td>
-		            </tr>		            		            
+		            </tr>            		  
+<%-- 		            <tr>
+		                <th>카테고리</th>
+		                <td>${ member.likedCategory }</td>
+		            </tr>   --%>        
 		        </table>
 		        <div class="buttons">
-		        	<a href="list.action">목록</a>
+		        	<a href="listindi.action">목록</a>
 		        	&nbsp;&nbsp;
 		        	<a href="edit.action?memberid=${ member.memberId }">정보수정</a>
 		        </div>

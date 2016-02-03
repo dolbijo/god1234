@@ -13,7 +13,6 @@ public class Jobboard implements Serializable {
 	private Date jobboardRegDate;
 	private int jobboardReadCount;
 	private boolean jobboardDeleted;
-	private String jobboardSubTitle;
 	private Date jobboardDeadLine;
 	private int jobboardJoinNo;
 	private String jobboardGender;
@@ -23,8 +22,7 @@ public class Jobboard implements Serializable {
 	private String jobboardPayment;
 	private int jobboardSalary;
 	private String jobboardCareer;
-
-
+	
 	private ArrayList<JobboardAttachment> files;
 	
 	public Jobboard() {}
@@ -75,14 +73,6 @@ public class Jobboard implements Serializable {
 
 	public void setJobboardDeleted(boolean jobboardDeleted) {
 		this.jobboardDeleted = jobboardDeleted;
-	}
-
-	public String getJobboardSubTitle() {
-		return jobboardSubTitle;
-	}
-
-	public void setJobboardSubTitle(String jobboardSubTitle) {
-		this.jobboardSubTitle = jobboardSubTitle;
 	}
 
 	public Date getJobboardDeadLine() {
@@ -141,6 +131,14 @@ public class Jobboard implements Serializable {
 		this.jobboardPayment = jobboardPayment;
 	}
 
+	public int getJobboardSalary() {
+		return jobboardSalary;
+	}
+
+	public void setJobboardSalary(int jobboardSalary) {
+		this.jobboardSalary = jobboardSalary;
+	}
+
 	public String getJobboardCareer() {
 		return jobboardCareer;
 	}
@@ -157,13 +155,7 @@ public class Jobboard implements Serializable {
 		this.files = files;
 	}
 
-	public int getJobboardSalary() {
-		return jobboardSalary;
-	}
-
-	public void setJobboardSalary(int jobboardSalary) {
-		this.jobboardSalary = jobboardSalary;
-	}
+	
 	
 
 	

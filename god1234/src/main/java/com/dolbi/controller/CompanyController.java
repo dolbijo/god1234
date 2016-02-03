@@ -84,12 +84,11 @@ public class CompanyController {
 		return "redirect:/member/list.action";
 	}
 	
-	// ingjobboard / endjobboard
 	@RequestMapping(value = "ingjobboard.action", method = RequestMethod.GET)
 	public String ingJobboard(String memberId, Model model) {
 		
 		List<Jobboard> jobboards = searchjobboardDao.ingJobboard(memberId);
-		model.addAttribute("JOBBOARDS", jobboards);
+		model.addAttribute("jobboards", jobboards);
 		
 		return "company/jobboardlist";
 	}
@@ -97,7 +96,7 @@ public class CompanyController {
 	public String endJobboard(String memberId, Model model) {
 		
 		List<Jobboard> jobboards = searchjobboardDao.endJobboard(memberId);
-		model.addAttribute("JOBBOARDS", jobboards);
+		model.addAttribute("jobboards", jobboards);
 		
 		return "company/jobboardlist";
 	}

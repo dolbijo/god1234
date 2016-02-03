@@ -17,7 +17,7 @@ public interface SearchJobboardMapper {
 	Jobboard selectMemberById(String M_ID);
 	
 	
-	ArrayList<Jobboard> ingJobboard(String id);
-	ArrayList<Jobboard> endJobboard(String id);
+	ArrayList<Jobboard> selectIngJobboards(String id);
+	ArrayList<Jobboard> selectEndJobboards(String id);
 
 }

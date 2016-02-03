@@ -76,10 +76,10 @@
 
 					
             		
-        			<a href="list.action?memberId=${ loginuser.memberId }">진행중인 공고</a>
+        			<a href="ingjobboard.action?memberId=${ loginuser.memberId }">진행중인 공고</a>
         			
         			
-        			<a href="list.action?memberId=${ loginuser.memberId }">마감된 공고</a>
+        			<a href="endjobboard.action?memberId=${ loginuser.memberId }">마감된 공고</a>
         			
         			
 						<!-- <input type="button" value="진행중인 공고"

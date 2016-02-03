@@ -17,4 +17,6 @@ public interface JobboardDao {
    
    Jobboard getJobboardByJobboardNo(int jobboardNo);
 
+   void insertApplication(String memberId, String jobboardNo);
+
 }

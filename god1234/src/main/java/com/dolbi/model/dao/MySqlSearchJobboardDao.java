@@ -36,17 +36,17 @@ public class MySqlSearchJobboardDao implements SearchjobboardDao {
    @Override
    public ArrayList<Jobboard> ingJobboard(String id) {
       
-      
-	   ArrayList<Jobboard> jobboard = searchjobboardMapper.ingJobboard(id);
+      System.out.println("진행중인 공고 Dao" + id);
+	   ArrayList<Jobboard> jobboard = searchjobboardMapper.selectIngJobboards(id);
 	
-	return jobboard;
+	   return jobboard;
 
    }
    @Override
    public ArrayList<Jobboard> endJobboard(String id) {
       
       
-	   ArrayList<Jobboard> jobboard = searchjobboardMapper.endJobboard(id);
+	   ArrayList<Jobboard> jobboard = searchjobboardMapper.selectEndJobboards(id);
 	
 	return jobboard;
 
