@@ -148,7 +148,7 @@ public class JobBoardController {
       @RequestParam("memberid") String memberId,      
       @ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
       
-         return "jobboard/editform";
+         return "jobboard/jobboardeditform";
       
    }
    
