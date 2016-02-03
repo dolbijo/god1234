@@ -21,7 +21,20 @@
     	<c:import url="/WEB-INF/views/include/header.jsp" />
         
         <div id="content">
-        	
+        <table border="1">
+        	<tr>
+        		<th>지원 날짜</th>
+        		<th>지원 공고</th>
+        		<th>담당자 연람유무</th>
+        	</tr>
+        	<c:forEach var="application" items="${applications }">
+        	<tr>
+        		<td>${application.applicationRegdate }</td>
+        		<td>${application.jobboardNo }</td>
+        		<td>${application.isCheck }</td>
+        	</tr>
+        	</c:forEach>
+        </table>
         </div>
     </div>
     

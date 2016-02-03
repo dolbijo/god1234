@@ -1,5 +1,6 @@
 package com.dolbi.model.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
 import com.dolbi.model.dto.Education;
 import com.dolbi.model.dto.Member;
@@ -26,37 +28,63 @@ public class MySqlIndividualDao implements IndividualDao {
 	@Qualifier("individualMapper")
 	private IndividualMapper individualMapper;
 
-	public int getResumeById(String id) {
+	public int getcountResumeById(String id) {
 		
-		int resume = individualMapper.selectResumeBymemberId(id);
+		int resume = individualMapper.countResumeBymemberId(id);
 		
 		return resume;
 		
 	}
 	
+	public Resume getResumeById(String id) {
+		
+		Resume resume = individualMapper.selectResumeBymemberId(id);
+		
+		return resume;
+		
+	}
+	public ResumeAttachment getResumeAttachmentById(String id){
+		ResumeAttachment reAtt = individualMapper.selectResumeAttachmentBymemberId(id);
+		
+		return reAtt;
+	}
+	
+	public ArrayList<Career> getCareerById(String id) {
+		ArrayList<Career> career = individualMapper.selectCareerBymemberId(id);
+		return career;
+	}
+	
+	public ArrayList<Education> getEducationById(String id) {
+		ArrayList<Education> edu = individualMapper.selectEducationBymemberId(id);
+		return edu;
+	}
+	
 	public Member getIndividualById(String id) {
 		
-		System.out.println("individualDao+id" + id);
 		Member member = individualMapper.selectIndividualByMemberId(id);
-		System.out.println("individualDao member age : " + member.getAge());
 		return member;
 		
 	}
 	
 	public void insertResume(Resume resume) {
-		System.out.println("resumeDao"+resume.getResumeTitle());
 		individualMapper.insertResume(resume);
 	}
 	public void insertResumeAttachment(ResumeAttachment resumeAttachment) {
 		individualMapper.insertResumeAttachment(resumeAttachment);
 	}
 	public void insertCareer(Career career) {
-		System.out.println("resumeDao career"+career.getCompanyName());
 		individualMapper.insertCareer(career);
 	}
 	public void insertEducation(Education edu) {
 		individualMapper.insertEducation(edu);
 	}
+	
+	public ArrayList<Application> getApplicationList(String memberId) {
+		ArrayList<Application> applications = individualMapper.selectApplicationBymemberId(memberId);
+		
+		return applications;
+	}
+	
 }
 
 

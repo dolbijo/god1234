@@ -61,11 +61,11 @@
         			<a href="resumeform.action?memberId=${ loginuser.memberId }">이력서 등록</a>
         			</c:when>
         			<c:otherwise>
-        			<a href="resumeview.action">이력서 보러가기</a>
+        			<a href="resumeview.action?memberId=${ loginuser.memberId }">이력서 보러가기</a>
         			</c:otherwise>
         			</c:choose>
         			<br />
-        			<a href="applicationlist.action">지원현황</a>
+        			<a href="applicationlist.action?memberId=${ loginuser.memberId }">지원현황</a>
 					<br />
         			<a href="recommendationlist.action">맞춤알바정보</a>
         		</div>

@@ -17,7 +17,6 @@
 	<div id="pageContainer">
 	
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 		
 		<div style="padding-top:25px;text-align:center">
 		<div id="inputcontent">
@@ -31,39 +30,47 @@
 		            </tr>
 		            <tr>
 		                <th>작성자</th>
-		                <td>${ requestScope.jobboard.memberId }</td>
+		                <td>${ jobboard.memberId }</td>
 		            </tr>
 		            <tr>
-		            	<th>등록일자</th>
-		            	<td>${ jobboard.regDate}</td>
+		            	<th>마감일자</th>
+		            	<td>${ jobboard.jobboardDeadLine}</td>
 		            </tr>
 		         
 		            <tr>
-		            	<th>등록일자</th>
-		            	<td>${ upload.regDate }</td>
+		            	<th>상세 모집 요강</th>
+		            	<td>${ jobboard.jobboardContent }</td>
 		            </tr>
 		            <tr>
-		            	<th>등록일자</th>
-		            	<td>${ upload.regDate }</td>
+		            	<th>나이</th>
+		            	<td>${ jobboard.jobboardAge }</td>
 		            </tr>
 		            <tr>
-		                <th>첨부자료</th>
-		                <td>
-		                	<c:forEach var="Attachment" items="${ upload.files }">		                	
-		                	<a href='download.action?JA_NO=${ JOBBOARDATTACHMENT.JA_NO }'>
-		                		${ JOBBOARDATTACHMENT.JA_FILENAME }
-		                	</a>
-		                	&nbsp;
-		                	[${ file.downloadCount }]
-		                	</c:forEach>
-		                </td>
+		            	<th>모집인원</th>
+		            	<td>${ jobboard.jobboardJoinNo }</td>
 		            </tr>
 		            <tr>
-		                <th>자료설명</th>
-		                <td>${ JOBBOARD.J_CONTENT }</td>
+		            	<th>성별</th>
+		            	<td>${ jobboard.jobboardGender }</td>
 		            </tr>
+		            <tr>
+		            	 <th>학력</th>
+		            	<td>${ jobboard.jobboardEducation }</td>
+		            </tr>
+		            <tr>
+		            	<th>급여</th>
+		            	<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
+		            </tr>
+		            <tr>
+		            	<th>경력정보</th>
+		            	<td>${ jobboard.jobboardCareer }</td>
+		            </tr>
+		            
+		             
+		            
 		        </table>
 		        <div class="buttons">
+		        	[<a href="application.action?memberId=${ loginuser.memberId }&jobboardNo=${jobboard.jobboardNo}">지원하기</a>]
 		        	<input type="button" value="편집" style="height:25px" />
 		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
 		        </div>
