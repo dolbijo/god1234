@@ -1,13 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
 	<title>로그인</title>
-	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" />	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    
+	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="<%=cp%>/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+
+	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    
+	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" type="text/css">
+	<link href="<%=cp%>/resources/bootstrap/css/pages/signin.css" rel="stylesheet" type="text/css">
+	
 	<script type="text/javascript">
 		window.onload = function() {
 			
@@ -21,44 +31,37 @@
 		}
 	</script>
 </head>
-<body>	
-	<div id="pageContainer">
-	
-		<c:import url="/WEB-INF/views/include/header.jsp" />
+<body>
 		
-		<div id="inputcontent">
-			<br /><br />
-		    <div id="inputmain">
-		        <div class="inputsubtitle">로그인정보</div>
-		        
-		        <form action="login.action" method="post">
-		        
-		        <!-- input type="hidden" : 사용자에게 보이지 않지만 서버로 전송되는 입력 요소 -->
+	<c:import url="/WEB-INF/views/include/header.jsp" />
+	<div class="account-container">
+		<div class="content clearfix">
+			<form action="login.action" method="post">
 		        <input type="hidden" name="returnurl" value='${ empty requestScope.returnurl ? "" : requestScope.returnurl }' />
-		        <table>
-		            <tr>
-		                <th>아이디(ID)</th>
-		                <td>
-		                    <input type="text" id="memberId" name="memberId" style="width:280px" />
-		                </td>
-		            </tr>
-		            <tr>
-		                <th>비밀번호</th>
-		                <td>
-		                	<input type="password" name="passWd" style="width:280px" />
-		                </td>
-		            </tr>
-		        </table>
-		        <div class="buttons">
-		        	<input type="submit" value="로그인" style="height:25px"/>
-		        	<input type="button" value="취소" style="height:25px" />
-		        </div>
+		        <h1>Member Login</h1>
+		        <div class="login-fields">
+				
+				<p>Please provide your details</p>
+				
+				<div class="field">
+					<label for="username">Username</label>
+					<input type="text" id="memberId" name="memberId" placeholder="Username" class="login username-field" />
+				</div> <!-- /field -->
+				
+				<div class="field">
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="passWd" placeholder="Password" class="login password-field"/>
+				</div> <!-- /password -->
+				
+				</div> <!-- /login-fields -->
+			
+				<div class="login-actions">	
+					<input type="submit" value="로그인" class="button btn btn-success btn-large"/>
+				</div> <!-- .actions -->
 		        </form>
 		        
 		    </div>
 		</div>   	
-	
-	</div>
 
 </body>
 </html>
