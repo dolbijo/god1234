@@ -16,7 +16,7 @@ public interface MemberDao {
 	List<Member> getcomMemberlist();
 	
 	List<Member> getindiMemberlist();
-
+	
 	List<Member> getList();
 
 	Member getMemberById(String id);

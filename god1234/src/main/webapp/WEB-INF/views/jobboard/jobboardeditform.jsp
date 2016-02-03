@@ -1,51 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-
+    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-	<meta charset="EUC-KR" />
-	<title>자료업로드</title>
-	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/dolbi/resources/styles/input2.css" />
+	<meta charset="utf-8" />
+	<title>사용자등록</title>
+	<link rel="Stylesheet" href="/spring-mvc-demoweb5/resources/styles/default.css" />
+	<link rel="Stylesheet" href="/spring-mvc-demoweb5/resources/styles/input.css" />
 </head>
 <body>
 
 	<div id="pageContainer">
 	
-		<jsp:include page="/WEB-INF/views/include/header.jsp" />
-	
+		<c:import url="/WEB-INF/views/include/header.jsp" />
 		
-		<div style="padding-top:25px;text-align:center">
 		<div id="inputcontent">
+			<br /><br />
 		    <div id="inputmain">
-		        <div class="inputsubtitle">채용 자료 등록</div>
-		        <form action="write.action" method="post" enctype="multipart/form-data">
+		      	<div class="inputsubtitle">채용 자료 등록</div>
+		        <form:form method="post" modelAttribute="member">
 		        <table>
-		            <tr>
+		             <tr>
 		                <th>제목</th>
 		                <td>
 		                    <input type="text" name="title" style="width:580px" />
 		                </td>
 		            </tr>
-		              <tr>
-		                <th>회사/점포명</th>
-		                <td>
-		                	<input type="hidden" name="memberName" value='${ sessionScope.loginuser.memberName }' />
-		                	${ sessionScope.loginuser.memberName }
-		                </td>
-		            </tr>
-		            
-		            <tr>
+		           <tr>
 		                <th>작성자</th>
 		                <td>
 		                	<input type="hidden" name="uploader" value='${ sessionScope.loginuser.memberId }' />
 		                	${ sessionScope.loginuser.memberId }
 		                </td>
 		            </tr>
-		            
 		             <tr>
 
 		            </tr>
@@ -56,6 +47,7 @@
 		                    <input type="file" name="attach" style="width:580px;height:20px" />
 		                </td>
 		            </tr>
+		            
 		            <tr>
 		                <th>상세 모집 요강</th>
 		                <td>
@@ -70,17 +62,18 @@
 							
 		                </td>
 		            </tr>
-		            <tr>
+		            
+		            
+		      <tr>
 		                <th>나이</th>
 		                <td>
 		          
-					<select id="birthday" name="birthday"  value="selectbirth">
+					<select id="birthday" name="birthday">
      <option value="">출생년도 선택</option>
      <%for(int i=1950; i<=2010; i++){ %>
      <option value="<%=i%>"><%=i+"년"%></option>
      <%} %>
  </select>
-    			       <input type="radio" name="birthday"  value="None" />나이무관
 		
 		                </td>
 		            </tr>
@@ -131,20 +124,19 @@
 							<input type="radio" name="career" value="new" />
 							<label for="radio2">신입</label>
 		                </td>
-		            </tr>
+		            </tr>		            		            
 		        </table>
 		        <div class="buttons">
-		        	<input type="submit" value="자료등록" style="height:25px" onclick="document.forms[0].submit();" />
-		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
+		        	<input type="submit" value="수정" style="height:25px" />
+		        	<%-- <input type="button" value="취소" style="height:25px"
+		        		onclick="location.href='view.action?memberid=${ param.memberid }';" /> --%>
+		        	<input type="button" value="취소" style="height:25px"
+		        		onclick="location.href='view.action?memberid=${ member.memberId }';" />
 		        </div>
-		        </form>
+		        </form:form>
 		    </div>
 		</div>   	
-
-	</div>
-	</div>
-<div>
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+	
 	</div>
 
 </body>

@@ -28,6 +28,13 @@
 		                <td>${ jobboard.jobboardTitle }</td>
 		                
 		            </tr>
+		               <tr>
+		                <th>회사/점포명</th>
+		                <td>
+		                	<input type="hidden" name="memberName" value='${ sessionScope.loginuser.memberName }' />
+		                	${ sessionScope.loginuser.memberName }
+		                </td>
+		            </tr>
 		            <tr>
 		                <th>작성자</th>
 		                <td>${ jobboard.memberId }</td>
@@ -71,7 +78,7 @@
 		        </table>
 		        <div class="buttons">
 		        	[<a href="application.action?memberId=${ loginuser.memberId }&jobboardNo=${jobboard.jobboardNo}">지원하기</a>]
-		        	<input type="button" value="편집" style="height:25px" />
+		        	<a href="edit.action?memberid=${ member.memberId }">정보수정</a>
 		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
 		        </div>
 		    </div>
