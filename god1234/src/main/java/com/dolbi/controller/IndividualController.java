@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dolbi.common.Util;
 import com.dolbi.model.dao.IndividualDao;
+import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
 import com.dolbi.model.dto.Education;
 import com.dolbi.model.dto.Member;
@@ -194,6 +195,8 @@ public class IndividualController {
 	@RequestMapping(value = "applicationlist.action", method = RequestMethod.GET)
 	public String applicationlist(String memberId) {
 		
+		Application application = individualDao.getApplicationList(memberId);
+		
 		return "individual/applicationlist";
 		
 	}
@@ -204,17 +207,4 @@ public class IndividualController {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

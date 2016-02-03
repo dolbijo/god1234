@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
 import com.dolbi.model.dto.Education;
 import com.dolbi.model.dto.Member;
@@ -57,6 +58,13 @@ public class MySqlIndividualDao implements IndividualDao {
 	public void insertEducation(Education edu) {
 		individualMapper.insertEducation(edu);
 	}
+	
+	public Application getApplicationList(String memberId) {
+		Application application = individualMapper.selectApplicationBymemberId(memberId);
+		
+		return application;
+	}
+	
 }
 
 

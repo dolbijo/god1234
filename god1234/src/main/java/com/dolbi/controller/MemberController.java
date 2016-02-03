@@ -30,15 +30,6 @@ public class MemberController {
 	@Qualifier("memberService")
 	private MemberService memberService;
 	
-	@RequestMapping(value = "list.action", method = RequestMethod.GET)
-	public String list(Model model) {
-		
-		List<Member> members = memberDao.getList();
-		//List<Member> members = memberService.getAllMembers();
-		model.addAttribute("members", members);//HttpServletRequest.setAttribute("members", members);
-		
-		return "member/list";
-	}
 	
 	@RequestMapping(value = "register.action", method = RequestMethod.GET)
 	public String registerForm(@RequestParam(value="usertype") String usertype) {
@@ -66,7 +57,7 @@ public class MemberController {
 	public String registercom(Member member) {
 		
 		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
-
+		System.out.println("memberController");
 		memberDao.insertcom(member);
 		
 		return "redirect:/home.action";
@@ -76,6 +67,53 @@ public class MemberController {
 	public String usertype(Member member) {
 		
 		return "member/usertype";
+		
+	}
+	
+	@RequestMapping(value = "listusertype.action", method = RequestMethod.GET)
+	public String listForm() {
+		
+		return "member/listusertype";
+		
+	}
+	
+	@RequestMapping(value = "listindi.action", method = RequestMethod.GET)
+	public String listindi(Member member, Model model) {
+		
+		List<Member> members= memberDao.getindiMemberlist();
+		model.addAttribute("members", members);
+		
+		return "member/listindi";
+		
+	}
+	
+	@RequestMapping(value = "listcom.action", method = RequestMethod.GET)
+	public String listcom(Member member, Model model) {
+		
+		List<Member> members= memberDao.getcomMemberlist();
+		model.addAttribute("members", members);
+		
+		return "member/listcom";
+		
+	}
+	
+	@RequestMapping(value = "viewindi.action", method = RequestMethod.GET)
+	public String viewindi(String memberid, Model model) {
+		
+		Member member= memberDao.getindiMemberview(memberid);
+		model.addAttribute("member", member);
+		
+		return "member/viewindi";
+		
+	}
+	
+	@RequestMapping(value = "viewcom.action", method = RequestMethod.GET)
+	public String viewcom(String memberid, Model model) {
+		
+		Member member= memberDao.getcomMemberview(memberid);
+		model.addAttribute("member", member);
+		
+		return "member/viewcom";
 		
 	}
 	
@@ -89,6 +127,7 @@ public class MemberController {
 		
 		return "redirect:/member/view.action?memberid=" + member.getMemberId();
 	}
+
 
 }
 

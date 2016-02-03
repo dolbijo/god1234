@@ -3,6 +3,7 @@ package com.dolbi.model.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
 import com.dolbi.model.dto.Education;
 import com.dolbi.model.dto.Member;
@@ -21,4 +22,6 @@ public interface IndividualDao {
 	void insertResumeAttachment(ResumeAttachment resumeAttachment);
 	void insertCareer(Career career);
 	void insertEducation(Education edu);
+	
+	Application getApplicationList(String memberId);
 }

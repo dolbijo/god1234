@@ -3,6 +3,7 @@ package com.dolbi.model.mapper;
 import java.util.HashMap;
 import java.util.List;
 
+import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
 import com.dolbi.model.dto.Education;
 import com.dolbi.model.dto.Member;
@@ -19,4 +20,6 @@ public interface IndividualMapper {
 	void insertResumeAttachment(ResumeAttachment resumeAttachment);
 	void insertCareer(Career career);
 	void insertEducation(Education edu);
+	
+	Application selectApplicationBymemberId(String memberId);
 }
