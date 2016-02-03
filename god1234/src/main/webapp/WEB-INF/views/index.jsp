@@ -21,8 +21,7 @@
 	    		<div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
 	                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> 
 	                    </a><a class="brand" href="/dolbi/home.action">AlbaMong - 채용정보시스템 </a>
-		      		<div class="nav-collapse">
-			        	<form class="navbar-search pull-right">
+		      		<div class="nav-collapse"><form class="navbar-search pull-right">
 			          		<input type="text" class="search-query" placeholder="Search">
 			        	</form>
 		      		</div>
