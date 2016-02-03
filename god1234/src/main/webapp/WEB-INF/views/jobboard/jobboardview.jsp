@@ -28,6 +28,13 @@
 		                <td>${ jobboard.jobboardTitle }</td>
 		                
 		            </tr>
+		               <tr>
+		                <th>회사/점포명</th>
+		                <td>
+		                	<input type="hidden" name="memberName" value='${ sessionScope.loginuser.memberName }' />
+		                	${ sessionScope.loginuser.memberName }
+		                </td>
+		            </tr>
 		            <tr>
 		                <th>작성자</th>
 		                <td>${ jobboard.memberId }</td>

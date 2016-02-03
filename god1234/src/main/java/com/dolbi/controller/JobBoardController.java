@@ -69,6 +69,7 @@ public class JobBoardController {
 	    jobboard.setJobboardJoinNo(Integer.parseInt(request.getParameter("joinnum")));
 	    jobboard.setJobboardGender(request.getParameter("gender"));
 	    jobboard.setJobboardEducation(request.getParameter("edu"));
+	    jobboard.setMemberName(request.getParameter("memberName"));
 	    jobboard.setMemberId(request.getParameter("uploader"));
 	    jobboard.setJobboardPayment(request.getParameter("payment"));
 	    jobboard.setJobboardSalary(Integer.parseInt(request.getParameter("salary")));

@@ -30,6 +30,14 @@
 		                    <input type="text" name="title" style="width:580px" />
 		                </td>
 		            </tr>
+		              <tr>
+		                <th>회사/점포명</th>
+		                <td>
+		                	<input type="hidden" name="memberName" value='${ sessionScope.loginuser.memberName }' />
+		                	${ sessionScope.loginuser.memberName }
+		                </td>
+		            </tr>
+		            
 		            <tr>
 		                <th>작성자</th>
 		                <td>
@@ -66,12 +74,13 @@
 		                <th>나이</th>
 		                <td>
 		          
-					<select id="birthday" name="birthday">
+					<select id="birthday" name="birthday"  value="selectbirth">
      <option value="">출생년도 선택</option>
      <%for(int i=1950; i<=2010; i++){ %>
      <option value="<%=i%>"><%=i+"년"%></option>
      <%} %>
  </select>
+    			       <input type="radio" name="birthday"  value="None" />나이무관
 		
 		                </td>
 		            </tr>

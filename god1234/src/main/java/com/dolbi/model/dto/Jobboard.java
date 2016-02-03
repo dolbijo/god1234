@@ -22,6 +22,7 @@ public class Jobboard implements Serializable {
 	private String jobboardPayment;
 	private int jobboardSalary;
 	private String jobboardCareer;
+	private String memberName;
 	
 	private ArrayList<JobboardAttachment> files;
 	
@@ -153,6 +154,14 @@ public class Jobboard implements Serializable {
 
 	public void setFiles(ArrayList<JobboardAttachment> files) {
 		this.files = files;
+	}
+
+	public String getMemberName() {
+		return memberName;
+	}
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 
 	
