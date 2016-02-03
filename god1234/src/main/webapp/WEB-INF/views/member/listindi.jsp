@@ -30,21 +30,21 @@
         		<tr style="height:30px;background-color:orange">
         			<td>아이디</td>
         			<td>이름</td>
-        			<td>성별</td>
-        			<td>나이</td>
+        			<td>주소</td>
+        			<td>연락처</td>
         			<td>이메일</td>
         		</tr>        	
         	<c:forEach var="member" items="${ members }">
         		<tr style="height:30px">
         			<td>
-        				<c:url value="view.action" var="viewUrl">
+        				<c:url value="viewindi.action" var="viewUrl">
         					<c:param name="memberid" value="${ member.memberId }" />
         				</c:url>
         				<a href="${ viewUrl }">${ member.memberId }</a>
         			</td>
         			<td>${ member.memberName }</td>
-        			<td>${ member.gender }</td>
-        			<td>${ member.age }</td>
+        			<td>${ member.memberAddress }</td>
+        			<td>${ member.phoneNo }</td>
         			<td>${ member.email }</td>
         		</tr>
         	</c:forEach>

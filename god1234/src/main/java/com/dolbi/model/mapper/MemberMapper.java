@@ -17,5 +17,8 @@ public interface MemberMapper {
 	void insertcomMember(Member member);
 	List<Member> selectindiMember();
 	List<Member> selectcomMember();
+	
+	Member selectindiMemberview(String id);
+	Member selectcomMemberview(String id);
 
 }

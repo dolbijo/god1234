@@ -99,6 +99,26 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping(value = "viewindi.action", method = RequestMethod.GET)
+	public String viewindi(String memberid, Model model) {
+		
+		Member member= memberDao.getindiMemberview(memberid);
+		model.addAttribute("member", member);
+		
+		return "member/viewindi";
+		
+	}
+	
+	@RequestMapping(value = "viewcom.action", method = RequestMethod.GET)
+	public String viewcom(String memberid, Model model) {
+		
+		Member member= memberDao.getcomMemberview(memberid);
+		model.addAttribute("member", member);
+		
+		return "member/viewcom";
+		
+	}
+	
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") Member member) {

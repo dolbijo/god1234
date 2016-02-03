@@ -26,23 +26,40 @@
 		        <table>
 		            <tr>
 		                <th>아이디(ID)</th>
-		                <td>${ requestScope.member.memberId }</td>
+		                <td>${ member.memberId }</td>
+		            </tr>
+		            
+		            <tr>
+		                <th>회사/점포명</th>
+		                <td>${ member.memberName }</td>
+		            </tr>		  
+		             <tr>
+		                <th>대표자명</th>
+		                <td>${ member.ceoName }</td>
+		            </tr>          
+		            <tr>
+		                <th>사업자등록번호</th>
+		                <td>${ member.companyNo }</td>
+		            </tr>
+		            <tr>
+		                <th>회사/점포주소</th>
+		                <td>${ member.memberAddress }</td>
+		            </tr>
+		            <tr>
+		                <th>전화번호</th>
+		                <td>${ member.phoneNo }</td>
+		            </tr>
+		            <tr>
+		                <th>회사/점포 홈페이지</th>
+		                <td>${ member.homepage }</td>
 		            </tr>
 		            <tr>
 		                <th>이메일</th>
 		                <td>${ requestScope["member"].email }</td>
 		            </tr>
 		            <tr>
-		                <th>등록일</th>
-		                <td>${ member.regDate }</td>
-		            </tr>		            
-		            <tr>
-		                <th>사용자구분</th>
-		                <td>${ member.userType eq 'uesr' or member.userType eq 'user' ? "사용자" : "관리자" }</td>
-		            </tr>
-		            <tr>
-		                <th>활성화여부</th>
-		                <td>${ member.active eq true ? "활성사용자" : "비활성사용자" }</td>
+		                <th>회사구분</th>
+		                <td>${ member.categoryNo }</td>
 		            </tr>		            		            
 		        </table>
 		        <div class="buttons">
