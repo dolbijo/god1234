@@ -151,6 +151,15 @@ public class JobBoardController {
          return "jobboard/editform";
       
    }
+   
+   @RequestMapping(value = "application.action", method = RequestMethod.GET)
+   public String application(String memberId, String jobboardNo) {//HttpServletRequest.setAttribute("member", member)
+      
+	   jobboardDao.insertApplication(memberId, jobboardNo);
+	   
+       return "redirect:/jobboard/view.action?jobboardNo="+jobboardNo;
+      
+   }
 
 }
 

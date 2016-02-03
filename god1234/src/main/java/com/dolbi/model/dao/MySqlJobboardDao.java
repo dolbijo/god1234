@@ -70,6 +70,15 @@ public class MySqlJobboardDao implements JobboardDao {
       
    }
    
+   public void insertApplication(String memberId, String jobboardNo) {
+	   
+	   HashMap<String, Object> params = new HashMap<>();
+	   params.put("memberId", memberId);
+	   params.put("jobboardNo", jobboardNo);
+		
+	   jobboardMapper.insertApplication(params);
+   }
+   
 
 }
 

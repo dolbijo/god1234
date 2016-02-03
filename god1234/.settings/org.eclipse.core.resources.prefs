@@ -4,6 +4,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/dolbi/controller/AccountController.java=UTF-8
 encoding//src/main/java/com/dolbi/controller/FreeboardController.java=UTF-8
+encoding//src/main/java/com/dolbi/controller/IndividualController.java=UTF-8
 encoding//src/main/java/com/dolbi/controller/JobBoardController.java=UTF-8
 encoding//src/main/java/com/dolbi/controller/MemberController.java=UTF-8
 encoding//src/main/java/com/dolbi/model/dao/MySqlFreeboardDao.java=UTF-8

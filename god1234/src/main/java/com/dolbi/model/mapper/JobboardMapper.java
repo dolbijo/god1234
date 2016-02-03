@@ -19,5 +19,7 @@ public interface JobboardMapper {
 	
 	int insertJobboard(Jobboard jobboard);
 	void insertJobboardFile(JobboardAttachment file);
+	
+	void insertApplication(HashMap<String, Object> params);
 
 }
