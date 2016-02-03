@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dolbi.model.mapper.SearchJobboardMapper"><!-- 클래스 또는 인터페이스 역할 -->
+	
+	<sql id="JobboardColumns">
+		J_No,J_TITLE,J_CONTENT,J_REGDATE,J_READCOUNT,J_DELETED,J_DEADLINE,J_JOINNO,
+		J_GENDER,J_AGE,J_EDUCATION,M_ID,J_PAYMENT,J_CAREER
+	</sql>
+	
+	<!-- <resultMap type="com.mvcdemoweb.model.dto.Member" id="memberMap"> -->
+	<resultMap type="Jobboard" id="JobboardMap">
+		<id property="J_NO" column="J_NO" />
+		<result property="email" column="email" />
+		<result property="userType" column="userType" />
+		<result property="active" column="active" />
+		<result property="J_regDate" column="J_regDate" />
+	</resultMap>
+	
+	<!-- 메서드 역할 -->
+
+	<select id="selectIngJobboards" parameterType="String" resultMap="JobboardMap">
+		SELECT <include refid="JobboardColumns" /> 
+		FROM JOBBOARD
+		WHERE m_id = #{id} and date(J_DEADLINE) &gt; CURRENT_DATE()
+	</select>
+	
+	
+	<select id="selectEndJobboards" parameterType="String" resultMap="JobboardMap">
+	    SELECT <include refid="JobboardColumns" /> 
+		FROM JOBBOARD
+		WHERE m_id = #{id} and date(J_DEADLINE) &lt; CURRENT_DATE()
+	</select>
+	
+</mapper>
+
+
+
+
+
+

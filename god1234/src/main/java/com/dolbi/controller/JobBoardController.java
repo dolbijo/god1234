@@ -46,7 +46,6 @@ public class JobBoardController {
    @RequestMapping(value = "list.action", method = RequestMethod.GET)
    public ModelAndView list(Model model) {
       
-		//List<Upload> uploads = dao.getUploadList();
 		List<Jobboard> jobboards = jobboardDao.getJobboardList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("jobboard", jobboards);
