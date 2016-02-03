@@ -9,7 +9,7 @@ import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandler;
 
 //MyBatis의 ResultMap에서 사용할 컬럼 데이터-> 객체의 필드 변환에 적용할 변환기
-@SuppressWarnings("rawtypes")
+//@SuppressWarnings("rawtypes")
 public class MemberTypeHandler implements TypeHandler {
 
 	@Override
