@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dolbi.common.Util;
 import com.dolbi.model.dao.MemberDao;
+import com.dolbi.model.dao.SearchjobboardDao;
+import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 import com.dolbi.model.service.MemberService;
 
@@ -27,6 +29,9 @@ public class CompanyController {
 	//@Qualifier("memberDao")
 	@Resource(name = "memberDao")
 	private MemberDao memberDao;
+	@Resource(name = "searchjobboardDao")
+	
+	private SearchjobboardDao searchjobboardDao;
 	
 	@Autowired()
 	@Qualifier("memberService")
@@ -36,6 +41,14 @@ public class CompanyController {
 	public String servicemain() {
 		
 		return "company/servicemain";
+	}
+	
+	@RequestMapping(value = "list.action", method = RequestMethod.GET)
+	public String jobboardlist(String memberId) {
+		
+		
+		
+		return "company/jobboardlist";
 	}
 	
 //	@RequestMapping(value = "view.action", method = RequestMethod.GET)
@@ -71,24 +84,23 @@ public class CompanyController {
 		return "redirect:/member/list.action";
 	}
 	
-//	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
-//	public String editForm(
-//		@RequestParam("memberid") String memberId,		
-//		@ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
-//		
-//		Member member2 = memberDao.getMemberById(memberId);
-//		if (member2 == null) {
-//			return "redirect:/member/list.action";
-//		} else {
-//			member.setMemberId(member2.getMemberId());
-//			member.setEmail(member2.getEmail());
-//			member.setUserType(member2.getUserType());
-//			member.setActive(member2.isActive());
-//			member.setRegDate(member2.getRegDate());
-//			return "member/editform";
-//		}
-//		
-//	}
+	@RequestMapping(value = "ingjobboard.action", method = RequestMethod.GET)
+	public String ingJobboard(String memberId, Model model) {
+		
+		List<Jobboard> jobboards = searchjobboardDao.ingJobboard(memberId);
+		model.addAttribute("jobboards", jobboards);
+		
+		return "company/jobboardlist";
+	}
+	@RequestMapping(value = "endjobboard.action", method = RequestMethod.GET)
+	public String endJobboard(String memberId, Model model) {
+		
+		List<Jobboard> jobboards = searchjobboardDao.endJobboard(memberId);
+		model.addAttribute("jobboards", jobboards);
+		
+		return "company/jobboardlist";
+	}
+	
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") Member member) {//읽기 + view로 전달

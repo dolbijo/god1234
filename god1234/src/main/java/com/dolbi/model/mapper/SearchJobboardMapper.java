@@ -8,18 +8,16 @@ import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
 
-public interface JobboardMapper {
+public interface SearchJobboardMapper {
 	
-	ArrayList<Jobboard> selectJobboards();
+	List<Jobboard> selectJobboards();
 	List<Jobboard> selectJobboards2();
 
 	Jobboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
 	Jobboard selectMemberById(String M_ID);
-	Jobboard selectJobboardByjobboardNo(int jobboardNo);
 	
-	int insertJobboard(Jobboard jobboard);
-	void insertJobboardFile(JobboardAttachment file);
 	
-	void insertApplication(HashMap<String, Object> params);
+	ArrayList<Jobboard> selectIngJobboards(String id);
+	ArrayList<Jobboard> selectEndJobboards(String id);
 
 }

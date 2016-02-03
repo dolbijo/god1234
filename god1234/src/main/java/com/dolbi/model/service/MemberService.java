@@ -14,4 +14,5 @@ public interface MemberService {
 
 	void registerMember(Member member);
 
+
 }

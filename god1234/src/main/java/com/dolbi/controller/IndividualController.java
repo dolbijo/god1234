@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dolbi.common.Util;
 import com.dolbi.model.dao.IndividualDao;
+import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
 import com.dolbi.model.dto.Education;
 import com.dolbi.model.dto.Member;
@@ -44,17 +45,31 @@ public class IndividualController {
 	public String individualmain(String memberId, Model model) {
 		
 		ModelAndView mav = new ModelAndView();
-		String resume = String.valueOf(individualDao.getResumeById(memberId));
+		String resume = String.valueOf(individualDao.getcountResumeById(memberId));
 		
-		System.out.println("individualController resume : " + resume);
 		model.addAttribute("resume", resume);
 		
 		return "individual/individualmain";
 	}
 	
 	@RequestMapping(value = "resumeview.action", method = RequestMethod.GET)
-	public String resumeview(String memberId) {
+	public String resumeview(String memberId, Model model) {
 		
+		Member member = individualDao.getIndividualById(memberId);
+		model.addAttribute("member", member);
+		
+		Resume resume = individualDao.getResumeById(memberId);
+		model.addAttribute("resume", resume);
+		
+		ResumeAttachment reAtt = individualDao.getResumeAttachmentById(memberId);
+		model.addAttribute("reAtt", reAtt);
+		
+		List<Career> careers = individualDao.getCareerById(memberId);
+		model.addAttribute("careers", careers);
+		
+		List<Education> educations = individualDao.getEducationById(memberId);
+		model.addAttribute("educations", educations);
+	
 		return "individual/resumeview";
 		
 	}
@@ -62,7 +77,6 @@ public class IndividualController {
 	@RequestMapping(value = "resumeform.action", method = RequestMethod.GET)
 	public String resumeform(String memberId, Model model) {
 		
-		System.out.println("individualController resumeform ");
 		Member member = individualDao.getIndividualById(memberId);
 		model.addAttribute("member", member);
 		
@@ -73,23 +87,23 @@ public class IndividualController {
 	@RequestMapping(value = "resumeform.action", method = RequestMethod.POST)
 	public String resumeRegister(MultipartHttpServletRequest request, String memberId) throws Exception {
 		
-		//업로드된 파일을 저장할 경로 (가상경로 -> 물리경로) 추출
+		//�뾽濡쒕뱶�맂 �뙆�씪�쓣 ���옣�븷 寃쎈줈 (媛��긽寃쎈줈 -> 臾쇰━寃쎈줈) 異붿텧
 		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/resume");
 				
-		//Upload 객체 생성 및 파일이 아닌 데이터 저장
+		//Upload 媛앹껜 �깮�꽦 諛� �뙆�씪�씠 �븘�땶 �뜲�씠�꽣 ���옣
 		
 		Resume resume = new Resume();
 		resume.setMemberId(memberId);
 		resume.setResumeTitle(request.getParameter("resumetitle"));
 		resume.setSelfintroduction(request.getParameter("selfintroduction"));
-		if (request.getParameter("ispublic").equals("공개")) {
+		if (request.getParameter("ispublic").equals("怨듦컻")) {
 			resume.setIspublic(true);
 		} else {
 			resume.setIspublic(false);
 		}
 		
 		
-		//아래 try 영역 내부에서 오류가 발생하면 모든 db연동 작업을 취소하도록 처리
+		//�븘�옒 try �쁺�뿭 �궡遺��뿉�꽌 �삤瑜섍� 諛쒖깮�븯硫� 紐⑤뱺 db�뿰�룞 �옉�뾽�쓣 痍⑥냼�븯�룄濡� 泥섎━
 		try {
 			System.out.println("resume");
 			individualDao.insertResume(resume);
@@ -179,12 +193,15 @@ public class IndividualController {
 		throw new RuntimeException("redirect:/individual/resumeform.action?memberId=" + memberId);
 		}
 		
-		return "redirect:/individual/resumeview.action?memberId=" + memberId;
+		return "redirect:/individual/individualmain.action?memberId=" + memberId;
 		
 	}
 
 	@RequestMapping(value = "applicationlist.action", method = RequestMethod.GET)
-	public String applicationlist(String memberId) {
+	public String applicationlist(String memberId, Model model) {
+		
+		List<Application> applications = individualDao.getApplicationList(memberId);
+		model.addAttribute("applications", applications);
 		
 		return "individual/applicationlist";
 		
@@ -196,17 +213,4 @@ public class IndividualController {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

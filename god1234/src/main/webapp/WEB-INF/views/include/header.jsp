@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-
    <div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
       <div class="container">
          <div class="navbar-header">
@@ -13,6 +12,10 @@
          </div>
          <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
+            
+            	<li><a href="/dolbi/member/listusertype.action">
+                  <spring:message code="menu.member" />         
+               </a></li>
             
                <li><a href="/dolbi/jobboard/list.action">
                   <spring:message code="menu.jobboard" />         
@@ -31,7 +34,7 @@
                </a></li>
                
                <li><a href="/dolbi/company/servicemain.action">
-                  <spring:message code="menu.company" />         
+                  <spring:message code="menu.company" />        
 
                </a></li>
                </c:when>

@@ -4,10 +4,12 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/dolbi/controller/AccountController.java=UTF-8
 encoding//src/main/java/com/dolbi/controller/FreeboardController.java=UTF-8
+encoding//src/main/java/com/dolbi/controller/IndividualController.java=UTF-8
 encoding//src/main/java/com/dolbi/controller/JobBoardController.java=UTF-8
 encoding//src/main/java/com/dolbi/controller/MemberController.java=UTF-8
 encoding//src/main/java/com/dolbi/model/dao/MySqlFreeboardDao.java=UTF-8
 encoding//src/main/java/com/dolbi/model/dao/MySqlJobboardDao.java=UTF-8
+encoding//src/main/java/com/dolbi/model/dao/MySqlSearchJobboardDao.java=UTF-8
 encoding//src/main/resources/message/tags.properties=UTF-8
 encoding//src/main/resources/message/tags_en.properties=UTF-8
 encoding//src/main/resources/message/tags_ko.properties=UTF-8

@@ -29,6 +29,7 @@
 		<typeAlias type="com.dolbi.model.dto.Career" alias="Career" />
 		<typeAlias type="com.dolbi.model.dto.Education" alias="Education" />
 		
+		<typeAlias type="com.dolbi.model.dto.Application" alias="Application" />
 	</typeAliases>
 
 	<environments default="development">
@@ -53,6 +54,7 @@
 		<mapper resource="com/dolbi/model/mapper/JobboardMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/IndividualMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/FreeboardMapper.xml" />
+		<mapper resource="com/dolbi/model/mapper/SearchJobboardMapper.xml" />
 	</mappers>
 
 </configuration>

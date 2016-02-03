@@ -19,65 +19,60 @@ import com.dolbi.model.dto.Upload;
 import com.dolbi.model.dto.UploadFile;
 import com.dolbi.model.mapper.IndividualMapper;
 import com.dolbi.model.mapper.JobboardMapper;
+import com.dolbi.model.mapper.SearchJobboardMapper;
 
-@Repository("jobboardDao")
-public class MySqlJobboardDao implements JobboardDao {
+@Repository("searchjobboardDao")
+public class MySqlSearchJobboardDao implements SearchjobboardDao {
 
    @Autowired
    @Qualifier("sqlSessionTemplate")
    private SqlSessionTemplate sqlSessionTemplate;
    
    @Autowired
-   @Qualifier("jobboardMapper")
-   private JobboardMapper jobboardMapper;
+   @Qualifier("SearchJobboardMapper")
+   private SearchJobboardMapper searchjobboardMapper;
+
 
    @Override
-   public int insertJobboard(Jobboard jobboard) {
+   public ArrayList<Jobboard> ingJobboard(String id) {
       
-      
-	int newJobboardNo = jobboardMapper.insertJobboard(jobboard);
+      System.out.println("진행중인 공고 Dao" + id);
+	   ArrayList<Jobboard> jobboard = searchjobboardMapper.selectIngJobboards(id);
 	
-	return newJobboardNo;
+	   return jobboard;
+
+   }
+   @Override
+   public ArrayList<Jobboard> endJobboard(String id) {
+      
+      
+	   ArrayList<Jobboard> jobboard = searchjobboardMapper.selectEndJobboards(id);
+	
+	return jobboard;
 
    }
    
-   @Override
-   public void insertJobboardFile(JobboardAttachment file) {
-      
-      //mapper연결코드
-	   jobboardMapper.insertJobboardFile(file);
-      
-   }
-
    @Override
    public ArrayList<Jobboard> getJobboardList() {
       
       //mapper연결코드
-	   ArrayList<Jobboard> jobboards = jobboardMapper.selectJobboards();
+	   List<Jobboard> jobboards = searchjobboardMapper.selectJobboards();
 		
-	   return jobboards;
+	   return (ArrayList<Jobboard>) jobboards;
    }
    
- 
-   
+  
    @Override
    public Jobboard getJobboardByJobboardNo(int jobboardNo) {
    
-	   Jobboard jobboard = jobboardMapper.selectJobboardByjobboardNo(jobboardNo);
+      Jobboard jobboard = sqlSessionTemplate.selectOne(
+         "com.dolbi.model.mapper.JobboardMapper.selectJobboardByJobboardNo2", jobboardNo);
       
       return jobboard;
       
       
    }
-   
-   public void insertApplication(String memberId, String jobboardNo) {
-	   
-	   HashMap<String, Object> params = new HashMap<>();
-	   params.put("memberId", memberId);
-	   params.put("jobboardNo", jobboardNo);
-		
-	   jobboardMapper.insertApplication(params);
-   }
+
    
 
 }
