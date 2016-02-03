@@ -61,7 +61,7 @@
         			<a href="resumeform.action?memberId=${ loginuser.memberId }">이력서 등록</a>
         			</c:when>
         			<c:otherwise>
-        			<a href="resumeview.action">이력서 보러가기</a>
+        			<a href="resumeview.action?memberId=${ loginuser.memberId }">이력서 보러가기</a>
         			</c:otherwise>
         			</c:choose>
         			<br />

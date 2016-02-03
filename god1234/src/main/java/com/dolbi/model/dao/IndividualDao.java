@@ -12,9 +12,12 @@ import com.dolbi.model.dto.ResumeAttachment;
 
 public interface IndividualDao {
 
+	int getcountResumeById(String id);
+	
 	Resume getResumeById(String id);
-	Career getCareerById(String id);
-	Education getEducationById(String id);
+	ResumeAttachment getResumeAttachmentById(String id);
+	ArrayList<Career> getCareerById(String id);
+	ArrayList<Education> getEducationById(String id);
 	
 	Member getIndividualById(String id);
 	

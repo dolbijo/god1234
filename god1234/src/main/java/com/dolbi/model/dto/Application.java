@@ -6,51 +6,41 @@ import java.util.ArrayList;
 
 public class Application implements Serializable {
 	
-	private int careerNo;
-	private String companyName;
-	private String companyType;
-	private Date caStartDate;
-	private Date caEndDate;
+	private int applicationNo;
+	private int jobboardNo;
 	private String memberId;
+	private boolean isCheck;
+	private Date applicationRegdate;
 	
-	
+	public int getApplicationNo() {
+		return applicationNo;
+	}
+	public void setApplicationNo(int applicationNo) {
+		this.applicationNo = applicationNo;
+	}
+	public int getJobboardNo() {
+		return jobboardNo;
+	}
+	public void setJobboardNo(int jobboardNo) {
+		this.jobboardNo = jobboardNo;
+	}
 	public String getMemberId() {
 		return memberId;
 	}
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public int getCareerNo() {
-		return careerNo;
+	public boolean isCheck() {
+		return isCheck;
 	}
-	public void setCareerNo(int careerNo) {
-		this.careerNo = careerNo;
+	public void setCheck(boolean isCheck) {
+		this.isCheck = isCheck;
 	}
-	public String getCompanyName() {
-		return companyName;
+	public Date getApplicationRegdate() {
+		return applicationRegdate;
 	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setApplicationRegdate(Date applicationRegdate) {
+		this.applicationRegdate = applicationRegdate;
 	}
-	public String getCompanyType() {
-		return companyType;
-	}
-	public void setCompanyType(String companyType) {
-		this.companyType = companyType;
-	}
-	public Date getCaStartDate() {
-		return caStartDate;
-	}
-	public void setCaStartDate(Date startDate) {
-		this.caStartDate = startDate;
-	}
-	public Date getCaEndDate() {
-		return caEndDate;
-	}
-	public void setCaEndDate(Date endDate) {
-		this.caEndDate = endDate;
-	}
-	
-	
 	
 }

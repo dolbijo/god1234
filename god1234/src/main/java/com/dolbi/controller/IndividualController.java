@@ -45,7 +45,7 @@ public class IndividualController {
 	public String individualmain(String memberId, Model model) {
 		
 		ModelAndView mav = new ModelAndView();
-		String resume = String.valueOf(individualDao.getResumeById(memberId));
+		String resume = String.valueOf(individualDao.getcountResumeById(memberId));
 		
 		model.addAttribute("resume", resume);
 		
@@ -55,14 +55,20 @@ public class IndividualController {
 	@RequestMapping(value = "resumeview.action", method = RequestMethod.GET)
 	public String resumeview(String memberId, Model model) {
 		
+		Member member = individualDao.getIndividualById(memberId);
+		model.addAttribute("member", member);
+		
 		Resume resume = individualDao.getResumeById(memberId);
 		model.addAttribute("resume", resume);
 		
-		Career career = individualDao.getCareerById(memberId);
-		model.addAttribute("resume", career);
+		ResumeAttachment reAtt = individualDao.getResumeAttachmentById(memberId);
+		model.addAttribute("reAtt", reAtt);
 		
-		Education education = individualDao.getEducationById(memberId);
-		model.addAttribute("resume", education);
+		List<Career> careers = individualDao.getCareerById(memberId);
+		model.addAttribute("careers", careers);
+		
+		List<Education> educations = individualDao.getEducationById(memberId);
+		model.addAttribute("educations", educations);
 	
 		return "individual/resumeview";
 		
@@ -71,7 +77,6 @@ public class IndividualController {
 	@RequestMapping(value = "resumeform.action", method = RequestMethod.GET)
 	public String resumeform(String memberId, Model model) {
 		
-		System.out.println("individualController resumeform ");
 		Member member = individualDao.getIndividualById(memberId);
 		model.addAttribute("member", member);
 		

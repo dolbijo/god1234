@@ -1,5 +1,6 @@
 package com.dolbi.model.mapper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,7 +13,12 @@ import com.dolbi.model.dto.ResumeAttachment;
 
 public interface IndividualMapper {
 	
-	int selectResumeBymemberId(String id);
+	int countResumeBymemberId(String id);
+	
+	Resume selectResumeBymemberId(String id);
+	ResumeAttachment selectResumeAttachmentBymemberId(String id);
+	ArrayList<Career> selectCareerBymemberId(String id);
+	ArrayList<Education> selectEducationBymemberId(String id);
 	
 	Member selectIndividualByMemberId(String id);
 
