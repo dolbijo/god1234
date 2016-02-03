@@ -17,7 +17,6 @@
 	<div id="pageContainer">
 	
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 		
 		<div style="padding-top:25px;text-align:center">
 		<div id="inputcontent">
@@ -31,7 +30,7 @@
 		            </tr>
 		            <tr>
 		                <th>작성자</th>
-		                <td>${ requestScope.jobboard.memberId }</td>
+		                <td>${ jobboard.memberId }</td>
 		            </tr>
 		            <tr>
 		            	<th>등록일자</th>
@@ -64,6 +63,7 @@
 		            </tr>
 		        </table>
 		        <div class="buttons">
+		        	[<a href="application.action?memberId=">지원하기</a>]
 		        	<input type="button" value="편집" style="height:25px" />
 		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
 		        </div>
