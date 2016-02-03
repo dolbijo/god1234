@@ -21,7 +21,7 @@
 		<tr>
 		<td><a href="/dolbi/member/listindi.action">개인 회원 관리</td>
 		<td><a href="/dolbi/member/listcom.action">기업 회원 관리</td>
-		<td><a href="#">회원 통계</td>
+		<td><a href="/dolbi/stats/stats.action">회원 통계</td>
     	</tr>
 	</table>
 
