@@ -22,8 +22,7 @@ public class Jobboard implements Serializable {
 	private String jobboardPayment;
 	private int jobboardSalary;
 	private String jobboardCareer;
-
-
+	
 	private ArrayList<JobboardAttachment> files;
 	
 	public Jobboard() {}

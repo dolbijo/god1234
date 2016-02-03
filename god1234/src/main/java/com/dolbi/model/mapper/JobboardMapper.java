@@ -15,6 +15,7 @@ public interface JobboardMapper {
 
 	Jobboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
 	Jobboard selectMemberById(String M_ID);
+	Jobboard selectJobboardByjobboardNo(int jobboardNo);
 	
 	int insertJobboard(Jobboard jobboard);
 	void insertJobboardFile(JobboardAttachment file);

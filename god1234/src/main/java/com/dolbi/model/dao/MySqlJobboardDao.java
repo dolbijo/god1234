@@ -63,8 +63,7 @@ public class MySqlJobboardDao implements JobboardDao {
    @Override
    public Jobboard getJobboardByJobboardNo(int jobboardNo) {
    
-      Jobboard jobboard = sqlSessionTemplate.selectOne(
-         "com.dolbi.model.mapper.JobboardMapper.selectJobboardByJobboardNo2", jobboardNo);
+	   Jobboard jobboard = jobboardMapper.selectJobboardByjobboardNo(jobboardNo);
       
       return jobboard;
       
