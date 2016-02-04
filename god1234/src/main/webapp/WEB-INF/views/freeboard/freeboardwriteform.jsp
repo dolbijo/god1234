@@ -1,21 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 
 <html>
 <head>
+<<<<<<< HEAD
 	<meta charset="EUC-KR" />
 	<title>자료업로드</title>
-	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/dolbi/resources/styles/input2.css" />
-</head>
-<body>
-
-	<div id="pageContainer">
 	
-		<jsp:include page="/WEB-INF/views/include/header.jsp" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    
+	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="<%=cp%>/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+
+	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    
+	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" type="text/css">
+	<link href="<%=cp%>/resources/bootstrap/css/pages/signin.css" rel="stylesheet" type="text/css">
+	
+=======
+    	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    	<meta name="description" content="" />
+    	<meta name="author" content="" />
+    	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
+>>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
+</head>
+	 
+<body>
+	<c:import url="/WEB-INF/views/include/header.jsp" />
 	
 		
 		<div style="padding-top:25px;text-align:center">
@@ -66,9 +85,7 @@
 
 	</div>
 	</div>
-<div>
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-	</div>
+	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 </body>
 </html>

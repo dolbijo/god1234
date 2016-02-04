@@ -85,8 +85,8 @@
 		<selectKey keyProperty="applicationNo" resultType="int" order="BEFORE">
 			SELECT COUNT(*)+1 from application
 		</selectKey>
-		insert into application (a_no, j_no, m_id ,m_name)
-		values (#{applicationNo}, #{jobboardNo}, #{memberId}, #{memberName})
+		insert into application (a_no, j_no, m_id)
+		values (#{applicationNo}, #{jobboardNo}, #{memberId})
 	</insert>
 	
 </mapper>

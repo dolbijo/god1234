@@ -3,465 +3,268 @@
 <% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 <head>
-    	<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="<%=cp%>/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
-        		rel="stylesheet">
-		<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet">
-		<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet">
-		<link href="<%=cp%>/resources/bootstrap/css/pages/dashboard.css" rel="stylesheet">
+    	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    	<meta name="description" content="" />
+    	<meta name="author" content="" />
+    	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
 </head>
 	 
 <body>
-<c:import url="/WEB-INF/views/include/header.jsp" />
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span6">
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Today's Stats</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="widget big-stats-container">
-                <div class="widget-content">
-                  <h6 class="bigstats">A fully responsive premium quality admin template built on Twitter Bootstrap by <a href="http://www.egrappler.com" target="_blank">EGrappler.com</a>.  These are some dummy lines to fill the area.</h6>
-                  <div id="big_stats" class="cf">
-                    <div class="stat"> <i class="icon-anchor"></i> <span class="value">851</span> </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat"> <i class="icon-thumbs-up-alt"></i> <span class="value">423</span> </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat"> <i class="icon-twitter-sign"></i> <span class="value">922</span> </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat"> <i class="icon-bullhorn"></i> <span class="value">25%</span> </div>
-                    <!-- .stat --> 
-                  </div>
+	<c:import url="/WEB-INF/views/include/header.jsp" />
+	
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-head-line">Dashboard</h4>
+
                 </div>
-                <!-- /widget-content --> 
-                
-              </div>
+
             </div>
-          </div>
-          <!-- /widget -->
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Recent News</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div id='calendar'>
-              </div>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-file"></i>
-              <h3> Content</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <ul class="messages_layout">
-                <li class="from_user left"> <a href="#" class="avatar"><img src="img/message_avatar1.png"/></a>
-                  <div class="message_wrap"> <span class="arrow"></span>
-                    <div class="info"> <a class="name">John Smith</a> <span class="time">1 hour ago</span>
-                      <div class="options_arrow">
-                        <div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
-                          <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li><a href="#"><i class=" icon-share-alt icon-large"></i> Reply</a></li>
-                            <li><a href="#"><i class=" icon-trash icon-large"></i> Delete</a></li>
-                            <li><a href="#"><i class=" icon-share icon-large"></i> Share</a></li>
-                          </ul>
-                        </div>
-                      </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        This is a simple admin template that can be used for your small project or may be large projects. This is free for personal and commercial use.
                     </div>
-                    <div class="text"> As an interesting side note, as a head without a body, I envy the dead. There's one way and only one way to determine if an animal is intelligent. Dissect its brain! Man, I'm sore all over. I feel like I just went ten rounds with mighty Thor. </div>
-                  </div>
-                </li>
-                <li class="by_myself right"> <a href="#" class="avatar"><img src="img/message_avatar2.png"/></a>
-                  <div class="message_wrap"> <span class="arrow"></span>
-                    <div class="info"> <a class="name">Bender (myself) </a> <span class="time">4 hours ago</span>
-                      <div class="options_arrow">
-                        <div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
-                          <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li><a href="#"><i class=" icon-share-alt icon-large"></i> Reply</a></li>
-                            <li><a href="#"><i class=" icon-trash icon-large"></i> Delete</a></li>
-                            <li><a href="#"><i class=" icon-share icon-large"></i> Share</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text"> All I want is to be a monkey of moderate intelligence who wears a suit… that's why I'm transferring to business school! I had more, but you go ahead. Man, I'm sore all over. I feel like I just went ten rounds with mighty Thor. File not found. </div>
-                  </div>
-                </li>
-                <li class="from_user left"> <a href="#" class="avatar"><img src="img/message_avatar1.png"/></a>
-                  <div class="message_wrap"> <span class="arrow"></span>
-                    <div class="info"> <a class="name">Celeste Holm </a> <span class="time">1 Day ago</span>
-                      <div class="options_arrow">
-                        <div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
-                          <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li><a href="#"><i class=" icon-share-alt icon-large"></i> Reply</a></li>
-                            <li><a href="#"><i class=" icon-trash icon-large"></i> Delete</a></li>
-                            <li><a href="#"><i class=" icon-share icon-large"></i> Share</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text"> And I'd do it again! And perhaps a third time! But that would be it. Are you crazy? I can't swallow that. And I'm his friend Jesus. No, I'm Santa Claus! And from now on you're all named Bender Jr. </div>
-                  </div>
-                </li>
-                <li class="from_user left"> <a href="#" class="avatar"><img src="img/message_avatar2.png"/></a>
-                  <div class="message_wrap"> <span class="arrow"></span>
-                    <div class="info"> <a class="name">Mark Jobs </a> <span class="time">2 Days ago</span>
-                      <div class="options_arrow">
-                        <div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
-                          <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li><a href="#"><i class=" icon-share-alt icon-large"></i> Reply</a></li>
-                            <li><a href="#"><i class=" icon-trash icon-large"></i> Delete</a></li>
-                            <li><a href="#"><i class=" icon-share icon-large"></i> Share</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text"> That's the ONLY thing about being a slave. Now, now. Perfectly symmetrical violence never solved anything. Uh, is the puppy mechanical in any way? As an interesting side note, as a head without a body, I envy the dead. </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget --> 
-        </div>
-        <!-- /span6 -->
-        <div class="span6">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-bookmark"></i>
-              <h3>Important Shortcuts</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="shortcuts"> <a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-list-alt"></i><span
-                                        class="shortcut-label">Apps</span> </a><a href="javascript:;" class="shortcut"><i
-                                            class="shortcut-icon icon-bookmark"></i><span class="shortcut-label">Bookmarks</span> </a><a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-signal"></i> <span class="shortcut-label">Reports</span> </a><a href="javascript:;" class="shortcut"> <i class="shortcut-icon icon-comment"></i><span class="shortcut-label">Comments</span> </a><a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-user"></i><span
-                                                class="shortcut-label">Users</span> </a><a href="javascript:;" class="shortcut"><i
-                                                    class="shortcut-icon icon-file"></i><span class="shortcut-label">Notes</span> </a><a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-picture"></i> <span class="shortcut-label">Photos</span> </a><a href="javascript:;" class="shortcut"> <i class="shortcut-icon icon-tag"></i><span class="shortcut-label">Tags</span> </a> </div>
-              <!-- /shortcuts --> 
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-signal"></i>
-              <h3> Area Chart Example</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <canvas id="area-chart" class="chart-holder" height="250" width="538"> </canvas>
-              <!-- /area-chart --> 
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-          <div class="widget widget-table action-table">
-            <div class="widget-header"> <i class="icon-th-list"></i>
-              <h3>A Table Example</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <table class="table table-striped table-bordered">
-                <thead>
-                  <tr>
-                    <th> Free Resource </th>
-                    <th> Download</th>
-                    <th class="td-actions"> </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                
-                </tbody>
-              </table>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget --> 
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Recent News</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <ul class="news-items">
-                <li>
-                  
-                  <div class="news-item-date"> <span class="news-item-day">29</span> <span class="news-item-month">Aug</span> </div>
-                  <div class="news-item-detail"> <a href="http://www.egrappler.com/thursday-roundup-40/" class="news-item-title" target="_blank">Thursday Roundup # 40</a>
-                    <p class="news-item-preview"> This is our web design and development news series where we share our favorite design/development related articles, resources, tutorials and awesome freebies. </p>
-                  </div>
-                  
-                </li>
-                <li>
-                  
-                  <div class="news-item-date"> <span class="news-item-day">15</span> <span class="news-item-month">Jun</span> </div>
-                  <div class="news-item-detail"> <a href="http://www.egrappler.com/retina-ready-responsive-app-landing-page-website-template-app-landing/" class="news-item-title" target="_blank">Retina Ready Responsive App Landing Page Website Template – App Landing</a>
-                    <p class="news-item-preview"> App Landing is a retina ready responsive app landing page website template perfect for software and application developers and small business owners looking to promote their iPhone, iPad, Android Apps and software products.</p>
-                  </div>
-                  
-                </li>
-                <li>
-                  
-                  <div class="news-item-date"> <span class="news-item-day">29</span> <span class="news-item-month">Oct</span> </div>
-                  <div class="news-item-detail"> <a href="http://www.egrappler.com/open-source-jquery-php-ajax-contact-form-templates-with-captcha-formify/" class="news-item-title" target="_blank">Open Source jQuery PHP Ajax Contact Form Templates With Captcha: Formify</a>
-                    <p class="news-item-preview"> Formify is a contribution to lessen the pain of creating contact forms. The collection contains six different forms that are commonly used. These open source contact forms can be customized as well to suit the need for your website/application.</p>
-                  </div>
-                  
-                </li>
-              </ul>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-        </div>
-        <!-- /span6 --> 
-      </div>
-      <!-- /row --> 
-    </div>
-    <!-- /container --> 
-  </div>
-  <!-- /main-inner --> 
-</div>
-<!-- /main -->
-<div class="extra">
-  <div class="extra-inner">
-    <div class="container">
-      <div class="row">
-                    <div class="span3">
-                        <h4>
-                            About Free Admin Template</h4>
-                        <ul>
-                            <li><a href="javascript:;">EGrappler.com</a></li>
-                            <li><a href="javascript:;">Web Development Resources</a></li>
-                            <li><a href="javascript:;">Responsive HTML5 Portfolio Templates</a></li>
-                            <li><a href="javascript:;">Free Resources and Scripts</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Support</h4>
-                        <ul>
-                            <li><a href="javascript:;">Frequently Asked Questions</a></li>
-                            <li><a href="javascript:;">Ask a Question</a></li>
-                            <li><a href="javascript:;">Video Tutorial</a></li>
-                            <li><a href="javascript:;">Feedback</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Something Legal</h4>
-                        <ul>
-                            <li><a href="javascript:;">Read License</a></li>
-                            <li><a href="javascript:;">Terms of Use</a></li>
-                            <li><a href="javascript:;">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Open Source jQuery Plugins</h4>
-                        <ul>
-                            <li><a href="http://www.egrappler.com">Open Source jQuery Plugins</a></li>
-                            <li><a href="http://www.egrappler.com;">HTML5 Responsive Tempaltes</a></li>
-                            <li><a href="http://www.egrappler.com;">Free Contact Form Plugin</a></li>
-                            <li><a href="http://www.egrappler.com;">Flat UI PSD</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
                 </div>
-      <!-- /row --> 
-    </div>
-    <!-- /container --> 
+
+            </div>
+            <div class="row">
+                 <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-one">
+                        <i  class="fa fa-venus dashboard-div-icon" ></i>
+                        <div class="progress progress-striped active">
+  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
   </div>
-  <!-- /extra-inner --> 
+                           
 </div>
-<!-- /extra -->
-<div class="footer">
-  <div class="footer-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12"> &copy; 2013 <a href="http://www.egrappler.com/">Bootstrap Responsive Admin Template</a>. </div>
-        <!-- /span12 --> 
-      </div>
-      <!-- /row --> 
-    </div>
-    <!-- /container --> 
+                         <h5>Simple Text Here </h5>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-two">
+                        <i  class="fa fa-edit dashboard-div-icon" ></i>
+                        <div class="progress progress-striped active">
+  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
   </div>
-  <!-- /footer-inner --> 
+                           
 </div>
-<!-- /footer --> 
-<!-- Le javascript
-================================================== --> 
-<!-- Placed at the end of the document so the pages load faster --> 
-<script src="<%=cp%>/resources/bootstrap/js/jquery-1.7.2.min.js"></script> 
-<script src="<%=cp%>/resources/bootstrap/js/excanvas.min.js"></script> 
-<script src="<%=cp%>/resources/bootstrap/js/chart.min.js" type="text/javascript"></script> 
-<script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script>
-<script language="javascript" type="text/javascript" src="<%=cp%>/resources/bootstrap/js/full-calendar/fullcalendar.min.js"></script>
- 
-<script src="<%=cp%>/resources/bootstrap/js/base.js"></script> 
-<script>     
+                         <h5>Simple Text Here </h5>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-three">
+                        <i  class="fa fa-cogs dashboard-div-icon" ></i>
+                        <div class="progress progress-striped active">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+  </div>
+                           
+</div>
+                         <h5>Simple Text Here </h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-four">
+                        <i  class="fa fa-bell-o dashboard-div-icon" ></i>
+                        <div class="progress progress-striped active">
+  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+  </div>
+                           
+</div>
+                         <h5>Simple Text Here </h5>
+                    </div>
+                </div>
 
-        var lineChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-            {
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                data: [65, 59, 90, 81, 56, 55, 40]
-            },
-            {
-                fillColor: "rgba(151,187,205,0.5)",
-                strokeColor: "rgba(151,187,205,1)",
-                pointColor: "rgba(151,187,205,1)",
-                pointStrokeColor: "#fff",
-                data: [28, 48, 40, 19, 96, 27, 100]
-            }
-         ]
+            </div>
+           
+            <div class="row">
+                <div class="col-md-6">
+                      <div class="notice-board">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                           Active  Notice Panel 
+                                <div class="pull-right" >
+                                    <div class="dropdown">
+  <button class="btn btn-success dropdown-toggle btn-xs" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    <span class="glyphicon glyphicon-cog"></span>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Refresh</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+  </ul>
+</div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                               
+                                <ul >
+                                   
+                                     <li>
+                                            <a href="#">
+                                     <span class="glyphicon glyphicon-align-left text-success" ></span> 
+                                                  Lorem ipsum dolor sit amet ipsum dolor sit amet
+                                                 <span class="label label-warning" > Just now </span>
+                                            </a>
+                                    </li>
+                                     <li>
+                                          <a href="#">
+                                     <span class="glyphicon glyphicon-info-sign text-danger" ></span>  
+                                          Lorem ipsum dolor sit amet ipsum dolor sit amet
+                                          <span class="label label-info" > 2 min chat</span>
+                                            </a>
+                                    </li>
+                                     <li>
+                                          <a href="#">
+                                     <span class="glyphicon glyphicon-comment  text-warning" ></span>  
+                                          Lorem ipsum dolor sit amet ipsum dolor sit amet
+                                          <span class="label label-success" >GO ! </span>
+                                            </a>
+                                    </li>
+                                    <li>
+                                          <a href="#">
+                                     <span class="glyphicon glyphicon-edit  text-danger" ></span>  
+                                          Lorem ipsum dolor sit amet ipsum dolor sit amet
+                                          <span class="label label-success" >Let's have it </span>
+                                            </a>
+                                    </li>
+                                   </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="panel-footer">
+                                <a href="#" class="btn btn-default btn-block"> <i class="glyphicon glyphicon-repeat"></i> Just A Small Footer Button</a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="text-center alert alert-warning">
+                        <a href="#" class="btn btn-social btn-facebook">
+                            <i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+                        <a href="#" class="btn btn-social btn-google">
+                            <i class="fa fa-google-plus"></i>&nbsp; Google</a>
+                        <a href="#" class="btn btn-social btn-twitter">
+                            <i class="fa fa-twitter"></i>&nbsp; Twitter </a>
+                        <a href="#" class="btn btn-social btn-linkedin">
+                            <i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
+                    </div>
+                     
+                    <hr />
+                     <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Ref. No.</th>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Delivery On </th>
+                                            <th># #</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                        <tr>
+                                            <td># 2501</td>
+                                            <td>01/22/2015 </td>
+                                            <td>
+                                                <label class="label label-info">300 USD </label>
+                                            </td>
+                                            <td>
+                                                <label class="label label-success">Delivered</label></td>
+                                            <td>01/25/2015</td>
+                                             <td> <a href="#"  class="btn btn-xs btn-danger"  >View</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td># 15091</td>
+                                            <td>12/12/2014 </td>
+                                            <td>
+                                                <label class="label label-danger">7000 USD </label>
+                                            </td>
+                                            <td>
+                                                <label class="label label-warning">Shipped</label></td>
+                                            <td>N/A</td>
+                                             <td> <a href="#"  class="btn btn-xs btn-success"  >View</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td># 11291</td>
+                                            <td>12/03/2014 </td>
+                                            <td>
+                                                <label class="label label-warning">7000 USD </label>
+                                            </td>
+                                            <td>
+                                                <label class="label label-success">Delivered</label></td>
+                                            <td>01/23/2015</td>
+                                             <td> <a href="#"  class="btn btn-xs btn-primary"  >View</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td># 1808</td>
+                                            <td>11/10/2014 </td>
+                                            <td>
+                                                <label class="label label-success">2000 USD </label>
+                                            </td>
+                                            <td>
+                                                <label class="label label-info">Returned</label></td>
+                                            <td>N/A</td>
+                                             <td> <a href="#"  class="btn btn-xs btn-danger"  >View</a> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="alert alert-danger">
+                        This is a simple admin template that can be used for your small project or may be large projects. This is free for personal and commercial use.
+                    </div>
+                    <hr />
+                     <div class="Compose-Message">               
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        Compose New Message 
+                    </div>
+                    <div class="panel-body">
+                        
+                        <label>Enter Recipient Name : </label>
+                        <input type="text" class="form-control" />
+                        <label>Enter Subject :  </label>
+                        <input type="text" class="form-control" />
+                        <label>Enter Message : </label>
+                        <textarea rows="9" class="form-control"></textarea>
+                        <hr />
+                        <a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-envelope"></span> Send Message </a>&nbsp;
+                      <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-tags"></span>  Save To Drafts </a>
+                    </div>
+                    <div class="panel-footer text-muted">
+                        <strong>Note : </strong>Please note that we track all messages so don't send any spams.
+                    </div>
+                </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <c:import url="/WEB-INF/views/include/footer.jsp" />
+    
+    <!-- CONTENT-WRAPPER SECTION END-->
+<%--     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                </div>
 
-        }
-
-        var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
-
-
-        var barChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-            {
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,1)",
-                data: [65, 59, 90, 81, 56, 55, 40]
-            },
-            {
-                fillColor: "rgba(151,187,205,0.5)",
-                strokeColor: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 19, 96, 27, 100]
-            }
-         ]
-
-        }    
-
-        $(document).ready(function() {
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-        var calendar = $('#calendar').fullCalendar({
-          header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-          },
-          selectable: true,
-          selectHelper: true,
-          select: function(start, end, allDay) {
-            var title = prompt('Event Title:');
-            if (title) {
-              calendar.fullCalendar('renderEvent',
-                {
-                  title: title,
-                  start: start,
-                  end: end,
-                  allDay: allDay
-                },
-                true // make the event "stick"
-              );
-            }
-            calendar.fullCalendar('unselect');
-          },
-          editable: true,
-          events: [
-            {
-              title: 'All Day Event',
-              start: new Date(y, m, 1)
-            },
-            {
-              title: 'Long Event',
-              start: new Date(y, m, d+5),
-              end: new Date(y, m, d+7)
-            },
-            {
-              id: 999,
-              title: 'Repeating Event',
-              start: new Date(y, m, d-3, 16, 0),
-              allDay: false
-            },
-            {
-              id: 999,
-              title: 'Repeating Event',
-              start: new Date(y, m, d+4, 16, 0),
-              allDay: false
-            },
-            {
-              title: 'Meeting',
-              start: new Date(y, m, d, 10, 30),
-              allDay: false
-            },
-            {
-              title: 'Lunch',
-              start: new Date(y, m, d, 12, 0),
-              end: new Date(y, m, d, 14, 0),
-              allDay: false
-            },
-            {
-              title: 'Birthday Party',
-              start: new Date(y, m, d+1, 19, 0),
-              end: new Date(y, m, d+1, 22, 30),
-              allDay: false
-            },
-            {
-              title: 'EGrappler.com',
-              start: new Date(y, m, 28),
-              end: new Date(y, m, 29),
-              url: 'http://EGrappler.com/'
-            }
-          ]
-        });
-      });
-    </script><!-- /Calendar -->
-   </body>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="<%=cp%>/resources/bootstrap/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script> --%>
+</body>
 </html>
