@@ -26,7 +26,7 @@
         			
         			<c:choose>
                		<c:when test="${loginuser.memberType eq 'individual' }">
-               			<li><a href="/dolbi/individual/individualmain.action"><i class="icon-user"></i><span><spring:message code="menu.individual" /></span> </a></li>
+               			<li><a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }"><i class="icon-user"></i><span><spring:message code="menu.individual" /></span> </a></li>
                		</c:when>
                		<c:when test="${loginuser.memberType eq 'company' }">
                			<li><a href="/dolbi/company/servicemain.action"><i class="icon-group"></i><span><spring:message code="menu.company" /></span> </a> </li>
@@ -35,7 +35,7 @@
                   		<li><a href="/dolbi/member/listusertype.action"><i class="icon-cogs"></i><span><spring:message code="menu.member" /></span> </a> </li>
                   	</c:when>
                		<c:otherwise>
-	               		<li><a href="/dolbi/individual/individualmain.action"><i class="icon-user"></i><span><spring:message code="menu.individual" /></span> </a></li>
+	               		<li><a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }"><i class="icon-user"></i><span><spring:message code="menu.individual" /></span> </a></li>
 	        			<li><a href="/dolbi/company/servicemain.action"><i class="icon-group"></i><span><spring:message code="menu.company" /></span> </a> </li>
 	               	</c:otherwise>
                		</c:choose>
