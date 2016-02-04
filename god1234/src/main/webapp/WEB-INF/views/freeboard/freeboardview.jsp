@@ -2,21 +2,22 @@
     pageEncoding="utf-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+    <% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 
 <html>
 <head>
-	<meta charset="utf-8" />
-	<title>자료업로드</title>
-	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
-	
+    	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    	<meta name="description" content="" />
+    	<meta name="author" content="" />
+    	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
 </head>
+	 
 <body>
-
-	<div id="pageContainer">
-	
-		<jsp:include page="/WEB-INF/views/include/header.jsp" />
+	<c:import url="/WEB-INF/views/include/header.jsp" />
 		
 		<div style="padding-top:25px;text-align:center">
 		<div id="inputcontent">
@@ -46,9 +47,7 @@
 	
 	</div>
 	</div>
-	<div>
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-	</div>
+	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 </body>
 </html>
