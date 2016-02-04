@@ -16,45 +16,6 @@
 </head>
 	 
 <body>
-		<!-- <div class="navbar navbar-fixed-top">
-  			<div class="navbar-inner">
-	    		<div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-	                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> 
-	                    </a><a class="brand" href="/dolbi/home.action">AlbaMong - 채용정보시스템 </a>
-		      		<div class="nav-collapse"><form class="navbar-search pull-right">
-			          		<input type="text" class="search-query" placeholder="Search">
-			        	</form>
-		      		</div>
-	    		</div>
-  			</div>
-		</div>
-		
-/navbar
-	<div class="subnavbar">
-  		<div class="subnavbar-inner">
-    		<div class="container">
-      			<ul class="mainnav">
-        			<li class="active"><a href="index.html"><i class="icon-dashboard"></i><span>채용정보</span> </a> </li>
-        			<li><a href="reports.html"><i class="icon-list-alt"></i><span>알바토크</span> </a> </li>
-        			<li><a href="guidely.html"><i class="icon-facetime-video"></i><span>개인서비스</span> </a></li>
-        			<li><a href="charts.html"><i class="icon-bar-chart"></i><span>기업서비스</span> </a> </li>
-        			<li><a href="charts.html"><i class="icon-bar-chart"></i><span>로그인</span> </a> </li>
-        			<li><a href="charts.html"><i class="icon-bar-chart"></i><span>가입</span> </a> </li>
-        			<li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
-          				<ul class="dropdown-menu">
-            				<li><a href="icons.html">Icons</a></li>
-            				<li><a href="faq.html">FAQ</a></li>
-            				<li><a href="pricing.html">Pricing Plans</a></li>
-            				<li><a href="login.html">Login</a></li>
-            				<li><a href="signup.html">Signup</a></li>
-            				<li><a href="error.html">404</a></li>
-          				</ul>
-        			</li>
-     			</ul>
-    		</div>
-  		</div>
-	</div> -->
-<!-- /subnavbar -->
 
 <c:import url="/WEB-INF/views/include/header.jsp" />
 <div class="main">
@@ -387,21 +348,21 @@
         var lineChartData = {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
-				{
-				    fillColor: "rgba(220,220,220,0.5)",
-				    strokeColor: "rgba(220,220,220,1)",
-				    pointColor: "rgba(220,220,220,1)",
-				    pointStrokeColor: "#fff",
-				    data: [65, 59, 90, 81, 56, 55, 40]
-				},
-				{
-				    fillColor: "rgba(151,187,205,0.5)",
-				    strokeColor: "rgba(151,187,205,1)",
-				    pointColor: "rgba(151,187,205,1)",
-				    pointStrokeColor: "#fff",
-				    data: [28, 48, 40, 19, 96, 27, 100]
-				}
-			]
+            {
+                fillColor: "rgba(220,220,220,0.5)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                data: [65, 59, 90, 81, 56, 55, 40]
+            },
+            {
+                fillColor: "rgba(151,187,205,0.5)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                data: [28, 48, 40, 19, 96, 27, 100]
+            }
+         ]
 
         }
 
@@ -411,17 +372,17 @@
         var barChartData = {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
-				{
-				    fillColor: "rgba(220,220,220,0.5)",
-				    strokeColor: "rgba(220,220,220,1)",
-				    data: [65, 59, 90, 81, 56, 55, 40]
-				},
-				{
-				    fillColor: "rgba(151,187,205,0.5)",
-				    strokeColor: "rgba(151,187,205,1)",
-				    data: [28, 48, 40, 19, 96, 27, 100]
-				}
-			]
+            {
+                fillColor: "rgba(220,220,220,0.5)",
+                strokeColor: "rgba(220,220,220,1)",
+                data: [65, 59, 90, 81, 56, 55, 40]
+            },
+            {
+                fillColor: "rgba(151,187,205,0.5)",
+                strokeColor: "rgba(151,187,205,1)",
+                data: [28, 48, 40, 19, 96, 27, 100]
+            }
+         ]
 
         }    
 
@@ -503,5 +464,5 @@
         });
       });
     </script><!-- /Calendar -->
-	</body>
+   </body>
 </html>

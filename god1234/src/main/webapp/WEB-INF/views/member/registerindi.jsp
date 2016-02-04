@@ -1,15 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 
 <html>
 <head>
 	<meta charset="utf-8" />
 	<title>사용자등록</title>
-	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    
+	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="<%=cp%>/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+
+	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    
+	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" type="text/css">
+	<link href="<%=cp%>/resources/bootstrap/css/pages/signin.css" rel="stylesheet" type="text/css">
+	
 </head>
 <body>
 
@@ -82,14 +92,14 @@
 		            <tr>
 		                <th>카테고리</th>
 		                <td>
-		                	<input type="checkbox" name="categoryNo" value="1" />서비스
-		                	<input type="checkbox" name="categoryNo" value="2" />영업
-		                	<input type="checkbox" name="categoryNo" value="3" />사무직
-		                	<input type="checkbox" name="categoryNo" value="4" />건설
-		                	<input type="checkbox" name="categoryNo" value="5" />생산
-		                	<input type="checkbox" name="categoryNo" value="6" />IT/프로그래밍
-		                	<input type="checkbox" name="categoryNo" value="7" />디자인
-		                	<input type="checkbox" name="categoryNo" value="8" />교육/강사
+		                	<input type="checkbox" name="likedCategory" value="1" />서비스
+		                	<input type="checkbox" name="likedCategory" value="2" />영업
+		                	<input type="checkbox" name="likedCategory" value="3" />사무직
+		                	<input type="checkbox" name="likedCategory" value="4" />건설
+		                	<input type="checkbox" name="likedCategory" value="5" />생산
+		                	<input type="checkbox" name="likedCategory" value="6" />IT/프로그래밍
+		                	<input type="checkbox" name="likedCategory" value="7" />디자인
+		                	<input type="checkbox" name="likedCategory" value="8" />교육/강사
 		                </td>
 		            </tr>	            
 		            
