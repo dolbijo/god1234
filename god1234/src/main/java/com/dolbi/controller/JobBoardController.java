@@ -61,7 +61,6 @@ public class JobBoardController {
 		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/uploadfiles");
 		
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat transFormat2 = new SimpleDateFormat("yyyy");
 		//Upload 객체 생성 및 파일이 아닌 데이터 저장
 		Jobboard jobboard = new Jobboard();      
 	    jobboard.setJobboardTitle(request.getParameter("title"));
@@ -81,6 +80,7 @@ public class JobBoardController {
 		//아래 try 영역 내부에서 오류가 발생하면 모든 db연동 작업을 취소하도록 처리
 		try {
 			int newJobboardNo = jobboardDao.insertJobboard(jobboard);			
+			System.out.println("jobboardDaoinsertfile : "+newJobboardNo);
 			
 			Iterator<String> iterator = request.getFileNames();			
 			while (iterator.hasNext()) {
@@ -146,12 +146,31 @@ public class JobBoardController {
    
    @RequestMapping(value = "edit.action", method = RequestMethod.GET)
    public String editForm(
-      @RequestParam("memberid") String memberId,      
-      @ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
-      
+      @RequestParam("jobboardno") int jobboardNo,      
+      @ModelAttribute("jobboard") Jobboard jobboard, Model model)
+   
+   {
+	   System.out.println(jobboardNo);
+     Jobboard jobboard1 = jobboardDao.getJobboardByJobboardNo(jobboardNo);
+     
+     System.out.println(jobboard1.getJobboardAge());
+     model.addAttribute("jobboard1",jobboard1);
          return "jobboard/jobboardeditform";
       
    }
+   
+
+	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
+	public String update(@ModelAttribute("jobboard") Jobboard jobboard) {//읽기 + view로 전달
+		System.out.println(jobboard.getJobboardAge());
+		jobboard.setMemberId(Util.getHashedString(jobboard.getMemberId(), "SHA-1"));
+		
+		//memberDao.update(member);//과제
+		//memberService.modify(member);
+		
+		return "redirect:/jobboard/view.action?memberid=" + jobboard.getMemberId();
+	}
+
    
    @RequestMapping(value = "application.action", method = RequestMethod.GET)
    public String application(String memberId, String jobboardNo) {//HttpServletRequest.setAttribute("member", member)

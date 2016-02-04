@@ -79,6 +79,7 @@ public class MySqlJobboardDao implements JobboardDao {
 	   jobboardMapper.insertApplication(params);
    }
    
+ 
 
 }
 

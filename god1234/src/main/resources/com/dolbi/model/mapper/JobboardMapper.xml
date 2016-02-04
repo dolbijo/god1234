@@ -65,12 +65,13 @@
 		where j.j_no = #{jobboardNo}
 	</select>
 	
-	<insert id="insertJobboard" parameterType="Jobboard">
+	<insert id="insertJobboard" parameterType="Jobboard" useGeneratedKeys="true" keyProperty="j_no">
 		<selectKey keyProperty="jobboardNo" resultType="int" order="BEFORE">
 			SELECT COUNT(*)+1 from JOBBOARD
 		</selectKey>
 		INSERT INTO JOBBOARD (j_no, j_title, j_content, j_deadline, j_joinno, j_gender, j_age, j_education, m_id, j_payment, j_salary, j_career, m_name)
 		VALUES (#{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardSalary},#{jobboardCareer},#{memberName})
+
 	</insert>
 	
 	<insert id="insertJobboardFile" parameterType="JobboardAttachment">
@@ -85,8 +86,8 @@
 		<selectKey keyProperty="applicationNo" resultType="int" order="BEFORE">
 			SELECT COUNT(*)+1 from application
 		</selectKey>
-		insert into application (a_no, j_no, m_id ,m_name)
-		values (#{applicationNo}, #{jobboardNo}, #{memberId}, #{memberName})
+		insert into application (a_no, j_no, m_id)
+		values (#{applicationNo}, #{jobboardNo}, #{memberId})
 	</insert>
 	
 </mapper>

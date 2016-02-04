@@ -78,7 +78,7 @@
 		        </table>
 		        <div class="buttons">
 		        	[<a href="application.action?memberId=${ loginuser.memberId }&jobboardNo=${jobboard.jobboardNo}">지원하기</a>]
-		        	<a href="edit.action?memberid=${ member.memberId }">정보수정</a>
+		        	<a href="edit.action?jobboardno=${ jobboard.jobboardNo }">정보수정</a>
 		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
 		        </div>
 		    </div>
