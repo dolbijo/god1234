@@ -6,6 +6,7 @@
 
 <html>
 <head>
+<<<<<<< HEAD
 	<meta charset="EUC-KR" />
 	<title>자료업로드</title>
 	
@@ -21,12 +22,19 @@
 	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" type="text/css">
 	<link href="<%=cp%>/resources/bootstrap/css/pages/signin.css" rel="stylesheet" type="text/css">
 	
+=======
+    	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    	<meta name="description" content="" />
+    	<meta name="author" content="" />
+    	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
+>>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
 </head>
+	 
 <body>
-
-	<div id="pageContainer">
-	
-		<jsp:include page="/WEB-INF/views/include/header.jsp" />
+	<c:import url="/WEB-INF/views/include/header.jsp" />
 	
 		
 		<div style="padding-top:25px;text-align:center">
@@ -77,9 +85,7 @@
 
 	</div>
 	</div>
-<div>
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-	</div>
+	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 </body>
 </html>

@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 	<meta charset="utf-8" />
 	<title>사용자 정보</title>
 	
@@ -23,12 +24,20 @@
 	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" type="text/css">
 	<link href="<%=cp%>/resources/bootstrap/css/pages/signin.css" rel="stylesheet" type="text/css">
 	
+=======
+    	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    	<meta name="description" content="" />
+    	<meta name="author" content="" />
+    	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
+>>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
 </head>
+	 
 <body>
-
-	<div id="pageContainer">
-		
-		<c:import url="/WEB-INF/views/include/header.jsp" />
+	<c:import url="/WEB-INF/views/include/header.jsp" />
+	
 	<table border="1" bordercolor="navy" bgcolor="skyblue" width="500" height="100">
 		<tr>
 		<td><a href="/dolbi/member/listindi.action">개인 회원 관리</td>
@@ -37,7 +46,7 @@
     	</tr>
 	</table>
 
-	</div>
+	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 </body>
 </html>
