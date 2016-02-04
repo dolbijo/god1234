@@ -46,7 +46,7 @@ public class IndividualController {
 		
 		ModelAndView mav = new ModelAndView();
 		String resume = String.valueOf(individualDao.getcountResumeById(memberId));
-		
+		System.out.println("countresume:"+resume);
 		model.addAttribute("resume", resume);
 		
 		return "individual/individualmain";
