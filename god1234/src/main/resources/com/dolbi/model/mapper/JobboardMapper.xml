@@ -67,7 +67,7 @@
 	
 	<insert id="insertJobboard" parameterType="Jobboard" useGeneratedKeys="true" keyProperty="j_no">
 		<selectKey keyProperty="jobboardNo" resultType="int" order="BEFORE">
-			SELECT COUNT(*)+1 from JOBBOARD
+			SELECT MAX(J_NO)+1 from jobboard
 		</selectKey>
 		INSERT INTO JOBBOARD (j_no, j_title, j_content, j_deadline, j_joinno, j_gender, j_age, j_education, m_id, j_payment, j_salary, j_career, m_name)
 		VALUES (#{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardSalary},#{jobboardCareer},#{memberName})
@@ -76,7 +76,7 @@
 	
 	<insert id="insertJobboardFile" parameterType="JobboardAttachment">
 		<selectKey keyProperty="jobboardAttachmentNo" resultType="int" order="BEFORE">
-			SELECT COUNT(*)+1 from jobboardattachment
+			SELECT MAX(JA_NO)+1 from jobboardattachment
 		</selectKey>
 		insert into jobboardattachment (ja_no, j_no, ja_savedfilename, ja_filename)
 		values (#{jobboardAttachmentNo}, #{jobboardNo}, #{savedFileName}, #{userFileName})
