@@ -6,26 +6,17 @@
 
 <html>
 <head>
-	<meta charset="utf-8" />
-	<title>사용자등록</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes"> 
-    
-	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<link href="<%=cp%>/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
-
-	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-    
-	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" type="text/css">
-	<link href="<%=cp%>/resources/bootstrap/css/pages/signin.css" rel="stylesheet" type="text/css">
-	
+    	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    	<meta name="description" content="" />
+    	<meta name="author" content="" />
+    	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
 </head>
+	 
 <body>
-
-	<div id="pageContainer">
-	
-		<c:import url="/WEB-INF/views/include/header.jsp" />
+	<c:import url="/WEB-INF/views/include/header.jsp" />
 		
 		<div id="inputcontent">
 			<br /><br />
@@ -112,10 +103,7 @@
 		        </form>
 		    </div>
 		</div>   	
-	<div>
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-	</div>
-	</div>
+	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 </body>
 </html>

@@ -1,50 +1,17 @@
+<% String cp = request.getContextPath(); %>	
+	<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                </div>
 
-<!-- footer -->
-
- 
-
-  <div id="footer">
-  
-  
-  <hr>
-  <div class =" contact" padding = 100px align="center">
-  
-  	<h3 class="skip">  </h3>
-  		<ul>
-  				
-  		 <a></a><img src ="/dolbi/resources/image/list.JPG"></a>
-  		
-  		</ul>
-  
-  </div>
-  <hr>
-  <div class="Award" align="center" style= "margin-top:1px; border:solid:1px;padding:1px">
-  
-  		
-  		<ul>
-  				
-  		
-  		 <img src ="/dolbi/resources/image/award.JPG"></a>
-  		
-  		</ul>
-  
-  
-  
-  </div>
-  
- 
-  <div class="copyright" align="center" >
-  
-
-    <p class="text-right">Copyright 2016 - 2017 
-    <strong>
-    		<a href="http://www.jobkorea.co.kr" target="_blank">JOBKOREA</a>
-    </strong>
-    
-    &copy; All Rights Reserved
-    </p>
-
-   </div>
-  </div>
-
-<!-- /footer -->
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="<%=cp%>/resources/bootstrap/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+   	<script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script>

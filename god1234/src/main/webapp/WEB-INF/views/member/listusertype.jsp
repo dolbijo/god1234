@@ -3,20 +3,41 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String cp = request.getContextPath(); %>
 
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 	<meta charset="utf-8" />
 	<title>사용자 정보</title>
-<!-- 	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
-	<link rel="Stylesheet" href="/dolbi/resources/styles/input.css" />	 -->	
-</head>
-<body>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    
+	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="<%=cp%>/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
 
-	<div id="pageContainer">
-		
-		<c:import url="/WEB-INF/views/include/header.jsp" />
+	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    
+	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" type="text/css">
+	<link href="<%=cp%>/resources/bootstrap/css/pages/signin.css" rel="stylesheet" type="text/css">
+	
+=======
+    	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    	<meta name="description" content="" />
+    	<meta name="author" content="" />
+    	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
+>>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
+</head>
+	 
+<body>
+	<c:import url="/WEB-INF/views/include/header.jsp" />
+	
 	<table border="1" bordercolor="navy" bgcolor="skyblue" width="500" height="100">
 		<tr>
 		<td><a href="/dolbi/member/listindi.action">개인 회원 관리</td>
@@ -25,7 +46,7 @@
     	</tr>
 	</table>
 
-	</div>
+	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 </body>
 </html>
