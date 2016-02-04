@@ -27,8 +27,8 @@
 			[ <a href="${ writeform }">자료 등록</a> ]
 			<br /><br />
 
-			<table border="1" style="width:600px" align="center">
-				<tr style="background-color:orange;height:30px">
+			<table border="1" style="width:1000px" align="center">
+				<tr style="background-color:bisque;height:30px">
 					<th style="width:50px">번호</th>
 					<th style="width:400px">제목</th>
 					<th style="width:200px">회사/점포</th>
