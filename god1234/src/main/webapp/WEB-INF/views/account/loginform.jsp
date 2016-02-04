@@ -40,6 +40,7 @@
             	<div class="col-md-6">
             		<div class="alert alert-info">
             			<form action="login.action" method="post">
+            			<input type="hidden" name="returnurl" value='${ empty requestScope.returnurl ? "" : requestScope.returnurl }' />
             				<label for="username">아이디</label>
 							<br />
 							<input type="text" id="memberId" name="memberId" placeholder="Username"  class="form-control" />
