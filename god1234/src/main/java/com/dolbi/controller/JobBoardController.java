@@ -95,7 +95,7 @@ public class JobBoardController {
 					JobboardAttachment temp = new JobboardAttachment();
 					temp.setSavedFileName(savedName);
 					temp.setUserFileName(file.getOriginalFilename());
-					temp.setJobboardNo(newJobboardNo);
+					temp.setJobboardNo(jobboard.getJobboardNo());
 					jobboardDao.insertJobboardFile(temp);
 					
 					FileOutputStream ostream = new FileOutputStream(path + "/" + savedName);
