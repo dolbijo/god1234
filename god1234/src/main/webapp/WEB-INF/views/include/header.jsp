@@ -96,12 +96,18 @@
                             <c:choose>
                   			<c:when test="${ empty sessionScope.loginuser }">
 	        					<li><a href="/dolbi/account/login.action"><spring:message code="menu.login" /></a> </li>
-	        					<li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="menu.join" /></a>
-									<ul class="dropdown-menu">
-					            		<li><a href="/dolbi/member/register.action?usertype=individual"><spring:message code="menu.indijoin" /></a></li>
-					            		<li><a href="/dolbi/member/register.action?usertype=company"><spring:message code="menu.comjoin" /></a></li>
-					        		</ul>	        			
-	        			 		</li>
+	        					
+								<li class="dropdown">
+                            		<!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> -->
+                                	<a id="dLable" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                		<spring:message code="menu.join" />
+                            		</a>
+                            		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+       									<li><a href="/dolbi/member/register.action?usertype=individual"><spring:message code="menu.indijoin" /></a></li>
+								    	<li><a href="/dolbi/member/register.action?usertype=company"><spring:message code="menu.comjoin" /></a></li>
+                            		</ul>
+                        		</li>
+	        			 		
      						</c:when>
      						<c:otherwise>
      							<li><span><spring:message code="general.welcome" arguments="${ loginuser.memberId }" /></span></li>
