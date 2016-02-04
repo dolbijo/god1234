@@ -5,11 +5,10 @@
 
     <!-- HEADER END-->
     <div class="navbar navbar-inverse set-radius-zero">
-        <div class="container">
-        <img src = "/dolbi/resources/bootstrap/img/mong5.png" style="width: 1100px;height: 270px;">        
-                <a class="navbar-brand" href="/dolbi/home.action" style="padding-top: 30px;height: 145px;margin-left: 0px;text-align:center;">
-                           	<spring:message code="menu.logo" />
-					
+        <div class="container" align="center">
+             
+                <a class="navbar-brand" href="/dolbi/home.action" style="padding-top: 30px;height: 145px;">
+                           <img src = "/dolbi/resources/bootstrap/img/logo2.png" >
                 </a>
 
         </div>
