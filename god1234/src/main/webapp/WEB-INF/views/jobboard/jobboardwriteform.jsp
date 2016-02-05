@@ -39,18 +39,29 @@
                                 <input type="text" class="form-control" name="uploader" class="form-control" 
                                 value='${ loginuser.memberId }'${ loginuser.memberId }/>
                                 
-                                <label class="control-label" for="success">이름</label>
-                                <input type="text" class="form-control" id="memberName" name="memberName" />
+                                <label class="control-label" for="success">첨부파일</label>
+                                 <input type="file" class="form-control" name="attach" style="width:650px;height:50px" />
+                               
+                                
+                                <label class="control-label" for="success">상세 모집 요강</label>
+                                <input type="content" class="form-control" style="width:580px;height:500px" rows="15"/>
+                                
+                                <label class="control-label" for="success">마감일</label>
+                                <input type="date" class="form-control"  name = "deadline" />
                                 
                                 <label class="control-label" for="success">성별</label>
                                 <input type="radio" class="form-control" id="gender" name="gender" value="male" style="heignt:100px;width:20px;display: inline;">남자
                                 <input type="radio" class="form-control" id="gender" name="gender" value="female" style="heignt:100px;width:20px;display: inline;">여자
     						
-    							<label class="control-label" for="success">나이</label>
-                                <input type="date" class="form-control" id="age" name="age" />
+    							<label class="control-label" for="success">모집 연령</label>
+                                <select id="birthday" name="birthday" class="form-control" value="selectbirth">
+                                <option value="">나이무관</option>
+    							 <option value="">출생년도 선택</option>
+     							<%for(int i=1950; i<=2010; i++){ %>
+    							 <option value="<%=i%>"><%=i+"년"%></option>
+     							<%} %>
+                            
                                 
-                                <label class="control-label" for="success">주소</label>
-                                <input type="text" class="form-control" id="memberAddress" name="memberAddress" />
     							
     							<label class="control-label" for="success">전화번호</label>
                                 <input type="text" class="form-control" id="phoneNo" name="phoneNo" />
