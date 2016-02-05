@@ -26,13 +26,13 @@
 			<br /><br />
 
 			<table class="table table-hover" style="width:1000px" align="center">
-				<tr style="background-color:bisque;height:30px;color:black">
-					<th style="width:50px">번호</th>
+				<tr class="danger" style="height:30px;color:black;">
+					<th style="width:70px">번호</th>
 					<th style="width:400px">제목</th>
-					<th style="width:200px">회사/점포</th>
-					<th style="width:200px">작성자</th>
+					<th style="width:150px">회사/점포</th>
+					<th style="width:100px">작성자</th>
 					<th style="width:150px;text-align:center">급여</th>
-					<th style="width:150px;text-align:center">조회수</th>
+					<th style="width:120px;text-align:center">조회수</th>
 					<th style="width:150px;text-align:center">마감일</th>
 				</tr>
 				
