@@ -62,7 +62,7 @@
             			기능좀 만들자 이거는 시간이 있으면
             			<hr>
             			<a href="/dolbi/member/register.action?usertype=individual" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;개인 회원가입 </a>&nbsp;
-            			<a href="/dolbi/member/register.action?usertype=company" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;기업 회원가입 </a>&nbsp;
+            			<a href="/dolbi/member/register.action?usertype=company" class="btn btn-info"><span class="glyphicon glyphicon-briefcase"></span> &nbsp;기업 회원가입 </a>&nbsp;
             		</div>
             	</div>
             </div>
