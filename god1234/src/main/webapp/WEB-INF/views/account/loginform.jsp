@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="row">
-            	<div class="col-md-6" style="width: 600px;height: 350px;">
+            	<div class="col-md-6" style="width: 600px;height: 350px;color:black">
             	<h4><strong>아이디와 비밀번호를 입력해 주세요</strong></h4>
             	<hr >
             			<form action="login.action" method="post">
@@ -57,9 +57,12 @@
             	<div class="col-md-6">
             		<div class="alert alert-info" style="height: 350px;width: 400px;margin-left: 50px;">
             			<h4><strong>아직 회원이 아니신가요?</strong></h4>
-            			..이부분은 뭐 장점좀 써줘서 채워줘 공간좀 .........
-            			혹시 심심하면 여기에 탭도 넣어서 가입/비번찾기/아이디찾기 넣어서
-            			기능좀 만들자 이거는 시간이 있으면
+            			알바몽 에서는 회원 분들의 구인/구직 활동을 위한 
+            			많은 서비스를 제공하고 있습니다. </br>
+            			개인 회원분들께는 간편하고 빠르게 일자리를 제공하고 </br>
+            			기업 회원분들께는 알맞고 적절한 인재를
+            			소개해 드립니다.
+            			
             			<hr>
             			<a href="/dolbi/member/register.action?usertype=individual" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;개인 회원가입 </a>&nbsp;
             			<a href="/dolbi/member/register.action?usertype=company" class="btn btn-info"><span class="glyphicon glyphicon-briefcase"></span> &nbsp;기업 회원가입 </a>&nbsp;

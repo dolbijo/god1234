@@ -1077,7 +1077,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #333;
+  color: seashell;
   background-color: #fff;
 }
 input,
@@ -2546,7 +2546,7 @@ output {
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .form-control:focus {
-  border-color: #66afe9;
+  border-color: coral;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
@@ -3110,8 +3110,8 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-success {
   color: black;
-  background-color: #F0677C;
-  border-color: hotpink;
+  background-color: lightpink;
+  border-color: pink;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -3120,8 +3120,8 @@ fieldset[disabled] .btn-primary.active {
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   color: #fff;
-  background-color: #449d44;
-  border-color: #398439;
+  background-color: darksalmon;
+  border-color: white;
 }
 .btn-success:active,
 .btn-success.active,
@@ -3155,8 +3155,8 @@ fieldset[disabled] .btn-success.active {
 }
 .btn-info {
   color: black;
-  background-color: #F0677C;
-  border-color: hotpink;
+  background-color: lightpink;
+  border-color: pink;
 }
 .btn-info:hover,
 .btn-info:focus,
@@ -3165,8 +3165,8 @@ fieldset[disabled] .btn-success.active {
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
   color: #fff;
-  background-color: #31b0d5;
-  border-color: #269abc;
+  background-color: darksalmon;
+  border-color: white;
 }
 .btn-info:active,
 .btn-info.active,
@@ -4946,8 +4946,8 @@ a.thumbnail.active {
 }
 .alert-info {
   color: black;
-  background-color: lightpink;
-  border-color: hotpink;
+  background-color: transparent;
+  border-color: coral;
 }
 .alert-info hr {
   border-top-color: hotpink;

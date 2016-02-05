@@ -78,7 +78,6 @@
     		</div>
     	</div>
     </div>
-    
         			
         			<c:choose>
             		<c:when test="${ resume eq '0' }">
