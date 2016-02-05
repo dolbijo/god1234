@@ -46,10 +46,28 @@ public class IndividualController {
 		
 		ModelAndView mav = new ModelAndView();
 		String resume = String.valueOf(individualDao.getcountResumeById(memberId));
-		System.out.println("countresume:"+resume);
 		model.addAttribute("resume", resume);
 		
+		Member member = individualDao.getIndividualById(memberId);
+		model.addAttribute("member", member);
+		
 		return "individual/individualmain";
+	}
+	
+	
+	@RequestMapping(value = "resumeservice.action", method = RequestMethod.GET)
+	public String resumeservice(String memberId) {
+		
+		ModelAndView mav = new ModelAndView();
+		String resume = String.valueOf(individualDao.getcountResumeById(memberId));
+		
+		if (resume.equals("0")) {
+			return "redirect:/individual/resumeform.action?memberId=" + memberId;
+		} else {
+			return "redirect:/individual/resumeview.action?memberId=" + memberId;
+		}
+		
+		
 	}
 	
 	@RequestMapping(value = "resumeview.action", method = RequestMethod.GET)

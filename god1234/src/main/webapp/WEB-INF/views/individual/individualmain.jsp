@@ -23,32 +23,62 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-        
-    <section class="featured">
-	<div class="container"> 
-		<div class="row mar-bot40">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="align-center">
-        			<table border='0'>
-        				<tr colspan='4'>
-        					<td>${ loginuser.memberId }님 개인페이지 입니다.</td>
-        				</tr>
-        				
-        				<tr>
-        					<td>이름</td>
-        					<td>${ loginuser.memberName }</td>
-        					<td>전화번호</td>
-        					<td>${ loginuser.phoneNo }</td>
-        				</tr>
-        				
-        				<tr>
-        					<td>이메일</td>
-        					<td>${ loginuser.email }</td>
-        					<td>주소</td>
-        					<td>${ loginuser.memberAddress }</td>
-        				</tr>
-        				
-        			</table>
+    <div class="content-wrapper">
+    	<div class="container">
+			<div class="row">
+    			<div class="col-md-12">
+    				<h4 class="page-head-line">${ loginuser.memberId }님 개인페이지 </h4>
+    			</div>
+    		</div>
+    			<br />
+    			
+    		<div class="row">
+                <div class="col-md-6">
+                     <!--    Hover Rows  -->
+                    
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <tbody>
+                                    	<tr>
+                                            <td>아이디</td>
+        									<td>${ loginuser.memberId }</td>
+                                        </tr>
+                                        <tr>
+                                            <td>이름</td>
+        									<td>${ loginuser.memberName }</td>
+                                        </tr>
+                                        <tr>
+                                            <td>성별</td>
+        									<td>${ member.gender }</td>
+                                        </tr>
+                                        <tr>
+                                            <td>생년월일</td>
+        									<td>${ member.age }</td>
+                                        </tr>
+                                        <tr>
+                                            <td>전화번호</td>
+        									<td>${ loginuser.phoneNo }</td>
+                                        </tr>
+                                        <tr>
+                                            <td>이메일</td>
+        									<td>${ loginuser.email }</td>
+                                        </tr>
+                                        <tr>
+                                            <td>주소</td>
+        									<td>${ loginuser.memberAddress }</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        
+                    </div>
+                    <!-- End  Hover Rows  -->
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
         			
         			<c:choose>
             		<c:when test="${ resume eq '0' }">
@@ -62,11 +92,7 @@
         			<a href="applicationlist.action?memberId=${ loginuser.memberId }">지원현황</a>
 					<br />
         			<a href="recommendationlist.action">맞춤알바정보</a>
-        		</div>
-        	</div>
-        </div>
-    </div>
-    </section>
+ 
     <c:import url="/WEB-INF/views/include/footer.jsp" />
 </body>
 </html>

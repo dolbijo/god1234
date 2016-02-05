@@ -29,7 +29,18 @@
                             <!-- 회원서비스 -->
                             <c:choose>
                				<c:when test="${loginuser.memberType eq 'individual' }">
-               					<li><a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }"><spring:message code="menu.individual" /> </a></li>
+               					<li class="dropdown">
+                        
+                                	<a id="dLable" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                		<spring:message code="menu.individual" />
+                            		</a>
+                            		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+       									<li><a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }"><spring:message code="menu.individualmain" /></a></li>
+								    	<li><a href="/dolbi/individual/resumeservice.action?memberId=${ loginuser.memberId }"><spring:message code="menu.resume" /></a></li>
+								    	<li><a href="/dolbi/individual/applicationlist.action?memberId=${ loginuser.memberId }"><spring:message code="menu.application" /></a></li>
+                            			<li><a href="/dolbi/individual/recommendationlist.action?memberId=${ loginuser.memberId }"><spring:message code="menu.recommendation" /></a></li>
+                            		</ul>
+                        		</li>	
                				</c:when>
                				<c:when test="${loginuser.memberType eq 'company' }">
                					<li><a href="/dolbi/company/servicemain.action"><spring:message code="menu.company" /> </a> </li>
