@@ -27,7 +27,7 @@
          <br /><br />
 
          <table border="1" style="width:1000px" align="center">
-            <tr style="background-color:bisque;height:30px">
+            <tr style="background-color:bisque;height:30px;color:black">
                <th style="width:50px">번호</th>
                <th style="width:400px">제목</th>
                <th style="width:150px">작성자</th>
@@ -35,7 +35,7 @@
             </tr>
             
             <c:forEach var="freeboard" items="${ freeboards }">
-            <tr style="height:30px">
+            <tr style="height:30px;color:slategrey">
                <td>${ freeboard.freeboardNo }</td>
                <td style="text-align:left;padding-left:10px">
                   <c:url var="view" value="view.action">
