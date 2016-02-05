@@ -56,15 +56,9 @@
 						<a href="view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
 
-					<td>${ jobboard.memberName }</td>
-					<td>${ jobboard.memberId }</td>
-					<td>${ jobboard.jobboardGender }</td>
-					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
-					<td>${ jobboard.jobboardReadCount }</td>
-					<td>${ jobboard.jobboardDeadLine }</td>
-
 					<td style="padding-top:15px">${ jobboard.memberName }</td>
 					<td style="padding-top:15px">${ jobboard.memberId }</td>
+					<td style="padding-top:15px">${ jobboard.jobboardGender }</td>
 					<td style="padding-top:15px">${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
 					<td style="padding-top:15px">${ jobboard.jobboardReadCount }</td>
 					<td style="padding-top:15px">${ jobboard.jobboardDeadLine }</td>
@@ -75,9 +69,6 @@
 			</table>
 			<br /><br /><br /><br />
 			
-				
-	
-	
 		</div>
 
 		
