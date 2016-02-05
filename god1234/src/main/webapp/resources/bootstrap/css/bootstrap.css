@@ -3109,9 +3109,9 @@ fieldset[disabled] .btn-primary.active {
   background-color: #fff;
 }
 .btn-success {
-  color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  color: black;
+  background-color: #F0677C;
+  border-color: hotpink;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -3154,9 +3154,9 @@ fieldset[disabled] .btn-success.active {
   background-color: #fff;
 }
 .btn-info {
-  color: #fff;
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  color: black;
+  background-color: #F0677C;
+  border-color: hotpink;
 }
 .btn-info:hover,
 .btn-info:focus,
@@ -3421,7 +3421,7 @@ tbody.collapse.in {
   font-size: 14px;
   text-align: left;
   list-style: none;
-  background-color: #4f4f4f;
+  background-color: black;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #ccc;
@@ -3886,7 +3886,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: mediumvioletred;
+  background-color: lightpink;
   border-color: #337ab7;
 }
 .nav .nav-divider {
@@ -4945,12 +4945,12 @@ a.thumbnail.active {
   color: #2b542c;
 }
 .alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  color: black;
+  background-color: lightpink;
+  border-color: hotpink;
 }
 .alert-info hr {
-  border-top-color: #a6e1ec;
+  border-top-color: hotpink;
 }
 .alert-info .alert-link {
   color: #245269;

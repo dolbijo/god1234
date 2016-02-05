@@ -157,7 +157,7 @@ header {
 /* MENU LINKS SECTION*/
 
 .menu-section {
-    background-color: #4f4f4f;
+    background-color: black;
 }
 
 #menu-top a {
@@ -169,15 +169,15 @@ header {
 }
 
 .menu-top-active {
-    background-color: mediumvioletred;
+    background-color: lightpink;
 }
 
 .menu-section .nav > li > a:hover,.menu-section .nav > li > a:focus {
-    background-color: mediumvioletred!important;
+    background-color: lightpink!important;
 }
 
 .menu-section .dropdown-menu > li > a:hover,.menu-section .dropdown-menu > li > a:focus {
-    background-color: mediumvioletred!important;
+    background-color: lightpink!important;
 }
 
 .navbar-inverse {
@@ -200,7 +200,7 @@ footer {
     padding: 10px;
     color: #fff;
     font-size: 12px;
-    background-color: #4f4f4f;
+    background-color: black;
 }
 
     footer a, footer a:hover {

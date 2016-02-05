@@ -7,7 +7,7 @@
     <div class="navbar navbar-inverse set-radius-zero">
         <div class="container" align="center">
              
-                <a class="navbar-brand" href="/dolbi/home.action" style="padding-top: 30px;height: 145px;">
+                <a class="navbar-brand" href="/dolbi/home.action" style="padding-top: 30px;height: 195px;">
                            <img src = "/dolbi/resources/bootstrap/img/logo2.png" >
                 </a>
 
