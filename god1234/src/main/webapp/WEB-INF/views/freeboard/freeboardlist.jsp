@@ -49,19 +49,7 @@
 					<th style="width:150px;text-align:center">작성일</th>
 				</tr>
 				
-				<c:forEach var="freeboard" items="${ freeboards }">
-				<tr style="height:30px">
-					<td>${ freeboard.freeboardNo }</td>
-					<td style="text-align:left;padding-left:10px">
-						<c:url var="view" value="view.action">
-							<c:param name="FreeboardNo" value="${ freeboard.freeboardNo }" />
-						</c:url>
-						<a href='${ view }'>${ freeboard.freeboardTitle }</a>
-					</td>
-					<td>${ freeboard.memberId }</td>
-					<td>${ freeboard.freeboardContent }</td>
-				</tr>
-				</c:forEach>
+				
 				
 			</table>
 			<br /><br /><br /><br />

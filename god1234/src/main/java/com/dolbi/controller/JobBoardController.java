@@ -30,6 +30,7 @@ import com.dolbi.model.dao.IndividualDao;
 import com.dolbi.model.dao.JobboardDao;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
+
 import com.dolbi.model.dto.Member;
 import com.dolbi.model.dto.Upload;
 import com.dolbi.model.dto.UploadFile;
@@ -161,6 +162,10 @@ public class JobBoardController {
        return "redirect:/jobboard/view.action?jobboardNo="+jobboardNo;
       
    }
+   
+
+	
+   
 
 }
 

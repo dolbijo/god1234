@@ -89,6 +89,10 @@
 		values (#{applicationNo}, #{jobboardNo}, #{memberId})
 	</insert>
 	
+
+	
+
+	
 </mapper>
 
 

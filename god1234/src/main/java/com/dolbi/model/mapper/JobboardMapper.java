@@ -21,5 +21,7 @@ public interface JobboardMapper {
 	void insertJobboardFile(JobboardAttachment file);
 	
 	void insertApplication(HashMap<String, Object> params);
+	
+	
 
 }

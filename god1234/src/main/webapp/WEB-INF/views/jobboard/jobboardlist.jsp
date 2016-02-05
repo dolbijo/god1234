@@ -14,10 +14,21 @@
     	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
     	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
 </head>
+
+<script type="text/javascript">
+	function goPage(pageNo){
+		document.listForm.pageNo.value = pageNo;
+		document.listForm.submit();
+		console.log("pageNo : " + pageNo);
+	}
+
+</script>
+
+
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-	
+
 		
 		
 		<div style="padding-top:25px;text-align:center">
@@ -38,6 +49,7 @@
 					<th style="width:150px;text-align:center">마감일</th>
 				</tr>
 				
+							
 				<c:forEach var="jobboard" items="${ jobboards }">
 				<tr style="height:30px">
 					<td>${ jobboard.jobboardNo }</td>
@@ -55,8 +67,9 @@
 			</table>
 			<br /><br /><br /><br />
 			
-		
-		
+				
+	
+	
 		</div>
 
 		
