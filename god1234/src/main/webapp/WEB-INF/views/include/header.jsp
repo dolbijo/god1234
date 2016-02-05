@@ -21,6 +21,9 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
+                        	<c:if test="${ not empty sessionScope.loginuser }">
+                        		<li style="padding-top: 5px;"><span><spring:message code="general.welcome" arguments="${ loginuser.memberId }" /></span></li>
+                            </c:if>
                             <!-- 채용게시판 -->
                             <li><a href="/dolbi/jobboard/list.action"><spring:message code="menu.jobboard" /></a></li>
                             <!-- 자유게시판 -->
@@ -60,7 +63,6 @@
 	        			 		
      						</c:when>
      						<c:otherwise>
-     							<li><span><spring:message code="general.welcome" arguments="${ loginuser.memberId }" /></span></li>
      							<li><a href="/dolbi/account/logout.action"><span><spring:message code="menu.logout" /></a> </li>
      						</c:otherwise>
      						</c:choose>

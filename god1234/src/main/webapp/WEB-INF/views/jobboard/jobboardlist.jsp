@@ -21,14 +21,12 @@
 		
 		
 		<div style="padding-top:25px;text-align:center">
-			 <img src ="/dolbi/resources/image/alb.JPG">
-			 <br>
 			<c:url var="writeform" value="/jobboard/register.action" />
 			[ <a href="${ writeform }">자료 등록</a> ]
 			<br /><br />
 
-			<table border="1" style="width:1000px" align="center">
-				<tr style="background-color:bisque;height:30px">
+			<table class="table table-hover" style="width:1000px" align="center">
+				<tr style="background-color:bisque;height:30px;color:black">
 					<th style="width:50px">번호</th>
 					<th style="width:400px">제목</th>
 					<th style="width:200px">회사/점포</th>
@@ -39,7 +37,7 @@
 				</tr>
 				
 				<c:forEach var="jobboard" items="${ jobboards }">
-				<tr style="height:30px">
+				<tr style="height:30px;color:slategrey">
 					<td>${ jobboard.jobboardNo }</td>
 					<td style="text-align:left;padding-left:10px">
 						<a href="view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
