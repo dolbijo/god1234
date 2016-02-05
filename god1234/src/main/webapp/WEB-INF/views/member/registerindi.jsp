@@ -27,7 +27,7 @@
     			<div class="row"  align="center">
     				<div class="col-md-12">
     					<div class="form-group has-error">
-    						<form action="registerindi.action" method="post"><!-- 상대경로표시 -->
+    						<form action="registerindi.action" method="post" style="padding-left: 200px;padding-right: 200px;"><!-- 상대경로표시 -->
     							<label class="control-label" for="success">아이디(ID)</label>
                                 <input type="text" class="form-control" id="memberId" name="memberId" />
     							
@@ -67,7 +67,7 @@
                                 		<option>디자인</option>
                                 		<option>교육/강사</option>
                                 	</select>
-                                	
+                                <br /><br />
                                 <input type="submit" value="등록"  class="button btn btn-success btn-large"/>
 		        				<input type="button" value="취소" onclick="location.href='list.action';" class="button btn btn-success btn-large"/>
     						</form>
