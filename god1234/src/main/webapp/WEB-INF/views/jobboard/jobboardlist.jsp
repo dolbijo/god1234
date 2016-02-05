@@ -25,7 +25,7 @@
 			[ <a href="${ writeform }">자료 등록</a> ]
 			<br /><br />
 
-			<table class="table table-hover" style="width:1000px" align="center">
+			<table class="table table-hover" style="width:1000px;height:10px" align="center">
 				<tr class="danger" style="height:30px;color:black;">
 					<th style="width:70px">번호</th>
 					<th style="width:400px">제목</th>
@@ -37,16 +37,16 @@
 				</tr>
 				
 				<c:forEach var="jobboard" items="${ jobboards }">
-				<tr style="height:30px;color:slategrey">
-					<td>${ jobboard.jobboardNo }</td>
-					<td style="text-align:left;padding-left:10px">
+				<tr style="height:20px;color:slategrey;">
+					<td style="padding-top:20px">${ jobboard.jobboardNo }</td>
+					<td style="text-align:left;padding-top:20px">
 						<a href="view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
-					<td>${ jobboard.memberName }</td>
-					<td>${ jobboard.memberId }</td>
-					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
-					<td>${ jobboard.jobboardReadCount }</td>
-					<td>${ jobboard.jobboardDeadLine }</td>
+					<td style="padding-top:15px">${ jobboard.memberName }</td>
+					<td style="padding-top:15px">${ jobboard.memberId }</td>
+					<td style="padding-top:15px">${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
+					<td style="padding-top:15px">${ jobboard.jobboardReadCount }</td>
+					<td style="padding-top:15px">${ jobboard.jobboardDeadLine }</td>
 				</tr>
 				</c:forEach>
 				
