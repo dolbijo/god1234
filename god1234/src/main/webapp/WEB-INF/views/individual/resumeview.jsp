@@ -35,7 +35,7 @@
     							</tr>
     							<tr>
     								<td colspan="2">이력서 사진</td>
-    								<td colspan="2"><img src="resume/${reAtt.resumeSavedFilename }" /></td>
+    								<td colspan="2"><img src="<%=cp%>/resumefile/${reAtt.resumeSavedFilename }" /></td>
     							</tr>
     							<tr>
     								<td>이름</td>

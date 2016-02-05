@@ -36,6 +36,8 @@ public class MySqlJobboardDao implements JobboardDao {
       
       
 	int newJobboardNo = jobboardMapper.insertJobboard(jobboard);
+	System.out.println("Daoinsertjobboard:" + newJobboardNo +"/"+ jobboard.getJobboardNo());
+	 
 	
 	return newJobboardNo;
 
@@ -79,6 +81,7 @@ public class MySqlJobboardDao implements JobboardDao {
 	   jobboardMapper.insertApplication(params);
    }
    
+ 
 
 }
 
