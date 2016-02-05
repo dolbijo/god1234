@@ -26,16 +26,17 @@
 		        <div class="inputsubtitle">채용 자료 등록</div>
 		        <form action="write.action" method="post" enctype="multipart/form-data">
 		        <table>
-		            <tr>
-		                <th>제목</th>
+		               <tr>
+		                <label class="control-label" for="success">제목</label>
 		                <td>
-		                    <input type="text" name="title" style="width:580px" />
+		                    <input type="text" class="form-control" name="title" style="width:580px" />
 		                </td>
-		            </tr>
+		         			</tr>
 		              <tr>
-		                <th>회사/점포명</th>
+		                <label class="control-label" for="success">회사/점포명</label>
+		            
 		                <td>
-		                	<input type="hidden" name="memberName" value='${ sessionScope.loginuser.memberName }' />
+		                	<input type="hidden" class="form-control" name="memberName" value='${ sessionScope.loginuser.memberName }' />
 		                	${ sessionScope.loginuser.memberName }
 		                </td>
 		            </tr>

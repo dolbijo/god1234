@@ -32,32 +32,32 @@
 		
 		
 		<div style="padding-top:25px;text-align:center">
-			 <img src ="/dolbi/resources/image/alb.JPG">
-			 <br>
 			<c:url var="writeform" value="/jobboard/register.action" />
 			[ <a href="${ writeform }">자료 등록</a> ]
 			<br /><br />
 
-			<table border="1" style="width:1000px" align="center">
-				<tr style="background-color:bisque;height:30px">
-					<th style="width:50px">번호</th>
+			<table class="table table-hover" style="width:1000px" align="center">
+				<tr class="danger" style="height:30px;color:black;">
+					<th style="width:70px">번호</th>
 					<th style="width:400px">제목</th>
-					<th style="width:200px">회사/점포</th>
-					<th style="width:200px">작성자</th>
+					<th style="width:150px">회사/점포</th>
+					<th style="width:100px">작성자</th>
+					<th style="width:100px">성별</th>
 					<th style="width:150px;text-align:center">급여</th>
-					<th style="width:150px;text-align:center">조회수</th>
+					<th style="width:120px;text-align:center">조회수</th>
 					<th style="width:150px;text-align:center">마감일</th>
 				</tr>
 				
 							
 				<c:forEach var="jobboard" items="${ jobboards }">
-				<tr style="height:30px">
+				<tr style="height:30px;color:slategrey">
 					<td>${ jobboard.jobboardNo }</td>
 					<td style="text-align:left;padding-left:10px">
 						<a href="view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
 					<td>${ jobboard.memberName }</td>
 					<td>${ jobboard.memberId }</td>
+					<td>${ jobboard.jobboardGender }</td>
 					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
 					<td>${ jobboard.jobboardReadCount }</td>
 					<td>${ jobboard.jobboardDeadLine }</td>
