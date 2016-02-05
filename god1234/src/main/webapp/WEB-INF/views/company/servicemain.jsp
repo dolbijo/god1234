@@ -38,7 +38,7 @@
 			<div class="row mar-bot40">
 				<div class="col-md-6 col-md-offset-3">
 					<div class="align-center">
-					<table border='0'>
+					<table border='0' style="color:black">
         				<tr colspan='4'>
         					<td class="align-center">${ loginuser.memberId }님 기업페이지 입니다.</td>
         				</tr>

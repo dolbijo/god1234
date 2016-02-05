@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="row">
-            	<div class="col-md-6" style="width: 600px;height: 350px;">
+            	<div class="col-md-6" style="width: 600px;height: 350px;color:black">
             	<h4><strong>아이디와 비밀번호를 입력해 주세요</strong></h4>
             	<hr >
             			<form action="login.action" method="post">

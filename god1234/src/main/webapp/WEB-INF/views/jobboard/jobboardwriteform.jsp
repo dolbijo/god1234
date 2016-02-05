@@ -20,7 +20,7 @@
 	
 	
 		
-		<div style="padding-top:25px;text-align:center">
+		<div style="padding-top:25px;text-align:center;color:black">
 		<div id="inputcontent">
 		    <div id="inputmain">
 		        <div class="inputsubtitle">채용 자료 등록</div>
