@@ -21,9 +21,6 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                        	<c:if test="${ not empty sessionScope.loginuser }">
-                        		<li style="padding-top: 5px;"><span><spring:message code="general.welcome" arguments="${ loginuser.memberId }" /></span></li>
-                            </c:if>
                             <!-- 채용게시판 -->
                             <li><a href="/dolbi/jobboard/list.action"><spring:message code="menu.jobboard" /></a></li>
                             <!-- 자유게시판 -->
@@ -31,52 +28,53 @@
                             
                             <!-- 회원서비스 -->
                             <c:choose>
-               				<c:when test="${loginuser.memberType eq 'individual' }">
-               					<li class="dropdown">
+                            <c:when test="${loginuser.memberType eq 'individual' }">
+                              <li class="dropdown">
                         
-                                	<a id="dLable" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                                		<spring:message code="menu.individual" />
-                            		</a>
-                            		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-       									<li><a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }"><spring:message code="menu.individualmain" /></a></li>
-								    	<li><a href="/dolbi/individual/resumeservice.action?memberId=${ loginuser.memberId }"><spring:message code="menu.resume" /></a></li>
-								    	<li><a href="/dolbi/individual/applicationlist.action?memberId=${ loginuser.memberId }"><spring:message code="menu.application" /></a></li>
-                            			<li><a href="/dolbi/individual/recommendationlist.action?memberId=${ loginuser.memberId }"><spring:message code="menu.recommendation" /></a></li>
-                            		</ul>
-                        		</li>	
-               				</c:when>
-               				<c:when test="${loginuser.memberType eq 'company' }">
-               					<li><a href="/dolbi/company/servicemain.action"><spring:message code="menu.company" /> </a> </li>
-                  			</c:when>
-                  			<c:when test="${loginuser.memberType eq 'admin' }">
-                  				<li><a href="/dolbi/member/listusertype.action"><spring:message code="menu.member" /></a> </li>
-                  			</c:when>
-               				<c:otherwise>
-	               				<li><a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }"><spring:message code="menu.individual" /></a></li>
-	        					<li><a href="/dolbi/company/servicemain.action"><spring:message code="menu.company" /></a> </li>
-	               			</c:otherwise>
-               				</c:choose>
+                                   <a id="dLable" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                      <spring:message code="menu.individual" />
+                                  </a>
+                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                  <li><a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }"><spring:message code="menu.individualmain" /></a></li>
+                               <li><a href="/dolbi/individual/resumeservice.action?memberId=${ loginuser.memberId }"><spring:message code="menu.resume" /></a></li>
+                               <li><a href="/dolbi/individual/applicationlist.action?memberId=${ loginuser.memberId }"><spring:message code="menu.application" /></a></li>
+                                     <li><a href="/dolbi/individual/recommendationlist.action?memberId=${ loginuser.memberId }"><spring:message code="menu.recommendation" /></a></li>
+                                  </ul>
+                              </li>   
+                           </c:when>
+                           <c:when test="${loginuser.memberType eq 'company' }">
+                              <li><a href="/dolbi/company/servicemain.action"><spring:message code="menu.company" /> </a> </li>
+                           </c:when>
+                           <c:when test="${loginuser.memberType eq 'admin' }">
+                              <li><a href="/dolbi/member/listusertype.action"><spring:message code="menu.member" /></a> </li>
+                           </c:when>
+                           <c:otherwise>
+                              <li><a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }"><spring:message code="menu.individual" /></a></li>
+                          <li><a href="/dolbi/company/servicemain.action"><spring:message code="menu.company" /></a> </li>
+                           </c:otherwise>
+                           </c:choose>
                             
                             <c:choose>
-                  			<c:when test="${ empty sessionScope.loginuser }">
-	        					<li><a href="/dolbi/account/login.action"><spring:message code="menu.login" /></a> </li>
-	        					
-								<li class="dropdown">
-                            		<!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> -->
-                                	<a id="dLable" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                                		<spring:message code="menu.join" />
-                            		</a>
-                            		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-       									<li><a href="/dolbi/member/register.action?usertype=individual"><spring:message code="menu.indijoin" /></a></li>
-								    	<li><a href="/dolbi/member/register.action?usertype=company"><spring:message code="menu.comjoin" /></a></li>
-                            		</ul>
-                        		</li>
-	        			 		
-     						</c:when>
-     						<c:otherwise>
-     							<li><a href="/dolbi/account/logout.action"><span><spring:message code="menu.logout" /></a> </li>
-     						</c:otherwise>
-     						</c:choose>
+                           <c:when test="${ empty sessionScope.loginuser }">
+                          <li><a href="/dolbi/account/login.action"><spring:message code="menu.login" /></a> </li>
+                          
+                        <li class="dropdown">
+                                  <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> -->
+                                   <a id="dLable" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                      <spring:message code="menu.join" />
+                                  </a>
+                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                  <li><a href="/dolbi/member/register.action?usertype=individual"><spring:message code="menu.indijoin" /></a></li>
+                               <li><a href="/dolbi/member/register.action?usertype=company"><spring:message code="menu.comjoin" /></a></li>
+                                  </ul>
+                              </li>
+                           
+                       </c:when>
+                       <c:otherwise>
+                          <li><span><spring:message code="general.welcome" arguments="${ loginuser.memberId }" /></span></li>
+                          <li><a href="/dolbi/account/logout.action"><span><spring:message code="menu.logout" /></a> </li>
+                       </c:otherwise>
+                       </c:choose>
  
                         </ul>
                     </div>

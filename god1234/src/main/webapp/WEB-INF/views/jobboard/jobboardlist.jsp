@@ -14,10 +14,21 @@
     	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
     	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
 </head>
+
+<script type="text/javascript">
+	function goPage(pageNo){
+		document.listForm.pageNo.value = pageNo;
+		document.listForm.submit();
+		console.log("pageNo : " + pageNo);
+	}
+
+</script>
+
+
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-	
+
 		
 		
 		<div style="padding-top:25px;text-align:center">
@@ -31,30 +42,42 @@
 					<th style="width:400px">제목</th>
 					<th style="width:150px">회사/점포</th>
 					<th style="width:100px">작성자</th>
+					<th style="width:100px">성별</th>
 					<th style="width:150px;text-align:center">급여</th>
 					<th style="width:120px;text-align:center">조회수</th>
 					<th style="width:150px;text-align:center">마감일</th>
 				</tr>
 				
+							
 				<c:forEach var="jobboard" items="${ jobboards }">
 				<tr style="height:20px;color:slategrey;">
 					<td style="padding-top:20px">${ jobboard.jobboardNo }</td>
 					<td style="text-align:left;padding-top:20px">
 						<a href="view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
+
+					<td>${ jobboard.memberName }</td>
+					<td>${ jobboard.memberId }</td>
+					<td>${ jobboard.jobboardGender }</td>
+					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
+					<td>${ jobboard.jobboardReadCount }</td>
+					<td>${ jobboard.jobboardDeadLine }</td>
+
 					<td style="padding-top:15px">${ jobboard.memberName }</td>
 					<td style="padding-top:15px">${ jobboard.memberId }</td>
 					<td style="padding-top:15px">${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
 					<td style="padding-top:15px">${ jobboard.jobboardReadCount }</td>
 					<td style="padding-top:15px">${ jobboard.jobboardDeadLine }</td>
+
 				</tr>
 				</c:forEach>
 				
 			</table>
 			<br /><br /><br /><br />
 			
-		
-		
+				
+	
+	
 		</div>
 
 		
