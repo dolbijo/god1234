@@ -48,8 +48,48 @@ public class MemberController {
 		
 		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
 
-		System.out.println(member.getEmail());
 		memberDao.insertindi(member);
+		
+		if (member.getService() == 1) {
+			
+			memberDao.insertCategory(member.getMemberId(), member.getService());
+			
+		}
+		if (member.getSale() == 2) {
+			
+			memberDao.insertCategory(member.getMemberId(), member.getSale());
+			
+		}
+		if (member.getOffice() == 3) {
+			
+			memberDao.insertCategory(member.getMemberId(), member.getOffice());
+			
+		}
+		if (member.getConstruction() == 4) {
+			
+			memberDao.insertCategory(member.getMemberId(), member.getConstruction());
+			
+		}
+		if (member.getProduction() == 5) {
+			
+			memberDao.insertCategory(member.getMemberId(), member.getProduction());
+			
+		}
+		if (member.getIt() == 6) {
+			
+			memberDao.insertCategory(member.getMemberId(), member.getIt());
+			
+		}
+		if (member.getDesign() == 7) {
+			
+			memberDao.insertCategory(member.getMemberId(), member.getDesign());
+			
+		}
+		if (member.getEducation() == 8) {
+			
+			memberDao.insertCategory(member.getMemberId(), member.getEducation());
+			
+		}
 		
 		return "redirect:/home.action";
 	}

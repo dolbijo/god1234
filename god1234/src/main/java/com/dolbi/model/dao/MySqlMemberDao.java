@@ -90,11 +90,21 @@ public class MySqlMemberDao implements MemberDao {
 		HashMap<String, Object> params = new HashMap<>();
 		params.put("memberId", id);
 		params.put("passWd", passWd);
-		System.out.println("accountcontroller : 로그인post요청DAO" + passWd);
+		
 		Member member = memberMapper.selectMemberByIdAndPasswd(params);
-		System.out.println("accountcontroller : 로그인post요청DAO2" + member.getMemberName());
+		
 		return member;
 	}
+	
+	public void insertCategory(String id, int categoryNo){
+		HashMap<String, Object> params = new HashMap<>();
+		
+		params.put("id", id);
+		params.put("categoryNo", categoryNo);
+		
+		memberMapper.insertCategory(params);
+	}
+	
 }
 
 
