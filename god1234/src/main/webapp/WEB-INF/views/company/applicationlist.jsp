@@ -21,34 +21,20 @@
 		
 		
 		<div style="padding-top:25px;text-align:center">
-			 <img src ="/dolbi/resources/image/alb.JPG">
-			 <br>
-			<c:url var="writeform" value="/jobboard/register.action" />
-			[ <a href="${ writeform }">자료 등록</a> ]
-			<br /><br />
+
 
 			<table border="1" style="width:600px" align="center">
 				<tr style="background-color:orange;height:30px">
-					<th style="width:50px">번호</th>
-					<th style="width:400px">제목</th>
-					<th style="width:200px">작성자</th>
-					<th style="width:150px;text-align:center">급여</th>
-					<th style="width:150px;text-align:center">조회수</th>
-					<th style="width:150px;text-align:center">마감일</th>
+					<th style="width:50px">지원 날짜</th>
+					<th style="width:400px">지원자 아이디</th>
 					<th></th>
 				</tr>
 				
-				<c:forEach var="jobboard" items="${ jobboards }">
+				<c:forEach var="application" items="${ applications }">
 				<tr style="height:30px">
-					<td>${ jobboard.jobboardNo }</td>
-					<td style="text-align:left;padding-left:10px">
-						<a href="/dolbi/jobboard/view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
-					</td>
-					<td>${ jobboard.memberId }</td>
-					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
-					<td>${ jobboard.jobboardReadCount }</td>
-					<td><fmt:formatDate value="${ jobboard.jobboardDeadLine }" type="date"/></td>
-					<td>[<a href="applicationlist.action?jobboardNo=${ jobboard.jobboardNo }">지원자리스트 보러가기</a>]</td>
+					<th style="width:50px"><fmt:formatDate value="${application.applicationRegdate }" type="date"/></th>
+					<th style="width:400px">${application.memberId }</th>
+					<th>[이력서 열람하기]<!-- 1. application테이블의 ischeck업데이트 / 2. select resume를 memberId로 하기 --></th>
 				</tr>
 				</c:forEach>
 				

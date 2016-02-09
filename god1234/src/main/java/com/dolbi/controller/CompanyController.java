@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dolbi.common.Util;
+import com.dolbi.model.dao.CompanyDao;
 import com.dolbi.model.dao.MemberDao;
-import com.dolbi.model.dao.SearchjobboardDao;
+import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 import com.dolbi.model.service.MemberService;
@@ -25,13 +26,8 @@ import com.dolbi.model.service.MemberService;
 @RequestMapping("/company")
 public class CompanyController {
 	
-	//@Autowired
-	//@Qualifier("memberDao")
-	@Resource(name = "memberDao")
-	private MemberDao memberDao;
-	@Resource(name = "searchjobboardDao")
-	
-	private SearchjobboardDao searchjobboardDao;
+	@Resource(name = "companyDao")
+	private CompanyDao companyDao;
 	
 	@Autowired()
 	@Qualifier("memberService")
@@ -46,31 +42,13 @@ public class CompanyController {
 	@RequestMapping(value = "list.action", method = RequestMethod.GET)
 	public String jobboardlist(String memberId) {
 		
-		
-		
 		return "company/jobboardlist";
-	}
-	
-	
-	@RequestMapping(value = "register.action", method = RequestMethod.GET)
-	public String registerForm() {
-		return "member/registerform";
-	}
-	
-	@RequestMapping(value = "register.action", method = RequestMethod.POST)
-	public String register(Member member) {
-		
-		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
-		
-		memberDao.insert(member);
-		
-		return "redirect:/member/list.action";
 	}
 	
 	@RequestMapping(value = "ingjobboard.action", method = RequestMethod.GET)
 	public String ingJobboard(String memberId, Model model) {
 		
-		List<Jobboard> jobboards = searchjobboardDao.ingJobboard(memberId);
+		List<Jobboard> jobboards = companyDao.ingJobboard(memberId);
 		model.addAttribute("jobboards", jobboards);
 		
 		return "company/jobboardlist";
@@ -78,19 +56,19 @@ public class CompanyController {
 	@RequestMapping(value = "endjobboard.action", method = RequestMethod.GET)
 	public String endJobboard(String memberId, Model model) {
 		
-		List<Jobboard> jobboards = searchjobboardDao.endJobboard(memberId);
+		List<Jobboard> jobboards = companyDao.endJobboard(memberId);
 		model.addAttribute("jobboards", jobboards);
 		
 		return "company/jobboardlist";
 	}
 	
-	
-	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
-	public String update(@ModelAttribute("member") Member member) {
+	@RequestMapping(value = "applicationlist.action", method = RequestMethod.GET)
+	public String applicationlist(int jobboardNo, Model model) {
 		
-		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-1"));
+		List<Application> applications = companyDao.applicationList(jobboardNo);
+		model.addAttribute("applications", applications);
 		
-		return "redirect:/member/view.action?memberid=" + member.getMemberId();
+		return "company/applicationlist";
 	}
 
 }

@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
 
-public interface SearchJobboardMapper {
+public interface CompanyMapper {
 	
 	List<Jobboard> selectJobboards();
 	List<Jobboard> selectJobboards2();
@@ -19,5 +20,7 @@ public interface SearchJobboardMapper {
 	
 	ArrayList<Jobboard> selectIngJobboards(String id);
 	ArrayList<Jobboard> selectEndJobboards(String id);
+	
+	ArrayList<Application> selectApplication(int jobboardNo);
 
 }

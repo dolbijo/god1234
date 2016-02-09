@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
@@ -19,25 +20,25 @@ import com.dolbi.model.dto.Upload;
 import com.dolbi.model.dto.UploadFile;
 import com.dolbi.model.mapper.IndividualMapper;
 import com.dolbi.model.mapper.JobboardMapper;
-import com.dolbi.model.mapper.SearchJobboardMapper;
+import com.dolbi.model.mapper.CompanyMapper;
 
-@Repository("searchjobboardDao")
-public class MySqlSearchJobboardDao implements SearchjobboardDao {
+@Repository("companyDao")
+public class MySqlCompanyDao implements CompanyDao {
 
    @Autowired
    @Qualifier("sqlSessionTemplate")
    private SqlSessionTemplate sqlSessionTemplate;
    
    @Autowired
-   @Qualifier("SearchJobboardMapper")
-   private SearchJobboardMapper searchjobboardMapper;
+   @Qualifier("CompanyMapper")
+   private CompanyMapper companyMapper;
 
 
    @Override
    public ArrayList<Jobboard> ingJobboard(String id) {
       
       System.out.println("진행중인 공고 Dao" + id);
-	   ArrayList<Jobboard> jobboard = searchjobboardMapper.selectIngJobboards(id);
+	   ArrayList<Jobboard> jobboard = companyMapper.selectIngJobboards(id);
 	
 	   return jobboard;
 
@@ -46,7 +47,7 @@ public class MySqlSearchJobboardDao implements SearchjobboardDao {
    public ArrayList<Jobboard> endJobboard(String id) {
       
       
-	   ArrayList<Jobboard> jobboard = searchjobboardMapper.selectEndJobboards(id);
+	   ArrayList<Jobboard> jobboard = companyMapper.selectEndJobboards(id);
 	
 	return jobboard;
 
@@ -56,7 +57,7 @@ public class MySqlSearchJobboardDao implements SearchjobboardDao {
    public ArrayList<Jobboard> getJobboardList() {
       
       //mapper연결코드
-	   List<Jobboard> jobboards = searchjobboardMapper.selectJobboards();
+	   List<Jobboard> jobboards = companyMapper.selectJobboards();
 		
 	   return (ArrayList<Jobboard>) jobboards;
    }
@@ -71,6 +72,15 @@ public class MySqlSearchJobboardDao implements SearchjobboardDao {
       return jobboard;
       
       
+   }
+   
+   @Override
+   public ArrayList<Application> applicationList(int jobboardNo) {
+	   
+	   ArrayList<Application> applications = companyMapper.selectApplication(jobboardNo);
+	   
+	   return applications;
+	   
    }
 
    
