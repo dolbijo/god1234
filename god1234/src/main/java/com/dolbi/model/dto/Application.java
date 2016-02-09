@@ -8,6 +8,7 @@ public class Application implements Serializable {
 	
 	private int applicationNo;
 	private int jobboardNo;
+	private String jobboardTitle;
 	private String memberId;
 	private boolean isCheck;
 	private Date applicationRegdate;
@@ -24,6 +25,12 @@ public class Application implements Serializable {
 	public void setJobboardNo(int jobboardNo) {
 		this.jobboardNo = jobboardNo;
 	}
+	public String getJobboardTitle() {
+		return jobboardTitle;
+	}
+	public void setJobboardTitle(String jobboardTitle) {
+		this.jobboardTitle = jobboardTitle;
+	}
 	public String getMemberId() {
 		return memberId;
 	}
@@ -37,6 +44,7 @@ public class Application implements Serializable {
 	public void setApplicationRegdate(Date applicationRegdate) {
 		this.applicationRegdate = applicationRegdate;
 	}
+	
 	public boolean getIsCheck() {
 		return isCheck;
 	}

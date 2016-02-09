@@ -2,31 +2,12 @@
     pageEncoding="utf-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<<<<<< HEAD
-    
-=======
->>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
-    <% String cp = request.getContextPath(); %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 
 <html>
 <head>
-<<<<<<< HEAD
-	<meta charset="utf-8" />
-	<title>자료업로드</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes"> 
-    
-	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<link href="<%=cp%>/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
-
-	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-    
-	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" type="text/css">
-	<link href="<%=cp%>/resources/bootstrap/css/pages/signin.css" rel="stylesheet" type="text/css">
-	
-=======
     	<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     	<meta name="description" content="" />
@@ -34,7 +15,7 @@
     	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
     	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
     	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
->>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
+
 </head>
 	 
 <body>

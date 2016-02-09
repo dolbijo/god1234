@@ -117,15 +117,18 @@
 	<resultMap type="Application" id="applicationMap">
 		<id column="a_no" property="applicationNo" />
 		<result column="j_no" property="jobboardNo" />
+		<result column="j_title" property="jobboardTitle" />
 		<result column="M_id" property="memberId" />
 		<result column="a_ischeck" property="isCheck" />
 		<result column="a_regdate" property="applicationRegdate" />
 	</resultMap>
 	
 	<select id="selectApplicationBymemberId" parameterType="String" resultMap="applicationMap">
-		select *
-		from application
-		where m_id = #{memberId}
+		select a.a_no, a.j_no, a.m_id, a.a_ischeck, a.a_regdate, j.j_title
+		from application a
+		join jobboard j
+		on a.j_no = j.j_no
+		where a.m_id = #{memberId}
 	</select>
 	
 </mapper>

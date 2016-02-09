@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 
@@ -45,7 +46,7 @@
 					<td>${ jobboard.memberId }</td>
 					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
 					<td>${ jobboard.jobboardReadCount }</td>
-					<td>${ jobboard.jobboardDeadLine }</td>
+					<td><fmt:formatDate value="${ jobboard.jobboardDeadLine }" type="date"/></td>
 				</tr>
 				</c:forEach>
 				

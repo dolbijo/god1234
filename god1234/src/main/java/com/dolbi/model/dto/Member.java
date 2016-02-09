@@ -2,6 +2,7 @@ package com.dolbi.model.dto;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Member implements Serializable {
 	
@@ -26,7 +27,7 @@ public class Member implements Serializable {
 	private int design;
 	private int education;
 	
-	
+	private ArrayList<Category> categorys;
 	
 	public String getMemberId() {
 		return memberId;
@@ -148,6 +149,10 @@ public class Member implements Serializable {
 	public void setEducation(int education) {
 		this.education = education;
 	}
-	
-	
+	public ArrayList<Category> getCategorys() {
+		return categorys;
+	}
+	public void setCategorys(ArrayList<Category> categorys) {
+		this.categorys = categorys;
+	}
 }

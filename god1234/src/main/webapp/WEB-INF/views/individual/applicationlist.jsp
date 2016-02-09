@@ -5,6 +5,7 @@
     pageEncoding="utf-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 
@@ -21,24 +22,44 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-        
-        <div id="content">
-        <table border="1">
-        	<tr>
-        		<th>지원 날짜</th>
-        		<th>지원 공고</th>
-        		<th>담당자 연람유무</th>
-        	</tr>
-        	<c:forEach var="application" items="${applications }">
-        	<tr>
-        		<td>${application.applicationRegdate }</td>
-        		<td>${application.jobboardNo }</td>
-        		<td>${application.isCheck }</td>
-        	</tr>
-        	</c:forEach>
-        </table>
-        </div>
-    </div>
+    
+    <div class="content-wrapper">
+    	<div class="container">
+			<div class="row">
+    			<div class="col-md-12">
+    				<h4 class="page-head-line">${ loginuser.memberId }님 개인페이지 </h4>
+    			</div>
+    		</div>
+    			<br />
+    		<div class="row">
+                <div class="col-md-12">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                	<thead>
+        								<th>지원 날짜</th>
+        								<th>지원 공고</th>
+        								<th>담당자 연람유무</th>
+        								<th>취소하기</th>
+        							</thead>
+        							<c:forEach var="application" items="${applications }">
+        							<tbody>
+        								<td><fmt:formatDate value="${application.applicationRegdate }" type="date"/></td>
+        								<td>
+        									${application.jobboardNo }
+        									<a href="/dolbi/jobboard/view.action?jobboardNo=${application.jobboardNo }">${application.jobboardTitle }</a>
+        								</td>
+        								<td>${application.isCheck }</td>
+        								<td>[취소]</td>
+        							</tbody>
+        							</c:forEach>
+        						</table>
+        					</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
     <c:import url="/WEB-INF/views/include/footer.jsp" />
 </body>
 </html>

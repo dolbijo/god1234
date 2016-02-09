@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
     
 <!DOCTYPE html>
@@ -47,7 +48,7 @@
 		            </tr>
 		            <tr>
 		            	<th>마감일자</th>
-		            	<td>${ jobboard.jobboardDeadLine}</td>
+		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
 		            </tr>
 		         
 		            <tr>
