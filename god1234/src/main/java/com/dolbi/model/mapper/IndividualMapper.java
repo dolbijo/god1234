@@ -35,5 +35,10 @@ public interface IndividualMapper {
 
 	ArrayList<Jobboard> selectJobboardListBycategoryNo(int categoryNo);
 
+
 	List<Category> selectlikedcategoryListByMemberId(String memberId);
+
+	void deleteApplicationNoBymemberId(int applicationNo);
+	
+
 }

@@ -170,6 +170,7 @@
 		where jc_no = #{categoryNo};
 	</select>
 	
+
 	<select id="selectlikedcategoryListByMemberId" parameterType="String" resultMap="categoryMap">
 		select * 
 		from likedcategory l 
@@ -178,6 +179,14 @@
 		where l.m_id = #{memberId};
 	
 	</select>
+
+	<delete id="deleteApplicationNoBymemberId" parameterType="int">
+		delete 
+		from application 
+		where a_no = #{ applicationNo };
+	</delete>
+	
+
 </mapper>
 
 

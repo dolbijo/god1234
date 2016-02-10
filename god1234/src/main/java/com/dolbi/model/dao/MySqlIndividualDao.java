@@ -106,6 +106,11 @@ public class MySqlIndividualDao implements IndividualDao {
 	}
 	 
 	
+	public void deleteApplication(int applicationNo) {
+		//Member member = individualMapper.selectIndividualByMemberId(id);
+		individualMapper.deleteApplicationNoBymemberId(applicationNo);
+	}
+	
 }
 
 
