@@ -34,4 +34,7 @@ public interface IndividualMapper {
 	ArrayList<Category> selectCategoryBymemberId(String memberId);
 
 	ArrayList<Jobboard> selectJobboardListBycategoryNo(int categoryNo);
+
+	void deleteApplicationNoBymemberId(int applicationNo);
+	
 }

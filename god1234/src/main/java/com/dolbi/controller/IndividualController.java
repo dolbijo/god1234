@@ -247,6 +247,14 @@ public class IndividualController {
 		
 		return "individual/recommendationlist";
 	}
+	
+	   @RequestMapping(value = "deleteapplication.action", method = RequestMethod.GET)
+		public String deleteapplication(String applicationNo, String memberId) {
+			
+			individualDao.deleteApplication(Integer.parseInt(applicationNo));
+
+			return "redirect:/individual/applicationlist.action?memberId="+memberId;
+		}
 
 }
 
