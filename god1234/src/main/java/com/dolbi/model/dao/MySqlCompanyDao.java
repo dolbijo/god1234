@@ -83,7 +83,10 @@ public class MySqlCompanyDao implements CompanyDao {
 	   
    }
 
-   
+   @Override
+   public void updateApplication(int applicationNo) {
+	   companyMapper.updateApplication(applicationNo);
+   }
 
 }
 

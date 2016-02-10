@@ -34,7 +34,7 @@
 				<tr style="height:30px">
 					<th style="width:50px"><fmt:formatDate value="${application.applicationRegdate }" type="date"/></th>
 					<th style="width:400px">${application.memberId }</th>
-					<th>[이력서 열람하기]<!-- 1. application테이블의 ischeck업데이트 / 2. select resume를 memberId로 하기 --></th>
+					<th><a href="updateischeck.action?applicationNo=${ application.applicationNo}&memberId=${application.memberId }">[이력서 열람하기]<!-- 1. application테이블의 ischeck업데이트 / 2. select resume를 memberId로 하기 --></th>
 				</tr>
 				</c:forEach>
 				

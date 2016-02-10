@@ -18,5 +18,7 @@ public interface CompanyDao {
     Jobboard getJobboardByJobboardNo(int jobboardNo);
     
     ArrayList<Application> applicationList(int jobboardNo);
+    
+    void updateApplication(int applicationNo);
 
 }

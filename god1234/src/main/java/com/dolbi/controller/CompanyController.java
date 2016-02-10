@@ -70,6 +70,14 @@ public class CompanyController {
 		
 		return "company/applicationlist";
 	}
+	
+	@RequestMapping(value = "updateischeck.action", method = RequestMethod.GET)
+	public String updateischeck(int applicationNo, String memberId) {
+		
+		companyDao.updateApplication(applicationNo);
+		
+		return "redirect:/individual/resumeview.action?memberId=" + memberId;
+	}
 
 }
 

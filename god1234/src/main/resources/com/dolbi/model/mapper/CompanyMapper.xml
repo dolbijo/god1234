@@ -52,6 +52,10 @@
 		where j_no = #{jobboardNo}
 	</select>
 	
+	<update id="updateApplication" parameterType="int">
+		update application set a_ischeck = '1' where a_no = #{applicationNo} 
+	</update>
+	
 </mapper>
 
 

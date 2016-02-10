@@ -22,5 +22,7 @@ public interface CompanyMapper {
 	ArrayList<Jobboard> selectEndJobboards(String id);
 	
 	ArrayList<Application> selectApplication(int jobboardNo);
+	
+	void updateApplication(int applicationNo);
 
 }
