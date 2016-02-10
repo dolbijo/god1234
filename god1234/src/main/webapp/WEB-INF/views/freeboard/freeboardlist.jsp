@@ -23,7 +23,7 @@
       
       <div style="padding-top:25px;text-align:center">
          <c:url var="writeform" value="/freeboard/register.action" />
-         [ <a href="${ writeform }">자료 등록</a> ]
+          <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료 등록 </a>&nbsp;
          <br /><br />
          <table>
 			<tr>
