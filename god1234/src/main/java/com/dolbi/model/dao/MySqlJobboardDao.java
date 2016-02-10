@@ -81,7 +81,9 @@ public class MySqlJobboardDao implements JobboardDao {
 	   jobboardMapper.insertApplication(params);
    }
    
- 
+   public void updateCount(int jobboardNo) {
+	   jobboardMapper.updateCount(jobboardNo);
+   }
 
 }
 
