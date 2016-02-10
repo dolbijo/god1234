@@ -54,13 +54,49 @@
 				<tr style="height:20px;color:slategrey;">
 					<td style="padding-top:20px">${ jobboard.jobboardNo }</td>
 					<td style="text-align:left;padding-top:20px">
-						<a href="view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
+						<a href="updatecount.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
 
 					<td>${ jobboard.memberName }</td>
 					<td>${ jobboard.memberId }</td>
-					<td>${ jobboard.jobboardGender }</td>
-					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
+					
+					<td>
+						<c:choose>
+						
+            			<c:when test="${ jobboard.jobboardGender eq 'male' }">
+		            		남성
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardGender eq 'female' }">
+		            		여성
+		            	</c:when>
+		            	
+		        		<c:otherwise>
+		        			남여무관
+		        		</c:otherwise>
+		        		
+		        		</c:choose>
+        				
+					</td>
+					<td>
+					
+						<c:choose>
+						
+            			<c:when test="${ jobboard.jobboardPayment eq 'permonth' }">
+		            		월급
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardPayment eq 'perweek' }">
+		            		주급
+		            	</c:when>
+		            	
+		        		<c:otherwise>
+		        			시급
+		        		</c:otherwise>
+		        		
+		        		</c:choose>
+					
+					 / <fmt:formatNumber type="number" maxFractionDigits="3" value="${ jobboard.jobboardSalary }" />원</td>
 					<td>${ jobboard.jobboardReadCount }</td>
 					<td><fmt:formatDate value="${ jobboard.jobboardDeadLine }" type="date"/></td>
 
