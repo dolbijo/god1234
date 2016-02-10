@@ -61,6 +61,13 @@ public class FreeboardController {
 			return "redirect:/freeboard/list.action";
 		}
 		
+	   @RequestMapping(value = "updatecount.action", method = RequestMethod.GET)
+		public String updatecount(@RequestParam(value="FreeboardNo") int freeboardNo) {
+			
+			freeboardDao.updateCount(freeboardNo);
+
+			return "redirect:/freeboard/view.action?FreeboardNo="+freeboardNo;
+		}
 	  
 	   @RequestMapping(value = "view.action", method = RequestMethod.GET)
 		public ModelAndView getFreeboard(

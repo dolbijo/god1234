@@ -46,6 +46,11 @@
 		VALUES (#{freeboardNo},#{freeboardTitle}, #{freeboardContent}, #{freeboardtype},#{memberId})
 	</insert>
 	
+	
+	<update id="updateCount" parameterType="int">
+		update freeboard set F_READCOUNT = F_READCOUNT + 1 WHERE F_NO = #{freeboardNo}
+	</update>
+	
 </mapper>
 
 

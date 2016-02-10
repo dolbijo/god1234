@@ -62,6 +62,9 @@ public class MySqlFreeboardDao implements FreeboardDao {
 		
 	}
 	
+	public void updateCount(int freeboardNo) {
+		   freeboardMapper.updateCount(freeboardNo);
+	   }
 	
 
 

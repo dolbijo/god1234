@@ -17,6 +17,15 @@
 
 </head>
     
+<script type="text/javascript">
+	function goPage(pageNo){
+		document.listForm.pageNo.value = pageNo;
+		document.listForm.submit();
+		console.log("pageNo : " + pageNo);
+	}
+	
+</script>
+
 <body>
    <c:import url="/WEB-INF/views/include/header.jsp" />
       
@@ -26,23 +35,27 @@
          [ <a href="${ writeform }">자료 등록</a> ]
          <br /><br />
 
-               <th style="width:50px">번호</th>
-               <th style="width:400px">제목</th>
-               <th style="width:150px">작성자</th>
-               <th style="width:150px;text-align:center">작성일</th>
+		<table class="table table-hover" style="width:800px;height:10px" align="center">
+			<tr class="danger" style="height:30px;color:black;">
+               <th style="width:40px">번호</th>
+               <th style="width:300px">제목</th>
+               <th style="width:70px; text-align:center">작성자</th>
+               <th style="width:100px;text-align:center">작성일</th>
+               <th style="width:120px;text-align:center">조회수</th>
             </tr>
             
             <c:forEach var="freeboard" items="${ freeboards }">
-            <tr style="height:30px;color:slategrey">
-               <td>${ freeboard.freeboardNo }</td>
-               <td style="text-align:left;padding-left:10px">
-                  <c:url var="view" value="view.action">
+            <tr style="height:20px;color:slategrey;">
+               <td style="padding-top:20px">${ freeboard.freeboardNo }</td>
+               <td style="text-align:left;padding-left:20px">
+                  <c:url var="view" value="updatecount.action">
                      <c:param name="FreeboardNo" value="${ freeboard.freeboardNo }" />
                   </c:url>
                   <a href='${ view }'>${ freeboard.freeboardTitle }</a>
                </td>
                <td>${ freeboard.memberId }</td>
                <td>${ freeboard.freeboardContent }</td>
+               <td>${ freeboard.freeboardReadCount }</td>
             </tr>
             </c:forEach>
             

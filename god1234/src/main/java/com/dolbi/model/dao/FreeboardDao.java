@@ -15,4 +15,6 @@ public interface FreeboardDao {
 	ArrayList<Freeboard> getFreeboardList();
 
 	Freeboard getFreeboardByFreeboardNo(int FreeboardNo);
+
+	void updateCount(int freeboardNo);
 }
