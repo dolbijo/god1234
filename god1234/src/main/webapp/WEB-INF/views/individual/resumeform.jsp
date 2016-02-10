@@ -30,8 +30,7 @@
 				<div class="row mar-bot40">
 					<div class="col-md-6 col-md-offset-3">
 						<div class="align-center">
-    						입력 받아야 할것 : 이력서 사진 / 경력사항 / 학력
-    						자기소개 / 공개여부 
+    						입력 받아야 할것 : 이력서 사진 / 경력사항 / 학력 / 자기소개 / 공개여부 
     						
     						<form action="resumeform.action" method="post" enctype="multipart/form-data">
     						<input type="hidden" name="memberId" value="${ loginuser.memberId }" />
