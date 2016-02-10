@@ -4,7 +4,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.dolbi.model.mapper.SearchJobboardMapper"><!-- 클래스 또는 인터페이스 역할 -->
+<mapper namespace="com.dolbi.model.mapper.CompanyMapper"><!-- 클래스 또는 인터페이스 역할 -->
 	
 	<sql id="JobboardColumns">
 		J_NO,J_TITLE,J_READCOUNT,J_DEADLINE,M_ID,J_PAYMENT,J_SALARY,J_DELETED
@@ -35,6 +35,21 @@
 	    SELECT <include refid="JobboardColumns" /> 
 		FROM JOBBOARD
 		WHERE m_id = #{id} and date(J_DEADLINE) <![CDATA[<]]> CURRENT_DATE()
+	</select>
+	
+	<resultMap type="Application" id="applicationMap">
+		<id column="a_no" property="applicationNo" />
+		<result column="j_no" property="jobboardNo" />
+		<result column="j_title" property="jobboardTitle" />
+		<result column="M_id" property="memberId" />
+		<result column="a_ischeck" property="isCheck" />
+		<result column="a_regdate" property="applicationRegdate" />
+	</resultMap>
+	
+	<select id="selectApplication" parameterType="int" resultMap="applicationMap">
+		select a_no, j_no, m_id, a_ischeck, a_regdate
+		from application
+		where j_no = #{jobboardNo}
 	</select>
 	
 </mapper>

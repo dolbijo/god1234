@@ -53,10 +53,11 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
-	<bean id="SearchJobboardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.dolbi.model.mapper.SearchJobboardMapper" />
+	<bean id="CompanyMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.dolbi.model.mapper.CompanyMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
+	
 	
 	
 		

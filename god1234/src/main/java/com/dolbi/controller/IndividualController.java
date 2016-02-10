@@ -46,10 +46,28 @@ public class IndividualController {
 		
 		ModelAndView mav = new ModelAndView();
 		String resume = String.valueOf(individualDao.getcountResumeById(memberId));
-		System.out.println("countresume:"+resume);
 		model.addAttribute("resume", resume);
 		
+		Member member = individualDao.getIndividualById(memberId);
+		model.addAttribute("member", member);
+		
 		return "individual/individualmain";
+	}
+	
+	
+	@RequestMapping(value = "resumeservice.action", method = RequestMethod.GET)
+	public String resumeservice(String memberId) {
+		
+		ModelAndView mav = new ModelAndView();
+		String resume = String.valueOf(individualDao.getcountResumeById(memberId));
+		
+		if (resume.equals("0")) {
+			return "redirect:/individual/resumeform.action?memberId=" + memberId;
+		} else {
+			return "redirect:/individual/resumeview.action?memberId=" + memberId;
+		}
+		
+		
 	}
 	
 	@RequestMapping(value = "resumeview.action", method = RequestMethod.GET)
@@ -102,8 +120,7 @@ public class IndividualController {
 			resume.setIspublic(false);
 		}
 		
-		
-		//�븘�옒 try �쁺�뿭 �궡遺��뿉�꽌 �삤瑜섍� 諛쒖깮�븯硫� 紐⑤뱺 db�뿰�룞 �옉�뾽�쓣 痍⑥냼�븯�룄濡� 泥섎━
+	
 		try {
 			System.out.println("resume");
 			individualDao.insertResume(resume);
@@ -209,6 +226,10 @@ public class IndividualController {
 	
 	@RequestMapping(value = "recommendationlist.action", method = RequestMethod.GET)
 	public String recommendationlist() {
+		
+		//1.관심 카테고리 넘버 리스트로 받아오기
+		//2.리스트수만큼 jobboard받아오는 반복문 돌리기
+		
 		return "individual/recommendationlist";
 	}
 

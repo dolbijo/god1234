@@ -2,14 +2,21 @@
     pageEncoding="utf-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<% String cp = request.getContextPath(); %>
     
 <!DOCTYPE html>
 
 <html>
 <head>
-	<meta charset="utf-8" />
+<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    	<meta name="description" content="" />
+    	<meta name="author" content="" />
+    	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
 	<title>자료업로드</title>
-	<link rel="Stylesheet" href="/dolbi/resources/styles/default.css" />
 	
 </head>
 <body>
@@ -18,12 +25,12 @@
 	
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		
-		<div style="padding-top:25px;text-align:center">
+		<div style="color:black;padding-top:25px;text-align:center">
 		<div id="inputcontent">
 		    <div id="inputmain">
 		        <div class="inputsubtitle">업로드 자료 정보</div>
 		        <table>
-		            <tr>
+		            <tr class="info">
 		                <th>제목</th>
 		                <td>${ jobboard.jobboardTitle }</td>
 		                
@@ -41,7 +48,7 @@
 		            </tr>
 		            <tr>
 		            	<th>마감일자</th>
-		            	<td>${ jobboard.jobboardDeadLine}</td>
+		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
 		            </tr>
 		         
 		            <tr>

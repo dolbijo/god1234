@@ -21,7 +21,17 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-        
+    
+    <div class="content-wrapper">
+    	<div class="container">
+			<div class="row">
+    			<div class="col-md-12">
+    				<h4 class="page-head-line">${ loginuser.memberId }님 개인페이지 </h4>
+    			</div>
+    		</div>
+    			<br />
+    			</div>
+    
         <div id="content">
         	
         </div>

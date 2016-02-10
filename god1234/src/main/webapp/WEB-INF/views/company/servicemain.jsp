@@ -38,7 +38,7 @@
 			<div class="row mar-bot40">
 				<div class="col-md-6 col-md-offset-3">
 					<div class="align-center">
-					<table border='0'>
+					<table border='0' style="color:black">
         				<tr colspan='4'>
         					<td class="align-center">${ loginuser.memberId }님 기업페이지 입니다.</td>
         				</tr>
@@ -70,14 +70,6 @@
         			
         			
         			<a href="endjobboard.action?memberId=${ loginuser.memberId }">마감된 공고</a>
-        			
-        			
-						<!-- <input type="button" value="진행중인 공고"
-							style="font-size: 15px; width: 100pt; height: 100pt;"
-							location.href='ingsearch.action'"> 
-						<input type="button" value="마감된 공고"
-							style="font-size: 15px; width: 100pt; height: 100pt;"
-							location.href='endsearch.action'"> -->
 					</div>
 				</div>
 			</div>
