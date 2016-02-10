@@ -53,6 +53,10 @@ public class IndividualController {
 		Member member = individualDao.getIndividualById(memberId);
 		model.addAttribute("member", member);
 		
+		List<Category> likedcategorylist = individualDao.getlikedcategorylist(memberId);
+		model.addAttribute("likedcategorylist", likedcategorylist);
+		
+		
 		return "individual/individualmain";
 	}
 	
