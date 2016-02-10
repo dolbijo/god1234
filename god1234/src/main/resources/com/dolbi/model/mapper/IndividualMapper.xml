@@ -131,6 +131,45 @@
 		where a.m_id = #{memberId}
 	</select>
 	
+	<resultMap type="Category" id="categoryMap">
+		<id column="lc_no" property="likedCategoryNo" />
+		<result column="jc_no" property="categoryNo" />
+		<result column="jc_name" property="categoryName" />
+	</resultMap>
+	
+	<select id="selectCategoryBymemberId" parameterType="String" resultMap="categoryMap">
+		select lc.lc_no, lc.jc_no, jc.jc_name
+		from likedcategory lc
+		join jobcategory jc
+		on lc.jc_no = jc.jc_no
+		where lc.m_id = #{memberId}
+	</select>
+	
+	<sql id="JobboardListColumns">
+		J_NO,J_TITLE,J_READCOUNT,J_DEADLINE,M_ID,J_PAYMENT,J_SALARY,J_DELETED,M_NAME,J_GENDER
+	</sql>
+	
+	<resultMap type="Jobboard" id="jobboardListMap">
+		<id property="jobboardNo" column="J_NO" />
+		<result property="jobboardTitle" column="J_TITLE" />
+		<result property="jobboardReadCount" column="J_READCOUNT" />
+		<result property="jobboardDeadLine" column="J_DEADLINE" />
+		<result property="memberId" column="M_ID" />
+		<result property="jobboardPayment" column="J_PAYMENT" />
+		<result property="jobboardSalary" column="J_SALARY" />
+		<result property="jobboardDeleted" column="J_DELETED" />
+		<result property="memberName" column="M_NAME" />
+		<result property="jobboardGender" column="J_GENDER" />
+	</resultMap>
+	
+	<select id="selectJobboardListBycategoryNo"  parameterType="int" resultMap="jobboardListMap">
+		select * 
+		from jobboard j 
+		join company c 
+		on j.m_id = c.m_id 
+		where jc_no = #{categoryNo};
+	</select>
+	
 </mapper>
 
 

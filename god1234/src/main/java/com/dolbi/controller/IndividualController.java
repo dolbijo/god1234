@@ -26,7 +26,9 @@ import com.dolbi.common.Util;
 import com.dolbi.model.dao.IndividualDao;
 import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
+import com.dolbi.model.dto.Category;
 import com.dolbi.model.dto.Education;
+import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 import com.dolbi.model.dto.Resume;
 import com.dolbi.model.dto.ResumeAttachment;
@@ -225,10 +227,23 @@ public class IndividualController {
 	}
 	
 	@RequestMapping(value = "recommendationlist.action", method = RequestMethod.GET)
-	public String recommendationlist() {
+	public String recommendationlist(String memberId, Model model) {
 		
 		//1.관심 카테고리 넘버 리스트로 받아오기
+		List<Category> categorys = individualDao.getCategoryList(memberId);
+		
 		//2.리스트수만큼 jobboard받아오는 반복문 돌리기
+		
+		int i = 0;
+		
+		for(Category category : categorys) {
+			List<Jobboard> jobboards = individualDao.getJobboardList(category.getCategoryNo());
+			model.addAttribute("jobboards"+i, jobboards);
+			model.addAttribute("categoryname"+i, category.getCategoryName());
+			i++;
+		}
+		
+		model.addAttribute("indexNo", i);
 		
 		return "individual/recommendationlist";
 	}

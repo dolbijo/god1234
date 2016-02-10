@@ -95,7 +95,7 @@
         		</c:otherwise>
         		</c:choose>
     			<a href="applicationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;지원현황 </a>&nbsp;
-    			<a href="recommendationlist.action" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;맞춤알바정보 </a>&nbsp;
+    			<a href="recommendationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;맞춤알바정보 </a>&nbsp;
     		</div>
     	</div>
     </div>
