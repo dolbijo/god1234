@@ -93,6 +93,9 @@
 	
 
 	
+	<update id="updateCount" parameterType="int">
+		update jobboard set J_READCOUNT = J_READCOUNT + 1 WHERE J_NO = #{jobboardNo}
+	</update>
 
 	
 </mapper>

@@ -70,14 +70,6 @@
         			
         			
         			<a href="endjobboard.action?memberId=${ loginuser.memberId }">마감된 공고</a>
-        			
-        			
-						<!-- <input type="button" value="진행중인 공고"
-							style="font-size: 15px; width: 100pt; height: 100pt;"
-							location.href='ingsearch.action'"> 
-						<input type="button" value="마감된 공고"
-							style="font-size: 15px; width: 100pt; height: 100pt;"
-							location.href='endsearch.action'"> -->
 					</div>
 				</div>
 			</div>

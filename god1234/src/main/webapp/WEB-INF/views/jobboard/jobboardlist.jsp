@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 
@@ -53,15 +54,52 @@
 				<tr style="height:20px;color:slategrey;">
 					<td style="padding-top:20px">${ jobboard.jobboardNo }</td>
 					<td style="text-align:left;padding-top:20px">
-						<a href="view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
+						<a href="updatecount.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
 
-					<td style="padding-top:15px">${ jobboard.memberName }</td>
-					<td style="padding-top:15px">${ jobboard.memberId }</td>
-					<td style="padding-top:15px">${ jobboard.jobboardGender }</td>
-					<td style="padding-top:15px">${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
-					<td style="padding-top:15px">${ jobboard.jobboardReadCount }</td>
-					<td style="padding-top:15px">${ jobboard.jobboardDeadLine }</td>
+
+					<td>${ jobboard.memberName }</td>
+					<td>${ jobboard.memberId }</td>
+					
+					<td>
+						<c:choose>
+						
+            			<c:when test="${ jobboard.jobboardGender eq 'male' }">
+		            		남성
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardGender eq 'female' }">
+		            		여성
+		            	</c:when>
+		            	
+		        		<c:otherwise>
+		        			남여무관
+		        		</c:otherwise>
+		        		
+		        		</c:choose>
+        				
+					</td>
+					<td>
+					
+						<c:choose>
+						
+            			<c:when test="${ jobboard.jobboardPayment eq 'permonth' }">
+		            		월급
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardPayment eq 'perweek' }">
+		            		주급
+		            	</c:when>
+		            	
+		        		<c:otherwise>
+		        			시급
+		        		</c:otherwise>
+		        		
+		        		</c:choose>
+					
+					 / <fmt:formatNumber type="number" maxFractionDigits="3" value="${ jobboard.jobboardSalary }" />원</td>
+					<td>${ jobboard.jobboardReadCount }</td>
+					<td><fmt:formatDate value="${ jobboard.jobboardDeadLine }" type="date"/></td>
 
 				</tr>
 				</c:forEach>

@@ -2,6 +2,7 @@ package com.dolbi.model.dto;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Member implements Serializable {
 	
@@ -16,9 +17,17 @@ public class Member implements Serializable {
 	private Date age;
 	private int companyNo;
 	private String homepage;
-	private int categoryNo;
-	private int likedCategory;
 	private String ceoName;
+	private int service;
+	private int sale;
+	private int office;
+	private int construction;
+	private int production;
+	private int it;
+	private int design;
+	private int education;
+	
+	private ArrayList<Category> categorys;
 	
 	public String getMemberId() {
 		return memberId;
@@ -86,23 +95,64 @@ public class Member implements Serializable {
 	public void setHomepage(String homepage) {
 		this.homepage = homepage;
 	}
-	public int getCategoryNo() {
-		return categoryNo;
-	}
-	public void setCategoryNo(int categoryNo) {
-		this.categoryNo = categoryNo;
-	}
 	public String getCeoName() {
 		return ceoName;
 	}
 	public void setCeoName(String ceoName) {
 		this.ceoName = ceoName;
 	}
-	public int getLikedCategory() {
-		return likedCategory;
+	public int getService() {
+		return service;
 	}
-	public void setLikedCategory(int likedCategory) {
-		this.likedCategory = likedCategory;
+	public void setService(int service) {
+		this.service = service;
 	}
-		
+	public int getSale() {
+		return sale;
+	}
+	public void setSale(int sale) {
+		this.sale = sale;
+	}
+	public int getOffice() {
+		return office;
+	}
+	public void setOffice(int office) {
+		this.office = office;
+	}
+	public int getConstruction() {
+		return construction;
+	}
+	public void setConstruction(int construction) {
+		this.construction = construction;
+	}
+	public int getProduction() {
+		return production;
+	}
+	public void setProduction(int production) {
+		this.production = production;
+	}
+	public int getIt() {
+		return it;
+	}
+	public void setIt(int it) {
+		this.it = it;
+	}
+	public int getDesign() {
+		return design;
+	}
+	public void setDesign(int design) {
+		this.design = design;
+	}
+	public int getEducation() {
+		return education;
+	}
+	public void setEducation(int education) {
+		this.education = education;
+	}
+	public ArrayList<Category> getCategorys() {
+		return categorys;
+	}
+	public void setCategorys(ArrayList<Category> categorys) {
+		this.categorys = categorys;
+	}
 }

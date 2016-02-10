@@ -20,5 +20,7 @@ public interface MemberMapper {
 	
 	Member selectindiMemberview(String id);
 	Member selectcomMemberview(String id);
+	
+	void insertCategory(HashMap<String, Object> params);
 
 }

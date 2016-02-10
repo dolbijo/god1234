@@ -29,44 +29,43 @@
     					<div class="form-group has-error">
     						<form action="registerindi.action" method="post" style="padding-left: 200px;padding-right: 200px;"><!-- 상대경로표시 -->
     							<label class="control-label" for="success">아이디(ID)</label>
-                                <input type="text" class="form-control" id="memberId" name="memberId" />
+                                <input type="text" class="form-control" name="memberId" />
     							
     							<label class="control-label" for="success">비밀번호</label>
-                                <input type="password" class="form-control" id="passWd" name="passWd" />
+                                <input type="password" class="form-control" name="passWd" />
                                 
                                 <label class="control-label" for="success">비밀번호 확인</label>
-                                <input type="password" class="form-control" id="confirm" name="confirm" />
+                                <input type="password" class="form-control" name="confirm" />
                                 
                                 <label class="control-label" for="success">이름</label>
-                                <input type="text" class="form-control" id="memberName" name="memberName" />
+                                <input type="text" class="form-control" name="memberName" />
                                 
                                 <label class="control-label" for="success">성별</label>
-                                <input type="radio" class="form-control" id="gender" name="gender" value="male" style="heignt:100px;width:20px;display: inline;">남자
-                                <input type="radio" class="form-control" id="gender" name="gender" value="female" style="heignt:100px;width:20px;display: inline;">여자
+                                <input type="radio" class="form-control" name="gender" value="male" style="heignt:100px;width:20px;display: inline;">남자
+                                <input type="radio" class="form-control" name="gender" value="female" style="heignt:100px;width:20px;display: inline;">여자
     						
     							<label class="control-label" for="success">나이</label>
-                                <input type="date" class="form-control" id="age" name="age" />
+                                <input type="date" class="form-control" name="age" />
                                 
                                 <label class="control-label" for="success">주소</label>
-                                <input type="text" class="form-control" id="memberAddress" name="memberAddress" />
+                                <input type="text" class="form-control" name="memberAddress" />
     							
     							<label class="control-label" for="success">전화번호</label>
-                                <input type="text" class="form-control" id="phoneNo" name="phoneNo" />
+                                <input type="text" class="form-control" name="phoneNo" />
                                 
                                 <label class="control-label" for="success">이메일</label>
-                                <input type="text" class="form-control" id="email" name="email" />
+                                <input type="text" class="form-control" name="email" />
                                 
-                                <label>카테고리</label>
-                                	<select multiple="category" class="form-control">
-                                		<option>서비스</option>
-                               			<option>영업</option>
-                                		<option>사무직</option>
-                                		<option>건설</option>
-                                		<option>생산</option>
-                                		<option>IT/프로그래밍</option>
-                                		<option>디자인</option>
-                                		<option>교육/강사</option>
-                                	</select>
+                                <label>관심분야를 선택해주세요</label>
+                                <input type="checkbox" name="service" value="1">서비스
+                                <input type="checkbox" name="sale" value="2">영업
+                                <input type="checkbox" name="office" value="3">사무직
+                                <input type="checkbox" name="construction" value="4">건설
+                                <input type="checkbox" name="procuction" value="5">생산
+                                <input type="checkbox" name="it" value="6">IT/프로그래밍
+                                <input type="checkbox" name="design" value="7">디자인
+                                <input type="checkbox" name="education" value="8">교육/강사
+                                
                                 <br /><br />
                                 <input type="submit" value="등록"  class="button btn btn-success btn-large"/>
 		        				<input type="button" value="취소" onclick="location.href='list.action';" class="button btn btn-success btn-large"/>

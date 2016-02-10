@@ -26,5 +26,7 @@ public interface MemberDao {
 	Member getindiMemberview(String id);
 
 	Member getcomMemberview(String id);
+	
+	void insertCategory(String id, int categoryNo);
 
 }

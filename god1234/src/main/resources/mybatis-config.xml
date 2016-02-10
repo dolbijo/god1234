@@ -54,7 +54,7 @@
 		<mapper resource="com/dolbi/model/mapper/JobboardMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/IndividualMapper.xml" />
 		<mapper resource="com/dolbi/model/mapper/FreeboardMapper.xml" />
-		<mapper resource="com/dolbi/model/mapper/SearchJobboardMapper.xml" />
+		<mapper resource="com/dolbi/model/mapper/CompanyMapper.xml" />
 	</mappers>
 
 </configuration>

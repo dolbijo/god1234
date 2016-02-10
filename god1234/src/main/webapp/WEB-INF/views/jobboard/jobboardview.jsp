@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
     
 <!DOCTYPE html>
@@ -37,8 +38,8 @@
 		               <tr>
 		                <th>회사/점포명</th>
 		                <td>
-		                	<input type="hidden" name="memberName" value='${ sessionScope.loginuser.memberName }' />
-		                	${ sessionScope.loginuser.memberName }
+		                	
+		                	${ jobboard.memberName }
 		                </td>
 		            </tr>
 		            <tr>
@@ -47,7 +48,7 @@
 		            </tr>
 		            <tr>
 		            	<th>마감일자</th>
-		            	<td>${ jobboard.jobboardDeadLine}</td>
+		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
 		            </tr>
 		         
 		            <tr>
@@ -64,19 +65,93 @@
 		            </tr>
 		            <tr>
 		            	<th>성별</th>
-		            	<td>${ jobboard.jobboardGender }</td>
+		            	<td>
+		            		<c:choose>
+						
+            			<c:when test="${ jobboard.jobboardGender eq 'male' }">
+		            		남성
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardGender eq 'female' }">
+		            		여성
+		            	</c:when>
+		            	
+		        		<c:otherwise>
+		        			남여무관
+		        		</c:otherwise>
+		        		
+		        		</c:choose>
+		            	</td>
 		            </tr>
 		            <tr>
 		            	 <th>학력</th>
-		            	<td>${ jobboard.jobboardEducation }</td>
+		            	<td>
+		            	<c:choose>
+						
+            			<c:when test="${ jobboard.jobboardEducation eq 'grade0' }">
+		            		초졸
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardEducation eq 'grade1' }">
+		            		중졸
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardEducation eq 'grade2' }">
+		            		고졸
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardEducation eq 'grade3' }">
+		            		대졸
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardEducation eq 'grade4' }">
+		            		초대졸
+		            	</c:when>
+		            	
+		        		<c:otherwise>
+		        			학력 무관
+		        		</c:otherwise>
+		        		
+		        		</c:choose>
+		            	
+		            	</td>
 		            </tr>
 		            <tr>
-		            	<th>급여</th>
-		            	<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
+		            	 <th>급여</th>
+		            	<td>
+		            	
+		            	<c:choose>
+						
+            			<c:when test="${ jobboard.jobboardPayment eq 'permonth' }">
+		            		월급
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardPayment eq 'perweek' }">
+		            		주급
+		            	</c:when>
+		            	
+		        		<c:otherwise>
+		        			시급
+		        		</c:otherwise>
+		        		
+		        		</c:choose>
+					
+					 / <fmt:formatNumber type="number" maxFractionDigits="3" value="${ jobboard.jobboardSalary }" />원
+		            	
+		            	</td>
 		            </tr>
 		            <tr>
 		            	<th>경력정보</th>
-		            	<td>${ jobboard.jobboardCareer }</td>
+		            	<td>
+		            	<c:choose>
+		            	<c:when test="${ jobboard.jobboardCareer eq 'new' }">
+		            		신입
+		            	</c:when>
+		            	<c:otherwise>
+		            		경력
+		            	</c:otherwise>
+		            	</c:choose>
+		            	</td>
 		            </tr>
 		            
 		             

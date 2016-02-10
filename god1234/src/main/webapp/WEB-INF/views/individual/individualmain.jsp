@@ -33,7 +33,7 @@
     			<br />
     			
     		<div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                      <!--    Hover Rows  -->
                     
                         <div class="panel-body">
@@ -42,31 +42,42 @@
                                     <tbody>
                                     	<tr>
                                             <td>아이디</td>
-        									<td>${ loginuser.memberId }</td>
+        									<td colspan="2">${ loginuser.memberId }</td>
                                         </tr>
                                         <tr>
                                             <td>이름</td>
         									<td>${ loginuser.memberName }</td>
+        									<td>[수정]</td>
                                         </tr>
                                         <tr>
                                             <td>성별</td>
         									<td>${ member.gender }</td>
+        									<td>[수정]</td>
                                         </tr>
                                         <tr>
                                             <td>생년월일</td>
         									<td>${ member.age }</td>
+        									<td>[수정]</td>
                                         </tr>
                                         <tr>
                                             <td>전화번호</td>
         									<td>${ loginuser.phoneNo }</td>
+        									<td>[수정]</td>
                                         </tr>
                                         <tr>
                                             <td>이메일</td>
         									<td>${ loginuser.email }</td>
+        									<td>[수정]</td>
                                         </tr>
                                         <tr>
                                             <td>주소</td>
         									<td>${ loginuser.memberAddress }</td>
+        									<td>[수정]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>선호하는 직종</td>
+        									<td>${ loginuser.memberAddress }</td>
+        									<td>[수정]</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -75,23 +86,19 @@
                     </div>
                     <!-- End  Hover Rows  -->
     			</div>
+    			<c:choose>
+            	<c:when test="${ resume eq '0' }">
+            	<a href="resumeform.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;이력서 등록 </a>&nbsp;
+            	</c:when>
+        		<c:otherwise>
+        		<a href="resumeview.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;이력서 관리 </a>&nbsp;
+        		</c:otherwise>
+        		</c:choose>
+    			<a href="applicationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;지원현황 </a>&nbsp;
+    			<a href="recommendationlist.action" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;맞춤알바정보 </a>&nbsp;
     		</div>
     	</div>
     </div>
-        			
-        			<c:choose>
-            		<c:when test="${ resume eq '0' }">
-        			<a href="resumeform.action?memberId=${ loginuser.memberId }">이력서 등록</a>
-        			</c:when>
-        			<c:otherwise>
-        			<a href="resumeview.action?memberId=${ loginuser.memberId }">이력서 보러가기</a>
-        			</c:otherwise>
-        			</c:choose>
-        			<br />
-        			<a href="applicationlist.action?memberId=${ loginuser.memberId }">지원현황</a>
-					<br />
-        			<a href="recommendationlist.action">맞춤알바정보</a>
- 
     <c:import url="/WEB-INF/views/include/footer.jsp" />
 </body>
 </html>

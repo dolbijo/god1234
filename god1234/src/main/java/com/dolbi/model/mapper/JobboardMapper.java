@@ -22,6 +22,8 @@ public interface JobboardMapper {
 	
 	void insertApplication(HashMap<String, Object> params);
 	
+	void updateCount(int jobboardNo);
+	
 	
 
 }

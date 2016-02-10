@@ -121,6 +121,13 @@ public class JobBoardController {
 	}
 	
    
+   @RequestMapping(value = "updatecount.action", method = RequestMethod.GET)
+	public String updatecount(String jobboardNo) {
+		
+		jobboardDao.updateCount(Integer.parseInt(jobboardNo));
+
+		return "redirect:/jobboard/view.action?jobboardNo="+jobboardNo;
+	}
    
    @RequestMapping(value = "view.action", method = RequestMethod.GET)
 	public ModelAndView getJobboard(String jobboardNo) {

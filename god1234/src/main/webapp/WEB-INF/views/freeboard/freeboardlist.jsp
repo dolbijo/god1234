@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 
 <html>
 <head>
-
        <meta charset="utf-8" />
        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
        <meta name="description" content="" />
@@ -26,8 +26,6 @@
          [ <a href="${ writeform }">자료 등록</a> ]
          <br /><br />
 
-         <table border="1" style="width:1000px" align="center">
-            <tr style="background-color:bisque;height:30px;color:black">
                <th style="width:50px">번호</th>
                <th style="width:400px">제목</th>
                <th style="width:150px">작성자</th>
