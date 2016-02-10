@@ -34,7 +34,7 @@
 		
 		<div style="padding-top:25px;text-align:center">
 			<c:url var="writeform" value="/jobboard/register.action" />
-			[ <a href="${ writeform }">자료 등록</a> ]
+			 <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp; 
 			<br /><br />
 
 			<table class="table table-hover" style="width:1000px;height:10px" align="center">
