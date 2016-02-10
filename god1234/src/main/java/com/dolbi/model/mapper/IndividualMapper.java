@@ -6,7 +6,9 @@ import java.util.List;
 
 import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
+import com.dolbi.model.dto.Category;
 import com.dolbi.model.dto.Education;
+import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 import com.dolbi.model.dto.Resume;
 import com.dolbi.model.dto.ResumeAttachment;
@@ -28,4 +30,8 @@ public interface IndividualMapper {
 	void insertEducation(Education edu);
 	
 	ArrayList<Application> selectApplicationBymemberId(String memberId);
+
+	ArrayList<Category> selectCategoryBymemberId(String memberId);
+
+	ArrayList<Jobboard> selectJobboardListBycategoryNo(int categoryNo);
 }
