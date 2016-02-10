@@ -59,7 +59,7 @@
                                             <label class="control-label" for="success">이메일</label>
                                             <input type="text" class="form-control" id="email" name="email" />
                                         
-                                            <label>회사구분을 선택해주세요</label>
+                                            <label style="margin-top:10px">회사구분을 선택해주세요</label>
                                             
                                             <input type="radio" class="form-control" id="categoryNo" name="categoryNo" value="1" style="heignt:100px;width:20px;display: inline;">서비스
                                             <input type="radio" class="form-control" id="categoryNo" name="categoryNo" value="2" style="heignt:100px;width:20px;display: inline;">영업

@@ -137,8 +137,8 @@
     							</tr>
     							<tr>
     								<td colspan="2">
-    									<input type="submit" value="등록" />
-    									<input type="button" value="취소" onclick="location.href='individualmain.action?memberId=${ loginuser.memberId }';"/>
+    									<input type="submit" value="등록" class="button btn btn-success btn-large"/>
+    									<input type="button" value="취소" class="button btn btn-success btn-large" onclick="location.href='individualmain.action?memberId=${ loginuser.memberId }';"/>
     								</td>
     							</tr>
     						</table>
@@ -147,7 +147,10 @@
     </div>
     </div>
     </div>
+   
     </section>
+    </div>
+    </div>
     <c:import url="/WEB-INF/views/include/footer.jsp" />
 </body>
 </html>
