@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-    
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<<<<<<< HEAD
+<%@page import="com.dolbi.model.dto.Jobboard"%>
+<%@page import="com.dolbi.model.dao.JobboardDao"%>
+
+=======
 <% String cp = request.getContextPath(); %>
+>>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
 <!DOCTYPE html>
 
 <html>
@@ -24,14 +29,25 @@
 			<br /><br />
 		    <div id="inputmain">
 		      	<div class="inputsubtitle">채용 자료 등록</div>
-		        <form:form method="post" modelAttribute="member">
+		        <form:form method="post" modelAttribute="jobboard" >
+		        
 		        <table>
 		             <tr>
 		                <th>제목</th>
 		                <td>
-		                    <input type="text" name="title" style="width:580px" />
+		                   <input type="text" name="title" style="width:580px" value='${ jobboard1.jobboardTitle }' />
+		                   
 		                </td>
 		            </tr>
+		            
+		               <tr>
+		                <th>회사/점포명</th>
+		                <td>
+		                	<input type="hidden" name="memberName" value='${ jobboard1.memberName }' />
+		                	${ jobboard1.memberName }
+		                </td>
+		            </tr>
+		            
 		           <tr>
 		                <th>작성자</th>
 		                <td>
@@ -46,21 +62,24 @@
 		            <tr>
 		                <th>첨부자료</th>
 		                <td>
-		                    <input type="file" name="attach" style="width:580px;height:20px" />
+		               		<input type="file" name="attach" style="width:580px;height:20px" />
+		                    <c:forEach var="file" items="${jobboard1.files }">
+		                    	<p>${file.savedFileName }</p><br />
+		                    </c:forEach>
 		                </td>
 		            </tr>
 		            
 		            <tr>
 		                <th>상세 모집 요강</th>
 		                <td>
-		                	<textarea name="content" style="width:580px" rows="15"></textarea>
+		                	<textarea name="content" style="width:580px" rows="15" value='${ jobboard1.jobboardContent }'></textarea>
 		                </td>
 		            </tr>
 		         
 		            <tr>
 		                <th>마감일</th>
 		                <td>
-							<input type ="date" name = "deadline">
+							<input type ="date" name = "deadline"  value='${ jobboard1.jobboardDeadLine }'>
 							
 		                </td>
 		            </tr>
@@ -70,50 +89,50 @@
 		                <th>나이</th>
 		                <td>
 		          
-					<select id="birthday" name="birthday">
-     <option value="">출생년도 선택</option>
-     <%for(int i=1950; i<=2010; i++){ %>
-     <option value="<%=i%>"><%=i+"년"%></option>
-     <%} %>
- </select>
+					<select id="birthday" name="birthday" value='${ jobboard1.jobboardAge }'>
+     					<option value="">출생년도 선택</option>
+     						<%for(int i=1950; i<=2010; i++){ %>
+     						<option value="<%=i%>"><%=i+"년"%></option>
+     						<%} %>
+ 							</select>
 		
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>모집인원</th>
 		                <td>
-		                    <input type="text" name="joinnum" style="width:100px"> 명 </input>
+		                    <input type="text" name="joinnum" style="width:100px" value='${ jobboard1.jobboardjoinno }'> 명 </input>
 		                </td>
 		            </tr>
 		            
 		             <tr>
 		                <th>성별</th>
 		                <td>
-		                    <input type="radio" name="gender" value="female" />여
+		                    <input type="radio" name="gender" value="female" value='${ jobboard1.jobboardgender }'/>여
 		             
-							<input type="radio" name="gender" value="male" />남
+							<input type="radio" name="gender" value="male" value='${ jobboard1.jobboardgender }' />남
 							
-							<input type="radio" name="gender" value="mf" />남녀무관
+							<input type="radio" name="gender" value="mf"  value='${ jobboard1.jobboardgender }'/>남녀무관
 		                </td>
 		            </tr>
 		              <tr>
 		                <th>학력</th>
 		                <td>
-		                    <input type="radio" name="edu" value="grade0" />학력무관
-							<input type="radio" name="edu" value="grade1" />초졸
-							<input type="radio" name="edu" value="grade2" />중졸
-							<input type="radio" name="edu" value="grade3" />고졸
-							<input type="radio" name="edu" value="grade4" />초대졸
-							<input type="radio" name="edu" value="grade5" />초대졸이상
+		                    <input type="radio" name="edu" value="grade0" value='${ jobboard1.jobboardeducation }'/>학력무관
+							<input type="radio" name="edu" value="grade1" value='${ jobboard1.jobboardeducation }'/>초졸
+							<input type="radio" name="edu" value="grade2" value='${ jobboard1.jobboardeducation }'/>중졸
+							<input type="radio" name="edu" value="grade3" value='${ jobboard1.jobboardeducation }'/>고졸
+							<input type="radio" name="edu" value="grade4" value='${ jobboard1.jobboardeducation }'/>초대졸
+							<input type="radio" name="edu" value="grade5" value='${ jobboard1.jobboardeducation }'/>초대졸이상
 		                </td>
 		            </tr>
 		            
 		             <tr>
 		                <th>급여</th>
 		                <td>
-		                	<input type="radio" name="payment" value="perhour">시급
-		                	<input type="radio" name="payment" value="perweek">주급
-		                	<input type="radio" name="payment" value="permonth">월급
+		                	<input type="radio" name="payment" value="perhour" value='${ jobboard1.jobboardsalary }'>시급
+		                	<input type="radio" name="payment" value="perweek" value='${ jobboard1.jobboardsalary }'>주급
+		                	<input type="radio" name="payment" value="permonth" value='${ jobboard1.jobboardsalary }'>월급
 		                	<input type="text" name="salary">
 		                </td>
 		            </tr>
@@ -121,9 +140,9 @@
 		             <tr>
 		                <th>경력정보</th>
 		                <td>
-		                    <input type="radio" name="career" value="old" />
+		                    <input type="radio" name="career" value="old" value='${ jobboard1.jobboardcareer }' />
 		                    <label for="radio1">경력</label>
-							<input type="radio" name="career" value="new" />
+							<input type="radio" name="career" value="new" value='${ jobboard1.jobboardcareer }' />
 							<label for="radio2">신입</label>
 		                </td>
 		            </tr>		            		            
@@ -132,6 +151,7 @@
 		        	<input type="submit" value="수정" style="height:25px" />
 		        	<%-- <input type="button" value="취소" style="height:25px"
 		        		onclick="location.href='view.action?memberid=${ param.memberid }';" /> --%>
+		       
 		        	<input type="button" value="취소" style="height:25px"
 		        		onclick="location.href='view.action?memberid=${ member.memberId }';" />
 		        </div>
