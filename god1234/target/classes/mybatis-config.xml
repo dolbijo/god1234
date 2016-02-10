@@ -30,6 +30,7 @@
 		<typeAlias type="com.dolbi.model.dto.Education" alias="Education" />
 		
 		<typeAlias type="com.dolbi.model.dto.Application" alias="Application" />
+		<typeAlias type="com.dolbi.model.dto.Category" alias="Category" />
 	</typeAliases>
 
 	<environments default="development">

@@ -16,5 +16,7 @@ public interface FreeboardMapper {
 	Freeboard selectFreeboardByfreeboardNo(int freeboardNo);
 	
 	void insertFreeboard(Freeboard freeboard);
+	
+	void updateCount(int freeboardNo);
 
 }

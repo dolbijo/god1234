@@ -11,7 +11,9 @@ import org.springframework.stereotype.Repository;
 
 import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
+import com.dolbi.model.dto.Category;
 import com.dolbi.model.dto.Education;
+import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 import com.dolbi.model.dto.Resume;
 import com.dolbi.model.dto.ResumeAttachment;
@@ -83,6 +85,19 @@ public class MySqlIndividualDao implements IndividualDao {
 		ArrayList<Application> applications = individualMapper.selectApplicationBymemberId(memberId);
 		
 		return applications;
+	}
+	
+	public ArrayList<Category> getCategoryList(String memberId) {
+		ArrayList<Category> categorys = individualMapper.selectCategoryBymemberId(memberId);
+		
+		return categorys;
+	}
+	
+	public ArrayList<Jobboard> getJobboardList(int categoryNo) {
+		
+		ArrayList<Jobboard> jobboards = individualMapper.selectJobboardListBycategoryNo(categoryNo);
+		
+		return jobboards;
 	}
 	
 }

@@ -5,7 +5,9 @@ import java.util.List;
 
 import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
+import com.dolbi.model.dto.Category;
 import com.dolbi.model.dto.Education;
+import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 import com.dolbi.model.dto.Resume;
 import com.dolbi.model.dto.ResumeAttachment;
@@ -27,4 +29,9 @@ public interface IndividualDao {
 	void insertEducation(Education edu);
 	
 	ArrayList<Application> getApplicationList(String memberId);
+
+	ArrayList<Category> getCategoryList(String memberId);
+
+	ArrayList<Jobboard> getJobboardList(int categoryNo);
+	
 }
