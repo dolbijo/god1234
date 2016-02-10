@@ -33,8 +33,9 @@
 		
 		
 		<div style="padding-top:25px;text-align:center">
-			<c:url var="writeform" value="/jobboard/register.action" />
-			 <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp; 
+			<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />
+			 <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp;
+			 <a href="searchcategory.action" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료찾기</a>&nbsp;
 			<br /><br />
 
 			<table class="table table-hover" style="width:1000px;height:10px" align="center">

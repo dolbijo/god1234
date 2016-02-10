@@ -21,4 +21,6 @@ public interface JobboardDao {
 
    void updateCount(int jobboardNo);
 
+   int getJobboardNoByMemberId(String memberId);
+
 }
