@@ -17,62 +17,49 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-		
-		<div id="inputcontent">
-			<br /><br />
-		    <div id="inputmain">
-		        <div class="inputsubtitle">기업회원정보</div>
-		        <form action="registercom.action" method="post"><!-- 상대경로표시 -->
-		        <table>
-		            <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                           	기업회원가입
-                        </div>
-                        <div class="panel-body">
-                            <form role="form">
-                                        <div class="form-group has-success">
+		<div class="content-wrapper">
+        <div class="container">
+			<div class="row">
+    			<div class="col-md-12">
+    				<h4 class="page-head-line">기업 회원가입 </h4>
+    			</div>
+    			<br />
+    			<div class="row"  align="center">
+    				<div class="col-md-12">
+    					<div class="form-group has-error">
+		        <form action="registercom.action" method="post" style="padding-left: 200px;padding-right: 200px;"><!-- 상대경로표시 -->
+		                               
                                             <label class="control-label" for="success">아이디(ID)</label>
                                             <input type="text" class="form-control" id="memberId" name="memberId" />
-                                        </div>
-                                        <div class="form-group has-success">
+                                                                             
                                             <label class="control-label" for="success">비밀번호</label>
                                             <input type="password" class="form-control" id="passWd" name="passWd" />
-                                        </div>
-                                        <div class="form-group has-success">
+                                      
                                             <label class="control-label" for="success">비밀번호 확인</label>
                                             <input type="password" class="form-control" id="confirm" name="confirm" />
-                                        </div>
-                                        <div class="form-group has-success">
+                                      
                                             <label class="control-label" for="success">회사/점포명</label>
                                             <input type="text" class="form-control" id="memberName" name="memberName" />
-                                        </div>
-                                        <div class="form-group has-success">
+                                       
                                             <label class="control-label" for="success">대표자명</label>
                                             <input type="text" class="form-control" id="ceoName" name="ceoName" />
-                                        </div>
-                                        <div class="form-group has-success">
+                                        
                                             <label class="control-label" for="success">사업자등록번호</label>
                                             <input type="text" class="form-control" id="companyNo" name="companyNo" />
-                                        </div>
-                                        <div class="form-group has-success">
+                                        
                                             <label class="control-label" for="success">회사/점포주소</label>
                                             <input type="text" class="form-control" id="memberAddress" name="memberAddress" />
-                                        </div>
-                                        <div class="form-group has-success">
+                                        
                                             <label class="control-label" for="success">전화번호</label>
                                             <input type="text" class="form-control" id="phoneNo" name="phoneNo" />
-                                        </div>
-                                        <div class="form-group has-success">
+                                        
                                             <label class="control-label" for="success">회사/점포 홈페이지</label>
                                             <input type="text" class="form-control" id="homepage" name="homepage" />
-                                        </div>
-                                        <div class="form-group has-success">
+                                        
                                             <label class="control-label" for="success">이메일</label>
                                             <input type="text" class="form-control" id="email" name="email" />
-                                        </div>
-                                        <div class="form-group has-success" text-align="center" >
-                                            <label class="control-label" for="success">회사구분</label>
+                                        
+                                            <label>회사구분을 선택해주세요</label>
                                             
                                             <input type="radio" class="form-control" id="categoryNo" name="categoryNo" value="1" style="heignt:100px;width:20px;display: inline;">서비스
                                             <input type="radio" class="form-control" id="categoryNo" name="categoryNo" value="2" style="heignt:100px;width:20px;display: inline;">영업
@@ -83,29 +70,20 @@
                                             <input type="radio" class="form-control" id="categoryNo" name="categoryNo" value="7" style="heignt:100px;width:20px;display: inline;">디자인
                                             <input type="radio" class="form-control" id="categoryNo" name="categoryNo" value="8" style="heignt:100px;width:20px;display: inline;">교육/강사
                                             
-                                        </div>
-                                    </form>
-                                    <hr />
-                            <hr />
-                            
-                    <div class="buttons">
-		        	<input type="submit" value="등록" style="height:25px" />
-		        	<input type="button" value="취소" style="height:25px"
-		        		onclick="location.href='list.action';" />
+                                            
+                                            <br /><br />
+		        	<input type="submit" value="등록" class="button btn btn-success btn-large"/>
+		        	<input type="button" value="취소" onclick="location.href='list.action';" class="button btn btn-success btn-large"/>
+		       </form>
+		       </div>
 		        </div>
+		         </div>
+		         
+		          </div>
+		           </div>
+		            </div>
 		        	<c:import url="/WEB-INF/views/include/footer.jsp" />
-                        </div>
-                            </div>
-                        </div>
-                </div>
-        </div>
-    </div>
-
-		        </table>
-		        
-		        </form>
-		    </div>
-		</div>   	
+          
 
 
 </body>
