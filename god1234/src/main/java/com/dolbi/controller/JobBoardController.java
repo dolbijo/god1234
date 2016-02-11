@@ -189,6 +189,16 @@ public class JobBoardController {
       
    }
    
+//   @RequestMapping(value = "/JobboardList")
+//   public String JobboardList(Model model, Jobboard jobboard) {
+//	   
+//    //Jobboard.setTotalItemCount(boardService.countBoardList(board)); //아이템의 총 갯수를 넣어줍니다. (필수사항)
+//   // Jobboard.setItemPerPage(10);   //선택사항
+//    
+// 
+//   }
+
+   
 
 	
    
