@@ -7,7 +7,7 @@
 
 =======
 <% String cp = request.getContextPath(); %>
->>>>>>> branch 'master' of https://github.com/dolbijo/god1234.git
+
 <!DOCTYPE html>
 
 <html>
