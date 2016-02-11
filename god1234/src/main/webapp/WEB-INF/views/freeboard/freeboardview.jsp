@@ -41,7 +41,8 @@
 		            </tr>
 		        </table>
 		        <div class="buttons">
-		        	<input type="button" value="편집" style="height:25px" />
+		        	
+		        	<a href="edit.action?freeboardno=${ freeboard.freeboardNo }">정보수정</a>
 		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
 		        </div>
 		    </div>

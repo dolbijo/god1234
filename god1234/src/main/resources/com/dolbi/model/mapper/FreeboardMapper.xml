@@ -10,6 +10,9 @@
 		F_No,F_TITLE,F_CONTENT,F_REGDATE,F_READCOUNT,F_DELETED,F_TYPE,M_ID
 		
 	</sql>
+	<sql id="FreeboardViewColumns">
+		F_No,F_TITLE,F_CONTENT,F_REGDATE,F_READCOUNT,F_DELETED,F_TYPE,M_ID
+	</sql>
 	
 	<resultMap type="Freeboard" id="freeboardListMap">
 		<id property="freeboardNo" column="F_NO" />
@@ -35,7 +38,17 @@
 		FROM FREEBOARD
 	</select>
 	
+	<resultMap type="Freeboard" id="freeboardViewMap">
+		<id property="freeboardNo" column="F_NO" />
+		<result property="freeboardTitle" column="F_TITLE" />
+		<result property="freeboardContent" column="F_CONTENT" />
+		<result property="freeboardRegDate" column="F_REGDATE" />
+		<result property="freeboardReadCount" column="F_READCOUNT" />
+		<result property="freeboardDeleted" column="F_DELETED" />
+		<result property="freeboardtype" column="F_TYPE" />
+		<result property="memberId" column="M_ID" />
 	
+	</resultMap>
 
 
 	<insert id="insertFreeboard" parameterType="Freeboard">
@@ -45,6 +58,29 @@
 		INSERT INTO FREEBOARD (f_no, f_title, f_content, f_type, m_id)
 		VALUES (#{freeboardNo},#{freeboardTitle}, #{freeboardContent}, #{freeboardtype},#{memberId})
 	</insert>
+	
+	
+	<insert id="insertApplication" parameterType="hashMap">
+		<selectKey keyProperty="applicationNo" resultType="int" order="BEFORE">
+			SELECT COUNT(*)+1 from application
+		</selectKey>
+		insert into application (a_no, f_no, m_id)
+		values (#{applicationNo}, #{freeboardNo}, #{memberId})
+	</insert>
+	
+
+	
+	<update id="updateCount" parameterType="int">
+		update freeboard set F_READCOUNT = F_READCOUNT + 1 WHERE F_NO = #{freebboardNo}
+	</update>
+	
+	<select id="selectFreeboardNoByMemberId" parameterType="String" resultType="int">
+	
+		select fc_no
+		from freeboard
+		where m_id = #{memberId}
+	
+	</select>
 	
 </mapper>
 

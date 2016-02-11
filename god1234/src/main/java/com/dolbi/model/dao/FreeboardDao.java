@@ -1,6 +1,7 @@
 package com.dolbi.model.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.dolbi.model.dto.Freeboard;
 import com.dolbi.model.dto.Jobboard;
@@ -15,4 +16,13 @@ public interface FreeboardDao {
 	ArrayList<Freeboard> getFreeboardList();
 
 	Freeboard getFreeboardByFreeboardNo(int FreeboardNo);
+	
+    void insertApplication(String memberId, String freeboardNo);
+
+	void updateCount(int freeboardNo);
+
+	int getFreeboardNoByMemberId(String memberId);
+
+	 //List<Jobboard> getsearchList(String searchTag);
+
 }

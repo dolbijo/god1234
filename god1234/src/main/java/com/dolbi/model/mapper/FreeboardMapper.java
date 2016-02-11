@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.dolbi.model.dto.Freeboard;
 import com.dolbi.model.dto.Jobboard;
+import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
 
 public interface FreeboardMapper {
@@ -17,4 +18,12 @@ public interface FreeboardMapper {
 	
 	void insertFreeboard(Freeboard freeboard);
 
+	
+	void insertApplication(HashMap<String, Object> params);
+	
+	void updateCount(int freeboardNo);
+	
+	int selectFreeboardNoByMemberId(String memberId);
+	
+	//List<Jobboard> selectJobboardBySearchTag(String searchTag);
 }
