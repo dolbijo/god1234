@@ -30,19 +30,10 @@
 				}
 			}
 			
-			function deleteComment(boardNo, commentNo, pageNo) {
+			function deleteComment(boardNo, commentNo) {
 				if (confirm( boardNo + "번 댓글을 삭제할까요?")) {
-					location.href = "deletecomment.action?boardno=" + boardNo + 
-														"&pageno=" + pageNo + 
+					location.href = "deletecomment.action?freeboardNo=" + boardNo +
 														"&commentno=" + commentNo;
-				}
-			}
-   
-			function deleteBoard(boardNo, pageNo) {
-
-				if (confirm(boardNo + '번 글을 삭제할까요?')) {
-					location.href=
-						'delete.action?boardno=' + boardNo + '&pageno=' + pageNo;
 				}
 			}
 		</script>
@@ -119,39 +110,40 @@
 					
 						<tr>
 			        		<td style="padding: 10px 10px 10px 10px;text-align:left;margin:5px;border-bottom: solid 1px">
-			        			
-			                    ${comment.memberId }&nbsp;&nbsp;
-			                    [ ${comment.regdate} ]
-			                    <br /><br />
-			                    <span>
-			                    	<c:choose>
-			                    		<c:when test="${ comment.content eq null }">
-			                    			내용이 없습니다.
-			                    		</c:when>
-			                    		<c:otherwise>
-			                    			${comment.content }
-			                    		</c:otherwise>
-			                    	</c:choose>
-			                    </span>
-			                    <br /><br />
-			                    <c:set var="display" value=""/>
-			                    <c:choose>
-			                    <c:when test="${ loginuser.memberId eq comment.memberId  }">
-			                    	<c:set var="display" value="block"/>
-			                    </c:when>
-			                    <c:otherwise>
-			                    	<c:set var="display" value="none"/>
-			                    </c:otherwise>
-			                    </c:choose>
-			                    
-			                    <div style="display: ${display}">
-			                    	<a href="javascript:toggleCommentStatus(${comment.commentNo }, true);">편집</a>
-			                    	&nbsp;
-			                    	<a href="javascript:deleteComment(${comment.commentNo }, ${comment.freeboardNo })">삭제</a>
-			                     
+			        			<div id='commentview${comment.commentNo }'>
+				                    ${comment.memberId }&nbsp;&nbsp;
+				                    [ ${comment.regdate} ]
+				                    <br /><br />
+				                    <span>
+				                    	<c:choose>
+				                    		<c:when test="${ comment.content eq null }">
+				                    			내용이 없습니다.
+				                    		</c:when>
+				                    		<c:otherwise>
+				                    			${comment.content }
+				                    		</c:otherwise>
+				                    	</c:choose>
+				                    </span>
+				                    <br /><br />
+				                    <c:set var="display" value=""/>
+				                    <c:choose>
+				                    <c:when test="${ loginuser.memberId eq comment.memberId  }">
+				                    	<c:set var="display" value="block"/>
+				                    </c:when>
+				                    <c:otherwise>
+				                    	<c:set var="display" value="none"/>
+				                    </c:otherwise>
+				                    </c:choose>
+				                    
+				                    <div style="display: ${display}">
+				                    	<a href="javascript:toggleCommentStatus(${comment.commentNo }, true);">편집</a>
+				                    	&nbsp;
+				                    	<a href="javascript:deleteComment(${comment.commentNo }, ${comment.freeboardNo })">삭제</a>
+				                     
+				                    </div>
 			                    </div>
 			                
-			                	<div style="display: none">
+			                	<div id='commentedit${comment.commentNo }' style="display: none">
 									${comment.memberId }&nbsp;&nbsp; 
 									[${comment.regdate}] 
 									<br /><br />
@@ -159,7 +151,7 @@
 										<input type="hidden" name="freeboardno" value="${ freeboard.freeboardNo}" />
 										<input type="hidden" name="commentno" value="${comment.commentNo}" />
 										<textarea name="content" style="width: 600px" rows="3" maxlength="200">
-											<c:if test="${ empty comment.content }">
+											
 					                    		<c:choose>
 				                    				<c:when test="${ comment.content eq null }">
 						                    			내용을 입력해 주세요.
@@ -168,7 +160,7 @@
 						                    			${comment.content }
 						                    		</c:otherwise>
 				                    			</c:choose>
-				                    		</c:if> 
+				                    		
 										</textarea>
 									</form>
 									<br />
