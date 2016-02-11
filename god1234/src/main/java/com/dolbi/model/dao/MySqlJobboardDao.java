@@ -84,6 +84,13 @@ public class MySqlJobboardDao implements JobboardDao {
    public void updateCount(int jobboardNo) {
 	   jobboardMapper.updateCount(jobboardNo);
    }
+   
+   public int getJobboardNoByMemberId(String memberId) {
+	   
+	   int jobboardNo = jobboardMapper.selectJobboardNoByMemberId(memberId);
+	   
+	   return jobboardNo;
+   }
 
 }
 

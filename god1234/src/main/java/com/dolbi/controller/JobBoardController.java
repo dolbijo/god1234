@@ -74,9 +74,21 @@ public class JobBoardController {
 	    jobboard.setJobboardPayment(request.getParameter("payment"));
 	    jobboard.setJobboardSalary(Integer.parseInt(request.getParameter("salary")));
 	    jobboard.setJobboardCareer(request.getParameter("career"));
-	    jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
+	    jobboard.setJobboardAge(request.getParameter("birthday"));
+	    
+	    //jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
+	    
 	    Date deadline = transFormat.parse(request.getParameter("deadline"));
 		jobboard.setJobboardDeadLine(deadline);
+		
+		String[] category = request.getParameterValues("ca");
+		String categoryTag = "";
+		
+		for(int i = 0; i < category.length; i++) {
+			categoryTag = categoryTag + category[i];
+		}
+		
+		jobboard.setCategoryTag(categoryTag);
 		
 		//아래 try 영역 내부에서 오류가 발생하면 모든 db연동 작업을 취소하도록 처리
 		try {
@@ -139,7 +151,12 @@ public class JobBoardController {
 	}
    
    @RequestMapping(value = "register.action", method = RequestMethod.GET)
-   public String registerForm() {
+   public String registerForm(String memberId, Model model) {
+	  
+	  int jobboardNo = jobboardDao.getJobboardNoByMemberId(memberId);
+	  
+	  model.addAttribute("jobboardNo", jobboardNo);
+	  
       return "jobboard/jobboardwriteform";
    }
    
@@ -189,18 +206,14 @@ public class JobBoardController {
       
    }
    
-//   @RequestMapping(value = "/JobboardList")
-//   public String JobboardList(Model model, Jobboard jobboard) {
-//	   
-//    //Jobboard.setTotalItemCount(boardService.countBoardList(board)); //아이템의 총 갯수를 넣어줍니다. (필수사항)
-//   // Jobboard.setItemPerPage(10);   //선택사항
-//    
-// 
-//   }
-
    
+   @RequestMapping(value = "searchcategory.action", method = RequestMethod.GET)
+   public String searchCategory(String memberId, String jobboardNo) {//HttpServletRequest.setAttribute("member", member)
 
-	
+
+       return "jobboard/searchform";
+      
+   }
    
 
 }

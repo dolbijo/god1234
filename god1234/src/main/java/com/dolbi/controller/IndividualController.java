@@ -112,7 +112,7 @@ public class IndividualController {
 	public String resumeRegister(MultipartHttpServletRequest request, String memberId) throws Exception {
 		
 		//�뾽濡쒕뱶�맂 �뙆�씪�쓣 ���옣�븷 寃쎈줈 (媛��긽寃쎈줈 -> 臾쇰━寃쎈줈) 異붿텧
-		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/resume");
+		String path = request.getSession().getServletContext().getRealPath("/resources/resume");
 				
 		//Upload 媛앹껜 �깮�꽦 諛� �뙆�씪�씠 �븘�땶 �뜲�씠�꽣 ���옣
 		
