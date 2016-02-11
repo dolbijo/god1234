@@ -106,17 +106,14 @@ public class IndividualController {
 	
 	@RequestMapping(value = "resumeform.action", method = RequestMethod.POST)
 	public String resumeRegister(MultipartHttpServletRequest request, String memberId) throws Exception {
-		
-		//�뾽濡쒕뱶�맂 �뙆�씪�쓣 ���옣�븷 寃쎈줈 (媛��긽寃쎈줈 -> 臾쇰━寃쎈줈) 異붿텧
+
 		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/resume");
-				
-		//Upload 媛앹껜 �깮�꽦 諛� �뙆�씪�씠 �븘�땶 �뜲�씠�꽣 ���옣
 		
 		Resume resume = new Resume();
 		resume.setMemberId(memberId);
 		resume.setResumeTitle(request.getParameter("resumetitle"));
 		resume.setSelfintroduction(request.getParameter("selfintroduction"));
-		if (request.getParameter("ispublic").equals("怨듦컻")) {
+		if (request.getParameter("ispublic").equals("공개")) {
 			resume.setIspublic(true);
 		} else {
 			resume.setIspublic(false);

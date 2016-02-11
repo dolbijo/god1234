@@ -26,6 +26,8 @@ public interface JobboardMapper {
 	
 	int selectJobboardNoByMemberId(String memberId);
 	
+	List<Jobboard> selectJobboardBySearchTag(String searchTag);
+	
 	
 
 }
