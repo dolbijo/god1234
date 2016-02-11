@@ -26,15 +26,17 @@
 </script>
 
 
+
+
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-
-		
 		
 		<div style="padding: 70px 0 50px 0;text-align:center">
-			<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />
-			 <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp;
+			<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />		
+			<c:if test="${ loginuser.memberType eq 'company' }">
+            	<li><a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp;</a></li>
+        	</c:if>
 			 <a href="searchcategory.action" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료찾기</a>&nbsp;
 			<br /><br />
 			</div>
@@ -108,13 +110,58 @@
 				</tr>
 				</c:forEach>
 				
+				
+
+
 			</table>
 			<br /><br /><br /><br />
 			
+			<%--For displaying Previous link except for the 1st page --%>
+    		<c:if test="${currentPage != 1}">
+        		<td><a href="jobboard.do?page=${currentPage - 1}">Previous</a></td>
+    			</c:if>
+ 
+   			 <%--For displaying Page numbers. 
+   				The when condition does not display a link for the current page--%>
+    		<table border="1" cellpadding="5" cellspacing="5">
+       		 <tr>
+            <c:forEach begin="1" end="${noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${currentPage eq i}">
+                        <td>${i}</td>
+                    </c:when>
+                    <c:otherwise>
+                        <td><a href="jobboard.do?page=${i}">${i}</a></td>
+                    </c:otherwise>
+                </c:choose>
+           		 </c:forEach>
+       			 </tr>
+   		 </table>
+     
+   			 <%--For displaying Next link --%>
+   			 <c:if test="${currentPage lt noOfPages}">
+        		<td><a href="jobboard.do?page=${currentPage + 1}">Next</a></td>
+    		</c:if>
+			
 		</div>
-
 		
+	<div>
+		<c:forEach var="i" begin="${pu.startPageNum }" end="${pu.endPageNum }">
+			<c:choose>
+				<c:when test="${i == pu.pageNum }">
+					<a href="list.action?pageNum=${i }">
+						<span style="color:red">[${i }]</span>
+					</a>
+				</c:when>
+				<c:otherwise>
+					<a href="list.action?pageNum=${i }">
+						[${i }]
+					</a>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
 	</div>
+
 	<c:import url="/WEB-INF/views/include/footer.jsp" />
 		
 

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,9 +33,12 @@ import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 
 import com.dolbi.model.dto.Member;
+
 import com.dolbi.model.dto.Upload;
 import com.dolbi.model.dto.UploadFile;
 import com.dolbi.model.service.IndividualService;
+import com.dolbi.util.PageUtil;
+
 
 @Controller
 @RequestMapping("/jobboard")
@@ -45,15 +49,25 @@ public class JobBoardController {
    
    
    @RequestMapping(value = "list.action", method = RequestMethod.GET)
-   public ModelAndView list(Model model) {
+   public String list(int pageNum, Model model) throws Exception {
       
-		List<Jobboard> jobboards = jobboardDao.getJobboardList();
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("jobboards", jobboards);
-		mav.setViewName("jobboard/jobboardlist");
-		
-		return mav;
+	   int totalRowCount = jobboardDao.getCount();
+	   
+	   PageUtil pu = new PageUtil(pageNum, totalRowCount, 10, 10);
+	   
+	   HashMap<String, Object> map = new HashMap<String,Object>();
+	   map.put("startRow", pu.getStartRow());
+	   map.put("endRow", pu.getEndRow());
+	   
+	   List<Jobboard> jobboards = jobboardDao.getJobboardList(map);
+	   model.addAttribute("jobboards", jobboards);
+	   model.addAttribute("pu", pu);
+	   
+	   return "jobboard/jobboardlist";
    }
+   
+				
+   
    
    @RequestMapping(value = "write.action", method = RequestMethod.POST)
 	public String getJobboardWriteForm(MultipartHttpServletRequest request) throws Exception {
@@ -74,7 +88,10 @@ public class JobBoardController {
 	    jobboard.setJobboardPayment(request.getParameter("payment"));
 	    jobboard.setJobboardSalary(Integer.parseInt(request.getParameter("salary")));
 	    jobboard.setJobboardCareer(request.getParameter("career"));
-	    jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
+	    jobboard.setJobboardAge(request.getParameter("birthday"));
+	    
+	    //jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
+	    
 	    Date deadline = transFormat.parse(request.getParameter("deadline"));
 		jobboard.setJobboardDeadLine(deadline);
 		
@@ -203,6 +220,7 @@ public class JobBoardController {
    
    @RequestMapping(value = "searchcategory.action", method = RequestMethod.GET)
    public String searchCategory(String memberId, String jobboardNo) {//HttpServletRequest.setAttribute("member", member)
+
 
        return "jobboard/searchform";
       

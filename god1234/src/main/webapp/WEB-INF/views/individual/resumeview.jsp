@@ -45,7 +45,7 @@
     								<div style="padding-top: 10px">
     								<table border="1" style="width:800px; text-align:center">    								
     								<tr>
-    									<td width="30">이력서 사진</td>
+
     									<td>이름</td>
     									<td>${ loginuser.memberName }</td>
     									<td>생년월일</td>

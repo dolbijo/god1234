@@ -99,6 +99,12 @@ public class MySqlIndividualDao implements IndividualDao {
 		
 		return jobboards;
 	}
+	public List<Category> getlikedcategorylist(String memberId){
+		
+		List<Category> likedcategorylist= individualMapper.selectlikedcategoryListByMemberId(memberId);
+		return likedcategorylist;
+	}
+	 
 	
 	public void deleteApplication(int applicationNo) {
 		//Member member = individualMapper.selectIndividualByMemberId(id);
