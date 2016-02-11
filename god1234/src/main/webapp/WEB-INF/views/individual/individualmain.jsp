@@ -76,7 +76,11 @@
                                         </tr>
                                         <tr>
                                             <td>선호하는 직종</td>
-        									<td>${ loginuser.memberAddress }</td>
+        									<td>
+        									<c:forEach var="likedcategory" items="${likedcategorylist }">
+        										${likedcategory.categoryName } | 
+        									</c:forEach>
+        									</td>
         									<td>[수정]</td>
                                         </tr>
                                     </tbody>

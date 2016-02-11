@@ -28,9 +28,23 @@
 	</resultMap>
 	
 	<!-- 메서드 역할 -->
-	<select id="selectJobboards" resultMap="jobboardListMap">
+	<!-- <select id="selectJobboards" resultMap="jobboardListMap">
 		SELECT <include refid="JobboardListColumns" /> 
 		FROM JOBBOARD
+	</select> -->
+	
+	
+	
+	<select id="selectJobboards" parameterType="hashmap" resultMap="jobboardListMap">
+		SELECT c.J_NO,c.J_TITLE,c.J_READCOUNT,c.J_DEADLINE,c.M_ID,J_PAYMENT,c.J_SALARY,c.J_DELETED,c.M_NAME,c.J_GENDER
+		FROM (select a.*, @rownum:=@rownum+1 as rnum from jobboard a, (select @rownum:=0) b order by j_no desc) c
+		where c.rnum between #{startRow} and #{endRow}
+	</select>
+	
+	<select id="selectJobboardBySearchTag" parameterType="String" resultMap="jobboardListMap">
+		SELECT <include refid="JobboardListColumns" /> 
+		FROM JOBBOARD
+		where j_tag LIKE #{searchTag}
 	</select>
 	
 	<resultMap type="JobboardAttachment" id="jobboardFileMap">
@@ -66,18 +80,18 @@
 		where j.j_no = #{jobboardNo}
 	</select>
 	
-	<insert id="insertJobboard" parameterType="Jobboard" useGeneratedKeys="true" keyProperty="j_no">
-		<selectKey keyProperty="jobboardNo" resultType="int" order="BEFORE">
-			SELECT MAX(J_NO)+1 from jobboard
+	<insert id="insertJobboard" parameterType="Jobboard">
+		<selectKey keyProperty="jobboardNo" resultType="int" order="BEFORE">			
+			SELECT IFNULL( MAX(J_NO), 0) + 1 from jobboard
 		</selectKey>
-		INSERT INTO JOBBOARD (j_no, j_title, j_content, j_deadline, j_joinno, j_gender, j_age, j_education, m_id, j_payment, j_salary, j_career, m_name)
-		VALUES (#{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardSalary},#{jobboardCareer},#{memberName})
+		INSERT INTO JOBBOARD (j_no, j_title, j_content, j_deadline, j_joinno, j_gender, j_age, j_education, m_id, j_payment, j_salary, j_career, m_name, j_tag)
+		VALUES (#{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardSalary},#{jobboardCareer},#{memberName}, #{categoryTag})
 
 	</insert>
 	
 	<insert id="insertJobboardFile" parameterType="JobboardAttachment">
 		<selectKey keyProperty="jobboardAttachmentNo" resultType="int" order="BEFORE">
-			SELECT MAX(JA_NO)+1 from jobboardattachment
+			SELECT IFNULL( MAX(JA_NO), 0) + 1 from jobboardattachment
 		</selectKey>
 		insert into jobboardattachment (ja_no, j_no, ja_savedfilename, ja_filename)
 		values (#{jobboardAttachmentNo}, #{jobboardNo}, #{savedFileName}, #{userFileName})
@@ -96,8 +110,43 @@
 	<update id="updateCount" parameterType="int">
 		update jobboard set J_READCOUNT = J_READCOUNT + 1 WHERE J_NO = #{jobboardNo}
 	</update>
-
 	
+	<select id="selectJobboardNoByMemberId" parameterType="String" resultType="int">
+		select jc_no
+		from company
+		where m_id = #{memberId}
+	
+	</select>
+
+     <!-- 글의 갯수 구하기 -->
+     
+     <select id="selectCount" resultType="int">
+      	select count(*) from jobboard
+     </select>
+    
+     <!-- 이전 글 구하기 -->
+     <select id="selectPrev" parameterType="int" resultMap="jobboardListMap">
+      select <include refid="JobboardListColumns" />  
+      from(
+      	select*
+      	from jobboard
+      	<![CDATA[ where j_no > #{num} ]]>
+      	order by j_no asc)
+      where rownum-1
+     </select>
+     
+     <!-- 다음 글 구하기 -->
+     
+     <select id="selectNext" parameterType="int" resultMap="jobboardListMap">
+      select <include refid="JobboardListColumns" />  
+      from(
+      	select*
+      	from jobboard
+		<![CDATA[ where j_no > #{num} ]]>
+      	order by j_no asc)
+      where rownum+1
+     </select>
+
 </mapper>
 
 

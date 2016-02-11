@@ -29,12 +29,20 @@
 <body>
    <c:import url="/WEB-INF/views/include/header.jsp" />
       
+      <div class="content-wrapper">
+    	<div class="container">
+			<div class="row">
+    			<div class="col-md-12">
       
       <div style="padding-top:25px;text-align:center">
          <c:url var="writeform" value="/freeboard/register.action" />
-         [ <a href="${ writeform }">자료 등록</a> ]
+
+         <c:if test="${ loginuser.memberType eq 'individual' }">
+          <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료 등록 </a>&nbsp;
+         </c:if>
          <br /><br />
-         <table>
+         <table class="table table-hover">
+
 			<tr>
                <th style="width:50px">번호</th>
                <th style="width:400px">제목</th>
@@ -62,6 +70,9 @@
          <br /><br /><br /><br />
          
       
+      </div>
+      </div>
+      </div>
       
       </div>
 

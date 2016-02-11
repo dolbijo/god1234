@@ -52,10 +52,10 @@ public class MySqlJobboardDao implements JobboardDao {
    }
 
    @Override
-   public ArrayList<Jobboard> getJobboardList() {
+   public ArrayList<Jobboard> getJobboardList(HashMap map) {
       
       //mapper연결코드
-	   ArrayList<Jobboard> jobboards = jobboardMapper.selectJobboards();
+	   ArrayList<Jobboard> jobboards = jobboardMapper.selectJobboards(map);
 		
 	   return jobboards;
    }
@@ -83,6 +83,38 @@ public class MySqlJobboardDao implements JobboardDao {
    
    public void updateCount(int jobboardNo) {
 	   jobboardMapper.updateCount(jobboardNo);
+   }
+   
+   public int getJobboardNoByMemberId(String memberId) {
+	   
+	   int jobboardNo = jobboardMapper.selectJobboardNoByMemberId(memberId);
+	   
+	   return jobboardNo;
+   }
+   
+   public int getCount() {
+	   
+	   return jobboardMapper.selectCount();
+	   
+   }
+   
+   
+   public Jobboard getNext(int num) {
+	   
+	   return jobboardMapper.selectNext(num);
+	   
+   }
+   
+   public Jobboard getPrev(int num) {
+	   
+	   return jobboardMapper.selectPrev(num);
+   }
+   
+   public List<Jobboard> getsearchList(String searchTag){
+	   
+	   List<Jobboard> jobboards = jobboardMapper.selectJobboardBySearchTag(searchTag);
+	   
+	   return jobboards;
    }
 
 }

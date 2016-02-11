@@ -3,7 +3,9 @@ package com.dolbi.controller;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -27,6 +29,7 @@ import com.dolbi.model.dao.FreeboardDao;
 import com.dolbi.model.dao.IndividualDao;
 import com.dolbi.model.dao.JobboardDao;
 import com.dolbi.model.dto.Freeboard;
+import com.dolbi.model.dto.FreeboardComment;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
@@ -73,8 +76,10 @@ public class FreeboardController {
 		public ModelAndView getFreeboard(
 				@RequestParam(value="FreeboardNo") int freeboardNo) {
 			ModelAndView mav = new ModelAndView();
+			
 			Freeboard freeboard = freeboardDao.getFreeboardByFreeboardNo(freeboardNo);
 			mav.addObject(freeboard);
+			
 			mav.setViewName("freeboard/freeboardview");
 			return mav;
 		}
@@ -98,6 +103,20 @@ public class FreeboardController {
 		@ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
 		
 			return "freeboard/editform";
+		
+	}
+	
+	@RequestMapping(value = "writecomment.action", method = RequestMethod.POST)
+	public String writecomment(int freeboardNo, String content, String memberId) {
+		
+		HashMap<String, Object> map = new HashMap<String,Object>();
+		map.put("freeboardNo", freeboardNo);
+		map.put("content", content);
+		map.put("memberId", memberId);
+		
+		freeboardDao.insertComment(map);
+		
+		return "redirect:/freeboard/view.action?FreeboardNo="+freeboardNo;
 		
 	}
 	

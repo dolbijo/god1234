@@ -47,6 +47,10 @@
 		                <td>${ jobboard.memberId }</td>
 		            </tr>
 		            <tr>
+    					<th>채용 사진</th>
+    					<%-- <td colspan="2"><img src="<%=cp%>/resources/uploadfiles/${ jobboard. }" /></td> --%>
+    				</tr>
+		            <tr>
 		            	<th>마감일자</th>
 		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
 		            </tr>
@@ -158,8 +162,13 @@
 		            
 		        </table>
 		        <div class="buttons">
+		        	
+		        	<c:if test="${ loginuser.memberType eq 'individual' }">
 		        	[<a href="application.action?memberId=${ loginuser.memberId }&jobboardNo=${jobboard.jobboardNo}">지원하기</a>]
+		        	</c:if>
+		        	<c:if test="${ loginuser.memberType eq 'company' }">
 		        	<a href="edit.action?jobboardno=${ jobboard.jobboardNo }">정보수정</a>
+					</c:if>
 		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
 		        </div>
 		    </div>

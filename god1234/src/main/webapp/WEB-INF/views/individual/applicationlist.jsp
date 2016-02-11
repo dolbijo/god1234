@@ -37,13 +37,16 @@
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                 	<thead>
+                                		<tr>
         								<th>지원 날짜</th>
         								<th>지원 공고</th>
-        								<th>담당자 연람유무</th>
+        								<th>담당자 열람유무</th>
         								<th>취소하기</th>
+        								</tr>
         							</thead>
         							<c:forEach var="application" items="${applications }">
         							<tbody>
+        								<tr>
         								<td><fmt:formatDate value="${application.applicationRegdate }" type="date"/></td>
         								<td>
         									${application.jobboardNo }
@@ -51,15 +54,17 @@
         								</td>
         								<td>
         								<c:choose>
-        								<c:when test="${application.isCheck eq 'false' }">
+        								<c:when test="${ application.isCheck eq 'false' }">
         									미열람
         								</c:when>
         								<c:otherwise>
         									열람
         								</c:otherwise>
         								</c:choose>
+        								
         								</td>
-        								<td>[취소]</td>
+        								<td>[<a href="deleteapplication.action?applicationNo=${application.applicationNo }&memberId=${ loginuser.memberId }">취소</a>]</td>
+										</tr>
         							</tbody>
         							</c:forEach>
         						</table>

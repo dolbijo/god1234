@@ -1,11 +1,11 @@
 package com.dolbi.model.mapper;
 
+
 import java.util.HashMap;
 import java.util.List;
 
 import com.dolbi.model.dto.Freeboard;
-import com.dolbi.model.dto.Jobboard;
-import com.dolbi.model.dto.Member;
+
 
 public interface FreeboardMapper {
 	
@@ -18,5 +18,7 @@ public interface FreeboardMapper {
 	void insertFreeboard(Freeboard freeboard);
 	
 	void updateCount(int freeboardNo);
+
+	void insertComment(HashMap map);
 
 }

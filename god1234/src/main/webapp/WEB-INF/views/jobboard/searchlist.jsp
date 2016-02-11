@@ -35,8 +35,8 @@
     			<c:forEach var="i" begin="0" end="${indexNo-1 }">
     			
     			<c:set var="jobboards" value="jobboards${i }" />
-    			<c:set var="categoryname" value="categoryname${i }" />
-    			[${requestScope[categoryname]}]
+    			<c:set var="searchtag" value="searchtag${i }" />
+    			[${requestScope[searchtag]}]
 	    			<table class="table table-hover" style="width:1000px;height:10px" align="center">
 					<tr class="danger" style="height:30px;color:black;">
 						<th style="width:70px">번호</th>

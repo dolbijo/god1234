@@ -26,17 +26,23 @@
 </script>
 
 
+
+
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-
 		
-		
-		<div style="padding-top:25px;text-align:center">
-			<c:url var="writeform" value="/jobboard/register.action" />
-			[ <a href="${ writeform }">자료 등록</a> ]
+		<div style="padding: 70px 0 50px 0;text-align:center">
+			<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />		
+			<c:if test="${ loginuser.memberType eq 'company' }">
+            	<li><a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp;</a></li>
+        	</c:if>
+			 <a href="searchcategory.action" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료찾기</a>&nbsp;
 			<br /><br />
-
+			</div>
+			
+			
+			<div>
 			<table class="table table-hover" style="width:1000px;height:10px" align="center">
 				<tr class="danger" style="height:30px;color:black;">
 					<th style="width:70px">번호</th>
@@ -103,14 +109,29 @@
 
 				</tr>
 				</c:forEach>
-				
+
 			</table>
-			<br /><br /><br /><br />
 			
+			<div align="center">
+					<c:forEach var="i" begin="${pu.startPageNum }" end="${pu.endPageNum }">
+						<c:choose>
+							<c:when test="${i == pu.pageNum }">
+								<a href="list.action?pageNum=${i }">
+									<span style="color:red">[${i }]</span>
+								</a>
+							</c:when>
+							<c:otherwise>
+								<a href="list.action?pageNum=${i }">
+									[${i }]
+								</a>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</div>
+			<br /><br /><br /><br />
+ 		
 		</div>
 
-		
-	</div>
 	<c:import url="/WEB-INF/views/include/footer.jsp" />
 		
 

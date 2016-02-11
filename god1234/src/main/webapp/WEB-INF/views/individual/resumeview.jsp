@@ -41,11 +41,11 @@
                                     <tbody>
                                     <tr>
     									<td>이력서 제목</td>
-    									<td colspan="3">${resume.resumeTitle }</td>
+    									<td colspan="3">${ resume.resumeTitle }</td>
     								</tr>
     								<tr>
     									<td colspan="2">이력서 사진</td>
-    									<td colspan="2"><img src="<%=cp%>/resumefile/${reAtt.resumeSavedFilename }" /></td>
+    									<td colspan="2"><img src="<%=cp%>/resources/resume/${ reAtt.resumeSavedFilename }" /></td>
     								</tr>
     								<tr>
     									<td>이름</td>
@@ -57,7 +57,7 @@
     									<td>전화번호</td>
     									<td>${ loginuser.phoneNo }</td>
     									<td>생년월일</td>
-    									<td><fmt:formatDate value="${member.age}" type="date"/></td>
+    									<td><fmt:formatDate value="${ member.age}" type="date"/></td>
     								</tr>
     								<tr>
     									<td>주소</td>
