@@ -57,6 +57,7 @@
 						<a href="updatecount.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
 
+
 					<td>${ jobboard.memberName }</td>
 					<td>${ jobboard.memberId }</td>
 					
@@ -106,9 +107,6 @@
 			</table>
 			<br /><br /><br /><br />
 			
-				
-	
-	
 		</div>
 
 		
