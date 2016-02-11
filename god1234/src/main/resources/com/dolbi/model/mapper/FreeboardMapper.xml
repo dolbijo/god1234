@@ -62,7 +62,7 @@
 
 	<insert id="insertFreeboard" parameterType="Freeboard">
 		<selectKey keyProperty="freeboardNo" resultType="int" order="BEFORE">
-			SELECT COUNT(*)+1 from FREEBOARD
+			SELECT IFNULL( MAX(f_no), 0) + 1 from FREEBOARD
 		</selectKey>
 		INSERT INTO FREEBOARD (f_no, f_title, f_content, f_type, m_id)
 		VALUES (#{freeboardNo},#{freeboardTitle}, #{freeboardContent}, #{freeboardtype},#{memberId})
@@ -75,13 +75,20 @@
 	
 	<insert id="insertComment" parameterType="hashmap">
 		<selectKey keyProperty="freeboardCommnetNo" resultType="int" order="BEFORE">
-			SELECT COUNT(*)+1 from FREEBOARDCOMMENT
+			SELECT IFNULL( MAX(fc_no), 0) + 1 from FREEBOARDCOMMENT
 		</selectKey>
 		INSERT INTO FREEBOARDCOMMENT (fc_no, f_no, fc_content, fc_writer)
 		VALUES (#{freeboardCommnetNo},#{freeboardNo}, #{content}, #{memberId})
 	</insert>
-
 	
+	<update id="updateComment" parameterType="hashmap">
+		update FREEBOARDCOMMENT set fc_content=#{content} where fc_no=#{commentNo}
+	</update>
+	
+	<delete id="deleteComment" parameterType="int">
+		delete from FREEBOARDCOMMENT where fc_no=#{commentNo}
+	</delete>
+
 </mapper>
 
 

@@ -21,4 +21,8 @@ public interface FreeboardMapper {
 
 	void insertComment(HashMap map);
 
+	void updateComment(HashMap map);
+
+	void deleteComment(int commentNo);
+	
 }

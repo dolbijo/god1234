@@ -72,6 +72,14 @@ public class MySqlFreeboardDao implements FreeboardDao {
 		freeboardMapper.insertComment(map);
 	}
 	
+	public void updateComment(HashMap map) {
+		freeboardMapper.updateComment(map);
+	}
+
+	public void deleteComment(int commentNo) {
+		freeboardMapper.deleteComment(commentNo);
+	}
+	
 }
 
 

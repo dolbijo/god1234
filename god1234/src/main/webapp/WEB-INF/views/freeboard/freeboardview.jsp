@@ -33,7 +33,7 @@
 			function deleteComment(boardNo, commentNo) {
 				if (confirm( boardNo + "번 댓글을 삭제할까요?")) {
 					location.href = "deletecomment.action?freeboardNo=" + boardNo +
-														"&commentno=" + commentNo;
+														"&commentNo=" + commentNo;
 				}
 			}
 		</script>
@@ -138,7 +138,7 @@
 				                    <div style="display: ${display}">
 				                    	<a href="javascript:toggleCommentStatus(${comment.commentNo }, true);">편집</a>
 				                    	&nbsp;
-				                    	<a href="javascript:deleteComment(${comment.commentNo }, ${comment.freeboardNo })">삭제</a>
+				                    	<a href="javascript:deleteComment(${comment.freeboardNo }, ${comment.commentNo })">삭제</a>
 				                     
 				                    </div>
 			                    </div>
@@ -148,8 +148,8 @@
 									[${comment.regdate}] 
 									<br /><br />
 									<form id="commenteditform${comment.commentNo}" action="updatecomment.action" method="post">
-										<input type="hidden" name="freeboardno" value="${ freeboard.freeboardNo}" />
-										<input type="hidden" name="commentno" value="${comment.commentNo}" />
+										<input type="hidden" name="freeboardNo" value="${ freeboard.freeboardNo}" />
+										<input type="hidden" name="commentNo" value="${comment.commentNo}" />
 										<textarea name="content" style="width: 600px" rows="3" maxlength="200">
 											
 					                    		<c:choose>

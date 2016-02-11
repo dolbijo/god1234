@@ -21,5 +21,9 @@ public interface FreeboardDao {
 	void updateCount(int freeboardNo);
 
 	void insertComment(HashMap map);
-	
+
+	void updateComment(HashMap<String, Object> map);
+
+	void deleteComment(int commentNo);
+
 }

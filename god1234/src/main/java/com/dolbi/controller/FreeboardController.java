@@ -120,6 +120,30 @@ public class FreeboardController {
 		
 	}
 	
+	
+	@RequestMapping(value = "updatecomment.action", method = RequestMethod.POST)
+	public String updateComment(int freeboardNo, String content, int commentNo) {
+		
+		HashMap<String, Object> map = new HashMap<String,Object>();
+		map.put("freeboardNo", freeboardNo);
+		map.put("content", content);
+		map.put("commentNo", commentNo);
+		
+		freeboardDao.updateComment(map);
+		
+		return "redirect:/freeboard/view.action?FreeboardNo="+freeboardNo;
+		
+	}
+	
+	@RequestMapping(value = "deletecomment.action", method = RequestMethod.GET)
+	public String deleteComment(int freeboardNo, int commentNo) {
+		
+		freeboardDao.deleteComment(commentNo);
+		
+		return "redirect:/freeboard/view.action?FreeboardNo="+freeboardNo;
+		
+	}
+	
 
 
 }
