@@ -98,8 +98,10 @@
                                 <label class="control-label" for="success">상세 모집 요강</label>
                                <textarea name="content" class="form-control" style="width:580px" rows="15"></textarea>
                                 
+                                <label class="control-label" for="success">직종선택</label>
                                 <c:choose>
                                 <c:when test="${jobboardNo eq 1 }">
+                                    
                                 	<input type="checkbox" name="ca" value="#판매"/>판매
                                 	<input type="checkbox" name="ca" value="#서빙"/>서빙
                                 	<input type="checkbox" name="ca" value="#안내데스크"/>안내데스크
@@ -169,7 +171,7 @@
                                 </c:when>
                                 </c:choose>
                                 
-                                
+                                </br>
                                 <input type="submit" value="등록"  class="button btn btn-success btn-large"/>
 		        				<input type="button" value="취소" onclick="location.href='list.action';" class="button btn btn-success btn-large"/>
     						</form>
