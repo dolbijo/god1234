@@ -69,52 +69,18 @@
 		                </td>
 		            </tr>
 		            
-		            <tr>
-		                <th>상세 모집 요강</th>
-		                <td>
-		                	<textarea name="content" style="width:580px" rows="15" >${ jobboard1.jobboardContent }</textarea>
-		                </td>
-		            </tr>
-		         
-		            <tr>
-		                <th>마감일</th>
-		                <td>
-							<input type ="date" name = "deadline"  value='${ jobboard1.jobboardDeadLine }'>
-							
-		                </td>
-		            </tr>
-		            
-		            
-		      		<tr>
-		                <th>나이</th>
-		                <td>
-		          
-							<select id="birthday" name="birthday">
-     						<option value="">출생년도 선택</option>
-     						<%for(int i=1950; i<=2010; i++){ %>
-     						<option value="<%=i%>"><%=i+"년"%></option>
-     						<%} %>
- 							</select>
-		                </td>
-		            </tr>
-		            <tr>
-		                <th>모집인원</th>
-		                <td>
-		                    <input type="text" name="joinnum" style="width:100px" value='${ jobboard1.jobboardJoinNo }'/> 명 
-		                </td>
-		            </tr>
-		            
-		             <tr>
-		                <th>성별</th>
-		                <td>
-		                    <input type="radio" name="gender" value="female" value='${ jobboard1.jobboardGender }'/>여
-		             
-							<input type="radio" name="gender" value="male" value='${ jobboard1.jobboardGender }' />남
-							
-							<input type="radio" name="gender" value="mf"  value='${ jobboard1.jobboardGender }'/>남녀무관
-		                </td>
-		            </tr>
 		              <tr>
+		                <th>경력요구사항</th>
+		                <td>
+		                    <input type="radio" name="career" value="new" value='${ jobboard1.jobboardCareer }'/>신입
+		             
+							<input type="radio" name="career" value="old" value='${ jobboard1.jobboardCareer }' />경력
+							
+							<input type="radio" name="career" value="none"  value='${ jobboard1.jobboardCareer }'/>무관
+		                </td>
+		            </tr>
+		          
+		               <tr>
 		                <th>학력</th>
 		                <td>
 		                    <input type="radio" name="edu" value="grade0" value='${ jobboard1.jobboardEducation }'/>학력무관
@@ -126,6 +92,43 @@
 		                </td>
 		            </tr>
 		            
+		            
+		            
+		     	         
+		             <tr>
+		                <th>성별</th>
+		                <td>
+		                    <input type="radio" name="gender" value="female" value='${ jobboard1.jobboardGender }'/>여
+		             
+							<input type="radio" name="gender" value="male" value='${ jobboard1.jobboardGender }' />남
+							
+							<input type="radio" name="gender" value="mf"  value='${ jobboard1.jobboardGender }'/>남녀무관
+		                </td>
+		            </tr>
+		            
+		            	<tr>
+		                <th>모집연령</th>
+		                <td>
+		          
+							<select id="birthday" name="birthday">
+     						<option value="none1">나이무관</option>
+    							 
+     							<%for(int i=1; i<=7; i++){ %>
+    							 <option value="<%=i%>"><%=i*10+"살"+"이상"+(i+1)*10+"미만"%></option>
+     							<%} %>
+     							<option value="8">80이상</option>
+ 							</select>
+		                </td>
+		            </tr>
+		            
+		             <tr>
+		                <th>모집인원</th>
+		                <td>
+		                    <input type="text" name="joinnum" style="width:100px" value='${ jobboard1.jobboardJoinNo }'/> 명 
+		                </td>
+		            </tr>
+		            
+		             
 		             <tr>
 		                <th>급여</th>
 		                <td>
@@ -135,18 +138,46 @@
 		                	<input type="text" name="salary">
 		                </td>
 		            </tr>
+		           
 		            
-		             <tr>
-		                <th>경력정보</th>
+		            <tr>
+		                <th>마감일</th>
 		                <td>
-		                    <input type="radio" name="career" value="old" value='${ jobboard1.jobboardCareer }' />
-		                    <label for="radio1">경력</label>
-							<input type="radio" name="career" value="new" value='${ jobboard1.jobboardCareer }' />
-							<label for="radio2">신입</label>
+							<input type ="date" name = "deadline"  value='${ jobboard1.jobboardDeadLine }'>
+							
 		                </td>
-		            </tr>	
+		            </tr>
+		            
+		                <tr>
+		                <th>전화번호</th>
+		                <td>
+							<input type ="text" name = "phoneNo"  value='${ jobboard1.jobboardPhone }'>
+							
+		                </td>
+		            </tr>
+		            
+		                <tr>
+		                <th>email</th>
+		                <td>
+							<input type ="text" name = "email"  value='${ jobboard1.jobboardemail }'>
+							
+		                </td>
+		            </tr>
 		            
 		            
+		      	
+		           
+		            
+		         
+		          
+		        
+		            
+		              <tr>
+		                <th>상세 모집 요강</th>
+		                <td>
+		                	<textarea name="content" style="width:580px" rows="15" >${ jobboard1.jobboardContent }</textarea>
+		                </td>
+		            </tr>
 		            
 		            	            		            
 		        </table>

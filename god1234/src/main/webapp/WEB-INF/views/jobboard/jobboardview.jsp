@@ -31,7 +31,7 @@
 		        <div class="inputsubtitle">업로드 자료 정보</div>
 		        <table>
 		            <tr class="info">
-		                <th>제목</th>
+		                <th>제목</th>		                
 		                <td>${ jobboard.jobboardTitle }</td>
 		                
 		            </tr>
@@ -48,7 +48,10 @@
 		            </tr>
 		            <tr>
     					<th>채용 사진</th>
-    					<%-- <td colspan="2"><img src="<%=cp%>/resources/uploadfiles/${ jobboard. }" /></td> --%>
+    					<input type="file" name="attach" style="width:580px;height:20px" />
+		                    <c:forEach var="file" items="${jobboard1.files }">
+		                    	<p>${file.savedFileName }</p><br />
+		                    </c:forEach>
     				</tr>
     				
     				      
