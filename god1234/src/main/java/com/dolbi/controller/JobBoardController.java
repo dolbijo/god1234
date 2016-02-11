@@ -89,6 +89,8 @@ public class JobBoardController {
 	    jobboard.setJobboardSalary(Integer.parseInt(request.getParameter("salary")));
 	    jobboard.setJobboardCareer(request.getParameter("career"));
 	    jobboard.setJobboardAge(request.getParameter("birthday"));
+	    jobboard.setJobboardPhone(Integer.parseInt(request.getParameter("phoneNo")));
+	    jobboard.setJobboardemail(request.getParameter("email"));
 	    
 	    //jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
 	    
@@ -143,7 +145,7 @@ public class JobBoardController {
 			throw new RuntimeException("redirect:/upload/list.action");
 		}
 
-		return "redirect:/jobboard/list.action";
+		return "redirect:/jobboard/list.action?pageNum=1";
 	}
 	
    
