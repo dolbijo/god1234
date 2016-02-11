@@ -34,7 +34,11 @@ public interface IndividualDao {
 
 	ArrayList<Jobboard> getJobboardList(int categoryNo);
 
+
+	List<Category> getlikedcategorylist(String memberId);
+
 	void deleteApplication(int applicationNo);
 	
+
 	
 }

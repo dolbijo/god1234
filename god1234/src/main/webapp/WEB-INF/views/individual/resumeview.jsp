@@ -45,8 +45,6 @@
     								</tr>
     								<tr>
     									<td colspan="2">이력서 사진</td>
-    									<input type="file" name="imageform">
-    				
     									<td colspan="2"><img src="<%=cp%>/resources/resume/${ reAtt.resumeSavedFilename }" /></td>
     								</tr>
     								<tr>

@@ -44,29 +44,35 @@
                                
                                 
                                 <label class="control-label" for="success">상세 모집 요강</label>
-                                <input type="text" name="content" class="form-control" style="width:580px;height:500px" rows="15"/>
+                               <textarea name="content" class="form-control" style="width:580px" rows="15"></textarea>
                                 
+                                <label class="control-label" for="success">경력사항</label>
+                                <input type="radio" class="form-control" id="career" name="career" value="new" style="heignt:100px;width:20px;display: inline;">신입
+                                <input type="radio" class="form-control" id="career" name="career" value="old" style="heignt:100px;width:20px;display: inline;">경력
+    							<input type="radio" class="form-control" id="career" name="career" value="none" style="heignt:100px;width:20px;display: inline;">경력무관
                                 
                                 <label class="control-label" for="success">성별</label>
                                 <input type="radio" class="form-control" id="gender" name="gender" value="male" style="heignt:100px;width:20px;display: inline;">남자
                                 <input type="radio" class="form-control" id="gender" name="gender" value="female" style="heignt:100px;width:20px;display: inline;">여자
-    						
+    							<input type="radio" class="form-control" id="gender" name="gender" value="mf" style="heignt:100px;width:20px;display: inline;">성별무관
+    							
     							<label class="control-label" for="success">모집 연령</label>
                                 <select id="birthday" name="birthday" class="form-control" value="selectbirth">
                                 <option value="">나이무관</option>
-    							 <option value="">출생년도 선택</option>
-     							<%for(int i=1950; i<=2010; i++){ %>
-    							 <option value="<%=i%>"><%=i+"년"%></option>
+    							 
+     							<%for(int i=1; i<=7; i++){ %>
+    							 <option value="<%=i%>"><%=i*10+"살"+"이상"+(i+1)*10+"이하"%></option>
      							<%} %>
+     							<option value="">80이상</option>
      							</select>
                             
                             	<label class="control-label" for="success">모집인원</label>
                                 <input type="text" class="form-control" name="joinnum" />
                                 
                                 <label class="control-label" for="success">급료지급주기</label>
-                                <input type="radio" class="form-control" name="payment" value="permonth" />월급
-                                <input type="radio" class="form-control" name="payment" value="perweek"/>주급
-                                <input type="radio" class="form-control" name="payment" value="perhour"/>시급
+                                <input type="radio" class="form-control" name="payment" value="permonth" style="heignt:100px;width:20px;display: inline;"/>월급
+                                <input type="radio" class="form-control" name="payment" value="perweek" style="heignt:100px;width:20px;display: inline;"/>주급
+                                <input type="radio" class="form-control" name="payment" value="perhour" style="heignt:100px;width:20px;display: inline;"/>시급
                                 
                                 <label class="control-label" for="success">급료</label>
                                 <input type="text" class="form-control" name="salary" />

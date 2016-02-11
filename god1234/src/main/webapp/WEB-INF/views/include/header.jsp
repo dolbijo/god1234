@@ -22,7 +22,7 @@
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <!-- 채용게시판 -->
-                            <li><a href="/dolbi/jobboard/list.action"><spring:message code="menu.jobboard" /></a></li>
+                            <li><a href="/dolbi/jobboard/list.action?pageNum=1"><spring:message code="menu.jobboard" /></a></li>
                             <!-- 자유게시판 -->
                             <li><a href="/dolbi/freeboard/list.action"><spring:message code="menu.freeboard" /></a></li>
                             
