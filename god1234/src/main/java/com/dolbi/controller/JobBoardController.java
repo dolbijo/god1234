@@ -74,7 +74,10 @@ public class JobBoardController {
 	    jobboard.setJobboardPayment(request.getParameter("payment"));
 	    jobboard.setJobboardSalary(Integer.parseInt(request.getParameter("salary")));
 	    jobboard.setJobboardCareer(request.getParameter("career"));
-	    jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
+	    jobboard.setJobboardAge(request.getParameter("birthday"));
+	    
+	    //jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
+	    
 	    Date deadline = transFormat.parse(request.getParameter("deadline"));
 		jobboard.setJobboardDeadLine(deadline);
 		
@@ -203,6 +206,7 @@ public class JobBoardController {
    
    @RequestMapping(value = "searchcategory.action", method = RequestMethod.GET)
    public String searchCategory(String memberId, String jobboardNo) {//HttpServletRequest.setAttribute("member", member)
+
 
        return "jobboard/searchform";
       

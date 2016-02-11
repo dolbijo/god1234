@@ -16,15 +16,15 @@ public class Jobboard implements Serializable {
 	private Date jobboardDeadLine;
 	private int jobboardJoinNo;
 	private String jobboardGender;
-	private int jobboardAge;
+	private String jobboardAge;
 	private String jobboardEducation;
 	private String memberId;
 	private String jobboardPayment;
 	private int jobboardSalary;
 	private String jobboardCareer;
 	private String memberName;
+
 	private String categoryTag;
-	
 	private ArrayList<JobboardAttachment> files;
 	
 	public Jobboard() {}
@@ -101,11 +101,11 @@ public class Jobboard implements Serializable {
 		this.jobboardGender = jobboardGender;
 	}
 
-	public int getJobboardAge() {
+	public String getJobboardAge() {
 		return jobboardAge;
 	}
 
-	public void setJobboardAge(int jobboardAge) {
+	public void setJobboardAge(String jobboardAge) {
 		this.jobboardAge = jobboardAge;
 	}
 
@@ -164,6 +164,7 @@ public class Jobboard implements Serializable {
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
+
 
 	public String getCategoryTag() {
 		return categoryTag;
