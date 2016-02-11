@@ -116,7 +116,7 @@ public class IndividualController {
 		resume.setMemberId(memberId);
 		resume.setResumeTitle(request.getParameter("resumetitle"));
 		resume.setSelfintroduction(request.getParameter("selfintroduction"));
-		if (request.getParameter("ispublic").equals("怨듦컻")) {
+		if (request.getParameter("ispublic").equals("공개")) {
 			resume.setIspublic(true);
 		} else {
 			resume.setIspublic(false);

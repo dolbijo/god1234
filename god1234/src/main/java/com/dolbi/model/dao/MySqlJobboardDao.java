@@ -91,6 +91,13 @@ public class MySqlJobboardDao implements JobboardDao {
 	   
 	   return jobboardNo;
    }
+   
+   public List<Jobboard> getsearchList(String searchTag){
+	   
+	   List<Jobboard> jobboards = jobboardMapper.selectJobboardBySearchTag(searchTag);
+	   
+	   return jobboards;
+   }
 
 }
 

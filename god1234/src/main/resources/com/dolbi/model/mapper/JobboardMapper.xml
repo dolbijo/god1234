@@ -33,6 +33,12 @@
 		FROM JOBBOARD
 	</select>
 	
+	<select id="selectJobboardBySearchTag" parameterType="String" resultMap="jobboardListMap">
+		SELECT <include refid="JobboardListColumns" /> 
+		FROM JOBBOARD
+		where j_tag LIKE #{searchTag}
+	</select>
+	
 	<resultMap type="JobboardAttachment" id="jobboardFileMap">
 		<id column="ja_no" property="jobboardAttachmentNo" />
 		<result column="j_no" property="jobboardNo" />

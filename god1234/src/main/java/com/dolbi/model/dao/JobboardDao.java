@@ -1,6 +1,7 @@
 package com.dolbi.model.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
@@ -22,5 +23,7 @@ public interface JobboardDao {
    void updateCount(int jobboardNo);
 
    int getJobboardNoByMemberId(String memberId);
+
+   List<Jobboard> getsearchList(String searchTag);
 
 }
