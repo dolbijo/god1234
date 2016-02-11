@@ -24,6 +24,8 @@ public interface JobboardMapper {
 	
 	void updateCount(int jobboardNo);
 	
+	int selectJobboardNoByMemberId(String memberId);
+	
 	
 
 }

@@ -27,49 +27,63 @@
 	
 		<section class="featured">
 			<div class="container"> 
-				<div class="row mar-bot40">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="align-center">
-    						입력 받아야 할것 : 이력서 사진 / 경력사항 / 학력
-    						자기소개 / 공개여부 
+				<div class="row mar-bot40" style="padding-bottom: 20px;font-size:16px; color:forestgreen;">
+    						개인회원께서는 이력서 사진과 학력, 경력사항, 간단한 자기소개와 함께 공개여부를 결정해 주시기 바랍니다.
+    						</div>
     						
     						<form action="resumeform.action" method="post" enctype="multipart/form-data">
     						<input type="hidden" name="memberId" value="${ loginuser.memberId }" />
-    						<table border="1">
-    							<tr>
-    								<td>이력서 제목</td>
-    								<td colspan="3"><input type="text" name="resumetitle" /></td>
+    						
+    											
+    						<div class="input-group" style="he">
+  								<span class="input-group-addon" id="basic-addon1" style="height:13px">이력서 제목</span>
+    						<table style="width:680px;margin-left:4px">
+    							<tr style="text-align: center;">
+    								<td colspan="1">
+    								<input type="text" name="resumetitle" style="width: 596px;" class="form-control" placeholder="제목을 적어주세요." aria-describedby="basic-addon1" /></td>
     							</tr>
+    						</table>
+    						</div>
+    						<div style="padding-top: 10px">
+    							<table border="1px solid gray;" style="width:700px;text-align:center">
     							<tr>
-    								<td colspan="2">이력서 사진</td>
-    								<td colspan="2"><input type="file" name="resumephoto" /></td>
-    							</tr>
-    							<tr>
+    								<td width="30">이력서 사진</td>
     								<td>이름</td>
     								<td>${ loginuser.memberName }</td>
-    								<td>성별</td>
-    								<td>${ member.gender }</td>
-    							</tr>
-    							<tr>
-    								<td>전화번호</td>
-    								<td>${ loginuser.phoneNo }</td>
     								<td>생년월일</td>
     								<td>${member.age}</td>
+    								
+    							</tr>
+    							<tr>    								
+    								<td rowspan="3" height="25"><input type="file" name="resumephoto" /></td>
+    								
+    							</tr>
+    							<tr>
+    								<td>성별</td>
+    								<td>${ member.gender }</td>
+    								<td>전화번호</td>
+    								<td>${ loginuser.phoneNo }</td>    								
+    								
     							</tr>
     							<tr>
     								<td>주소</td>
     								<td colspan="3">${ loginuser.memberAddress }</td>
     							</tr>
     						</table>
+    						</div>
     						
-    						<table>
-    							<tr><td>자기소개를 작성해 주세요</td></tr>
-    							<tr><td><textarea name="selfintroduction" style="width:580px" rows="15"> </textarea></td></tr>
-    						</table>
-    						
+    						<div>    						
     						<table>
     							<tr>
-    								<td colspan="4">학력사항을 작성해주세요</td>
+    							<td style="padding: 17px 0 10px 0; font-size:15px; color: steelblue">자기소개 [성장배경/성격/취미.특기/장.단점 등]</td></tr>
+    							<tr><td><textarea name="selfintroduction" style="width:700px" rows="15"> </textarea></td></tr>
+    						</table>
+    						</div>
+    						
+    						<div>    						
+    						<table>
+    							<tr style="font-size:15px">
+    								<td colspan="4" style="color: saddlebrown;">학력사항을 작성해주세요</td>
     							</tr>
     							<tr>
     								<td>학교이름</td>
@@ -96,10 +110,12 @@
     								<td><input type="date" name="edEndDate2"/></td>
     							</tr>
     						</table>
+    						</div>
     						
+    						<div style="margin-bottom:10px">
     						<table>
-    							<tr>
-    								<td colspan="4">경력사항을 입력해 주세요</td>
+    							<tr style="font-size:15px;">
+    								<td colspan="4" style="padding-top:10px;color:goldenrod">경력사항을 입력해 주세요</td>
     							</tr>
     							<tr>
     								<td>회사이름</td>
@@ -126,28 +142,31 @@
     								<td><input type="date" name="caEndDate2"/></td>
     							</tr>
     						</table>
+    						</div>
     						
+    						<div style="margin-bottom:10px">
     						<table>
     							<tr>
-    								<td>이력서의 공개여부를 선택해 주세요.</td>
-    								<td>
+    								<td style="font-size:15px;color: indigo">이력서의 공개여부를 선택해 주세요.</td>
+    								<td style="padding-left: 8px">
     									<input type="radio" name="ispublic" value="공개" />공개
     									<input type="radio" name="ispublic" value="비공개" />비공개
     								</td>
     							</tr>
     							<tr>
-    								<td colspan="2">
-    									<input type="submit" value="등록" />
-    									<input type="button" value="취소" onclick="location.href='individualmain.action?memberId=${ loginuser.memberId }';"/>
+    								<td colspan="2" style="padding-top: 20px;">
+    									<input type="submit" value="등록" class="button btn btn-success btn-large"/>
+    									<input type="button" value="취소" class="button btn btn-success btn-large" onclick="location.href='individualmain.action?memberId=${ loginuser.memberId }';"/>
     								</td>
     							</tr>
     						</table>
-    						</form>
-    </div>
-    </div>
-    </div>
+    						</div>
+    		</form>
     </div>
     </section>
+    </div>
+    </div>
+ 
     <c:import url="/WEB-INF/views/include/footer.jsp" />
 </body>
 </html>

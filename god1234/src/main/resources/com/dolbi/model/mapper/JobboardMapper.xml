@@ -70,8 +70,8 @@
 		<selectKey keyProperty="jobboardNo" resultType="int" order="BEFORE">
 			SELECT MAX(J_NO)+1 from jobboard
 		</selectKey>
-		INSERT INTO JOBBOARD (j_no, j_title, j_content, j_deadline, j_joinno, j_gender, j_age, j_education, m_id, j_payment, j_salary, j_career, m_name)
-		VALUES (#{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardSalary},#{jobboardCareer},#{memberName})
+		INSERT INTO JOBBOARD (j_no, j_title, j_content, j_deadline, j_joinno, j_gender, j_age, j_education, m_id, j_payment, j_salary, j_career, m_name, j_tag)
+		VALUES (#{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardSalary},#{jobboardCareer},#{memberName}, #{categoryTag})
 
 	</insert>
 	
@@ -96,6 +96,14 @@
 	<update id="updateCount" parameterType="int">
 		update jobboard set J_READCOUNT = J_READCOUNT + 1 WHERE J_NO = #{jobboardNo}
 	</update>
+	
+	<select id="selectJobboardNoByMemberId" parameterType="String" resultType="int">
+	
+		select jc_no
+		from company
+		where m_id = #{memberId}
+	
+	</select>
 
 	
 </mapper>

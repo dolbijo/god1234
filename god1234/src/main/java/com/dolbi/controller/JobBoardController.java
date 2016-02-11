@@ -78,6 +78,15 @@ public class JobBoardController {
 	    Date deadline = transFormat.parse(request.getParameter("deadline"));
 		jobboard.setJobboardDeadLine(deadline);
 		
+		String[] category = request.getParameterValues("ca");
+		String categoryTag = "";
+		
+		for(int i = 0; i < category.length; i++) {
+			categoryTag = categoryTag + category[i];
+		}
+		
+		jobboard.setCategoryTag(categoryTag);
+		
 		//아래 try 영역 내부에서 오류가 발생하면 모든 db연동 작업을 취소하도록 처리
 		try {
 			int newJobboardNo = jobboardDao.insertJobboard(jobboard);			
@@ -139,7 +148,12 @@ public class JobBoardController {
 	}
    
    @RequestMapping(value = "register.action", method = RequestMethod.GET)
-   public String registerForm() {
+   public String registerForm(String memberId, Model model) {
+	  
+	  int jobboardNo = jobboardDao.getJobboardNoByMemberId(memberId);
+	  
+	  model.addAttribute("jobboardNo", jobboardNo);
+	  
       return "jobboard/jobboardwriteform";
    }
    
@@ -189,8 +203,13 @@ public class JobBoardController {
       
    }
    
+   
+   @RequestMapping(value = "searchcategory.action", method = RequestMethod.GET)
+   public String searchCategory(String memberId, String jobboardNo) {//HttpServletRequest.setAttribute("member", member)
 
-	
+       return "jobboard/searchform";
+      
+   }
    
 
 }
