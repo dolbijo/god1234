@@ -49,8 +49,18 @@
         									${application.jobboardNo }
         									<a href="/dolbi/jobboard/view.action?jobboardNo=${application.jobboardNo }">${application.jobboardTitle }</a>
         								</td>
-        								<td>${application.isCheck }</td>
-        								<td>[취소]</td>
+        								<td>
+        								<c:choose>
+        								<c:when test="${ application.isCheck eq 'false' }">
+        									미열람
+        								</c:when>
+        								<c:otherwise>
+        									열람
+        								</c:otherwise>
+        								</c:choose>
+        								
+        								</td>
+        								<td>[<a href="deleteapplication.action?applicationNo=${application.applicationNo }&memberId=${ loginuser.memberId }">취소</a>]</td>
         							</tbody>
         							</c:forEach>
         						</table>

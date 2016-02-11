@@ -33,5 +33,8 @@ public interface IndividualDao {
 	ArrayList<Category> getCategoryList(String memberId);
 
 	ArrayList<Jobboard> getJobboardList(int categoryNo);
+
+	void deleteApplication(int applicationNo);
+	
 	
 }
