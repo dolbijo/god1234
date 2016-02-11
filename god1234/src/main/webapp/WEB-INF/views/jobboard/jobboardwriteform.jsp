@@ -59,10 +59,11 @@
     							<label class="control-label" for="success">모집 연령</label>
                                 <select id="birthday" name="birthday" class="form-control" value="selectbirth">
                                 <option value="">나이무관</option>
-    							 <option value="">출생년도 선택</option>
-     							<%for(int i=1950; i<=2010; i++){ %>
-    							 <option value="<%=i%>"><%=i+"년"%></option>
+    							 
+     							<%for(int i=1; i<=7; i++){ %>
+    							 <option value="<%=i%>"><%=i*10+"살"+"이상"+(i+1)*10+"이하"%></option>
      							<%} %>
+     							<option value="">80이상</option>
      							</select>
                             
                             	<label class="control-label" for="success">모집인원</label>

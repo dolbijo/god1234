@@ -85,14 +85,37 @@ public class FreeboardController {
 	   }
 	   
 	
-	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
-	public String editForm(
-		@RequestParam("memberid") String memberId,		
-		@ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
+	//edit
+	
+	  @RequestMapping(value = "edit.action", method = RequestMethod.GET)
+	   public String editForm(
+			   
+	      @RequestParam("freeboardno") int freeboardNo,      
+	      @ModelAttribute("freeboard") Freeboard freeboard, Model model)
+	   
+	   {
+		   System.out.println(freeboardNo);
+	     Freeboard freeboard1 = freeboardDao.getFreeboardByFreeboardNo(freeboardNo);
+	     
+	    // System.out.println(freeboard1.getFreeboardAge());
+	     model.addAttribute("freeboard1",freeboard1);
+	         return "freeboard/freeboardeditform";
+	      
+	   }
+	   
+	
+	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
+	public String update(@ModelAttribute("freeboard") Freeboard freeboard) {//읽기 + view로 전달
+		//System.out.println(jobboard.getJobboardAge());
+		freeboard.setMemberId(Util.getHashedString(freeboard.getMemberId(), "SHA-1"));
 		
-			return "freeboard/editform";
+		//memberDao.update(member);//과제
+		//memberService.modify(member);
 		
+		return "redirect:/freeboard/view.action?memberid=" + freeboard.getMemberId();
 	}
+	
+	
 	
 
 
