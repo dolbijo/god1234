@@ -32,12 +32,15 @@
 
 		
 		
-		<div style="padding-top:25px;text-align:center">
+		<div style="padding: 70px 0 50px 0;text-align:center">
 			<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />
 			 <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp;
 			 <a href="searchcategory.action" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료찾기</a>&nbsp;
 			<br /><br />
-
+			</div>
+			
+			
+			<div>
 			<table class="table table-hover" style="width:1000px;height:10px" align="center">
 				<tr class="danger" style="height:30px;color:black;">
 					<th style="width:70px">번호</th>

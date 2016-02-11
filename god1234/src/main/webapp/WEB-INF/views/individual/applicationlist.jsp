@@ -39,7 +39,7 @@
                                 	<thead>
         								<th>지원 날짜</th>
         								<th>지원 공고</th>
-        								<th>담당자 연람유무</th>
+        								<th>담당자 열람유무</th>
         								<th>취소하기</th>
         							</thead>
         							<c:forEach var="application" items="${applications }">
