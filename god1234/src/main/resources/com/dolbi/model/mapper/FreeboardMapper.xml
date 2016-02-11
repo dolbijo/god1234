@@ -23,10 +23,32 @@
 		
 	</resultMap>
 	
-	<select id="selectFreeboardByfreeboardNo" resultMap="freeboardListMap" parameterType="int">
-		SELECT <include refid="FreeboardColumns" /> 
-		FROM FREEBOARD 
-		where f_no = #{freeboardNo}
+	<resultMap type="Freeboard" id="freeboardViewMap">
+		<id property="freeboardNo" column="F_NO" />
+		<result property="freeboardTitle" column="F_TITLE" />
+		<result property="freeboardContent" column="F_CONTENT" />
+		<result property="freeboardRegDate" column="F_REGDATE" />
+		<result property="freeboardReadCount" column="F_READCOUNT" />
+		<result property="freeboardDeleted" column="F_DELETED" />
+		<result property="freeboardtype" column="F_TYPE" />
+		<result property="memberId" column="M_ID" />
+		<collection property="comments" column="F_NO" resultMap="freeboardcommentListMap" />
+	</resultMap>
+	
+	<resultMap type="FreeboardComment" id="freeboardcommentListMap">
+		<id property="commentNo" column="fc_no" />
+		<result property="freeboardNo" column="f_no" />
+		<result property="content" column="fc_CONTENT" />
+		<result property="regdate" column="Fc_REGDATE" />
+		<result property="memberId" column="Fc_writer" />
+	</resultMap>
+	
+	<select id="selectFreeboardByfreeboardNo" resultMap="freeboardViewMap" parameterType="int">
+		SELECT *
+		FROM FREEBOARD f
+		left outer join freeboardcomment fc
+		on f.f_no = fc.f_no
+		where f.f_no = #{freeboardNo}
 	</select> 
 	
 	
@@ -35,8 +57,6 @@
 		FROM FREEBOARD
 	</select>
 	
-	
-
 
 	<insert id="insertFreeboard" parameterType="Freeboard">
 		<selectKey keyProperty="freeboardNo" resultType="int" order="BEFORE">
@@ -45,6 +65,8 @@
 		INSERT INTO FREEBOARD (f_no, f_title, f_content, f_type, m_id)
 		VALUES (#{freeboardNo},#{freeboardTitle}, #{freeboardContent}, #{freeboardtype},#{memberId})
 	</insert>
+	
+	
 	
 </mapper>
 

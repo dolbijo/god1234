@@ -3,6 +3,7 @@ package com.dolbi.controller;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -27,6 +28,7 @@ import com.dolbi.model.dao.FreeboardDao;
 import com.dolbi.model.dao.IndividualDao;
 import com.dolbi.model.dao.JobboardDao;
 import com.dolbi.model.dto.Freeboard;
+import com.dolbi.model.dto.FreeboardComment;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
@@ -66,8 +68,10 @@ public class FreeboardController {
 		public ModelAndView getFreeboard(
 				@RequestParam(value="FreeboardNo") int freeboardNo) {
 			ModelAndView mav = new ModelAndView();
+			
 			Freeboard freeboard = freeboardDao.getFreeboardByFreeboardNo(freeboardNo);
 			mav.addObject(freeboard);
+			
 			mav.setViewName("freeboard/freeboardview");
 			return mav;
 		}
