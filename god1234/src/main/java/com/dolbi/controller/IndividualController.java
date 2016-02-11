@@ -106,8 +106,11 @@ public class IndividualController {
 	
 	@RequestMapping(value = "resumeform.action", method = RequestMethod.POST)
 	public String resumeRegister(MultipartHttpServletRequest request, String memberId) throws Exception {
-
-		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/resume");
+		
+		//�뾽濡쒕뱶�맂 �뙆�씪�쓣 ���옣�븷 寃쎈줈 (媛��긽寃쎈줈 -> 臾쇰━寃쎈줈) 異붿텧
+		String path = request.getSession().getServletContext().getRealPath("/resources/resume");
+				
+		//Upload 媛앹껜 �깮�꽦 諛� �뙆�씪�씠 �븘�땶 �뜲�씠�꽣 ���옣
 		
 		Resume resume = new Resume();
 		resume.setMemberId(memberId);
@@ -244,6 +247,14 @@ public class IndividualController {
 		
 		return "individual/recommendationlist";
 	}
+	
+	   @RequestMapping(value = "deleteapplication.action", method = RequestMethod.GET)
+		public String deleteapplication(String applicationNo, String memberId) {
+			
+			individualDao.deleteApplication(Integer.parseInt(applicationNo));
+
+			return "redirect:/individual/applicationlist.action?memberId="+memberId;
+		}
 
 }
 

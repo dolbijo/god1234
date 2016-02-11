@@ -39,7 +39,7 @@
                                 	<thead>
         								<th>지원 날짜</th>
         								<th>지원 공고</th>
-        								<th>담당자 연람유무</th>
+        								<th>담당자 열람유무</th>
         								<th>취소하기</th>
         							</thead>
         							<c:forEach var="application" items="${applications }">
@@ -49,8 +49,18 @@
         									${application.jobboardNo }
         									<a href="/dolbi/jobboard/view.action?jobboardNo=${application.jobboardNo }">${application.jobboardTitle }</a>
         								</td>
-        								<td>${application.isCheck }</td>
-        								<td>[취소]</td>
+        								<td>
+        								<c:choose>
+        								<c:when test="${ application.isCheck eq 'false' }">
+        									미열람
+        								</c:when>
+        								<c:otherwise>
+        									열람
+        								</c:otherwise>
+        								</c:choose>
+        								
+        								</td>
+        								<td>[<a href="deleteapplication.action?applicationNo=${application.applicationNo }&memberId=${ loginuser.memberId }">취소</a>]</td>
         							</tbody>
         							</c:forEach>
         						</table>

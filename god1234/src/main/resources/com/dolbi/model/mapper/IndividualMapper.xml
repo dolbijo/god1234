@@ -170,6 +170,12 @@
 		where jc_no = #{categoryNo};
 	</select>
 	
+	<delete id="deleteApplicationNoBymemberId" parameterType="int">
+		delete 
+		from application 
+		where a_no = #{ applicationNo };
+	</delete>
+	
 </mapper>
 
 
