@@ -27,33 +27,38 @@
 	
 		<section class="featured">
 			<div class="container"> 
-				<div class="row mar-bot40">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="align-center">
-    						입력 받아야 할것 : 이력서 사진 / 경력사항 / 학력 / 자기소개 / 공개여부 
+				<div class="row mar-bot40" style="padding-bottom: 20px;font-size:16px; color:forestgreen;">
+    						개인회원께서는 이력서 사진과 학력, 경력사항, 간단한 자기소개와 함께 공개여부를 결정해 주시기 바랍니다.
+    						</div>
+    						<div>
     						
     						<form action="resumeform.action" method="post" enctype="multipart/form-data">
     						<input type="hidden" name="memberId" value="${ loginuser.memberId }" />
-    						<table border="1">
-    							<tr>
-    								<td>이력서 제목</td>
-    								<td colspan="3"><input type="text" name="resumetitle" /></td>
+    						<table border="1" style="width:700px;margin-bottom:7px;">
+    							<tr style="text-align: center;">
+    								<td style="width: 120px;">이력서 제목</td>
+    								<td colspan="2"><input type="text" name="resumetitle" style="width: 600px;"/></td>
     							</tr>
+    							</table>
+    							<table border="1" style="width:700px;text-align:center">
     							<tr>
-    								<td colspan="2">이력서 사진</td>
-    								<td colspan="2"><input type="file" name="resumephoto" /></td>
-    							</tr>
-    							<tr>
+    								<td width="30">이력서 사진</td>
     								<td>이름</td>
     								<td>${ loginuser.memberName }</td>
-    								<td>성별</td>
-    								<td>${ member.gender }</td>
-    							</tr>
-    							<tr>
-    								<td>전화번호</td>
-    								<td>${ loginuser.phoneNo }</td>
     								<td>생년월일</td>
     								<td>${member.age}</td>
+    								
+    							</tr>
+    							<tr>    								
+    								<td rowspan="3" height="25"><input type="file" name="resumephoto" /></td>
+    								
+    							</tr>
+    							<tr>
+    								<td>성별</td>
+    								<td>${ member.gender }</td>
+    								<td>전화번호</td>
+    								<td>${ loginuser.phoneNo }</td>    								
+    								
     							</tr>
     							<tr>
     								<td>주소</td>
@@ -62,7 +67,8 @@
     						</table>
     						
     						<table>
-    							<tr><td>자기소개를 작성해 주세요</td></tr>
+    							<tr>
+    							<td style="padding: 17px 0 10px 0; font-size:15px; color:saddlebrown">자기소개 [성장배경/성격/취미.특기/장.단점 등]</td></tr>
     							<tr><td><textarea name="selfintroduction" style="width:580px" rows="15"> </textarea></td></tr>
     						</table>
     						
@@ -144,12 +150,10 @@
     						</form>
     </div>
     </div>
-    </div>
-    </div>
-   
     </section>
     </div>
     </div>
+ 
     <c:import url="/WEB-INF/views/include/footer.jsp" />
 </body>
 </html>
