@@ -2,6 +2,7 @@ package com.dolbi.model.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
@@ -29,5 +30,8 @@ public interface JobboardDao {
    Jobboard getNext(int num);
    
    Jobboard getPrev(int num);
+
+   List<Jobboard> getsearchList(String searchTag);
+
 
 }

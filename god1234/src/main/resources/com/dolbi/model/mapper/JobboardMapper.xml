@@ -41,6 +41,12 @@
 		where c.rnum between #{startRow} and #{endRow}
 	</select>
 	
+	<select id="selectJobboardBySearchTag" parameterType="String" resultMap="jobboardListMap">
+		SELECT <include refid="JobboardListColumns" /> 
+		FROM JOBBOARD
+		where j_tag LIKE #{searchTag}
+	</select>
+	
 	<resultMap type="JobboardAttachment" id="jobboardFileMap">
 		<id column="ja_no" property="jobboardAttachmentNo" />
 		<result column="j_no" property="jobboardNo" />
@@ -74,9 +80,9 @@
 		where j.j_no = #{jobboardNo}
 	</select>
 	
-	<insert id="insertJobboard" parameterType="Jobboard" useGeneratedKeys="true" keyProperty="j_no">
-		<selectKey keyProperty="jobboardNo" resultType="int" order="BEFORE">
-			SELECT MAX(J_NO)+1 from jobboard
+	<insert id="insertJobboard" parameterType="Jobboard">
+		<selectKey keyProperty="jobboardNo" resultType="int" order="BEFORE">			
+			SELECT IFNULL( MAX(J_NO), 0) + 1 from jobboard
 		</selectKey>
 		INSERT INTO JOBBOARD (j_no, j_title, j_content, j_deadline, j_joinno, j_gender, j_age, j_education, m_id, j_payment, j_salary, j_career, m_name, j_tag)
 		VALUES (#{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardSalary},#{jobboardCareer},#{memberName}, #{categoryTag})
@@ -85,7 +91,7 @@
 	
 	<insert id="insertJobboardFile" parameterType="JobboardAttachment">
 		<selectKey keyProperty="jobboardAttachmentNo" resultType="int" order="BEFORE">
-			SELECT MAX(JA_NO)+1 from jobboardattachment
+			SELECT IFNULL( MAX(JA_NO), 0) + 1 from jobboardattachment
 		</selectKey>
 		insert into jobboardattachment (ja_no, j_no, ja_savedfilename, ja_filename)
 		values (#{jobboardAttachmentNo}, #{jobboardNo}, #{savedFileName}, #{userFileName})

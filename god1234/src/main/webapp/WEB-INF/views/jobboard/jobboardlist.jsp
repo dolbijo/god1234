@@ -31,15 +31,18 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-
 		
-		
-		<div style="padding-top:25px;text-align:center">
-			<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />
-			 <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp;
+		<div style="padding: 70px 0 50px 0;text-align:center">
+			<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />		
+			<c:if test="${ loginuser.memberType eq 'company' }">
+            	<li><a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp;</a></li>
+        	</c:if>
 			 <a href="searchcategory.action" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료찾기</a>&nbsp;
 			<br /><br />
-
+			</div>
+			
+			
+			<div>
 			<table class="table table-hover" style="width:1000px;height:10px" align="center">
 				<tr class="danger" style="height:30px;color:black;">
 					<th style="width:70px">번호</th>
@@ -113,23 +116,35 @@
 			</table>
 			<br /><br /><br /><br />
 			
+			<%--For displaying Previous link except for the 1st page --%>
+    		<c:if test="${currentPage != 1}">
+        		<td><a href="jobboard.do?page=${currentPage - 1}">Previous</a></td>
+    			</c:if>
+ 
+   			 <%--For displaying Page numbers. 
+   				The when condition does not display a link for the current page--%>
+    		<table border="1" cellpadding="5" cellspacing="5">
+       		 <tr>
+            <c:forEach begin="1" end="${noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${currentPage eq i}">
+                        <td>${i}</td>
+                    </c:when>
+                    <c:otherwise>
+                        <td><a href="jobboard.do?page=${i}">${i}</a></td>
+                    </c:otherwise>
+                </c:choose>
+           		 </c:forEach>
+       			 </tr>
+   		 </table>
+     
+   			 <%--For displaying Next link --%>
+   			 <c:if test="${currentPage lt noOfPages}">
+        		<td><a href="jobboard.do?page=${currentPage + 1}">Next</a></td>
+    		</c:if>
+			
 		</div>
 		
-<%-- 		<div class="paginate">
-   	 		<a href="javascript:goPage(${param.firstPageNo})" class="first">처음 페이지</a>
-    		<a href="javascript:goPage(${param.prevPageNo})" class="prev">이전 페이지</a>
-      <span>
-        <c:forEach var="i" begin="${param.startPageNo}" end="${param.endPageNo}" step="1">
-            <c:choose>
-                <c:when test="${i eq param.pageNo}"><a href="javascript:goPage(${i})" class="choice">${i}</a></c:when>
-                <c:otherwise><a href="javascript:goPage(${i})">${i}</a></c:otherwise>
-            </c:choose>
-        </c:forEach>
-    </span>
-    <a href="javascript:goPage(${param.nextPageNo})" class="next">다음 페이지</a>
-    <a href="javascript:goPage(${param.finalPageNo})" class="last">마지막 페이지</a>
-</div> --%>
-
 	<div>
 		<c:forEach var="i" begin="${pu.startPageNum }" end="${pu.endPageNum }">
 			<c:choose>

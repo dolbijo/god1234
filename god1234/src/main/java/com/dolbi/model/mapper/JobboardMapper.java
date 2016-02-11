@@ -28,6 +28,9 @@ public interface JobboardMapper {
 	
 	int selectCount();
 	
+	List<Jobboard> selectJobboardBySearchTag(String searchTag);
+	
+	
 	Jobboard selectNext(int num);
 	
 	Jobboard selectPrev(int num);

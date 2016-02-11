@@ -88,7 +88,10 @@ public class JobBoardController {
 	    jobboard.setJobboardPayment(request.getParameter("payment"));
 	    jobboard.setJobboardSalary(Integer.parseInt(request.getParameter("salary")));
 	    jobboard.setJobboardCareer(request.getParameter("career"));
-	    jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
+	    jobboard.setJobboardAge(request.getParameter("birthday"));
+	    
+	    //jobboard.setJobboardAge(Integer.parseInt(request.getParameter("birthday")));
+	    
 	    Date deadline = transFormat.parse(request.getParameter("deadline"));
 		jobboard.setJobboardDeadLine(deadline);
 		
@@ -173,10 +176,7 @@ public class JobBoardController {
    
    @RequestMapping(value = "register.action", method = RequestMethod.POST)
    public String register(Member member) {
-      
-	   
-      
-      
+  
       return "redirect:/jobboard/list.action";
    }
    
@@ -221,9 +221,28 @@ public class JobBoardController {
    @RequestMapping(value = "searchcategory.action", method = RequestMethod.GET)
    public String searchCategory(String memberId, String jobboardNo) {//HttpServletRequest.setAttribute("member", member)
 
+
        return "jobboard/searchform";
       
-   }   
+   }
+   
+   @RequestMapping(value = "search.action", method = RequestMethod.POST)
+   public String search(String[] ca, Model model) {//HttpServletRequest.setAttribute("member", member)
+
+	   for(int i = 0; i < ca.length; i++) {
+		   
+		   List<Jobboard> jobboards = jobboardDao.getsearchList(ca[i]);
+		   model.addAttribute("jobboards"+i, jobboards);
+		   model.addAttribute("searchtag"+i, ca[i]);
+		   
+	   }
+	   
+	   model.addAttribute("indexNo", ca.length);
+	   
+       return "jobboard/searchlist";
+      
+   }
+   
 
 }
 

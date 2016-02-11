@@ -30,17 +30,22 @@
 				<div class="row mar-bot40" style="padding-bottom: 20px;font-size:16px; color:forestgreen;">
     						개인회원께서는 이력서 사진과 학력, 경력사항, 간단한 자기소개와 함께 공개여부를 결정해 주시기 바랍니다.
     						</div>
-    						<div>
     						
     						<form action="resumeform.action" method="post" enctype="multipart/form-data">
     						<input type="hidden" name="memberId" value="${ loginuser.memberId }" />
-    						<table border="1" style="width:700px;margin-bottom:7px;">
+    						
+    											
+    						<div class="input-group" style="he">
+  								<span class="input-group-addon" id="basic-addon1" style="height:13px">이력서 제목</span>
+    						<table style="width:680px;margin-left:4px">
     							<tr style="text-align: center;">
-    								<td style="width: 120px;">이력서 제목</td>
-    								<td colspan="2"><input type="text" name="resumetitle" style="width: 600px;"/></td>
+    								<td colspan="1">
+    								<input type="text" name="resumetitle" style="width: 596px;" class="form-control" placeholder="제목을 적어주세요." aria-describedby="basic-addon1" /></td>
     							</tr>
-    							</table>
-    							<table border="1" style="width:700px;text-align:center">
+    						</table>
+    						</div>
+    						<div style="padding-top: 10px">
+    							<table border="1px solid gray;" style="width:700px;text-align:center">
     							<tr>
     								<td width="30">이력서 사진</td>
     								<td>이름</td>
@@ -65,16 +70,20 @@
     								<td colspan="3">${ loginuser.memberAddress }</td>
     							</tr>
     						</table>
+    						</div>
     						
+    						<div>    						
     						<table>
     							<tr>
-    							<td style="padding: 17px 0 10px 0; font-size:15px; color:saddlebrown">자기소개 [성장배경/성격/취미.특기/장.단점 등]</td></tr>
-    							<tr><td><textarea name="selfintroduction" style="width:580px" rows="15"> </textarea></td></tr>
+    							<td style="padding: 17px 0 10px 0; font-size:15px; color: steelblue">자기소개 [성장배경/성격/취미.특기/장.단점 등]</td></tr>
+    							<tr><td><textarea name="selfintroduction" style="width:700px" rows="15"> </textarea></td></tr>
     						</table>
+    						</div>
     						
+    						<div>    						
     						<table>
-    							<tr>
-    								<td colspan="4">학력사항을 작성해주세요</td>
+    							<tr style="font-size:15px">
+    								<td colspan="4" style="color: saddlebrown;">학력사항을 작성해주세요</td>
     							</tr>
     							<tr>
     								<td>학교이름</td>
@@ -101,10 +110,12 @@
     								<td><input type="date" name="edEndDate2"/></td>
     							</tr>
     						</table>
+    						</div>
     						
+    						<div style="margin-bottom:10px">
     						<table>
-    							<tr>
-    								<td colspan="4">경력사항을 입력해 주세요</td>
+    							<tr style="font-size:15px;">
+    								<td colspan="4" style="padding-top:10px;color:goldenrod">경력사항을 입력해 주세요</td>
     							</tr>
     							<tr>
     								<td>회사이름</td>
@@ -131,24 +142,26 @@
     								<td><input type="date" name="caEndDate2"/></td>
     							</tr>
     						</table>
+    						</div>
     						
+    						<div style="margin-bottom:10px">
     						<table>
     							<tr>
-    								<td>이력서의 공개여부를 선택해 주세요.</td>
-    								<td>
+    								<td style="font-size:15px;color: indigo">이력서의 공개여부를 선택해 주세요.</td>
+    								<td style="padding-left: 8px">
     									<input type="radio" name="ispublic" value="공개" />공개
     									<input type="radio" name="ispublic" value="비공개" />비공개
     								</td>
     							</tr>
     							<tr>
-    								<td colspan="2">
+    								<td colspan="2" style="padding-top: 20px;">
     									<input type="submit" value="등록" class="button btn btn-success btn-large"/>
     									<input type="button" value="취소" class="button btn btn-success btn-large" onclick="location.href='individualmain.action?memberId=${ loginuser.memberId }';"/>
     								</td>
     							</tr>
     						</table>
-    						</form>
-    </div>
+    						</div>
+    		</form>
     </div>
     </section>
     </div>

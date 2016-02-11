@@ -41,7 +41,9 @@
 		            </tr>
 		        </table>
 		        <div class="buttons">
+		        <c:if test="${ loginuser.memberId == freeboard.memberId }">
 		        	<input type="button" value="편집" style="height:25px" />
+		        </c:if>
 		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
 		        </div>
 		    </div>
