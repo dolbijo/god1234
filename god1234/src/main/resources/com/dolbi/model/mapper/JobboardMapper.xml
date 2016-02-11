@@ -28,9 +28,17 @@
 	</resultMap>
 	
 	<!-- 메서드 역할 -->
-	<select id="selectJobboards" resultMap="jobboardListMap">
+	<!-- <select id="selectJobboards" resultMap="jobboardListMap">
 		SELECT <include refid="JobboardListColumns" /> 
 		FROM JOBBOARD
+	</select> -->
+	
+	
+	
+	<select id="selectJobboards" parameterType="hashmap" resultMap="jobboardListMap">
+		SELECT c.J_NO,c.J_TITLE,c.J_READCOUNT,c.J_DEADLINE,c.M_ID,J_PAYMENT,c.J_SALARY,c.J_DELETED,c.M_NAME,c.J_GENDER
+		FROM (select a.*, @rownum:=@rownum+1 as rnum from jobboard a, (select @rownum:=0) b order by j_no desc) c
+		where c.rnum between #{startRow} and #{endRow}
 	</select>
 	
 	<resultMap type="JobboardAttachment" id="jobboardFileMap">
@@ -98,14 +106,41 @@
 	</update>
 	
 	<select id="selectJobboardNoByMemberId" parameterType="String" resultType="int">
-	
 		select jc_no
 		from company
 		where m_id = #{memberId}
 	
 	</select>
 
-	
+     <!-- 글의 갯수 구하기 -->
+     
+     <select id="selectCount" resultType="int">
+      	select count(*) from jobboard
+     </select>
+    
+     <!-- 이전 글 구하기 -->
+     <select id="selectPrev" parameterType="int" resultMap="jobboardListMap">
+      select <include refid="JobboardListColumns" />  
+      from(
+      	select*
+      	from jobboard
+      	<![CDATA[ where j_no > #{num} ]]>
+      	order by j_no asc)
+      where rownum-1
+     </select>
+     
+     <!-- 다음 글 구하기 -->
+     
+     <select id="selectNext" parameterType="int" resultMap="jobboardListMap">
+      select <include refid="JobboardListColumns" />  
+      from(
+      	select*
+      	from jobboard
+		<![CDATA[ where j_no > #{num} ]]>
+      	order by j_no asc)
+      where rownum+1
+     </select>
+
 </mapper>
 
 

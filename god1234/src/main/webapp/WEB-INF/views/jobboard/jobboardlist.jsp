@@ -26,6 +26,8 @@
 </script>
 
 
+
+
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
@@ -105,13 +107,46 @@
 				</tr>
 				</c:forEach>
 				
+				
+
+
 			</table>
 			<br /><br /><br /><br />
 			
 		</div>
-
 		
+<%-- 		<div class="paginate">
+   	 		<a href="javascript:goPage(${param.firstPageNo})" class="first">처음 페이지</a>
+    		<a href="javascript:goPage(${param.prevPageNo})" class="prev">이전 페이지</a>
+      <span>
+        <c:forEach var="i" begin="${param.startPageNo}" end="${param.endPageNo}" step="1">
+            <c:choose>
+                <c:when test="${i eq param.pageNo}"><a href="javascript:goPage(${i})" class="choice">${i}</a></c:when>
+                <c:otherwise><a href="javascript:goPage(${i})">${i}</a></c:otherwise>
+            </c:choose>
+        </c:forEach>
+    </span>
+    <a href="javascript:goPage(${param.nextPageNo})" class="next">다음 페이지</a>
+    <a href="javascript:goPage(${param.finalPageNo})" class="last">마지막 페이지</a>
+</div> --%>
+
+	<div>
+		<c:forEach var="i" begin="${pu.startPageNum }" end="${pu.endPageNum }">
+			<c:choose>
+				<c:when test="${i == pu.pageNum }">
+					<a href="list.action?pageNum=${i }">
+						<span style="color:red">[${i }]</span>
+					</a>
+				</c:when>
+				<c:otherwise>
+					<a href="list.action?pageNum=${i }">
+						[${i }]
+					</a>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
 	</div>
+
 	<c:import url="/WEB-INF/views/include/footer.jsp" />
 		
 

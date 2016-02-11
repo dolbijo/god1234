@@ -1,6 +1,7 @@
 package com.dolbi.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
@@ -13,7 +14,7 @@ public interface JobboardDao {
 
    void insertJobboardFile(JobboardAttachment file);
 
-   ArrayList<Jobboard> getJobboardList();
+   ArrayList<Jobboard> getJobboardList(HashMap map);
    
    Jobboard getJobboardByJobboardNo(int jobboardNo);
 
@@ -22,5 +23,11 @@ public interface JobboardDao {
    void updateCount(int jobboardNo);
 
    int getJobboardNoByMemberId(String memberId);
+
+   int getCount();
+   
+   Jobboard getNext(int num);
+   
+   Jobboard getPrev(int num);
 
 }

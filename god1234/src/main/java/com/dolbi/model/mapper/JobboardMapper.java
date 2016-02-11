@@ -10,7 +10,7 @@ import com.dolbi.model.dto.Member;
 
 public interface JobboardMapper {
 	
-	ArrayList<Jobboard> selectJobboards();
+	ArrayList<Jobboard> selectJobboards(HashMap map);
 	List<Jobboard> selectJobboards2();
 
 	Jobboard selectMemberByIdAndPasswd(HashMap<String, Object> params);
@@ -26,6 +26,10 @@ public interface JobboardMapper {
 	
 	int selectJobboardNoByMemberId(String memberId);
 	
+	int selectCount();
 	
+	Jobboard selectNext(int num);
+	
+	Jobboard selectPrev(int num);
 
 }
