@@ -5,6 +5,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% String cp = request.getContextPath(); %>
+<%
+        pageContext.setAttribute("cr", "\r");  // Space
+        pageContext.setAttribute("cn", "\n");  // Enter
+        pageContext.setAttribute("crcn", "\r\n");  // Space, Enter
+        pageContext.setAttribute("br", "<br/>");  // <br> tag
+ %>
 <!DOCTYPE html>
 
 <html>
@@ -46,26 +52,29 @@
 		<div style="padding-top:25px;text-align:center">
 		<div id="inputcontent">
 		    <div id="inputmain">
-		    <center>
 		        <div class="inputsubtitle" style="margin: 40px 0 40px 0;font-size:16px;">알바TALK</div>
-		        <div>
+		        <div align="center">
 		        <table style="width:1000px;"class="table table-hover">
 		            <tr>
-		                <th>제목</th>
-		                <td>${ freeboard.freeboardTitle}</td>
+		                <th colspan="3">제목</th>
+		                <td colspan="3">${ freeboard.freeboardTitle}</td>
 		            </tr>
 		            <tr>
 		                <th style="width:66px">작성자</th>
 		                <td>${ freeboard.memberId}</td>
+		                <th style="width:66px">작성일</th>
+		                <td>${ freeboard.freeboardRegDate}</td>
+		                <th style="width:66px">조회수</th>
+		                <td>${ freeboard.freeboardReadCount}</td>
 		            </tr>
 		            
 		            <tr>
-		                <th>질문</th>
-		                <td>${ freeboard.freeboardContent }</td>
+		                <th colspan="3">질문</th>
+		                <td colspan="3">${fn:replace(freeboard.freeboardContent, cn, br)}</td>
 		            </tr>
 		        </table>
 		        </div>
-		        </center>
+
 		        <div class="buttons" style="margin-top:50px">
 		        	
 		        	<a href="edit.action?freeboardno=${ freeboard.freeboardNo }"class="btn btn-info">정보수정</a>
@@ -83,8 +92,7 @@
 
 	<br /><br />
 		<c:if test="${ loginuser.memberType eq 'individual' }">
-		<form id="commentform" 
-			action="writecomment.action" method="post">
+		<form id="commentform" action="writecomment.action" method="post">
 			<input type="hidden" name="freeboardNo" value="${ freeboard.freeboardNo}" />
 			<input type="hidden" name="memberId" value="${ loginuser.memberId}" />
 			<table style="width:700px;border:solid 1px;margin:0 auto">
@@ -107,9 +115,10 @@
         <hr align="center" style="width:600px;" />
         
         <!-------------------------------------------------------->
-		
+		<c:set var="commentlength" value="${fn:length(freeboard.comments) }"/>
 		<c:choose>
-			<c:when test="${empty freeboard.comments }">
+			
+			<c:when test="${commentlength == 0 }">
 				<h4 id="nodata" style="text-align:center">
 	            	작성된 댓글이 없습니다.
 	        	</h4>
@@ -126,12 +135,10 @@
 				                    <br /><br />
 				                    <span>
 				                    	<c:choose>
-				                    		<c:when test="${ comment.content eq null }">
-				                    			내용이 없습니다.
+				                    		<c:when test="${ comment.content ne null }">
+				                    			${fn:replace(comment.content, cn, br)}
 				                    		</c:when>
-				                    		<c:otherwise>
-				                    			${comment.content }
-				                    		</c:otherwise>
+				                    		
 				                    	</c:choose>
 				                    </span>
 				                    <br /><br />
@@ -163,12 +170,10 @@
 										<textarea name="content" style="width: 700px" rows="3" maxlength="200">
 											
 					                    		<c:choose>
-				                    				<c:when test="${ comment.content eq null }">
-						                    			내용을 입력해 주세요.
+				                    				<c:when test="${ comment.content ne null }">
+						                    			${fn:replace(comment.content, cn, br)}
 						                    		</c:when>
-						                    		<c:otherwise>
-						                    			${comment.content }
-						                    		</c:otherwise>
+						                    		
 				                    			</c:choose>
 				                    		
 										</textarea>

@@ -3,7 +3,15 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <% String cp = request.getContextPath(); %>
+<%
+        pageContext.setAttribute("cr", "\r");  // Space
+        pageContext.setAttribute("cn", "\n");  // Enter
+        pageContext.setAttribute("crcn", "\r\n");  // Space, Enter
+        pageContext.setAttribute("br", "<br/>");  // <br> tag
+ %>
 
 <!DOCTYPE html>
 
@@ -83,7 +91,11 @@
 		            </tr>		         
 		            <tr>
 		            	<th>상세 모집 요강</th>
-		            	<td>${ jobboard.jobboardContent }</td>
+		            	<td>
+		            	${fn:replace(jobboard.jobboardContent, cn, br)}
+
+		            	
+		            	</td>
 		            </tr>
 		            <tr>
 		            	<th>나이</th>

@@ -48,6 +48,7 @@
                <th style="width:400px">제목</th>
                <th style="width:150px">작성자</th>
                <th style="width:150px;text-align:center">작성일</th>
+               <th style="width:150px;text-align:center">조회수</th>
 
             </tr>
             
@@ -61,7 +62,7 @@
                   <a href='${ view }'>${ freeboard.freeboardTitle }</a>
                </td>
                <td>${ freeboard.memberId }</td>
-               <td>${ freeboard.freeboardContent }</td>
+               <td>${ freeboard.freeboardRegDate }</td>
                <td>${ freeboard.freeboardReadCount }</td>
             </tr>
             </c:forEach>

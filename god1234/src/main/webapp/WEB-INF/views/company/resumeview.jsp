@@ -7,7 +7,14 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% String cp = request.getContextPath(); %>
+<%
+        pageContext.setAttribute("cr", "\r");  // Space
+        pageContext.setAttribute("cn", "\n");  // Enter
+        pageContext.setAttribute("crcn", "\r\n");  // Space, Enter
+        pageContext.setAttribute("br", "<br/>");  // <br> tag
+ %>
 <!DOCTYPE html>
 
 <head>
@@ -70,7 +77,7 @@
     						<div style="margin-bottom: 15px">
     							<table>
     								<tr><td style="padding: 17px 0 10px 0; font-size:15px; color: steelblue">자기소개</td></tr>
-    								<tr><td style="width:800px;border:1px solid">${resume.selfintroduction }</td></tr>
+    								<tr><td style="width:800px;border:1px solid">${fn:replace(resume.selfintroduction, cn, br)}</td></tr>
     							</table>
     							</div>
     							
