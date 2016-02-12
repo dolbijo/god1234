@@ -18,7 +18,19 @@
     	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
 	<title>자료업로드</title>
 	
+	<script type="text/javascript" >
+
+/*   	function jobApplication(memberId, jobboardNo) {
+  		var uri = "application.action?memberId="+memberId+"&jobboardNo="+jobboardNo;
+  		location.href=uri; 
+  		alert("지원이 완료 되었습니다. 행운을 빕니다~");
+	} 
+ */
+	
+</script>
 </head>
+
+
 <body>
 
 	<div id="pageContainer">
@@ -164,7 +176,8 @@
 		        <div class="buttons">
 		        	
 		        	<c:if test="${ loginuser.memberType eq 'individual' }">
-		        	[<a href="application.action?memberId=${ loginuser.memberId }&jobboardNo=${jobboard.jobboardNo}">지원하기</a>]
+		        	<%-- [<a href="javascript:jobApplication(${loginuser.memberId}, ${jobboard.jobboardNo})" click="jobApplication">지원하기</a>] --%>
+		        	[<a href="application.action?memberId=${ loginuser.memberId }&jobboardNo=${ jobboard.jobboardNo }">지원하기</a>]
 		        	</c:if>
 		        	<c:if test="${ loginuser.memberType eq 'company' }">
 		        	<a href="edit.action?jobboardno=${ jobboard.jobboardNo }">정보수정</a>
