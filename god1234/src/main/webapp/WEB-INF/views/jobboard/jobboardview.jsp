@@ -71,8 +71,8 @@
 		            </tr>
 		            <tr>
     					<th>채용 사진</th>
-		                    <c:forEach var="file" items="${jobboard1.files }">
-		                    	<p>${file.savedFileName }</p><br />
+		                    <c:forEach var="file" items="${jobboard.files }">
+		                    	<img src="<%=cp%>/resources/uploadfiles/${file.userFileName }" style="width: 170px;height: 130px;"/></img><br />
 		                    </c:forEach>
     				</tr>
     				

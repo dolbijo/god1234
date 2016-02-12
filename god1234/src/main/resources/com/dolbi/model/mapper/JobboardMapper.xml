@@ -82,7 +82,7 @@
 	</resultMap>
 	
 	<select id="selectJobboardByjobboardNo" resultMap="jobboardViewMap" parameterType="int">
-		SELECT j.J_NO,j.J_TITLE,j.J_CONTENT,j.J_DEADLINE,j.M_ID,j.J_PAYMENT,j.J_SALARY,j.J_DELETED,j.J_JOINNO,j.J_GENDER,j.J_AGE,j.J_EDUCATION,j.J_CAREER,ja.ja_savedfilename,j.M_NAME,j.J_EMAIL,j.J_PHONE
+		SELECT j.J_NO,j.J_TITLE,j.J_CONTENT,j.J_DEADLINE,j.M_ID,j.J_PAYMENT,j.J_SALARY,j.J_DELETED,j.J_JOINNO,j.J_GENDER,j.J_AGE,j.J_EDUCATION,j.J_CAREER,ja.ja_savedfilename,ja.ja_filename,j.M_NAME,j.J_EMAIL,j.J_PHONE
 		FROM JOBBOARD j
 		LEFT OUTER JOIN JOBBOARDATTACHMENT ja
 		ON j.j_no = ja.j_no
