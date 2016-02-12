@@ -35,23 +35,24 @@
 	
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		
-		<div style="color:black;padding-top:25px;text-align:center">
 		<div id="inputcontent">
 		    <div id="inputmain">
-		        <div class="inputsubtitle">업로드 자료 정보</div>
-		        <table>
-		            <tr class="info">
-		                <th>제목</th>
+		    <center>
+		        <div class="inputsubtitle" style="margin: 40px 0 40px 0;font-size:16px;color:darkmagenta;">일자리 정보</div>
+		        
+		        <table style="width:1000px;"class="table table-striped">
+		            <tr>
+		                <th style="width: 95px">제목</th>
 		                <td>${ jobboard.jobboardTitle }</td>
-		                
 		            </tr>
+		            
 		               <tr>
 		                <th>회사/점포명</th>
-		                <td>
-		                	
+		                <td>		                	
 		                	${ jobboard.memberName }
 		                </td>
 		            </tr>
+		            
 		            <tr>
 		                <th>작성자</th>
 		                <td>${ jobboard.memberId }</td>
@@ -63,8 +64,7 @@
 		            <tr>
 		            	<th>마감일자</th>
 		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
-		            </tr>
-		         
+		            </tr>		         
 		            <tr>
 		            	<th>상세 모집 요강</th>
 		            	<td>${ jobboard.jobboardContent }</td>
@@ -171,7 +171,7 @@
 		             
 		            
 		        </table>
-		        <div class="buttons">
+		        <div class="buttons" style="margin: 40px 0 60px 0;">
 		        	
 		        	<c:if test="${ loginuser.memberType eq 'individual' }">
 		        	
@@ -184,9 +184,8 @@
 		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
 		        </div>
 		    </div>
-		</div>   	
-	
-	</div>
+		    </center>
+		</div>
 	</div>
 	<div>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp" />

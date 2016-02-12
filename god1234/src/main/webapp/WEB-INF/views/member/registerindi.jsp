@@ -56,15 +56,15 @@
                                 <label class="control-label" for="success">이메일</label>
                                 <input type="text" class="form-control" name="email" />
                                 
-                                <label>관심분야를 선택해주세요</label>
-                                <input type="checkbox" name="service" value="1">서비스
-                                <input type="checkbox" name="sale" value="2">영업
-                                <input type="checkbox" name="office" value="3">사무직
-                                <input type="checkbox" name="construction" value="4">건설
-                                <input type="checkbox" name="procuction" value="5">생산
-                                <input type="checkbox" name="it" value="6">IT/프로그래밍
-                                <input type="checkbox" name="design" value="7">디자인
-                                <input type="checkbox" name="education" value="8">교육/강사
+                                <label style="margin-top:13px">관심분야를 선택해주세요</label>
+                                <input type="checkbox" name="service" value="1" style="width:15px;height:15px">서비스
+                                <input type="checkbox" name="sale" value="2" style="width:15px;height:15px">영업
+                                <input type="checkbox" name="office" value="3" style="width:15px;height:15px">사무직
+                                <input type="checkbox" name="construction" value="4" style="width:15px;height:15px">건설
+                                <input type="checkbox" name="procuction" value="5" style="width:15px;height:15px">생산
+                                <input type="checkbox" name="it" value="6" style="width:15px;height:15px">IT/프로그래밍
+                                <input type="checkbox" name="design" value="7" style="width:15px;height:15px">디자인
+                                <input type="checkbox" name="education" value="8" style="width:15px;height:15px">교육/강사
                                 
                                 <br /><br />
                                 <input type="submit" value="등록"  class="button btn btn-success btn-large"/>
