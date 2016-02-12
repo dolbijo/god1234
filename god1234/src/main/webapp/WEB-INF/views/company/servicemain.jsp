@@ -81,6 +81,9 @@
 					href="endjobboard.action?memberId=${ loginuser.memberId }"
 					class="btn btn-info"><span class="glyphicon glyphicon-remove-circle"></span>
 					&nbsp;마감된 공고 </a>&nbsp;
+					
+					
+                    <a href="resumelist.action"class="btn btn-info"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;공개된 이력서 목록 보러가기 </a>&nbsp;
 					</div>
 			</div>
 		</div>

@@ -104,6 +104,26 @@ public class CompanyController {
 		return "individual/resumeview";
 		
 	}
+	
+	@RequestMapping(value = "resumelist.action", method = RequestMethod.GET)
+	public String applicationList(Model model) {
+
+		//리스트 가져오기
+		List<Resume> resumes = companyDao.getResumeList();
+		
+		model.addAttribute("resumes", resumes);
+		
+		return "company/openresumelist";
+	}
+	
+	@RequestMapping(value = "updatereadcount.action", method = RequestMethod.GET)
+	public String updateReadCount(String memberId) {
+
+		//업데이트
+		companyDao.updateReadCount(memberId);
+		
+		return "redirect:/company/resumeview.action?memberId=" + memberId;
+	}
 
 }
 

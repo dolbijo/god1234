@@ -35,5 +35,9 @@ public interface CompanyMapper {
 	ArrayList<Education> selectEducationBymemberId(String id);
 	
 	Member selectIndividualByMemberId(String id);
+	
+	ArrayList<Resume> selectResumeList();
+	
+	void updateReadCount(String memberId);
 
 }

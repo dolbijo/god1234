@@ -125,6 +125,16 @@
 		WHERE m_id = #{id}
 	</select>
 	
+	<select id="selectResumeList" resultMap="ResumeMap">
+		select *
+		from resume
+		where r_ispublic = '1'
+	</select>
+	
+	<update id="updateReadCount" parameterType="String">
+		update resume set r_readcount = IFNULL( r_readcount, 0) + 1 where m_id = #{memberId}
+	</update>
+	
 </mapper>
 
 
