@@ -63,7 +63,7 @@
         								</c:choose>
         								
         								</td>
-        								<td>[<a href="deleteapplication.action?applicationNo=${application.applicationNo }&memberId=${ loginuser.memberId }">취소</a>]</td>
+        								<td><a href="deleteapplication.action?applicationNo=${application.applicationNo }&memberId=${ loginuser.memberId }"class="btn btn-action"style="background-color:lightblue;">취소</a></td>
 										</tr>
         							</tbody>
         							</c:forEach>

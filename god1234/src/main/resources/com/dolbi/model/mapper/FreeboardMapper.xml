@@ -69,7 +69,6 @@
 		INSERT INTO FREEBOARD (f_no, f_title, f_content, f_type, m_id)
 		VALUES (#{freeboardNo},#{freeboardTitle}, #{freeboardContent}, #{freeboardtype},#{memberId})
 	</insert>
-
 	
 	<update id="updateCount" parameterType="int">
 		update freeboard set F_READCOUNT = F_READCOUNT + 1 WHERE F_NO = #{freebboardNo}

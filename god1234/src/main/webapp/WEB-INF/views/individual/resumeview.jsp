@@ -31,52 +31,53 @@
     			</div>
     		</div>
     			<br />
-    		<div class="row">
-                <div class="col-md-12">
-                     <!--    Hover Rows  -->
-                    
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <tbody>
-                                    <tr>
-    									<td>이력서 제목</td>
-    									<td colspan="3">${ resume.resumeTitle }</td>
+		<section class="featured">
+			<div class="container"> 
+    		          <div style="padding-top: 10px">
+    		          	<table>
+                                    <tr style="text-align: center;">
+                                    <td colspan="2">
+    									<td style="background-color:yellowgreen;width: 83px">이력서 제목</td>
+    									<td style="border: 1px solid;width:600px">${ resume.resumeTitle }</td>
     								</tr>
+    								</table>
+    								</div>
+    								<div style="padding-top: 10px">
+    								<table border="1" style="width:800px; text-align:center">    								
     								<tr>
-    									<td colspan="2">이력서 사진</td>
-    									<td colspan="2"><img src="<%=cp%>/resources/resume/${ reAtt.resumeSavedFilename }" /></td>
-    								</tr>
-    								<tr>
+										<td width="30">이력서 사진</td>
     									<td>이름</td>
     									<td>${ loginuser.memberName }</td>
-    									<td>성별</td>
-    									<td>${ member.gender }</td>
-    								</tr>
-    								<tr>
-    									<td>전화번호</td>
-    									<td>${ loginuser.phoneNo }</td>
     									<td>생년월일</td>
     									<td><fmt:formatDate value="${ member.age}" type="date"/></td>
+    								</tr>
+    								<tr>
+    									<td rowspan="3" height="25"><img src="<%=cp%>/resources/resume/${ reAtt.resumeSavedFilename }" style="width: 170px;height: 130px;"/></td>
+    								</tr>
+    								<tr>
+    									<td>성별</td>
+    									<td>${ member.gender }</td>
+    									<td>전화번호</td>
+    									<td>${ loginuser.phoneNo }</td>
+    									
     								</tr>
     								<tr>
     									<td>주소</td>
     									<td colspan="3">${ loginuser.memberAddress }</td>
     								</tr>
-    							</tbody>
     							</table>
-    						
-    							<table class="table table-hover">
-    							<tbody>
-    								<tr><td>자기소개</td></tr>
-    								<tr><td>${resume.selfintroduction }</td></tr>
-    							</tbody>
+    						</div>
+    						<div style="margin-bottom: 15px">
+    							<table>
+    								<tr><td style="padding: 17px 0 10px 0; font-size:15px; color: steelblue">자기소개</td></tr>
+    								<tr><td style="width:800px;border:1px solid">${resume.selfintroduction }</td></tr>
     							</table>
-    						
-    							<table class="table table-hover">
-    							<tbody>
-    								<tr>
-    									<td colspan="4">학력사항</td>
+    							</div>
+    							
+    							<div style="margin-bottom: 15px;">    						
+    							<table>
+    								<tr style="font-size: 15px">
+    									<td colspan="4" style="color: saddlebrown;">학력사항</td>
     								</tr>
     								<tr>
     									<td>학교이름</td>
@@ -92,13 +93,12 @@
     									<td><fmt:formatDate value="${education.edEndDate }" type="date"/></td>
     								</tr>
     								</c:forEach>
-    							</tbody>
     							</table>
-    						
-    							<table class="table table-hover">
-    							<tbody>
-    								<tr>
-    									<td colspan="4">경력사항</td>
+    						</div>
+    						<div style="margin-bottom:15px">
+    							<table>
+    								<tr style="font-size:15px;">
+    									<td colspan="4" style="padding-top:10px;color:goldenrod">경력사항</td>
     								</tr>
     								<tr>
     									<td>회사이름</td>
@@ -114,25 +114,25 @@
     									<td><fmt:formatDate value="${career.caEndDate }" type="date"/></td>
     								</tr>
     								</c:forEach>
-    							</tbody>
     							</table>
-    						
-    							<table class="table table-hover">
-    							<tbody>
+    							</div>
+    							
+    						<div>
+    							<table>
     								<tr>
     									<td>이력서의 공개여부</td>
     									<td>
     										${resume.ispublic }
     									</td>
     								</tr>
-    							</tbody>
     							</table>
+    							
 							</div>
-						</div>
+							</div>		
+						</section>
 					</div>
 				</div>
-			</div>
-		</div>
+			
 
     <c:import url="/WEB-INF/views/include/footer.jsp" />
     

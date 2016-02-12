@@ -51,7 +51,7 @@
                 <div class="col-md-12">
                      <!--    Hover Rows  -->
                     
-                        <div class="panel-body">
+                        <div class="panel-body" style="padding-bottom:30px">
                             <div id="individualinfo" class="table-responsive">
                                 <table class="table table-hover">
                                     <tbody>
@@ -166,16 +166,18 @@
                     </div>
                     <!-- End  Hover Rows  -->
     			</div>
+    			<div style="padding-left: 760px;">
     			<c:choose>
             	<c:when test="${ resume eq '0' }">
-            	<a href="resumeform.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;이력서 등록 </a>&nbsp;
+            	<a href="resumeform.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span> &nbsp;이력서 등록 </a>&nbsp;
             	</c:when>
         		<c:otherwise>
-        		<a href="resumeview.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;이력서 관리 </a>&nbsp;
+        		<a href="resumeview.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span> &nbsp;이력서 관리 </a>&nbsp;
         		</c:otherwise>
         		</c:choose>
-    			<a href="applicationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;지원현황 </a>&nbsp;
-    			<a href="recommendationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;맞춤알바정보 </a>&nbsp;
+    			<a href="applicationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-list"></span> &nbsp;지원현황 </a>&nbsp;
+    			<a href="recommendationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-thumbs-up"></span> &nbsp;맞춤알바정보 </a>&nbsp;
+    		</div>
     		</div>
     	</div>
     </div>

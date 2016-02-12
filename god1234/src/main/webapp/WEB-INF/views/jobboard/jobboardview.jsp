@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
-    
+
 <!DOCTYPE html>
 
 <html>
@@ -28,43 +28,75 @@
     	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
 	<title>자료업로드</title>
 	
+	<script type="text/javascript" >
+
+/*   	function jobApplication(memberId, jobboardNo) {
+  		var uri = "application.action?memberId="+memberId+"&jobboardNo="+jobboardNo;
+  		location.href=uri; 
+  		alert("지원이 완료 되었습니다. 행운을 빕니다~");
+	} 
+ */
+	
+</script>
 </head>
+
+
 <body>
 
 	<div id="pageContainer">
 	
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		
-		<div style="color:black;padding-top:25px;text-align:center">
 		<div id="inputcontent">
 		    <div id="inputmain">
-		        <div class="inputsubtitle">업로드 자료 정보</div>
-		        <table>
-		            <tr class="info">
-		                <th>제목</th>		                
+		    <center>
+		        <div class="inputsubtitle" style="margin: 40px 0 40px 0;font-size:16px;color:darkmagenta;">일자리 정보</div>
+		        
+		        <table style="width:1000px;"class="table table-striped">
+		            <tr>
+		                <th style="width: 95px">제목</th>
 		                <td>${ jobboard.jobboardTitle }</td>
-		                
 		            </tr>
+		            
 		               <tr>
 		                <th>회사/점포명</th>
-		                <td>
-		                	
+		                <td>		                	
 		                	${ jobboard.memberName }
 		                </td>
 		            </tr>
+		            
 		            <tr>
 		                <th>작성자</th>
 		                <td>${ jobboard.memberId }</td>
 		            </tr>
 		            <tr>
     					<th>채용 사진</th>
-    					<input type="file" name="attach" style="width:580px;height:20px" />
 		                    <c:forEach var="file" items="${jobboard1.files }">
 		                    	<p>${file.savedFileName }</p><br />
 		                    </c:forEach>
     				</tr>
     				
     				      
+		            <tr>
+		            	<th>마감일자</th>
+		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
+		            </tr>		         
+		            <tr>
+		            	<th>상세 모집 요강</th>
+		            	<td>${ jobboard.jobboardContent }</td>
+		            </tr>
+		            <tr>
+		            	<th>나이</th>
+		            	<td>${ jobboard.jobboardAge }</td>
+		            </tr>
+		            <tr>
+		            	<th>모집인원</th>
+		            	<td>${ jobboard.jobboardJoinNo }</td>
+		            </tr>
+		            <tr>
+		            	<th>성별</th>
+		            	<td>${ jobboard.jobboardGender }</td>
+		            	</tr>
 		            <tr>
 		            	<th>경력정보</th>
 		            	<td>
@@ -136,7 +168,38 @@
 		            
 		            <tr>
 		            	<th>모집연령</th>
-		            	<td>${ jobboard.jobboardAge }</td>
+		            	<td>
+		            	<c:choose>
+		            	<c:when test="${ jobboard.jobboardAge eq 'none1' }">
+		            		나이 무관
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '1' }">
+		            		10세 이상 20세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '2' }">
+		            		20세 이상 30세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '3' }">
+		            		30세 이상 40세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '4' }">
+		            		40세 이상 50세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '5' }">
+		            		50세 이상 60세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '6' }">
+		            		60세 이상 70세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '7' }">
+		            		70세 이상 80세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '1' }">
+		            		80세 이상
+		            	</c:when>
+		            	</c:choose>
+		            	
+		            	</td>
 		            </tr>
 		             <tr>
 		            	<th>모집인원</th>
@@ -184,33 +247,27 @@
 		            	<th>email</th>
 		            	<td>${ jobboard.jobboardemail }</td>
 		            </tr>
-		         
-		       		         
-		 
-		            <tr>
-		            	<th>상세 모집 요강</th>
-		            	<td>${ jobboard.jobboardContent }</td>
-		            </tr>
-		            		           		           		         
+		                 		           		         
 		            
 		        </table>
-		        <div class="buttons">
+		        <div class="buttons" style="margin: 40px 0 60px 0;">
 		        	
 		        	<c:if test="${ loginuser.memberType eq 'individual' }">
 		        	
 		        	[<a href="javascript:application('${loginuser.memberId}', ${ jobboard.jobboardNo })">지원하기</a>]
+
 		        	</c:if>
 		        	
-		        	<c:if test="${ loginuser.memberType eq 'company' }">
-		        	<a href="edit.action?jobboardno=${ jobboard.jobboardNo }">정보수정</a>
+		        	<c:if test="${ (loginuser.memberType eq 'company') }">
+		        		<c:if test="${ (loginuser.memberId eq jobboard.memberId) }">
+		        			<a href="edit.action?jobboardNo=${ jobboard.jobboardNo }&memberId=${loginuser.memberId}">정보수정</a>
+		        		</c:if>
 					</c:if>
-		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
+		        	<input class="btn btn-info" type="button" value="취소" style="height:33px;width:55px;padding:3px 3px 3px 3px" onclick="location.href='list.action';" />
 		        </div>
 		    </div>
-		</div>   	
-	
-	</div>
-	</div>
+		    </center>
+		</div>   
 	<div>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>

@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -31,13 +34,14 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
+
 		
 		<div style="padding: 70px 0 50px 0;text-align:center">
 			<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />		
 			<c:if test="${ loginuser.memberType eq 'company' }">
-            	<li><a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료등록 </a>&nbsp;</a></li>
+            	<a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-chevron-down"></span>&nbsp;자료등록 </a>&nbsp;
         	</c:if>
-			 <a href="searchcategory.action" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료찾기</a>&nbsp;
+			 <a href="searchcategory.action" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> &nbsp;자료찾기</a>&nbsp;
 			<br /><br />
 			</div>
 			

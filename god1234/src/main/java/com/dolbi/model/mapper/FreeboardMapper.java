@@ -26,4 +26,5 @@ public interface FreeboardMapper {
 	void updateComment(HashMap map);
 
 	void deleteComment(int commentNo);
+	
 }
