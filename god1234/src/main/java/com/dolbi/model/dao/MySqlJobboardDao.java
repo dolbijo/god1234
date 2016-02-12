@@ -36,9 +36,7 @@ public class MySqlJobboardDao implements JobboardDao {
       
       
 	int newJobboardNo = jobboardMapper.insertJobboard(jobboard);
-	System.out.println("Daoinsertjobboard:" + newJobboardNo +"/"+ jobboard.getJobboardNo());
-	 
-	
+
 	return newJobboardNo;
 
    }
@@ -115,6 +113,14 @@ public class MySqlJobboardDao implements JobboardDao {
 	   List<Jobboard> jobboards = jobboardMapper.selectJobboardBySearchTag(searchTag);
 	   
 	   return jobboards;
+   }
+   
+   public void deleteJobboardAttachmentByJobboardNo(int jobboardNo) {
+	   jobboardMapper.deleteJobboardAttachmentByJobboardNo(jobboardNo);
+   }
+   
+   public void updateJobboard(Jobboard jobboard) {
+	   jobboardMapper.updateJobboard(jobboard);
    }
 
 }

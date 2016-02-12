@@ -82,7 +82,7 @@
 	
 
 	<br /><br />
-		
+		<c:if test="${ loginuser.memberType eq 'individual' }">
 		<form id="commentform" 
 			action="writecomment.action" method="post">
 			<input type="hidden" name="freeboardNo" value="${ freeboard.freeboardNo}" />
@@ -93,13 +93,16 @@
 	                    <textarea name="content" style="width:650px" rows="3"></textarea>
 	                </td>
 	                <td style="width:50px;vertical-align:middle;padding-right:5px;padding-left:5px">
+	                
 	                	<a href="javascript:document.getElementById('commentform').submit();" style="text-decoration:none">
 	                		댓글등록
 	                	</a>
+	                
 	                </td>
 	            </tr>                    
 	        </table>
-        </form>        
+        </form>   
+        </c:if>     
         
         <hr align="center" style="width:600px;" />
         
