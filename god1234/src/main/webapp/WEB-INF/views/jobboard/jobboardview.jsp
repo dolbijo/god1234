@@ -71,7 +71,6 @@
 		            </tr>
 		            <tr>
     					<th>채용 사진</th>
-    					<input type="file" name="attach" style="width:580px;height:20px" />
 		                    <c:forEach var="file" items="${jobboard1.files }">
 		                    	<p>${file.savedFileName }</p><br />
 		                    </c:forEach>
@@ -96,6 +95,9 @@
 		            </tr>
 		            <tr>
 		            	<th>성별</th>
+		            	<td>${ jobboard.jobboardGender }</td>
+		            	</tr>
+		            <tr>
 		            	<th>경력정보</th>
 		            	<td>
 		            	<c:choose>
@@ -214,14 +216,7 @@
 		            	<th>email</th>
 		            	<td>${ jobboard.jobboardemail }</td>
 		            </tr>
-		         
-		       		         
-		 
-		            <tr>
-		            	<th>상세 모집 요강</th>
-		            	<td>${ jobboard.jobboardContent }</td>
-		            </tr>
-		            		           		           		         
+		                 		           		         
 		            
 		        </table>
 		        <div class="buttons" style="margin: 40px 0 60px 0;">
@@ -237,7 +232,7 @@
 		        			<a href="edit.action?jobboardno=${ jobboard.jobboardNo }">정보수정</a>
 		        		</c:if>
 					</c:if>
-		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
+		        	<input class="btn btn-info" type="button" value="취소" style="height:33px;width:55px;padding:3px 3px 3px 3px" onclick="location.href='list.action';" />
 		        </div>
 		    </div>
 		    </center>
