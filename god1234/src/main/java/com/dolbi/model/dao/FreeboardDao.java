@@ -17,10 +17,10 @@ public interface FreeboardDao {
 	ArrayList<Freeboard> getFreeboardList();
 
 	Freeboard getFreeboardByFreeboardNo(int FreeboardNo);
-	
-	int getFreeboardNoByMemberId(String memberId);
 
 	void updateCount(int freeboardNo);
+
+	int getFreeboardNoByMemberId(String memberId);
 
 	void insertComment(HashMap map);
 

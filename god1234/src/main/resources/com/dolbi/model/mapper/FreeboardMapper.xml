@@ -61,7 +61,7 @@
 		SELECT <include refid="FreeboardColumns" /> 
 		FROM FREEBOARD
 	</select>
-	
+
 	<insert id="insertFreeboard" parameterType="Freeboard">
 		<selectKey keyProperty="freeboardNo" resultType="int" order="BEFORE">
 			SELECT IFNULL( MAX(f_no), 0) + 1 from FREEBOARD
@@ -70,6 +70,9 @@
 		VALUES (#{freeboardNo},#{freeboardTitle}, #{freeboardContent}, #{freeboardtype},#{memberId})
 	</insert>
 	
+	<update id="updateCount" parameterType="int">
+		update freeboard set F_READCOUNT = F_READCOUNT + 1 WHERE F_NO = #{freebboardNo}
+	</update>
 	
 	<select id="selectFreeboardNoByMemberId" parameterType="String" resultType="int">
 	
@@ -78,10 +81,6 @@
 		where m_id = #{memberId}
 	
 	</select>
-
-	<update id="updateCount" parameterType="int">
-		update freeboard set F_READCOUNT = F_READCOUNT + 1 WHERE F_NO = #{freeboardNo}
-	</update>
 	
 	<insert id="insertComment" parameterType="hashmap">
 		<selectKey keyProperty="freeboardCommnetNo" resultType="int" order="BEFORE">
@@ -98,7 +97,6 @@
 	<delete id="deleteComment" parameterType="int">
 		delete from FREEBOARDCOMMENT where fc_no=#{commentNo}
 	</delete>
-
 </mapper>
 
 

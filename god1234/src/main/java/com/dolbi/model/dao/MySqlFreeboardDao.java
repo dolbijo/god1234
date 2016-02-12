@@ -52,6 +52,7 @@ public class MySqlFreeboardDao implements FreeboardDao {
 		   return (ArrayList<Freeboard>) freeboards;
 				
 	}
+	
 
 	 @Override
 	   public Freeboard getFreeboardByFreeboardNo(int freeboardNo) {
@@ -59,10 +60,12 @@ public class MySqlFreeboardDao implements FreeboardDao {
 		   Freeboard freeboard = freeboardMapper.selectFreeboardByfreeboardNo(freeboardNo);
 	      
 	      return freeboard;
-	      
-	      
+	      	      
 	   }
-	   
+	 
+	   public void updateCount(int freeboardNo) {
+		   freeboardMapper.updateCount(freeboardNo);
+	   }
 	   
 	   public int getFreeboardNoByMemberId(String memberId) {
 		   
@@ -71,11 +74,7 @@ public class MySqlFreeboardDao implements FreeboardDao {
 		   return freeboardNo;
 	   }
 
-	
-	public void updateCount(int freeboardNo) {
-		   freeboardMapper.updateCount(freeboardNo);
-	}
-	
+
 	public void insertComment(HashMap map) {
 		freeboardMapper.insertComment(map);
 	}
