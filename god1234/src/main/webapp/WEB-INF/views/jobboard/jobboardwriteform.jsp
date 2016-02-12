@@ -2,6 +2,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String cp = request.getContextPath(); %>
+
 <!DOCTYPE html>
 
 <html>
@@ -16,6 +17,7 @@
 </head>
 	 
 <body>
+
 	<c:import url="/WEB-INF/views/include/header.jsp" />
 	<div class="content-wrapper">
         <div class="container">
