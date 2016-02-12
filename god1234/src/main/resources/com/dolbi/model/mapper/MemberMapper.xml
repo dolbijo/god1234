@@ -99,7 +99,7 @@
 	
 	<insert id="insertCategory" parameterType="hashMap">
 		<selectKey keyProperty="likedcategoryNo" resultType="int" order="BEFORE">
-			SELECT count(*)+1 from likedcategory
+			SELECT IFNULL( MAX(lc_no), 0) + 1 from likedcategory
 		</selectKey>
 		INSERT INTO likedcategory (lc_no, m_id, jc_no)
 		VALUES (#{likedcategoryNo}, #{id}, #{categoryNo})

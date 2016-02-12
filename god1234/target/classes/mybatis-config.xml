@@ -22,6 +22,7 @@
 		<typeAlias type="com.dolbi.model.dto.Jobboard" alias="Jobboard" />
 		
 		<typeAlias type="com.dolbi.model.dto.Freeboard" alias="Freeboard" />
+		<typeAlias type="com.dolbi.model.dto.FreeboardComment" alias="FreeboardComment" />
 		<typeAlias type="com.dolbi.model.dto.JobboardAttachment" alias="JobboardAttachment" />
 		
 		<typeAlias type="com.dolbi.model.dto.Resume" alias="Resume" />

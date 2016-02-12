@@ -3,7 +3,9 @@ package com.dolbi.controller;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -27,6 +29,7 @@ import com.dolbi.model.dao.FreeboardDao;
 import com.dolbi.model.dao.IndividualDao;
 import com.dolbi.model.dao.JobboardDao;
 import com.dolbi.model.dto.Freeboard;
+import com.dolbi.model.dto.FreeboardComment;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
@@ -61,13 +64,22 @@ public class FreeboardController {
 			return "redirect:/freeboard/list.action";
 		}
 		
+	   @RequestMapping(value = "updatecount.action", method = RequestMethod.GET)
+		public String updatecount(@RequestParam(value="FreeboardNo") int freeboardNo) {
+			
+			freeboardDao.updateCount(freeboardNo);
+
+			return "redirect:/freeboard/view.action?FreeboardNo="+freeboardNo;
+		}
 	  
 	   @RequestMapping(value = "view.action", method = RequestMethod.GET)
 		public ModelAndView getFreeboard(
 				@RequestParam(value="FreeboardNo") int freeboardNo) {
 			ModelAndView mav = new ModelAndView();
+			
 			Freeboard freeboard = freeboardDao.getFreeboardByFreeboardNo(freeboardNo);
 			mav.addObject(freeboard);
+			
 			mav.setViewName("freeboard/freeboardview");
 			return mav;
 		}
@@ -115,9 +127,43 @@ public class FreeboardController {
 		return "redirect:/freeboard/view.action?memberid=" + freeboard.getMemberId();
 	}
 	
+	@RequestMapping(value = "writecomment.action", method = RequestMethod.POST)
+	public String writecomment(int freeboardNo, String content, String memberId) {
+		
+		HashMap<String, Object> map = new HashMap<String,Object>();
+		map.put("freeboardNo", freeboardNo);
+		map.put("content", content);
+		map.put("memberId", memberId);
+		
+		freeboardDao.insertComment(map);
+		
+		return "redirect:/freeboard/view.action?FreeboardNo="+freeboardNo;
+		
+	}
 	
 	
-
+	@RequestMapping(value = "updatecomment.action", method = RequestMethod.POST)
+	public String updateComment(int freeboardNo, String content, int commentNo) {
+		
+		HashMap<String, Object> map = new HashMap<String,Object>();
+		map.put("freeboardNo", freeboardNo);
+		map.put("content", content);
+		map.put("commentNo", commentNo);
+		
+		freeboardDao.updateComment(map);
+		
+		return "redirect:/freeboard/view.action?FreeboardNo="+freeboardNo;
+		
+	}
+	
+	@RequestMapping(value = "deletecomment.action", method = RequestMethod.GET)
+	public String deleteComment(int freeboardNo, int commentNo) {
+		
+		freeboardDao.deleteComment(commentNo);
+		
+		return "redirect:/freeboard/view.action?FreeboardNo="+freeboardNo;
+		
+	}
 
 }
 
