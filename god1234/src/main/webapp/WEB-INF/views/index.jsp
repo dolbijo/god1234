@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 <head>
@@ -29,12 +30,23 @@
 				<c:forEach var="newjobboard" items="${newjobboards }">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-one">
-							<i  class="fa fa-venus dashboard-div-icon" ></i>
-								<div class="progress progress-striped active">
-									<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-									</div>                      
-								</div>
-							<h5>Simple Text Here </h5>
+							<!-- 아이콘 하나 달아주기 -->
+							<h4>${newjobboard.jobboardTitle } </h4>
+							<h5>${newjobboard.memberName } </h5>
+							<h5>
+							<c:choose>
+            					<c:when test="${ newjobboard.jobboardPayment eq 'permonth' }">
+		            				월급
+		            			</c:when>
+				            	<c:when test="${ newjobboard.jobboardPayment eq 'perweek' }">
+				            		주급
+				            	</c:when>
+				        		<c:otherwise>
+				        			시급
+				        		</c:otherwise>
+		        			</c:choose>
+					 		/ <fmt:formatNumber type="number" maxFractionDigits="3" value="${ newjobboard.jobboardSalary }" />원
+							</h5>
 						</div>
 					</div>
 				</c:forEach>
@@ -51,12 +63,23 @@
 				<c:forEach var="popjobboard" items="${popjobboards }">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-two">
-							<i  class="fa fa-venus dashboard-div-icon" ></i>
-								<div class="progress progress-striped active">
-									<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-									</div>                      
-								</div>
-							<h5>Simple Text Here </h5>
+							<!-- 아이콘 하나 달아주기 -->
+							<h4>${popjobboard.jobboardTitle } </h4>
+							<h5>${popjobboard.memberName } </h5>
+							<h5>
+							<c:choose>
+            					<c:when test="${ popjobboard.jobboardPayment eq 'permonth' }">
+		            				월급
+		            			</c:when>
+				            	<c:when test="${ popjobboard.jobboardPayment eq 'perweek' }">
+				            		주급
+				            	</c:when>
+				        		<c:otherwise>
+				        			시급
+				        		</c:otherwise>
+		        			</c:choose>
+					 		/ <fmt:formatNumber type="number" maxFractionDigits="3" value="${ popjobboard.jobboardSalary }" />원
+							</h5>
 						</div>
 					</div>
 				</c:forEach>
@@ -73,12 +96,8 @@
 				<c:forEach var="albainfofreeboard" items="${albainfofreeboards }">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-three">
-							<i  class="fa fa-venus dashboard-div-icon" ></i>
-								<div class="progress progress-striped active">
-									<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-									</div>                      
-								</div>
-							<h5>Simple Text Here </h5>
+							<h4>${albainfofreeboard.freeboardTitle } </h4>
+							<h4>${albainfofreeboard.memberId } </h4>
 						</div>
 					</div>
 				</c:forEach>
@@ -95,12 +114,8 @@
 				<c:forEach var="albawarningfreeboard" items="${albawarningfreeboards }">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-four">
-							<i  class="fa fa-venus dashboard-div-icon" ></i>
-								<div class="progress progress-striped active">
-									<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-									</div>                      
-								</div>
-							<h5>Simple Text Here </h5>
+							<h4>${albawarningfreeboard.freeboardTitle } </h4>
+							<h4>${albawarningfreeboard.memberId } </h4>
 						</div>
 					</div>
 				</c:forEach>
@@ -117,12 +132,8 @@
 				<c:forEach var="albaexpfreeboard" items="${albaexpfreeboards }">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-five">
-							<i  class="fa fa-venus dashboard-div-icon" ></i>
-								<div class="progress progress-striped active">
-									<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-									</div>                      
-								</div>
-							<h5>Simple Text Here </h5>
+							<h4>${albaexpfreeboard.freeboardTitle } </h4>
+							<h4>${albaexpfreeboard.memberId } </h4>
 						</div>
 					</div>
 				</c:forEach>
