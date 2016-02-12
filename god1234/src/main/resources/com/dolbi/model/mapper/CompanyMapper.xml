@@ -56,6 +56,75 @@
 		update application set a_ischeck = '1' where a_no = #{applicationNo} 
 	</update>
 	
+	<resultMap type="Resume" id="ResumeMap">
+		<id column="M_ID" property="memberId" />
+		<result column="r_title" property="resumeTitle" />
+		<result column="r_selfintroduction" property="selfintroduction" />
+		<result column="r_ispublic" property="ispublic" />
+		<result column="r_readcount" property="readcount" />
+		<result column="r_lastmodified" property="lastmodified" />
+	</resultMap>
+	
+	<resultMap type="ResumeAttachment" id="ResumeAttMap">
+		<id column="M_ID" property="memberId" />
+		<result column="ra_savedfilename" property="resumeSavedFilename" />
+		<result column="ra_filename" property="resumeFilename" />
+	</resultMap>
+	
+	<resultMap type="Career" id="CareerMap">
+		<id column="c_no" property="careerNo" />
+		<result column="c_companyname" property="companyName" />
+		<result column="c_companytype" property="companyType" />
+		<result column="c_startdate" property="caStartDate" />
+		<result column="c_enddate" property="caEndDate" />
+		<result column="m_id" property="memberId" />
+	</resultMap>
+	
+	<resultMap type="Education" id="EducationMap">
+		<id column="e_no" property="eduNo" />
+		<result column="e_schoolname" property="schoolName" />
+		<result column="e_major" property="major" />
+		<result column="e_startdate" property="edStartDate" />
+		<result column="e_enddate" property="edEndDate" />
+		<result column="m_id" property="memberId" />
+	</resultMap>
+	
+	<select id="selectResumeBymemberId" parameterType="String" resultMap="ResumeMap">
+		select *
+		from resume
+		where m_id = #{id}
+	</select>
+	
+	<select id="selectResumeAttachmentBymemberId" parameterType="String" resultMap="ResumeAttMap">
+		select *
+		from resumeAttachment
+		where m_id = #{id}
+	</select>
+	
+	<select id="selectCareerBymemberId" parameterType="String" resultMap="CareerMap">
+		select *
+		from Career
+		where m_id = #{id}
+	</select>
+	
+	<select id="selectEducationBymemberId" parameterType="String" resultMap="EducationMap">
+		select *
+		from Education
+		where m_id = #{id}
+	</select>
+	
+	<resultMap type="Member" id="individualMap">
+		<id column="M_ID" property="memberId" />
+		<result column="M_GENDER" property="gender" />
+		<result column="M_AGE" property="age" />
+	</resultMap>
+	
+	<select id="selectIndividualByMemberId" resultMap="individualMap" parameterType="String">
+		SELECT *
+		FROM individual
+		WHERE m_id = #{id}
+	</select>
+	
 </mapper>
 
 

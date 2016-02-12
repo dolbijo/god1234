@@ -13,9 +13,13 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.dolbi.model.dto.Application;
+import com.dolbi.model.dto.Career;
+import com.dolbi.model.dto.Education;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
+import com.dolbi.model.dto.Resume;
+import com.dolbi.model.dto.ResumeAttachment;
 import com.dolbi.model.dto.Upload;
 import com.dolbi.model.dto.UploadFile;
 import com.dolbi.model.mapper.IndividualMapper;
@@ -87,6 +91,36 @@ public class MySqlCompanyDao implements CompanyDao {
    public void updateApplication(int applicationNo) {
 	   companyMapper.updateApplication(applicationNo);
    }
+   
+   public Resume getResumeById(String id) {
+		
+		Resume resume = companyMapper.selectResumeBymemberId(id);
+		
+		return resume;
+		
+	}
+	public ResumeAttachment getResumeAttachmentById(String id){
+		ResumeAttachment reAtt = companyMapper.selectResumeAttachmentBymemberId(id);
+		
+		return reAtt;
+	}
+	
+	public ArrayList<Career> getCareerById(String id) {
+		ArrayList<Career> career = companyMapper.selectCareerBymemberId(id);
+		return career;
+	}
+	
+	public ArrayList<Education> getEducationById(String id) {
+		ArrayList<Education> edu = companyMapper.selectEducationBymemberId(id);
+		return edu;
+	}
+	
+	public Member getIndividualById(String id) {
+		
+		Member member = companyMapper.selectIndividualByMemberId(id);
+		return member;
+		
+	}
 
 }
 
