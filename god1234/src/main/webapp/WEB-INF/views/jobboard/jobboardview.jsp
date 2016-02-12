@@ -168,7 +168,38 @@
 		            
 		            <tr>
 		            	<th>모집연령</th>
-		            	<td>${ jobboard.jobboardAge }</td>
+		            	<td>
+		            	<c:choose>
+		            	<c:when test="${ jobboard.jobboardAge eq 'none1' }">
+		            		나이 무관
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '1' }">
+		            		10세 이상 20세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '2' }">
+		            		20세 이상 30세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '3' }">
+		            		30세 이상 40세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '4' }">
+		            		40세 이상 50세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '5' }">
+		            		50세 이상 60세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '6' }">
+		            		60세 이상 70세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '7' }">
+		            		70세 이상 80세 미만
+		            	</c:when>
+		            	<c:when test="${ jobboard.jobboardAge eq '1' }">
+		            		80세 이상
+		            	</c:when>
+		            	</c:choose>
+		            	
+		            	</td>
 		            </tr>
 		             <tr>
 		            	<th>모집인원</th>
