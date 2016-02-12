@@ -1,6 +1,7 @@
 package com.dolbi.model.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.dolbi.model.dto.Application;
 import com.dolbi.model.dto.Career;
@@ -32,5 +33,10 @@ public interface CompanyDao {
 	ArrayList<Education> getEducationById(String id);
 	
 	Member getIndividualById(String id);
+	
+	ArrayList<Resume> getResumeList();
+	void updateReadCount(String memberId);
+	
+	
 
 }

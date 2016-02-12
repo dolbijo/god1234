@@ -121,6 +121,17 @@ public class MySqlCompanyDao implements CompanyDao {
 		return member;
 		
 	}
+	
+	public ArrayList<Resume> getResumeList() {
+		
+		ArrayList<Resume> resumes = companyMapper.selectResumeList();
+		
+		return resumes;
+	}
+	
+	public void updateReadCount(String memberId) {
+		companyMapper.updateReadCount(memberId);
+	}
 
 }
 
