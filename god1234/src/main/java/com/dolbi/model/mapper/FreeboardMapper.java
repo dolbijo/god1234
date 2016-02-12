@@ -18,11 +18,12 @@ public interface FreeboardMapper {
 	void insertFreeboard(Freeboard freeboard);
 	
 	void updateCount(int freeboardNo);
+	
+	int selectFreeboardNoByMemberId(String memberId);
 
 	void insertComment(HashMap map);
 
 	void updateComment(HashMap map);
 
 	void deleteComment(int commentNo);
-	
 }

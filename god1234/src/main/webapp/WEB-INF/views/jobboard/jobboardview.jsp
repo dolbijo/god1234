@@ -53,7 +53,7 @@
 		        <div class="inputsubtitle">업로드 자료 정보</div>
 		        <table>
 		            <tr class="info">
-		                <th>제목</th>
+		                <th>제목</th>		                
 		                <td>${ jobboard.jobboardTitle }</td>
 		                
 		            </tr>
@@ -70,45 +70,27 @@
 		            </tr>
 		            <tr>
     					<th>채용 사진</th>
-    					<%-- <td colspan="2"><img src="<%=cp%>/resources/uploadfiles/${ jobboard. }" /></td> --%>
+    					<input type="file" name="attach" style="width:580px;height:20px" />
+		                    <c:forEach var="file" items="${jobboard1.files }">
+		                    	<p>${file.savedFileName }</p><br />
+		                    </c:forEach>
     				</tr>
+    				
+    				      
 		            <tr>
-		            	<th>마감일자</th>
-		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
-		            </tr>
-		         
-		            <tr>
-		            	<th>상세 모집 요강</th>
-		            	<td>${ jobboard.jobboardContent }</td>
-		            </tr>
-		            <tr>
-		            	<th>나이</th>
-		            	<td>${ jobboard.jobboardAge }</td>
-		            </tr>
-		            <tr>
-		            	<th>모집인원</th>
-		            	<td>${ jobboard.jobboardJoinNo }</td>
-		            </tr>
-		            <tr>
-		            	<th>성별</th>
+		            	<th>경력정보</th>
 		            	<td>
-		            		<c:choose>
-						
-            			<c:when test="${ jobboard.jobboardGender eq 'male' }">
-		            		남성
+		            	<c:choose>
+		            	<c:when test="${ jobboard.jobboardCareer eq 'new' }">
+		            		신입
 		            	</c:when>
-		            	
-		            	<c:when test="${ jobboard.jobboardGender eq 'female' }">
-		            		여성
-		            	</c:when>
-		            	
-		        		<c:otherwise>
-		        			남여무관
-		        		</c:otherwise>
-		        		
-		        		</c:choose>
+		            	<c:otherwise>
+		            		경력
+		            	</c:otherwise>
+		            	</c:choose>
 		            	</td>
 		            </tr>
+		            
 		            <tr>
 		            	 <th>학력</th>
 		            	<td>
@@ -142,6 +124,37 @@
 		            	
 		            	</td>
 		            </tr>
+		             <tr>
+		            	<th>성별</th>
+		            	<td>
+		            		<c:choose>
+						
+            			<c:when test="${ jobboard.jobboardGender eq 'male' }">
+		            		남성
+		            	</c:when>
+		            	
+		            	<c:when test="${ jobboard.jobboardGender eq 'female' }">
+		            		여성
+		            	</c:when>
+		            	
+		        		<c:otherwise>
+		        			남여무관
+		        		</c:otherwise>
+		        		
+		        		</c:choose>
+		            	</td>
+		            </tr>
+		            
+		            
+		            <tr>
+		            	<th>모집연령</th>
+		            	<td>${ jobboard.jobboardAge }</td>
+		            </tr>
+		             <tr>
+		            	<th>모집인원</th>
+		            	<td>${ jobboard.jobboardJoinNo }</td>
+		            </tr>
+		            
 		            <tr>
 		            	 <th>급여</th>
 		            	<td>
@@ -166,21 +179,31 @@
 		            	
 		            	</td>
 		            </tr>
+		            
 		            <tr>
-		            	<th>경력정보</th>
-		            	<td>
-		            	<c:choose>
-		            	<c:when test="${ jobboard.jobboardCareer eq 'new' }">
-		            		신입
-		            	</c:when>
-		            	<c:otherwise>
-		            		경력
-		            	</c:otherwise>
-		            	</c:choose>
-		            	</td>
+		            	<th>마감일자</th>
+		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
 		            </tr>
 		            
-		             
+		            
+		            <tr>
+		            	<th>전화번호</th>
+		            	<td>${ jobboard.jobboardPhone }</td>
+		            </tr>
+		            
+		            
+		            <tr>
+		            	<th>email</th>
+		            	<td>${ jobboard.jobboardemail }</td>
+		            </tr>
+		         
+		       		         
+		 
+		            <tr>
+		            	<th>상세 모집 요강</th>
+		            	<td>${ jobboard.jobboardContent }</td>
+		            </tr>
+		            		           		           		         
 		            
 		        </table>
 		        <div class="buttons">

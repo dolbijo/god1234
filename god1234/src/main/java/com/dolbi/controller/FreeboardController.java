@@ -97,13 +97,26 @@ public class FreeboardController {
 	   }
 	   
 	
-	@RequestMapping(value = "edit.action", method = RequestMethod.GET)
-	public String editForm(
-		@RequestParam("memberid") String memberId,		
-		@ModelAttribute("member") Member member) {//HttpServletRequest.setAttribute("member", member)
+	//edit
+	  @RequestMapping(value = "edit.action", method = RequestMethod.GET)
+	   public String editForm(   
+	      @RequestParam("freeboardno") int freeboardNo,      
+	      @ModelAttribute("freeboard") Freeboard freeboard, Model model) {
+		   System.out.println(freeboardNo);
+	     Freeboard freeboard1 = freeboardDao.getFreeboardByFreeboardNo(freeboardNo);
+	
+	     model.addAttribute("freeboard1",freeboard1);
+	         return "freeboard/freeboardeditform";
+	      
+	   }
+	   
+	
+	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
+	public String update(@ModelAttribute("freeboard") Freeboard freeboard) {//읽기 + view로 전달
+		//System.out.println(jobboard.getJobboardAge());
+		freeboard.setMemberId(Util.getHashedString(freeboard.getMemberId(), "SHA-1"));
 		
-			return "freeboard/editform";
-		
+		return "redirect:/freeboard/view.action?memberid=" + freeboard.getMemberId();
 	}
 	
 	@RequestMapping(value = "writecomment.action", method = RequestMethod.POST)
@@ -143,8 +156,6 @@ public class FreeboardController {
 		return "redirect:/freeboard/view.action?FreeboardNo="+freeboardNo;
 		
 	}
-	
-
 
 }
 

@@ -42,14 +42,21 @@
                                 <label class="control-label" for="success">첨부파일</label>
                                  <input type="file" class="form-control" name="attach" style="width:650px;height:50px" />
                                
+                               
                                 
-                                <label class="control-label" for="success">상세 모집 요강</label>
-                               <textarea name="content" class="form-control" style="width:580px" rows="15"></textarea>
-                                
-                                <label class="control-label" for="success">경력사항</label>
+                                <label class="control-label" for="success">경력요구사항</label>
                                 <input type="radio" class="form-control" id="career" name="career" value="new" style="heignt:100px;width:20px;display: inline;">신입
                                 <input type="radio" class="form-control" id="career" name="career" value="old" style="heignt:100px;width:20px;display: inline;">경력
     							<input type="radio" class="form-control" id="career" name="career" value="none" style="heignt:100px;width:20px;display: inline;">경력무관
+    							
+    							<label class="control-label" for="success">학력</label>
+    							
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade1" style="heignt:100px;width:20px;display: inline;">초졸
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade2" style="heignt:100px;width:20px;display: inline;">중졸
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade3" style="heignt:100px;width:20px;display: inline;">고졸
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade4" style="heignt:100px;width:20px;display: inline;">초대졸
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade5" style="heignt:100px;width:20px;display: inline;">초대졸이상
+    						<input type="radio" class="form-control" id="edu" name="edu" value="grade6" style="heignt:100px;width:20px;display: inline;">기타
                                 
                                 <label class="control-label" for="success">성별</label>
                                 <input type="radio" class="form-control" id="gender" name="gender" value="male" style="heignt:100px;width:20px;display: inline;">남자
@@ -58,11 +65,12 @@
     							
     							<label class="control-label" for="success">모집 연령</label>
                                 <select id="birthday" name="birthday" class="form-control" value="selectbirth">
-                                <option value="">나이무관</option>
-    							 <option value="">출생년도 선택</option>
-     							<%for(int i=1950; i<=2010; i++){ %>
-    							 <option value="<%=i%>"><%=i+"년"%></option>
+                                <option value="none1">나이무관</option>
+    							 
+     							<%for(int i=1; i<=7; i++){ %>
+    							 <option value="<%=i%>"><%=i*10+"살"+"이상"+(i+1)*10+"미만"%></option>
      							<%} %>
+     							<option value="8">80이상</option>
      							</select>
                             
                             	<label class="control-label" for="success">모집인원</label>
@@ -78,6 +86,7 @@
                                 
                                 <label class="control-label" for="success">마감일자</label>
                                 <input type="date" class="form-control" name="deadline" />
+                                <input type="checkbox" name="datenone" value="datenone"/>상시모집
                                 
     							<label class="control-label" for="success">전화번호</label>
                                 <input type="text" class="form-control" id="phoneNo" name="phoneNo" />
@@ -85,8 +94,14 @@
                                 <label class="control-label" for="success">이메일</label>
                                 <input type="text" class="form-control" id="email" name="email" />
                                 
+                                                            
+                                <label class="control-label" for="success">상세 모집 요강</label>
+                               <textarea name="content" class="form-control" style="width:580px" rows="15"></textarea>
+                                
+                                <label class="control-label" for="success">직종선택</label>
                                 <c:choose>
                                 <c:when test="${jobboardNo eq 1 }">
+                                    
                                 	<input type="checkbox" name="ca" value="#판매"/>판매
                                 	<input type="checkbox" name="ca" value="#서빙"/>서빙
                                 	<input type="checkbox" name="ca" value="#안내데스크"/>안내데스크
@@ -156,7 +171,7 @@
                                 </c:when>
                                 </c:choose>
                                 
-                                
+                                </br>
                                 <input type="submit" value="등록"  class="button btn btn-success btn-large"/>
 		        				<input type="button" value="취소" onclick="location.href='list.action';" class="button btn btn-success btn-large"/>
     						</form>

@@ -53,20 +53,29 @@ public class MySqlFreeboardDao implements FreeboardDao {
 				
 	}
 	
-	@Override
-	public Freeboard getFreeboardByFreeboardNo(int freeboardNo) {
-	
-		Freeboard freeboard = freeboardMapper.selectFreeboardByfreeboardNo(freeboardNo);
-		
-		return freeboard;
-		
-		
-	}
 
-	
-	public void updateCount(int freeboardNo) {
+	 @Override
+	   public Freeboard getFreeboardByFreeboardNo(int freeboardNo) {
+	   
+		   Freeboard freeboard = freeboardMapper.selectFreeboardByfreeboardNo(freeboardNo);
+	      
+	      return freeboard;
+	      
+	      
+	   }
+	 
+	   public void updateCount(int freeboardNo) {
 		   freeboardMapper.updateCount(freeboardNo);
-	}
+	   }
+	   
+	   public int getFreeboardNoByMemberId(String memberId) {
+		   
+		   int freeboardNo = freeboardMapper.selectFreeboardNoByMemberId(memberId);
+		   
+		   return freeboardNo;
+	   }
+
+
 	
 	public void insertComment(HashMap map) {
 		freeboardMapper.insertComment(map);
