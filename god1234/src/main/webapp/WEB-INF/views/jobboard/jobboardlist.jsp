@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String cp = request.getContextPath(); %>
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -31,6 +34,7 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
+
 		
 		<div style="padding: 70px 0 50px 0;text-align:center">
 			<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />		

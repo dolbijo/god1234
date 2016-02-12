@@ -215,7 +215,7 @@
 		        	</c:if>
 		        	
 		        	<c:if test="${ loginuser.memberType eq 'company' }">
-		        	<a href="edit.action?jobboardno=${ jobboard.jobboardNo }">정보수정</a>
+		        	<a href="edit.action?jobboardNo=${ jobboard.jobboardNo }&memberId=${loginuser.memberId}">정보수정</a>
 					</c:if>
 		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
 		        </div>

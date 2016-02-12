@@ -169,9 +169,9 @@ public class JobBoardController {
    @RequestMapping(value = "register.action", method = RequestMethod.GET)
    public String registerForm(String memberId, Model model) {
 	  
-	  int jobboardNo = jobboardDao.getJobboardNoByMemberId(memberId);
+	  int jobboardCaNo = jobboardDao.getJobboardNoByMemberId(memberId);
 	  
-	  model.addAttribute("jobboardNo", jobboardNo);
+	  model.addAttribute("jobboardCaNo", jobboardCaNo);
 	  
       return "jobboard/jobboardwriteform";
    }
@@ -183,30 +183,103 @@ public class JobBoardController {
    }
    
    @RequestMapping(value = "edit.action", method = RequestMethod.GET)
-   public String editForm(
-      @RequestParam("jobboardno") int jobboardNo,      
-      @ModelAttribute("jobboard") Jobboard jobboard, Model model)
-   
-   {
-	   System.out.println(jobboardNo);
-     Jobboard jobboard1 = jobboardDao.getJobboardByJobboardNo(jobboardNo);
-     
-     System.out.println(jobboard1.getJobboardAge());
-     model.addAttribute("jobboard1",jobboard1);
-         return "jobboard/jobboardeditform";
+   public String editForm(String memberId, int jobboardNo, Model model) {
+	   
+	   Jobboard jobboard1 = jobboardDao.getJobboardByJobboardNo(jobboardNo);
+	   
+	   int jobboardCaNo = jobboardDao.getJobboardNoByMemberId(memberId);
+		  
+	   model.addAttribute("jobboardCaNo", jobboardCaNo);
+	   
+	   model.addAttribute("jobboard",jobboard1);
+	   model.addAttribute("jobboardNo", jobboardNo);
+	   
+	   return "jobboard/jobboardeditform";
       
    }
    
 
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
-	public String update(@ModelAttribute("jobboard") Jobboard jobboard) {//읽기 + view로 전달
-		System.out.println(jobboard.getJobboardAge());
-		jobboard.setMemberId(Util.getHashedString(jobboard.getMemberId(), "SHA-1"));
+	public String update(MultipartHttpServletRequest request) throws ParseException {//읽기 + view로 전달
+
 		
-		//memberDao.update(member);//과제
-		//memberService.modify(member);
+		//업로드된 파일을 저장할 경로 (가상경로 -> 물리경로) 추출
+		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/uploadfiles");
 		
-		return "redirect:/jobboard/view.action?memberid=" + jobboard.getMemberId();
+		//jobboardNo 로 첨부파일 delete문구
+		int jobboardNo = Integer.parseInt(request.getParameter("jobboardNo"));
+		
+		jobboardDao.deleteJobboardAttachmentByJobboardNo(jobboardNo);
+		
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+		//Upload 객체 생성 및 파일이 아닌 데이터 저장
+		Jobboard jobboard = new Jobboard();  
+		jobboard.setJobboardNo(jobboardNo);
+		jobboard.setJobboardTitle(request.getParameter("title"));
+		jobboard.setJobboardContent(request.getParameter("content"));
+		jobboard.setJobboardJoinNo(Integer.parseInt(request.getParameter("joinnum")));
+		jobboard.setJobboardGender(request.getParameter("gender"));
+		jobboard.setJobboardEducation(request.getParameter("edu"));
+		jobboard.setMemberName(request.getParameter("memberName"));
+		jobboard.setMemberId(request.getParameter("uploader"));
+		jobboard.setJobboardPayment(request.getParameter("payment"));
+		jobboard.setJobboardSalary(Integer.parseInt(request.getParameter("salary")));
+		jobboard.setJobboardCareer(request.getParameter("career"));
+		jobboard.setJobboardAge(request.getParameter("birthday"));
+		jobboard.setJobboardPhone(Integer.parseInt(request.getParameter("phoneNo")));
+		jobboard.setJobboardemail(request.getParameter("email"));
+		    
+		Date deadline = transFormat.parse(request.getParameter("deadline"));
+		jobboard.setJobboardDeadLine(deadline);
+				
+		String[] category = request.getParameterValues("ca");
+		String categoryTag = "";
+				
+		for(int i = 0; i < category.length; i++) {
+			categoryTag = categoryTag + category[i];
+		}
+
+		jobboard.setCategoryTag(categoryTag);
+				
+		//아래 try 영역 내부에서 오류가 발생하면 모든 db연동 작업을 취소하도록 처리
+		try {
+			//editjobboard
+			jobboardDao.updateJobboard(jobboard);			
+		
+			Iterator<String> iterator = request.getFileNames();			
+			while (iterator.hasNext()) {
+					
+				String fileName = iterator.next();
+				MultipartFile file = request.getFile(fileName);
+						
+				if (file != null && file.getSize() > 0) {
+							
+				String savedName = Util.getUniqueFileName(path, file.getOriginalFilename());
+					
+				JobboardAttachment temp = new JobboardAttachment();
+				temp.setSavedFileName(savedName);
+				temp.setUserFileName(file.getOriginalFilename());
+				temp.setJobboardNo(jobboardNo);
+				jobboardDao.insertJobboardFile(temp);
+							
+				FileOutputStream ostream = new FileOutputStream(path + "/" + savedName);
+				InputStream istream = file.getInputStream();
+				byte[] buffer = new byte[512];
+				while (true) {
+					int count = istream.read(buffer, 0, buffer.length);
+					if (count == -1) break;
+					ostream.write(buffer, 0, count);
+				}
+							
+					istream.close();
+					ostream.close();					
+			}
+		}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
+		return "redirect:/jobboard/view.action?jobboardNo=" + jobboardNo;
 	}
 
    
