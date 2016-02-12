@@ -17,6 +17,15 @@
 
 </head>
     
+<script type="text/javascript">
+	function goPage(pageNo){
+		document.listForm.pageNo.value = pageNo;
+		document.listForm.submit();
+		console.log("pageNo : " + pageNo);
+	}
+	
+</script>
+
 <body>
    <c:import url="/WEB-INF/views/include/header.jsp" />
       
@@ -27,29 +36,33 @@
       
       <div style="padding-top:25px;text-align:center">
          <c:url var="writeform" value="/freeboard/register.action" />
+
          <c:if test="${ loginuser.memberType eq 'individual' }">
           <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료 등록 </a>&nbsp;
          </c:if>
          <br /><br />
          <table class="table table-hover">
+
 			<tr>
                <th style="width:50px">번호</th>
                <th style="width:400px">제목</th>
                <th style="width:150px">작성자</th>
                <th style="width:150px;text-align:center">작성일</th>
+
             </tr>
             
             <c:forEach var="freeboard" items="${ freeboards }">
-            <tr style="height:30px;color:slategrey">
-               <td>${ freeboard.freeboardNo }</td>
-               <td style="text-align:left;padding-left:10px">
-                  <c:url var="view" value="view.action">
+            <tr style="height:20px;color:slategrey;">
+               <td style="padding-top:20px">${ freeboard.freeboardNo }</td>
+               <td style="text-align:left;padding-left:20px">
+                  <c:url var="view" value="updatecount.action">
                      <c:param name="FreeboardNo" value="${ freeboard.freeboardNo }" />
                   </c:url>
                   <a href='${ view }'>${ freeboard.freeboardTitle }</a>
                </td>
                <td>${ freeboard.memberId }</td>
                <td>${ freeboard.freeboardContent }</td>
+               <td>${ freeboard.freeboardReadCount }</td>
             </tr>
             </c:forEach>
             

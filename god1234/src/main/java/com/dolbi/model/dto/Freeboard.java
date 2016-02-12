@@ -16,6 +16,7 @@ public class Freeboard implements Serializable {
 	private String freeboardtype;
 	private String memberId;
 	
+	private ArrayList<FreeboardComment> comments;
 	
 	public Freeboard() {}
 	
@@ -67,12 +68,14 @@ public class Freeboard implements Serializable {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	
-	
-	
 
-	
+	public ArrayList<FreeboardComment> getComments() {
+		return comments;
+	}
 
-	
-	
+	public void setComments(ArrayList<FreeboardComment> comments) {
+		this.comments = comments;
+	}
+
+
 }

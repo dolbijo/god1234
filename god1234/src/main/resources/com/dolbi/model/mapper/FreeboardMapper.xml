@@ -23,10 +23,34 @@
 		
 	</resultMap>
 	
-	<select id="selectFreeboardByfreeboardNo" resultMap="freeboardListMap" parameterType="int">
-		SELECT <include refid="FreeboardColumns" /> 
-		FROM FREEBOARD 
-		where f_no = #{freeboardNo}
+	<resultMap type="FreeboardComment" id="freeboardcommentListMap">
+		<id property="commentNo" column="fc_no" />
+		<result property="freeboardNo" column="f_no" />
+		<result property="content" column="fc_CONTENT" />
+		<result property="regdate" column="Fc_REGDATE" />
+		<result property="memberId" column="Fc_writer" />
+	</resultMap>
+	
+	<resultMap type="Freeboard" id="freeboardViewMap">
+		<id property="freeboardNo" column="F_NO" />
+		<result property="freeboardTitle" column="F_TITLE" />
+		<result property="freeboardContent" column="F_CONTENT" />
+		<result property="freeboardRegDate" column="F_REGDATE" />
+		<result property="freeboardReadCount" column="F_READCOUNT" />
+		<result property="freeboardDeleted" column="F_DELETED" />
+		<result property="freeboardtype" column="F_TYPE" />
+		<result property="memberId" column="M_ID" />
+		<collection property="comments" column="f_no" resultMap="freeboardcommentListMap" />
+	</resultMap>
+	
+	
+	
+	<select id="selectFreeboardByfreeboardNo" resultMap="freeboardViewMap" parameterType="int">
+		SELECT f.F_No,f.F_TITLE,f.F_CONTENT,f.F_REGDATE,f.F_READCOUNT,f.F_DELETED,f.F_TYPE,f.M_ID,fc.fc_no,fc.f_no,fc.fc_CONTENT,fc.Fc_REGDATE,fc.Fc_writer
+		FROM FREEBOARD f
+		left outer join freeboardcomment fc
+		on f.f_no = fc.f_no
+		where f.f_no = #{freeboardNo}
 	</select> 
 	
 	
@@ -35,17 +59,36 @@
 		FROM FREEBOARD
 	</select>
 	
-	
-
 
 	<insert id="insertFreeboard" parameterType="Freeboard">
 		<selectKey keyProperty="freeboardNo" resultType="int" order="BEFORE">
-			SELECT COUNT(*)+1 from FREEBOARD
+			SELECT IFNULL( MAX(f_no), 0) + 1 from FREEBOARD
 		</selectKey>
 		INSERT INTO FREEBOARD (f_no, f_title, f_content, f_type, m_id)
 		VALUES (#{freeboardNo},#{freeboardTitle}, #{freeboardContent}, #{freeboardtype},#{memberId})
 	</insert>
 	
+
+	<update id="updateCount" parameterType="int">
+		update freeboard set F_READCOUNT = F_READCOUNT + 1 WHERE F_NO = #{freeboardNo}
+	</update>
+	
+	<insert id="insertComment" parameterType="hashmap">
+		<selectKey keyProperty="freeboardCommnetNo" resultType="int" order="BEFORE">
+			SELECT IFNULL( MAX(fc_no), 0) + 1 from FREEBOARDCOMMENT
+		</selectKey>
+		INSERT INTO FREEBOARDCOMMENT (fc_no, f_no, fc_content, fc_writer)
+		VALUES (#{freeboardCommnetNo},#{freeboardNo}, #{content}, #{memberId})
+	</insert>
+	
+	<update id="updateComment" parameterType="hashmap">
+		update FREEBOARDCOMMENT set fc_content=#{content} where fc_no=#{commentNo}
+	</update>
+	
+	<delete id="deleteComment" parameterType="int">
+		delete from FREEBOARDCOMMENT where fc_no=#{commentNo}
+	</delete>
+
 </mapper>
 
 

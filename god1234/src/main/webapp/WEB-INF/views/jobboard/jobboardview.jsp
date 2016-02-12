@@ -9,7 +9,17 @@
 
 <html>
 <head>
-<meta charset="utf-8" />
+	<script type='text/javascript'>
+	
+		
+		function application(memberId, jobboardNo) {
+			if (confirm( "지원을 완료할까" )) {
+				 location.href = "application.action?memberId=" + memberId + "&jobboardNo=" + jobboardNo; 
+			}
+		}	
+	</script>
+
+	<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     	<meta name="description" content="" />
     	<meta name="author" content="" />
@@ -176,9 +186,15 @@
 		        <div class="buttons">
 		        	
 		        	<c:if test="${ loginuser.memberType eq 'individual' }">
+
 		        	<%-- [<a href="javascript:jobApplication(${loginuser.memberId}, ${jobboard.jobboardNo})" click="jobApplication">지원하기</a>] --%>
 		        	[<a href="application.action?memberId=${ loginuser.memberId }&jobboardNo=${ jobboard.jobboardNo }">지원하기</a>]
+
+		        	
+		        	<%-- [<a href="javascript:application('${loginuser.memberId}', ${ jobboard.jobboardNo })">지원하기</a>] --%>
+
 		        	</c:if>
+		        	
 		        	<c:if test="${ loginuser.memberType eq 'company' }">
 		        	<a href="edit.action?jobboardno=${ jobboard.jobboardNo }">정보수정</a>
 					</c:if>

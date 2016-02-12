@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.dolbi.model.dto.Freeboard;
+import com.dolbi.model.dto.FreeboardComment;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
@@ -61,10 +62,24 @@ public class MySqlFreeboardDao implements FreeboardDao {
 		
 		
 	}
-	
-	
 
+	
+	public void updateCount(int freeboardNo) {
+		   freeboardMapper.updateCount(freeboardNo);
+	}
+	
+	public void insertComment(HashMap map) {
+		freeboardMapper.insertComment(map);
+	}
+	
+	public void updateComment(HashMap map) {
+		freeboardMapper.updateComment(map);
+	}
 
+	public void deleteComment(int commentNo) {
+		freeboardMapper.deleteComment(commentNo);
+	}
+	
 }
 
 
