@@ -108,7 +108,7 @@
 	
 	<insert id="insertApplication" parameterType="hashMap">
 		<selectKey keyProperty="applicationNo" resultType="int" order="BEFORE">
-			SELECT COUNT(*)+1 from application
+			SELECT IFNULL( MAX(a_no), 0) + 1 from application
 		</selectKey>
 		insert into application (a_no, j_no, m_id)
 		values (#{applicationNo}, #{jobboardNo}, #{memberId})

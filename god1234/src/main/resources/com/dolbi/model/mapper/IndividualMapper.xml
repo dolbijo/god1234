@@ -43,7 +43,7 @@
 	
 	<insert id="insertCareer" parameterType="Career" >
 		<selectKey keyProperty="careerNo" resultType="int" order="BEFORE">
-			SELECT COUNT(*)+1 from career
+			SELECT IFNULL( MAX(c_no), 0) + 1 from career
 		</selectKey>
 		insert into career (c_no, c_companyname, c_companytype, c_startdate, c_enddate, m_id)
 		values (#{careerNo}, #{companyName}, #{companyType}, #{caStartDate}, #{caEndDate}, #{memberId})
@@ -51,7 +51,7 @@
 	
 	<insert id="insertEducation" parameterType="Education">
 		<selectKey keyProperty="eduNo" resultType="int" order="BEFORE">
-			SELECT COUNT(*)+1 from education
+			SELECT IFNULL( MAX(e_no), 0) + 1 from education
 		</selectKey>
 		insert into education (e_no, e_schoolname, e_major, e_startdate, e_enddate, m_id)
 		values (#{eduNo}, #{schoolName}, #{major}, #{edStartDate}, #{edEndDate}, #{memberId})
