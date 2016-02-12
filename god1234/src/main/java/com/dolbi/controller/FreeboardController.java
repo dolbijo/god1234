@@ -1,41 +1,22 @@
 package com.dolbi.controller;
 
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dolbi.common.Util;
 import com.dolbi.model.dao.FreeboardDao;
-import com.dolbi.model.dao.IndividualDao;
-import com.dolbi.model.dao.JobboardDao;
 import com.dolbi.model.dto.Freeboard;
-import com.dolbi.model.dto.FreeboardComment;
-import com.dolbi.model.dto.Jobboard;
-import com.dolbi.model.dto.JobboardAttachment;
 import com.dolbi.model.dto.Member;
-import com.dolbi.model.dto.Upload;
-import com.dolbi.model.dto.UploadFile;
-import com.dolbi.model.service.IndividualService;
 
 @Controller
 @RequestMapping("/freeboard")

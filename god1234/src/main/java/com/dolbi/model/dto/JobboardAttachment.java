@@ -1,7 +1,6 @@
 package com.dolbi.model.dto;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class JobboardAttachment implements Serializable {
 

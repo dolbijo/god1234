@@ -1,7 +1,5 @@
 package com.dolbi.model.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,15 +7,10 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
-import com.dolbi.model.dto.Member;
-import com.dolbi.model.dto.Upload;
-import com.dolbi.model.dto.UploadFile;
-import com.dolbi.model.mapper.IndividualMapper;
 import com.dolbi.model.mapper.JobboardMapper;
 
 @Repository("jobboardDao")
@@ -50,7 +43,7 @@ public class MySqlJobboardDao implements JobboardDao {
    }
 
    @Override
-   public ArrayList<Jobboard> getJobboardList(HashMap map) {
+   public ArrayList<Jobboard> getJobboardList(HashMap<String, Object> map) {
       
       //mapper연결코드
 	   ArrayList<Jobboard> jobboards = jobboardMapper.selectJobboards(map);

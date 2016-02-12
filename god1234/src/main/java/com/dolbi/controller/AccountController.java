@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dolbi.common.Util;
 import com.dolbi.model.dao.MemberDao;
-import com.dolbi.model.dao.MySqlMemberDao;
 import com.dolbi.model.dto.Member;
 
 @Controller
@@ -35,9 +34,9 @@ public class AccountController {
 		String memberId, String passWd, @RequestParam("returnurl") String returnUrl) {
 		
 		passWd = Util.getHashedString(passWd, "SHA-1");
-		System.out.println("accountcontroller : 로그인post요청" + passWd);
+		
 		Member member = memberDao.getMemberByIdAndPasswd(memberId, passWd);
-		System.out.println("accountcontroller : 로그인post요청dao후" + member.getEmail());
+		
 		if (member != null) {
 			session.setAttribute("loginuser", member);
 			if (returnUrl != null && returnUrl.length() > 0) {

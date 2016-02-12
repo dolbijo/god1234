@@ -21,9 +21,9 @@ public interface FreeboardMapper {
 	
 	int selectFreeboardNoByMemberId(String memberId);
 
-	void insertComment(HashMap map);
+	void insertComment(HashMap<String, Object> map);
 
-	void updateComment(HashMap map);
+	void updateComment(HashMap<String, Object> map);
 
 	void deleteComment(int commentNo);
 	

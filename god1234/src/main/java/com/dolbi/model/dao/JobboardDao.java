@@ -6,8 +6,6 @@ import java.util.List;
 
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
-import com.dolbi.model.dto.Upload;
-import com.dolbi.model.dto.UploadFile;
 
 public interface JobboardDao {
 
@@ -15,7 +13,7 @@ public interface JobboardDao {
 
    void insertJobboardFile(JobboardAttachment file);
 
-   ArrayList<Jobboard> getJobboardList(HashMap map);
+   ArrayList<Jobboard> getJobboardList(HashMap<String, Object> map);
    
    Jobboard getJobboardByJobboardNo(int jobboardNo);
 
