@@ -18,50 +18,42 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-		
-		
-		<div style="padding-top:25px;text-align:center">
-			 <img src ="/dolbi/resources/image/alb.JPG">
-			 <br>
-			<c:url var="writeform" value="/jobboard/register.action" />
-			[ <a href="${ writeform }">자료 등록</a> ]
-			<br /><br />
-
-			<table border="1" style="width:600px" align="center">
-				<tr style="background-color:orange;height:30px">
-					<th style="width:50px">번호</th>
-					<th style="width:400px">제목</th>
-					<th style="width:200px">작성자</th>
-					<th style="width:150px;text-align:center">급여</th>
-					<th style="width:150px;text-align:center">조회수</th>
-					<th style="width:150px;text-align:center">마감일</th>
+					
+			<div class="panel-body" style="padding-top:80px">
+			<div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover" border="1" style="width:1000px" align="center">
+				<thead>
+				<tr class="danger" style="height:30px">
+					<th style="width:50px;text-align:center">번호</th>
+					<th style="width:400px;text-align:center">공고 제목</th>
+					<th style="width:140px;text-align:center">작성자</th>
+					<th style="width:200px;text-align:center">급여</th>
+					<th style="width:100px;text-align:center">조회수</th>
+					<th style="width:140px;text-align:center">마감일</th>
 					<th></th>
 				</tr>
+				</thead>
 				
 				<c:forEach var="jobboard" items="${ jobboards }">
 				<tr style="height:30px">
-					<td>${ jobboard.jobboardNo }</td>
-					<td style="text-align:left;padding-left:10px">
+					<td style="width:58px;">${ jobboard.jobboardNo }</td>
+					<td style="text-align:left;padding-left:10px;width:600px">
 						<a href="/dolbi/jobboard/view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
 					<td>${ jobboard.memberId }</td>
 					<td>${ jobboard.jobboardPayment } / ${ jobboard.jobboardSalary }</td>
 					<td>${ jobboard.jobboardReadCount }</td>
 					<td><fmt:formatDate value="${ jobboard.jobboardDeadLine }" type="date"/></td>
-					<td>[<a href="applicationlist.action?jobboardNo=${ jobboard.jobboardNo }">지원자리스트 보러가기</a>]</td>
+					<td style="width:180px;"><a href="applicationlist.action?jobboardNo=${ jobboard.jobboardNo }"class="btn btn-info">지원자 리스트 보러가기</a></td>
 				</tr>
 				</c:forEach>
 				
 			</table>
-			<br /><br /><br /><br />
-			
-		
-		
+			<br /><br /><br /><br />			
+		</div>
+		</div>
 		</div>
 
-		
-	</div>	
-		
 	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 </body>

@@ -12,6 +12,10 @@
 	
 	<resultMap type="Member" id="individualMap">
 		<id column="M_ID" property="memberId" />
+		<result column="M_name" property="memberName" />
+		<result column="M_phoneno" property="phoneNo" />
+		<result column="M_mail" property="email" />
+		<result column="M_address" property="memberAddress" />
 		<result column="M_GENDER" property="gender" />
 		<result column="M_AGE" property="age" />
 	</resultMap>
@@ -26,9 +30,11 @@
 	
 	<!-- 개인회원의 정보 가져오기 -->
 	<select id="selectIndividualByMemberId" resultMap="individualMap" parameterType="String">
-		SELECT <include refid="individualColumns" />
-		FROM individual
-		WHERE m_id = #{id}
+		SELECT *
+		FROM individual i
+		join member m
+		on i.m_id = m.m_id
+		WHERE i.m_id = #{id}
 	</select>
 	
 	<insert id="insertResume" parameterType="Resume">
@@ -186,6 +192,25 @@
 		where a_no = #{ applicationNo };
 	</delete>
 	
+	<update id="updateIndividaul1" parameterType="Member">
+		update member set m_name=#{memberName}, m_phoneno=#{phoneNo}, m_mail=#{email}, m_address=#{memberAddress} where m_id=#{memberId}
+	</update>
+	
+	<update id="updateIndividaul2" parameterType="Member">
+		update individual set m_gender=#{gender}, m_age=#{age} where m_id=#{memberId}
+	</update>
+	
+	<delete id="deleteCategory" parameterType="String">
+		delete from likedcategory where m_id=#{memberId}
+	</delete>
+	
+	<insert id="insertCategory" parameterType="hashMap">
+		<selectKey keyProperty="likedcategoryNo" resultType="int" order="BEFORE">
+			SELECT IFNULL( MAX(lc_no), 0) + 1 from likedcategory
+		</selectKey>
+		INSERT INTO likedcategory (lc_no, m_id, jc_no)
+		VALUES (#{likedcategoryNo}, #{id}, #{categoryNo})
+	</insert>
 
 </mapper>
 

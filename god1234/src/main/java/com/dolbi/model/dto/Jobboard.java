@@ -23,6 +23,9 @@ public class Jobboard implements Serializable {
 	private int jobboardSalary;
 	private String jobboardCareer;
 	private String memberName;
+	private int jobboardPhone;
+	private String jobboardemail;
+
 
 	private String categoryTag;
 
@@ -175,4 +178,21 @@ public class Jobboard implements Serializable {
 		this.categoryTag = categoryTag;
 	}
 
+	public int getJobboardPhone() {
+		return jobboardPhone;
+	}
+
+	public void setJobboardPhone(int jobboardPhone) {
+		this.jobboardPhone = jobboardPhone;
+	}
+
+	public String getJobboardemail() {
+		return jobboardemail;
+	}
+
+	public void setJobboardemail(String jobboardemail) {
+		this.jobboardemail = jobboardemail;
+	}
+
+	
 }

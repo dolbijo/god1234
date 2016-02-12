@@ -18,8 +18,12 @@ import com.dolbi.common.Util;
 import com.dolbi.model.dao.CompanyDao;
 import com.dolbi.model.dao.MemberDao;
 import com.dolbi.model.dto.Application;
+import com.dolbi.model.dto.Career;
+import com.dolbi.model.dto.Education;
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
+import com.dolbi.model.dto.Resume;
+import com.dolbi.model.dto.ResumeAttachment;
 import com.dolbi.model.service.MemberService;
 
 @Controller
@@ -76,7 +80,29 @@ public class CompanyController {
 		
 		companyDao.updateApplication(applicationNo);
 		
-		return "redirect:/individual/resumeview.action?memberId=" + memberId;
+		return "redirect:/company/resumeview.action?memberId=" + memberId;
+	}
+	
+	@RequestMapping(value = "resumeview.action", method = RequestMethod.GET)
+	public String resumeview(String memberId, Model model) {
+		
+		Member member = companyDao.getIndividualById(memberId);
+		model.addAttribute("member", member);
+		
+		Resume resume = companyDao.getResumeById(memberId);
+		model.addAttribute("resume", resume);
+		
+		ResumeAttachment reAtt = companyDao.getResumeAttachmentById(memberId);
+		model.addAttribute("reAtt", reAtt);
+		
+		List<Career> careers = companyDao.getCareerById(memberId);
+		model.addAttribute("careers", careers);
+		
+		List<Education> educations = companyDao.getEducationById(memberId);
+		model.addAttribute("educations", educations);
+	
+		return "individual/resumeview";
+		
 	}
 
 }

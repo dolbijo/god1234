@@ -34,5 +34,9 @@ public interface JobboardMapper {
 	Jobboard selectNext(int num);
 	
 	Jobboard selectPrev(int num);
+	
+	void deleteJobboardAttachmentByJobboardNo(int jobboardNo);
+	
+	void updateJobboard(Jobboard jobboard);
 
 }

@@ -10,7 +10,7 @@
 		J_NO,J_TITLE,J_READCOUNT,J_DEADLINE,M_ID,J_PAYMENT,J_SALARY,J_DELETED,M_NAME,J_GENDER
 	</sql>
 	<sql id="JobboardViewColumns">
-		J_NO,J_TITLE,J_CONTENT,J_DEADLINE,M_ID,J_PAYMENT,J_SALARY,J_DELETED,J_JOINNO,J_GENDER,J_AGE,J_EDUCATION,J_CAREER,M_NAME
+		J_NO,J_TITLE,J_CONTENT,J_DEADLINE,M_ID,J_PAYMENT,J_SALARY,J_DELETED,J_JOINNO,J_GENDER,J_AGE,J_EDUCATION,J_CAREER,M_NAME,J_PHONE,J_EMAIL
 	</sql>
 	
 	<!-- <resultMap type="com.mvcdemoweb.model.dto.Member" id="memberMap"> -->
@@ -25,6 +25,12 @@
 		<result property="jobboardDeleted" column="J_DELETED" />
 		<result property="memberName" column="M_NAME" />
 		<result property="jobboardGender" column="J_GENDER" />
+	    <result property="jobboardPhone" column="J_PHONE" />
+		<result property="jobboardemail" column="J_EMAIL" />
+	   
+		
+	
+	
 	</resultMap>
 	
 	<!-- 메서드 역할 -->
@@ -69,11 +75,14 @@
 		<result property="jobboardEducation" column="J_EDUCATION" />
 		<result property="jobboardCareer" column="J_CAREER" />
 		<result property="memberName" column="M_NAME" />
+		 <result property="jobboardPhone" column="J_PHONE" />
+		<result property="jobboardemail" column="J_EMAIL" />
+	
 		<collection property="files" column="j_no" resultMap="jobboardFileMap" />
 	</resultMap>
 	
 	<select id="selectJobboardByjobboardNo" resultMap="jobboardViewMap" parameterType="int">
-		SELECT j.J_NO,j.J_TITLE,j.J_CONTENT,j.J_DEADLINE,j.M_ID,j.J_PAYMENT,j.J_SALARY,j.J_DELETED,j.J_JOINNO,j.J_GENDER,j.J_AGE,j.J_EDUCATION,j.J_CAREER,ja.ja_savedfilename,j.M_NAME
+		SELECT j.J_NO,j.J_TITLE,j.J_CONTENT,j.J_DEADLINE,j.M_ID,j.J_PAYMENT,j.J_SALARY,j.J_DELETED,j.J_JOINNO,j.J_GENDER,j.J_AGE,j.J_EDUCATION,j.J_CAREER,ja.ja_savedfilename,ja.ja_filename,j.M_NAME,j.J_EMAIL,j.J_PHONE
 		FROM JOBBOARD j
 		LEFT OUTER JOIN JOBBOARDATTACHMENT ja
 		ON j.j_no = ja.j_no
@@ -84,8 +93,8 @@
 		<selectKey keyProperty="jobboardNo" resultType="int" order="BEFORE">			
 			SELECT IFNULL( MAX(J_NO), 0) + 1 from jobboard
 		</selectKey>
-		INSERT INTO JOBBOARD (j_no, j_title, j_content, j_deadline, j_joinno, j_gender, j_age, j_education, m_id, j_payment, j_salary, j_career, m_name, j_tag)
-		VALUES (#{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardSalary},#{jobboardCareer},#{memberName}, #{categoryTag})
+		INSERT INTO JOBBOARD (j_no, j_title, j_content, j_deadline, j_joinno, j_gender, j_age, j_education, m_id, j_payment, j_salary, j_career, m_name, j_tag ,j_email,j_phone)
+		VALUES (#{jobboardNo},#{jobboardTitle}, #{jobboardContent},#{jobboardDeadLine},#{jobboardJoinNo},#{jobboardGender},#{jobboardAge},#{jobboardEducation},#{memberId},#{jobboardPayment},#{jobboardSalary},#{jobboardCareer},#{memberName}, #{categoryTag},#{jobboardemail},#{jobboardPhone})
 
 	</insert>
 	
@@ -146,6 +155,14 @@
       	order by j_no asc)
       where rownum+1
      </select>
+     
+     <delete id="deleteJobboardAttachmentByJobboardNo" parameterType="int">
+     	delete from jobboardattachment where ja_no=#{jobboardNo}
+     </delete>
+     
+     <update id="updateJobboard" parameterType="Jobboard" >
+     	update JOBBOARD set j_title=#{jobboardTitle}, j_content=#{jobboardContent}, j_deadline=#{jobboardDeadLine}, j_joinno=#{jobboardJoinNo}, j_gender=#{jobboardGender}, j_age=#{jobboardAge}, j_education=#{jobboardEducation}, j_payment=#{jobboardPayment}, j_salary=#{jobboardSalary}, j_career=#{jobboardCareer}, m_name=#{memberName}, j_tag=#{categoryTag},j_email=#{jobboardemail},j_phone=#{jobboardPhone} where j_no=#{jobboardNo}
+     </update>
 
 </mapper>
 

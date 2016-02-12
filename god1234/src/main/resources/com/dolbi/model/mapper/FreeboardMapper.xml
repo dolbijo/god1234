@@ -10,6 +10,9 @@
 		F_No,F_TITLE,F_CONTENT,F_REGDATE,F_READCOUNT,F_DELETED,F_TYPE,M_ID
 		
 	</sql>
+	<sql id="FreeboardViewColumns">
+		F_No,F_TITLE,F_CONTENT,F_REGDATE,F_READCOUNT,F_DELETED,F_TYPE,M_ID
+	</sql>
 	
 	<resultMap type="Freeboard" id="freeboardListMap">
 		<id property="freeboardNo" column="F_NO" />
@@ -58,7 +61,6 @@
 		SELECT <include refid="FreeboardColumns" /> 
 		FROM FREEBOARD
 	</select>
-	
 
 	<insert id="insertFreeboard" parameterType="Freeboard">
 		<selectKey keyProperty="freeboardNo" resultType="int" order="BEFORE">
@@ -68,10 +70,17 @@
 		VALUES (#{freeboardNo},#{freeboardTitle}, #{freeboardContent}, #{freeboardtype},#{memberId})
 	</insert>
 	
-
 	<update id="updateCount" parameterType="int">
-		update freeboard set F_READCOUNT = F_READCOUNT + 1 WHERE F_NO = #{freeboardNo}
+		update freeboard set F_READCOUNT = F_READCOUNT + 1 WHERE F_NO = #{freebboardNo}
 	</update>
+	
+	<select id="selectFreeboardNoByMemberId" parameterType="String" resultType="int">
+	
+		select fc_no
+		from freeboard
+		where m_id = #{memberId}
+	
+	</select>
 	
 	<insert id="insertComment" parameterType="hashmap">
 		<selectKey keyProperty="freeboardCommnetNo" resultType="int" order="BEFORE">
@@ -88,7 +97,6 @@
 	<delete id="deleteComment" parameterType="int">
 		delete from FREEBOARDCOMMENT where fc_no=#{commentNo}
 	</delete>
-
 </mapper>
 
 

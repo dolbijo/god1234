@@ -46,14 +46,16 @@
 		<div style="padding-top:25px;text-align:center">
 		<div id="inputcontent">
 		    <div id="inputmain">
-		        <div class="inputsubtitle">업로드 자료 정보</div>
-		        <table>
+		    <center>
+		        <div class="inputsubtitle" style="margin: 40px 0 40px 0;font-size:16px;">알바TALK</div>
+		        <div>
+		        <table style="width:1000px;"class="table table-hover">
 		            <tr>
 		                <th>제목</th>
 		                <td>${ freeboard.freeboardTitle}</td>
 		            </tr>
 		            <tr>
-		                <th>작성자</th>
+		                <th style="width:66px">작성자</th>
 		                <td>${ freeboard.memberId}</td>
 		            </tr>
 		            
@@ -62,11 +64,16 @@
 		                <td>${ freeboard.freeboardContent }</td>
 		            </tr>
 		        </table>
-		        <div class="buttons">
+		        </div>
+		        </center>
+		        <div class="buttons" style="margin-top:50px">
+		        	
+		        	<a href="edit.action?freeboardno=${ freeboard.freeboardNo }"class="btn btn-info">정보수정</a>
+
 		        <c:if test="${ loginuser.memberId == freeboard.memberId }">
-		        	<input type="button" value="편집" style="height:25px" />
+		        	<input type="button" value="편집" style="height:34px;width:56px;" class="btn btn-info" />
 		        </c:if>
-		        	<input type="button" value="취소" style="height:25px" onclick="location.href='list.action';" />
+		        	<input type="button" value="취소" style="height:34px;width:56px;" onclick="location.href='list.action';" class="btn btn-info" />
 		        </div>
 		    </div>
 		</div>   	
@@ -75,24 +82,27 @@
 	
 
 	<br /><br />
-		
+		<c:if test="${ loginuser.memberType eq 'individual' }">
 		<form id="commentform" 
 			action="writecomment.action" method="post">
 			<input type="hidden" name="freeboardNo" value="${ freeboard.freeboardNo}" />
 			<input type="hidden" name="memberId" value="${ loginuser.memberId}" />
-			<table style="width:600px;border:solid 1px;margin:0 auto">
+			<table style="width:700px;border:solid 1px;margin:0 auto">
 	            <tr>
-	                <td style="width:550px">	                	
-	                    <textarea name="content" style="width:550px" rows="3"></textarea>
+	                <td style="width:650px">	                	
+	                    <textarea name="content" style="width:650px" rows="3"></textarea>
 	                </td>
 	                <td style="width:50px;vertical-align:middle;padding-right:5px;padding-left:5px">
+	                
 	                	<a href="javascript:document.getElementById('commentform').submit();" style="text-decoration:none">
 	                		댓글등록
 	                	</a>
+	                
 	                </td>
 	            </tr>                    
 	        </table>
-        </form>        
+        </form>   
+        </c:if>     
         
         <hr align="center" style="width:600px;" />
         
@@ -105,7 +115,7 @@
 	        	</h4>
 			</c:when>
 			<c:otherwise>
-				<table style="width:600px;border:solid 1px;margin:0 auto">
+				<table style="width:700px;border:solid 1px;margin:0 auto">
 					<c:forEach var="comment" items="${ freeboard.comments }">
 					
 						<tr>
@@ -150,7 +160,7 @@
 									<form id="commenteditform${comment.commentNo}" action="updatecomment.action" method="post">
 										<input type="hidden" name="freeboardNo" value="${ freeboard.freeboardNo}" />
 										<input type="hidden" name="commentNo" value="${comment.commentNo}" />
-										<textarea name="content" style="width: 600px" rows="3" maxlength="200">
+										<textarea name="content" style="width: 700px" rows="3" maxlength="200">
 											
 					                    		<c:choose>
 				                    				<c:when test="${ comment.content eq null }">

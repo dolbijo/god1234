@@ -33,5 +33,9 @@ public interface JobboardDao {
 
    List<Jobboard> getsearchList(String searchTag);
 
+   void deleteJobboardAttachmentByJobboardNo(int jobboardNo);
+
+   void updateJobboard(Jobboard jobboard);
+
 
 }

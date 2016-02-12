@@ -2,6 +2,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String cp = request.getContextPath(); %>
+
 <!DOCTYPE html>
 
 <html>
@@ -16,6 +17,7 @@
 </head>
 	 
 <body>
+
 	<c:import url="/WEB-INF/views/include/header.jsp" />
 	<div class="content-wrapper">
         <div class="container">
@@ -29,7 +31,7 @@
     					<div class="form-group has-error">
     						<form action="write.action" method="post" style="padding-left: 200px;padding-right: 200px;" enctype="multipart/form-data"><!-- 상대경로표시 -->
     							<label class="control-label" for="success">제목</label>
-                                <input type="text" class="form-control" name="title" style="width:580px"/>
+                                <input type="text" class="form-control" name="title"/>
     							
     							<label class="control-label" for="success">회사/점포명</label>
                                 <input type="text" class="form-control" name="memberName" value='${ sessionScope.loginuser.memberName }'
@@ -40,16 +42,26 @@
                                 value='${ loginuser.memberId }'${ loginuser.memberId }/>
                                 
                                 <label class="control-label" for="success">첨부파일</label>
-                                 <input type="file" class="form-control" name="attach" style="width:650px;height:50px" />
+                                 <input type="file" class="form-control" name="attach" style="height:50px" />
                                
-                                
                                 <label class="control-label" for="success">상세 모집 요강</label>
-                               <textarea name="content" class="form-control" style="width:580px" rows="15"></textarea>
+                               <textarea name="content" class="form-control" rows="15"></textarea>
                                 
                                 <label class="control-label" for="success">경력사항</label>
+                                <label class="control-label" for="success">경력요구사항</label>
+                                
                                 <input type="radio" class="form-control" id="career" name="career" value="new" style="heignt:100px;width:20px;display: inline;">신입
                                 <input type="radio" class="form-control" id="career" name="career" value="old" style="heignt:100px;width:20px;display: inline;">경력
     							<input type="radio" class="form-control" id="career" name="career" value="none" style="heignt:100px;width:20px;display: inline;">경력무관
+    							
+    							<label class="control-label" for="success">학력</label>
+    							
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade1" style="heignt:100px;width:20px;display: inline;">초졸
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade2" style="heignt:100px;width:20px;display: inline;">중졸
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade3" style="heignt:100px;width:20px;display: inline;">고졸
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade4" style="heignt:100px;width:20px;display: inline;">초대졸
+							<input type="radio" class="form-control" id="edu" name="edu" value="grade5" style="heignt:100px;width:20px;display: inline;">초대졸이상
+    						<input type="radio" class="form-control" id="edu" name="edu" value="grade6" style="heignt:100px;width:20px;display: inline;">기타
                                 
                                 <label class="control-label" for="success">성별</label>
                                 <input type="radio" class="form-control" id="gender" name="gender" value="male" style="heignt:100px;width:20px;display: inline;">남자
@@ -58,11 +70,12 @@
     							
     							<label class="control-label" for="success">모집 연령</label>
                                 <select id="birthday" name="birthday" class="form-control" value="selectbirth">
-                                <option value="">나이무관</option>
-    							 <option value="">출생년도 선택</option>
-     							<%for(int i=1950; i<=2010; i++){ %>
-    							 <option value="<%=i%>"><%=i+"년"%></option>
+                                <option value="none1">나이무관</option>
+    							 
+     							<%for(int i=1; i<=7; i++){ %>
+    							 <option value="<%=i%>"><%=i*10+"살"+"이상"+(i+1)*10+"미만"%></option>
      							<%} %>
+     							<option value="8">80이상</option>
      							</select>
                             
                             	<label class="control-label" for="success">모집인원</label>
@@ -78,15 +91,22 @@
                                 
                                 <label class="control-label" for="success">마감일자</label>
                                 <input type="date" class="form-control" name="deadline" />
+                                <input type="checkbox" name="datenone" value="datenone"/>상시모집
                                 
     							<label class="control-label" for="success">전화번호</label>
                                 <input type="text" class="form-control" id="phoneNo" name="phoneNo" />
                                 
                                 <label class="control-label" for="success">이메일</label>
-                                <input type="text" class="form-control" id="email" name="email" />
+                                <input type="text" class="form-control" id="email" name="email" style="margin-bottom:15px;"/>
                                 
+                                                            
+                                <label class="control-label" for="success">상세 모집 요강</label>
+                               <textarea name="content" class="form-control" style="width:580px" rows="15"></textarea>
+                                
+                                <label class="control-label" for="success">직종선택</label>
                                 <c:choose>
-                                <c:when test="${jobboardNo eq 1 }">
+                                <c:when test="${jobboardCaNo eq 1 }">
+                                    
                                 	<input type="checkbox" name="ca" value="#판매"/>판매
                                 	<input type="checkbox" name="ca" value="#서빙"/>서빙
                                 	<input type="checkbox" name="ca" value="#안내데스크"/>안내데스크
@@ -95,7 +115,7 @@
                                 	<input type="checkbox" name="ca" value="#청소"/>청소
                                 	<input type="checkbox" name="ca" value="#서비스직 기타"/>서비스직 기타
                                 </c:when>
-                                <c:when test="${jobboardNo eq 2 }">
+                                <c:when test="${jobboardCaNo eq 2 }">
                                 	<input type="checkbox" name="ca" value="#백화점"/>백화점
                                 	<input type="checkbox" name="ca" value="#의류 "/>의류 
                                 	<input type="checkbox" name="ca" value="#뷰티"/>뷰티
@@ -103,7 +123,7 @@
                                 	<input type="checkbox" name="ca" value="#약국"/>약국
                                 	<input type="checkbox" name="ca" value="#유통판매기타"/>유통판매기타
                                 </c:when>
-                                <c:when test="${jobboardNo eq 3 }">
+                                <c:when test="${jobboardCaNo eq 3 }">
                                 	<input type="checkbox" name="ca" value="#사무보조"/>사무보조
                                 	<input type="checkbox" name="ca" value="#회계"/>회계
                                 	<input type="checkbox" name="ca" value="#실험"/>실험
@@ -112,7 +132,7 @@
                                 	<input type="checkbox" name="ca" value="#공공기관"/>공공기관
                                 	<input type="checkbox" name="ca" value="#사무직기타"/>사무직기타
                                 </c:when>
-                                <c:when test="${jobboardNo eq 4 }">
+                                <c:when test="${jobboardCaNo eq 4 }">
                                 	<input type="checkbox" name="ca" value="#공사"/>공사
                                 	<input type="checkbox" name="ca" value="#건설"/>건설
                                 	<input type="checkbox" name="ca" value="#시공"/>시공
@@ -121,7 +141,7 @@
                                 	<input type="checkbox" name="ca" value="#설치"/>설치
                                 	<input type="checkbox" name="ca" value="#건설공사기타"/>기타
                                 </c:when>
-                                <c:when test="${jobboardNo eq 5 }">
+                                <c:when test="${jobboardCaNo eq 5 }">
                                 	<input type="checkbox" name="ca" value="#포장"/>포장
                                 	<input type="checkbox" name="ca" value="#분류"/>분류
                                 	<input type="checkbox" name="ca" value="#입출고"/>입출고
@@ -130,14 +150,14 @@
                                 	<input type="checkbox" name="ca" value="#창고관리"/>창고관리
                                 	<input type="checkbox" name="ca" value="#운송기타"/>기타
                                 </c:when>
-                                <c:when test="${jobboardNo eq 6 }">
+                                <c:when test="${jobboardCaNo eq 6 }">
                                 	<input type="checkbox" name="ca" value="#사이트운영"/>사이트운영
                                 	<input type="checkbox" name="ca" value="#게임운영"/>게임운영
                                 	<input type="checkbox" name="ca" value="#컴퓨터A/S"/>컴퓨터A/S
                                 	<input type="checkbox" name="ca" value="#프로그래머"/>프로그래머
                                 	<input type="checkbox" name="ca" value="#IT기타"/>IT기타
                                 </c:when>
-                                <c:when test="${jobboardNo eq 7 }">
+                                <c:when test="${jobboardCaNo eq 7 }">
                                 	<input type="checkbox" name="ca" value="#웹디자인"/>웹디자인
                                 	<input type="checkbox" name="ca" value="#산업디자인"/>산업디자인
                                 	<input type="checkbox" name="ca" value="#그래픽디자인"/>그래픽디자인
@@ -145,7 +165,7 @@
                                 	<input type="checkbox" name="ca" value="#디자인기타"/>디자인기타
                                 	
                                 </c:when>
-                                <c:when test="${jobboardNo eq 8 }">
+                                <c:when test="${jobboardCaNo eq 8 }">
                                 	<input type="checkbox" name="ca" value="#보습학원강사"/>보습학원강사
                                 	<input type="checkbox" name="ca" value="#외국어강사"/>외국어강사
                                 	<input type="checkbox" name="ca" value="#컴퓨터강사"/>컴퓨터강사
@@ -156,9 +176,11 @@
                                 </c:when>
                                 </c:choose>
                                 
+                                <div style="margin-top:30px;">
                                 
                                 <input type="submit" value="등록"  class="button btn btn-success btn-large"/>
 		        				<input type="button" value="취소" onclick="location.href='list.action';" class="button btn btn-success btn-large"/>
+		        				</div>
     						</form>
     					</div>
     				</div>

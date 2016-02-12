@@ -39,6 +39,14 @@ public interface IndividualMapper {
 	List<Category> selectlikedcategoryListByMemberId(String memberId);
 
 	void deleteApplicationNoBymemberId(int applicationNo);
+
+	void updateIndividaul1(Member member);
+	
+	void updateIndividaul2(Member member);
+
+	void deleteCategory(String memberId);
+
+	void insertCategory(HashMap<String, Object> params);
 	
 
 }
