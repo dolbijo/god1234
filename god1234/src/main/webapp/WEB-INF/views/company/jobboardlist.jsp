@@ -18,32 +18,25 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-		
-		<div style="padding-top:25px;text-align:center">
-			 <br>
-			<c:url var="writeform" value="/jobboard/register.action" />
-			<a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-chevron-down"></span>&nbsp;자료 등록</a>
-			<br /><br />
-			</div>
-			
-			<div class="panel-body">
+					
+			<div class="panel-body" style="padding-top:80px">
 			<div class="table-responsive">
 			<table class="table table-striped table-bordered table-hover" border="1" style="width:1000px" align="center">
 				<thead>
 				<tr class="danger" style="height:30px">
 					<th style="width:50px;text-align:center">번호</th>
 					<th style="width:400px;text-align:center">공고 제목</th>
-					<th style="width:200px;text-align:center">작성자</th>
-					<th style="width:150px;text-align:center">급여</th>
-					<th style="width:150px;text-align:center">조회수</th>
-					<th style="width:150px;text-align:center">마감일</th>
+					<th style="width:140px;text-align:center">작성자</th>
+					<th style="width:200px;text-align:center">급여</th>
+					<th style="width:100px;text-align:center">조회수</th>
+					<th style="width:140px;text-align:center">마감일</th>
 					<th></th>
 				</tr>
 				</thead>
 				
 				<c:forEach var="jobboard" items="${ jobboards }">
 				<tr style="height:30px">
-					<td>${ jobboard.jobboardNo }</td>
+					<td style="width:58px;">${ jobboard.jobboardNo }</td>
 					<td style="text-align:left;padding-left:10px;width:600px">
 						<a href="/dolbi/jobboard/view.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
 					</td>
