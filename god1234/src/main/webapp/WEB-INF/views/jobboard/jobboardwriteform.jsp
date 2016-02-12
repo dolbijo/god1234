@@ -2,6 +2,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String cp = request.getContextPath(); %>
+
 <!DOCTYPE html>
 
 <html>
@@ -16,6 +17,7 @@
 </head>
 	 
 <body>
+
 	<c:import url="/WEB-INF/views/include/header.jsp" />
 	<div class="content-wrapper">
         <div class="container">
@@ -29,7 +31,7 @@
     					<div class="form-group has-error">
     						<form action="write.action" method="post" style="padding-left: 200px;padding-right: 200px;" enctype="multipart/form-data"><!-- 상대경로표시 -->
     							<label class="control-label" for="success">제목</label>
-                                <input type="text" class="form-control" name="title" style="width:580px"/>
+                                <input type="text" class="form-control" name="title"/>
     							
     							<label class="control-label" for="success">회사/점포명</label>
                                 <input type="text" class="form-control" name="memberName" value='${ sessionScope.loginuser.memberName }'
@@ -40,11 +42,14 @@
                                 value='${ loginuser.memberId }'${ loginuser.memberId }/>
                                 
                                 <label class="control-label" for="success">첨부파일</label>
-                                 <input type="file" class="form-control" name="attach" style="width:650px;height:50px" />
+                                 <input type="file" class="form-control" name="attach" style="height:50px" />
                                
-                               
+                                <label class="control-label" for="success">상세 모집 요강</label>
+                               <textarea name="content" class="form-control" rows="15"></textarea>
                                 
+                                <label class="control-label" for="success">경력사항</label>
                                 <label class="control-label" for="success">경력요구사항</label>
+                                
                                 <input type="radio" class="form-control" id="career" name="career" value="new" style="heignt:100px;width:20px;display: inline;">신입
                                 <input type="radio" class="form-control" id="career" name="career" value="old" style="heignt:100px;width:20px;display: inline;">경력
     							<input type="radio" class="form-control" id="career" name="career" value="none" style="heignt:100px;width:20px;display: inline;">경력무관
@@ -92,7 +97,7 @@
                                 <input type="text" class="form-control" id="phoneNo" name="phoneNo" />
                                 
                                 <label class="control-label" for="success">이메일</label>
-                                <input type="text" class="form-control" id="email" name="email" />
+                                <input type="text" class="form-control" id="email" name="email" style="margin-bottom:15px;"/>
                                 
                                                             
                                 <label class="control-label" for="success">상세 모집 요강</label>
@@ -171,9 +176,11 @@
                                 </c:when>
                                 </c:choose>
                                 
-                                </br>
+                                <div style="margin-top:30px;">
+                                
                                 <input type="submit" value="등록"  class="button btn btn-success btn-large"/>
 		        				<input type="button" value="취소" onclick="location.href='list.action';" class="button btn btn-success btn-large"/>
+		        				</div>
     						</form>
     					</div>
     				</div>

@@ -38,7 +38,7 @@
          <c:url var="writeform" value="/freeboard/register.action" />
 
          <c:if test="${ loginuser.memberType eq 'individual' }">
-          <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;자료 등록 </a>&nbsp;
+          <a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-ok"></span> &nbsp;자료 등록 </a>&nbsp;
          </c:if>
          <br /><br />
          <table class="table table-hover">
