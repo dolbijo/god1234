@@ -186,12 +186,8 @@
 		        <div class="buttons">
 		        	
 		        	<c:if test="${ loginuser.memberType eq 'individual' }">
-
-		        	<%-- [<a href="javascript:jobApplication(${loginuser.memberId}, ${jobboard.jobboardNo})" click="jobApplication">지원하기</a>] --%>
-		        	[<a href="application.action?memberId=${ loginuser.memberId }&jobboardNo=${ jobboard.jobboardNo }">지원하기</a>]
-
 		        	
-		        	<%-- [<a href="javascript:application('${loginuser.memberId}', ${ jobboard.jobboardNo })">지원하기</a>] --%>
+		        	[<a href="javascript:application('${loginuser.memberId}', ${ jobboard.jobboardNo })">지원하기</a>]
 
 		        	</c:if>
 		        	
