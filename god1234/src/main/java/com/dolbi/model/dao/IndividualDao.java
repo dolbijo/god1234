@@ -38,7 +38,13 @@ public interface IndividualDao {
 	List<Category> getlikedcategorylist(String memberId);
 
 	void deleteApplication(int applicationNo);
-	
 
+	void updateIndividaul1(Member member);
+	void updateIndividaul2(Member member);
+	
+	void deleteCategory(String memberId);
+	
+	void insertCategory(String memberId, int categoryNo);
+	
 	
 }

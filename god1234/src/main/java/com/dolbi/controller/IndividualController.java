@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -258,6 +259,58 @@ public class IndividualController {
 			individualDao.deleteApplication(Integer.parseInt(applicationNo));
 
 			return "redirect:/individual/applicationlist.action?memberId="+memberId;
+		}
+	   
+	   @RequestMapping(value = "updateindividaul.action", method = RequestMethod.POST)
+		public String updateIndividaul(Member member) {
+		   
+		   	individualDao.updateIndividaul1(member);
+		   	individualDao.updateIndividaul2(member);
+		   	
+		   	individualDao.deleteCategory(member.getMemberId());
+		   
+		   	if (member.getService() == 1) {
+				
+		   		individualDao.insertCategory(member.getMemberId(), member.getService());
+				
+			}
+			if (member.getSale() == 2) {
+				
+				individualDao.insertCategory(member.getMemberId(), member.getSale());
+				
+			}
+			if (member.getOffice() == 3) {
+				
+				individualDao.insertCategory(member.getMemberId(), member.getOffice());
+				
+			}
+			if (member.getConstruction() == 4) {
+				
+				individualDao.insertCategory(member.getMemberId(), member.getConstruction());
+				
+			}
+			if (member.getProduction() == 5) {
+				
+				individualDao.insertCategory(member.getMemberId(), member.getProduction());
+				
+			}
+			if (member.getIt() == 6) {
+				
+				individualDao.insertCategory(member.getMemberId(), member.getIt());
+				
+			}
+			if (member.getDesign() == 7) {
+				
+				individualDao.insertCategory(member.getMemberId(), member.getDesign());
+				
+			}
+			if (member.getEducation() == 8) {
+				
+				individualDao.insertCategory(member.getMemberId(), member.getEducation());
+				
+			}
+		   
+			return "redirect:/individual/individualmain.action?memberId="+member.getMemberId();
 		}
 
 }

@@ -111,6 +111,28 @@ public class MySqlIndividualDao implements IndividualDao {
 		individualMapper.deleteApplicationNoBymemberId(applicationNo);
 	}
 	
+	public void updateIndividaul1(Member member) {
+		individualMapper.updateIndividaul1(member);
+	}
+	
+	public void updateIndividaul2(Member member) {
+		individualMapper.updateIndividaul2(member);
+	}
+
+	public void deleteCategory(String memberId) {
+		individualMapper.deleteCategory(memberId);
+	}
+	
+	public void insertCategory(String memberId, int categoryNo) {
+		
+		HashMap<String, Object> params = new HashMap<>();
+		
+		params.put("id", memberId);
+		params.put("categoryNo", categoryNo);
+		
+		individualMapper.insertCategory(params);
+	}
+
 }
 
 
