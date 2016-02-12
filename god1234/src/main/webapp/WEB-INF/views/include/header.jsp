@@ -24,7 +24,18 @@
                             <!-- 채용게시판 -->
                             <li><a href="/dolbi/jobboard/list.action?pageNum=1"><spring:message code="menu.jobboard" /></a></li>
                             <!-- 알바톡 -->
-                            <li><a href="/dolbi/freeboard/list.action"><spring:message code="menu.freeboard" /></a></li>
+                            
+                            <li class="dropdown">
+                                   <a id="dLable" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                      <spring:message code="menu.freeboard" />
+                                  	</a>
+                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                  <li><a href="/dolbi/freeboard/list.action?freeboardtype=albainfo"><spring:message code="menu.albainfo" /></a></li>
+                               	  <li><a href="/dolbi/freeboard/list.action?freeboardtype=albawarning"><spring:message code="menu.albawarning" /></a></li>
+                                  <li><a href="/dolbi/freeboard/list.action?freeboardtype=albaexp"><spring:message code="menu.albaexp" /></a></li>
+                                  </ul>
+                            </li>  
+                            
                             
                             <!-- 회원서비스 -->
                             <c:choose>

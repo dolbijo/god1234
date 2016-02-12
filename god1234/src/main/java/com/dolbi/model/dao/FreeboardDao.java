@@ -9,7 +9,7 @@ public interface FreeboardDao {
 
 	void insertFreeboard(Freeboard freeboard);
 
-	ArrayList<Freeboard> getFreeboardList();
+	ArrayList<Freeboard> getFreeboardList(String freeboardtype);
 
 	Freeboard getFreeboardByFreeboardNo(int FreeboardNo);
 

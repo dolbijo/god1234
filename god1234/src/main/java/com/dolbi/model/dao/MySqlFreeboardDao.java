@@ -32,11 +32,11 @@ public class MySqlFreeboardDao implements FreeboardDao {
 	
 
 
-	public ArrayList<Freeboard> getFreeboardList() {
+	public ArrayList<Freeboard> getFreeboardList(String freeboardtype) {
 		
 		//mapper�뿰寃곗퐫�뱶
 		
-		 List<Freeboard> freeboards = freeboardMapper.selectFreeboards();
+		 List<Freeboard> freeboards = freeboardMapper.selectFreeboards(freeboardtype);
 			
 		   return (ArrayList<Freeboard>) freeboards;
 				

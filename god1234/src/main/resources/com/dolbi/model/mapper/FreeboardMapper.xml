@@ -57,9 +57,10 @@
 	</select> 
 	
 	
-	<select id="selectFreeboards" resultMap="freeboardListMap">
+	<select id="selectFreeboards" parameterType="String" resultMap="freeboardListMap">
 		SELECT <include refid="FreeboardColumns" /> 
 		FROM FREEBOARD
+		where f_type=#{freeboardtype}
 	</select>
 
 	<insert id="insertFreeboard" parameterType="Freeboard">

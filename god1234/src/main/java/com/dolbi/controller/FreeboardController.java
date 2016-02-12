@@ -28,15 +28,13 @@ public class FreeboardController {
 	
 	
 	  @RequestMapping(value = "list.action", method = RequestMethod.GET)
-	   public String list(Model model) {
+	   public String list(String freeboardtype, Model model) {
 	      
-			//List<Upload> uploads = dao.getUploadList();
-			List<Freeboard> freeboards = freeboardDao.getFreeboardList();
+			List<Freeboard> freeboards = freeboardDao.getFreeboardList(freeboardtype);
 			model.addAttribute("freeboards", freeboards);
 			
 			return "freeboard/freeboardlist";
 	   }
-	  
 	  
 	   @RequestMapping(value = "write.action", method = RequestMethod.POST)
 		public String getFreeboardWriteForm(Freeboard freeboard) throws Exception {

@@ -32,8 +32,9 @@
 		        		<th></th>
 		        		<td>
 		        			<select name="freeboardtype">
-		        				<option value="freetalk">공감TALK</option>
-		        				<option value="infotalk">정보TALK</option>
+		        				<option value="albainfo">알바 지식나눔터</option>
+		        				<option value="albawarning">악덕 알바채용정보 나눔터</option>
+		        				<option value="albaexp">알바 경험나눔터</option>
 		        			</select>
 		        		</td>
 		        	</tr>
