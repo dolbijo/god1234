@@ -31,7 +31,7 @@
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-one">
 							<!-- 아이콘 하나 달아주기 -->
-							<h4>${newjobboard.jobboardTitle } </h4>
+							<h4><a href="/dolbi/jobboard/updatecount.action?jobboardNo=${ newjobboard.jobboardNo }">${newjobboard.jobboardTitle }</a> </h4>
 							<h5>${newjobboard.memberName } </h5>
 							<h5>
 							<c:choose>
@@ -64,7 +64,7 @@
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-two">
 							<!-- 아이콘 하나 달아주기 -->
-							<h4>${popjobboard.jobboardTitle } </h4>
+							<h4><a href="/dolbi/jobboard/updatecount.action?jobboardNo=${ popjobboard.jobboardNo }">${popjobboard.jobboardTitle }</a> </h4>
 							<h5>${popjobboard.memberName } </h5>
 							<h5>
 							<c:choose>
@@ -96,7 +96,7 @@
 				<c:forEach var="albainfofreeboard" items="${albainfofreeboards }">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-three">
-							<h4>${albainfofreeboard.freeboardTitle } </h4>
+							<h4><a href="/dolbi/freeboard/updatecount.action?FreeboardNo=${ albainfofreeboard.freeboardNo }">${albainfofreeboard.freeboardTitle }</a> </h4>
 							<h4>${albainfofreeboard.memberId } </h4>
 						</div>
 					</div>
@@ -114,7 +114,7 @@
 				<c:forEach var="albawarningfreeboard" items="${albawarningfreeboards }">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-four">
-							<h4>${albawarningfreeboard.freeboardTitle } </h4>
+							<h4><a href="/dolbi/freeboard/updatecount.action?FreeboardNo=${ albawarningfreeboard.freeboardNo }">${albawarningfreeboard.freeboardTitle }</a> </h4>
 							<h4>${albawarningfreeboard.memberId } </h4>
 						</div>
 					</div>
@@ -132,7 +132,7 @@
 				<c:forEach var="albaexpfreeboard" items="${albaexpfreeboards }">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="dashboard-div-wrapper bk-clr-five">
-							<h4>${albaexpfreeboard.freeboardTitle } </h4>
+							<h4><a href="/dolbi/freeboard/updatecount.action?FreeboardNo=${ albaexpfreeboard.freeboardNo }">${albaexpfreeboard.freeboardTitle }</a> </h4>
 							<h4>${albaexpfreeboard.memberId } </h4>
 						</div>
 					</div>
