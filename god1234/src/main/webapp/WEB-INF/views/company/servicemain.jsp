@@ -73,13 +73,15 @@
 						</div>
 
 					</div>
+					<div style="margin-top:40px;margin-left:400px">
 
 				<a href="ingjobboard.action?memberId=${ loginuser.memberId }"
-					class="btn btn-info"><span class="glyphicon glyphicon-user"></span>
+					class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>
 					&nbsp;진행중인 공고 </a>&nbsp; <a
 					href="endjobboard.action?memberId=${ loginuser.memberId }"
-					class="btn btn-info"><span class="glyphicon glyphicon-user"></span>
+					class="btn btn-info"><span class="glyphicon glyphicon-remove-circle"></span>
 					&nbsp;마감된 공고 </a>&nbsp;
+					</div>
 			</div>
 		</div>
 	</div>

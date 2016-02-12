@@ -60,8 +60,7 @@ public class MySqlFreeboardDao implements FreeboardDao {
 		   Freeboard freeboard = freeboardMapper.selectFreeboardByfreeboardNo(freeboardNo);
 	      
 	      return freeboard;
-	      
-	      
+	      	      
 	   }
 	 
 	   public void updateCount(int freeboardNo) {
@@ -76,7 +75,6 @@ public class MySqlFreeboardDao implements FreeboardDao {
 	   }
 
 
-	
 	public void insertComment(HashMap map) {
 		freeboardMapper.insertComment(map);
 	}

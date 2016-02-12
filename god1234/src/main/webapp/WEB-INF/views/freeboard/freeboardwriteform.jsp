@@ -21,7 +21,9 @@
 	
 		
 		<div style="padding-top:25px;text-align:center">
+		<center>
 		<div id="inputcontent">
+		
 		    <div id="inputmain">
 		        <div class="inputsubtitle">알바 TALK 게시판</div>
 		        <form action="write.action" method="post">
@@ -67,7 +69,9 @@
 		</div>   	
 
 	</div>
+	</center>
 	</div>
+	
 	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 </body>
