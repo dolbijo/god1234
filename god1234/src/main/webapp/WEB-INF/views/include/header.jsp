@@ -54,7 +54,18 @@
                               </li>   
                            </c:when>
                            <c:when test="${loginuser.memberType eq 'company' }">
-                              <li><a href="/dolbi/company/servicemain.action"><spring:message code="menu.company" /> </a> </li>
+                              
+                              <li class="dropdown">
+                                   <a id="dLable" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                      <spring:message code="menu.company" />
+                                  	</a>
+                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+	                                  <li><a href="/dolbi/company/servicemain.action"><spring:message code="menu.companymain" /> </a> </li>
+	                                  <li><a href="/dolbi/company/ingjobboard.action?memberId=${ loginuser.memberId }"><spring:message code="menu.ingjobboard" /></a></li>
+	                               	  <li><a href="/dolbi/company/endjobboard.action?memberId=${ loginuser.memberId }"><spring:message code="menu.endjobboard" /></a></li>
+	                                  <li><a href="/dolbi/company/resumelist.action"><spring:message code="menu.resumelist" /></a></li>
+                                  </ul>
+                            </li>  
                            </c:when>
                            <c:when test="${loginuser.memberType eq 'admin' }">
                               <li><a href="/dolbi/member/listusertype.action"><spring:message code="menu.member" /></a> </li>

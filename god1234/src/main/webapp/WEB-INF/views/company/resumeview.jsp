@@ -16,7 +16,7 @@
         pageContext.setAttribute("br", "<br/>");  // <br> tag
  %>
 <!DOCTYPE html>
-
+<html>
 <head>
     	<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -28,8 +28,6 @@
 </head>
 	 
 <body>
-	<c:import url="/WEB-INF/views/include/header.jsp" />
-
 	<div class="content-wrapper">
     	<div class="container">
 			<div class="row">
@@ -54,7 +52,7 @@
     								<tr>
 										<td width="30">이력서 사진</td>
     									<td>이름</td>
-    									<td>${ loginuser.memberName }</td>
+    									<td>${ member.memberName }</td>
     									<td>생년월일</td>
     									<td><fmt:formatDate value="${ member.age}" type="date"/></td>
     								</tr>
@@ -70,7 +68,7 @@
     								</tr>
     								<tr>
     									<td>주소</td>
-    									<td colspan="3">${ loginuser.memberAddress }</td>
+    									<td colspan="3">${ member.memberAddress }</td>
     								</tr>
     							</table>
     						</div>
@@ -123,25 +121,10 @@
     								</c:forEach>
     							</table>
     							</div>
-    							
-    						<div>
-    							<table>
-    								<tr>
-    									<td>이력서의 공개여부</td>
-    									<td>
-    										${resume.ispublic }
-    									</td>
-    								</tr>
-    							</table>
-    							
-							</div>
 							</div>		
 						</section>
 					</div>
 				</div>
-			
-
-    <c:import url="/WEB-INF/views/include/footer.jsp" />
-    
+			 
 </body>
 </html>

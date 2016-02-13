@@ -49,7 +49,7 @@
 			        			
 			        			<td>
 				        			${application.jobboardNo }
-				        			<a href="/dolbi/jobboard/view.action?jobboardNo=${application.jobboardNo }">${application.jobboardTitle }</a>
+				        			<a href="/dolbi/jobboard/view.action?jobboardNo=${application.jobboardNo }" style="text-decoration: none">${application.jobboardTitle }</a>
 			        			</td>
 			        			
 			        			<td>

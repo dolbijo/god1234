@@ -27,41 +27,29 @@
     	<div class="container">
 			<div class="row">
     			<div class="col-md-12">
-    				<h4 class="page-head-line">..뭐라해야해........... </h4>
+    				<h4 class="page-head-line">${ loginuser.memberId }님기업페이지 </h4>
     			</div>
     		</div>
-    			<br />
+    		<br />
     		<div class="row">
                 <div class="col-md-12">
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                	<thead>
-                                		<tr>
-        									<th>이력서 제목</th>
-        									<th>회원 아이디</th>
-        								</tr>
-        							</thead>
-        							<tbody>
-        							
-        								<c:forEach var="resume" items="${resumes }">
-        								
-	                                		<tr>
-	        									<th><a href="updatereadcount.action?memberId=${resume.memberId }">${resume.resumeTitle }</a></th>
-	        									<th>${resume.memberId }</th>
-	        								</tr>
-        							
-        								</c:forEach>
-        								
-        							</tbody>
-        							
-        						</table>
-        					</div>
-    					</div>
-    				</div>
-    			</div>
+	                <table class="table table-hover" style="width:1000px;height:10px" align="center">
+		                <tr class="danger" style="height:30px;color:black;">
+			        		<th>이력서 제목</th>
+			        		<th>회원 아이디</th>
+		        		</tr>
+		        		<c:forEach var="resume" items="${resumes }">
+			            <tr>
+				        	<th><a href="updatereadcount.action?memberId=${resume.memberId }" target="_blank" style="text-decoration: none">${resume.resumeTitle }</a></th>
+				        	<th>${resume.memberId }</th>
+			        	</tr>
+		        		</c:forEach>
+	        		</table>
+        		</div>
     		</div>
     	</div>
+    </div>
+
     <c:import url="/WEB-INF/views/include/footer.jsp" />
 </body>
 </html>

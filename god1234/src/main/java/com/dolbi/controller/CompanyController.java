@@ -38,12 +38,6 @@ public class CompanyController {
 		return "company/servicemain";
 	}
 	
-	@RequestMapping(value = "list.action", method = RequestMethod.GET)
-	public String jobboardlist(String memberId) {
-		
-		return "company/jobboardlist";
-	}
-	
 	@RequestMapping(value = "ingjobboard.action", method = RequestMethod.GET)
 	public String ingJobboard(String memberId, Model model) {
 		
@@ -96,7 +90,7 @@ public class CompanyController {
 		List<Education> educations = companyDao.getEducationById(memberId);
 		model.addAttribute("educations", educations);
 	
-		return "individual/resumeview";
+		return "company/resumeview";
 		
 	}
 	

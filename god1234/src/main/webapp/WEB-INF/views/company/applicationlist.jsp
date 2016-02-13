@@ -18,34 +18,34 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-		
-		
-		<div style="padding-top:25px;text-align:center">
-
-
-			<table border="1" style="width:600px" align="center">
-				<tr style="background-color:orange;height:30px">
-					<th style="width:50px">지원 날짜</th>
-					<th style="width:400px">지원자 아이디</th>
-					<th></th>
-				</tr>
+	<div class="content-wrapper">
+    	<div class="container">
+			<div class="row">
+    			<div class="col-md-12">
+    				<h4 class="page-head-line">${ loginuser.memberId }님기업페이지 </h4>
+    			</div>
+    		</div>
+    		
+			<div class="row">
+				<table class="table table-hover" style="width:1000px;height:10px" align="center">
+					<tr class="danger" style="height:30px;color:black;">
+						<th>지원 날짜</th>
+						<th>지원자 아이디</th>
+						<th></th>
+					</tr>
 				
-				<c:forEach var="application" items="${ applications }">
-				<tr style="height:30px">
-					<th style="width:50px"><fmt:formatDate value="${application.applicationRegdate }" type="date"/></th>
-					<th style="width:400px">${application.memberId }</th>
-					<th><a href="updateischeck.action?applicationNo=${ application.applicationNo}&memberId=${application.memberId }">[이력서 열람하기]<!-- 1. application테이블의 ischeck업데이트 / 2. select resume를 memberId로 하기 --></th>
-				</tr>
-				</c:forEach>
+					<c:forEach var="application" items="${ applications }">
+					<tr style="height:30px">
+						<th><fmt:formatDate value="${application.applicationRegdate }" type="date"/></th>
+						<th>${application.memberId }</th>
+						<th><a href="updateischeck.action?applicationNo=${ application.applicationNo}&memberId=${application.memberId }" target="_blank" class="btn btn-info">이력서 열람하기</a></th>
+					</tr>
+					</c:forEach>
 				
-			</table>
-			<br /><br /><br /><br />
-			
-		
-		
+				</table>
+				<br /><br /><br /><br />
+			</div>
 		</div>
-
-		
 	</div>	
 		
 	<c:import url="/WEB-INF/views/include/footer.jsp" />

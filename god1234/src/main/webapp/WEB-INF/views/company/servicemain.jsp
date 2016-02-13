@@ -22,18 +22,6 @@
 <link href="<%=cp%>/resources/bootstrap/css/font-awesome.css"
 	rel="stylesheet" />
 <link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
-<script type="text/javascript">
-	window.onload = function() {
-
-		var deadline = '${ requestScope.loginid }';
-
-		if (failedLoginId) {
-			alert('로그인 실패');
-			document.getElementById("memberId").value = failedLoginId;
-		}
-
-	}
-</script>
 </head>
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
@@ -45,52 +33,44 @@
 					<h4 class="page-head-line">${ loginuser.memberId }님기업페이지</h4>
 				</div>
 			</div>
+			
 			<div class="row">
 				<div class="col-md-12">
-					<!--    Hover Rows  -->
-					<div class="panel-body">
-						<div class="table-responsive">
-							<table class="table table-hover">
-								<tbody>
-									<tr>
-										<td>기업명</td>
-										<td>${ loginuser.memberName }</td>
-									</tr>
-									<tr>
-										<td>전화번호</td>
-										<td>&nbsp;${ loginuser.phoneNo }</td>
-									</tr>
-									<tr>
-										<td>이메일</td>
-										<td>${ loginuser.email }</td>
-									</tr>
-									<tr>
-										<td>주소</td>
-										<td>${ loginuser.memberAddress }</td>
-									</tr>
-								</tbody>
-							</table>
+						<div class="panel-body" style="padding-bottom:30px">
+		                    <div class="table-responsive">
+			                    <table class="table table-hover">
+									<tbody>
+										<tr>
+											<td>기업명</td>
+											<td>${ loginuser.memberName }</td>
+										</tr>
+										<tr>
+											<td>전화번호</td>
+											<td>0${ loginuser.phoneNo }</td>
+										</tr>
+										<tr>
+											<td>이메일</td>
+											<td>${ loginuser.email }</td>
+										</tr>
+										<tr>
+											<td>주소</td>
+											<td>${ loginuser.memberAddress }</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
-
-					</div>
-					<div style="margin-top:40px;margin-left:400px">
-
-				<a href="ingjobboard.action?memberId=${ loginuser.memberId }"
-					class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>
-					&nbsp;진행중인 공고 </a>&nbsp; <a
-					href="endjobboard.action?memberId=${ loginuser.memberId }"
-					class="btn btn-info"><span class="glyphicon glyphicon-remove-circle"></span>
-					&nbsp;마감된 공고 </a>&nbsp;
-					
-					
-                    <a href="resumelist.action"class="btn btn-info"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;공개된 이력서 목록 보러가기 </a>&nbsp;
-					</div>
+						
+						<div align="center">
+							<a href="#" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span>기업정보 수정</a>
+							<a href="ingjobboard.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;진행중인 공고 </a>&nbsp; 
+							<a href="endjobboard.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;마감된 공고 </a>&nbsp;
+		                    <a href="resumelist.action"class="btn btn-info"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;공개된 이력서 목록 보러가기 </a>&nbsp;
+						</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	</div>
-	</section>
-
 	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
 </body>

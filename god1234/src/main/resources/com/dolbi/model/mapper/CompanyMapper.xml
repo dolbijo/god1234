@@ -113,16 +113,27 @@
 		where m_id = #{id}
 	</select>
 	
-	<resultMap type="Member" id="individualMap">
+	<resultMap type="Member" id="memberMap">
 		<id column="M_ID" property="memberId" />
+		<result column="M_NAME" property="memberName" />
+		<result column="M_ADDRESS" property="memberAddress" />
+		<result column="M_PHONENO" property="phoneNo" />
+		<result column="M_TYPE" property="memberType" />
+		<result column="M_MAIL" property="email" />
 		<result column="M_GENDER" property="gender" />
 		<result column="M_AGE" property="age" />
+		<result column="C_NO" property="companyNo" />
+		<result column="C_HOMEPAGE" property="homepage" />
+		<result column="JC_NO" property="categoryNo" />
+		<result column="C_CEONAME" property="ceoName" />
 	</resultMap>
 	
-	<select id="selectIndividualByMemberId" resultMap="individualMap" parameterType="String">
+	<select id="selectIndividualByMemberId" resultMap="memberMap" parameterType="String">
 		SELECT *
-		FROM individual
-		WHERE m_id = #{id}
+		FROM member m
+		join individual i
+		on m.m_id = i.m_id
+		WHERE m.m_id = #{id}
 	</select>
 	
 	<select id="selectResumeList" resultMap="ResumeMap">
