@@ -147,12 +147,15 @@ public class JobBoardController {
 	}
    
    @RequestMapping(value = "view.action", method = RequestMethod.GET)
-	public ModelAndView getJobboard(String jobboardNo) {
-		ModelAndView mav = new ModelAndView();
+	public String getJobboard(String jobboardNo, Model model) {
+		
 		Jobboard jobboard = jobboardDao.getJobboardByJobboardNo(Integer.parseInt(jobboardNo));
-		mav.addObject(jobboard);
-		mav.setViewName("jobboard/jobboardview");
-		return mav;
+		Member company = jobboardDao.getCompanyByMemberId(jobboard.getMemberId());
+		
+		model.addAttribute("company", company);
+		model.addAttribute("jobboard", jobboard);
+		
+		return "jobboard/jobboardview";
 	}
    
    @RequestMapping(value = "register.action", method = RequestMethod.GET)
@@ -295,7 +298,7 @@ public class JobBoardController {
 
 	   for(int i = 0; i < ca.length; i++) {
 		   
-		   List<Jobboard> jobboards = jobboardDao.getsearchList(ca[i]);
+		   List<Jobboard> jobboards = jobboardDao.getsearchList("%"+ca[i]+"%");
 		   model.addAttribute("jobboards"+i, jobboards);
 		   model.addAttribute("searchtag"+i, ca[i]);
 		   

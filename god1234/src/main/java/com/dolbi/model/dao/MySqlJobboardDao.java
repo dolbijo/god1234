@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
+import com.dolbi.model.dto.Member;
 import com.dolbi.model.mapper.JobboardMapper;
 
 @Repository("jobboardDao")
@@ -115,6 +116,16 @@ public class MySqlJobboardDao implements JobboardDao {
    public void updateJobboard(Jobboard jobboard) {
 	   jobboardMapper.updateJobboard(jobboard);
    }
+
+	@Override
+	public Member getCompanyByMemberId(String memberId) {
+		
+		Member company = jobboardMapper.selectCompanyByMemberId(memberId);
+		
+		return company;
+	}
+   
+   
 
 }
 

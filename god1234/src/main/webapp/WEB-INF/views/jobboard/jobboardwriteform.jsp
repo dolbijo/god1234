@@ -179,7 +179,7 @@
                                 <div style="margin-top:30px;">
                                 
                                 <input type="submit" value="등록"  class="button btn btn-success btn-large"/>
-		        				<input type="button" value="취소" onclick="location.href='list.action';" class="button btn btn-success btn-large"/>
+		        				<input type="button" value="취소" onclick="location.href='list.action?pageNum=1';" class="button btn btn-success btn-large"/>
 		        				</div>
     						</form>
     					</div>

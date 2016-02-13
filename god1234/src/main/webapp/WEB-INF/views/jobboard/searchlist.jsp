@@ -36,7 +36,9 @@
     			
     			<c:set var="jobboards" value="jobboards${i }" />
     			<c:set var="searchtag" value="searchtag${i }" />
-    			[${requestScope[searchtag]}]
+    			<h4><b>${requestScope[searchtag]}</b></h4>
+	            <hr />
+    			
 	    			<table class="table table-hover" style="width:1000px;height:10px" align="center">
 					<tr class="danger" style="height:30px;color:black;">
 						<th style="width:70px">번호</th>
@@ -83,20 +85,20 @@
 							<c:choose>
 							
 	            			<c:when test="${ jobboard.jobboardPayment eq 'permonth' }">
-			            		월급
+			            		[월급]
 			            	</c:when>
 			            	
 			            	<c:when test="${ jobboard.jobboardPayment eq 'perweek' }">
-			            		주급
+			            		[주급]
 			            	</c:when>
 			            	
 			        		<c:otherwise>
-			        			시급
+			        			[시급]
 			        		</c:otherwise>
 			        		
 			        		</c:choose>
 						
-						 / <fmt:formatNumber type="number" maxFractionDigits="3" value="${ jobboard.jobboardSalary }" />원</td>
+						  <fmt:formatNumber type="number" maxFractionDigits="3" value="${ jobboard.jobboardSalary }" />원</td>
 						<td>${ jobboard.jobboardReadCount }</td>
 						<td><fmt:formatDate value="${ jobboard.jobboardDeadLine }" type="date"/></td>
 	

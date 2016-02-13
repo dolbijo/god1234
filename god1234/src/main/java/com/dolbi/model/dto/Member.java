@@ -16,6 +16,7 @@ public class Member implements Serializable {
 	private String gender;
 	private Date age;
 	private int companyNo;
+	private int categoryNo;
 	private String homepage;
 	private String ceoName;
 	private int service;
@@ -154,5 +155,11 @@ public class Member implements Serializable {
 	}
 	public void setCategorys(ArrayList<Category> categorys) {
 		this.categorys = categorys;
+	}
+	public int getCategoryNo() {
+		return categoryNo;
+	}
+	public void setCategoryNo(int categoryNo) {
+		this.categoryNo = categoryNo;
 	}
 }

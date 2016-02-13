@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.JobboardAttachment;
+import com.dolbi.model.dto.Member;
 
 public interface JobboardMapper {
 	
@@ -37,5 +38,7 @@ public interface JobboardMapper {
 	void deleteJobboardAttachmentByJobboardNo(int jobboardNo);
 	
 	void updateJobboard(Jobboard jobboard);
+	
+	Member selectCompanyByMemberId(String memberId);
 
 }

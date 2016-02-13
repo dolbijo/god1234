@@ -34,255 +34,139 @@
     	<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" />
     	<link href="<%=cp%>/resources/bootstrap/css/font-awesome.css" rel="stylesheet" />
     	<link href="<%=cp%>/resources/bootstrap/css/style.css" rel="stylesheet" />
-	<title>자료업로드</title>
-	
-	<script type="text/javascript" >
-
-/*   	function jobApplication(memberId, jobboardNo) {
-  		var uri = "application.action?memberId="+memberId+"&jobboardNo="+jobboardNo;
-  		location.href=uri; 
-  		alert("지원이 완료 되었습니다. 행운을 빕니다~");
-	} 
- */
-	
-</script>
 </head>
 
 
 <body>
-
-	<div id="pageContainer">
 	
-		<jsp:include page="/WEB-INF/views/include/header.jsp" />
-		
-		<div id="inputcontent">
-		    <div id="inputmain">
-		    <center>
-		        <div class="inputsubtitle" style="margin: 40px 0 40px 0;font-size:16px;color:darkmagenta;">일자리 정보</div>
-		        
-		        <table style="width:1000px;"class="table table-striped">
-		            <tr>
-		                <th style="width: 95px">제목</th>
-		                <td>${ jobboard.jobboardTitle }</td>
-		            </tr>
-		            
-		               <tr>
-		                <th>회사/점포명</th>
-		                <td>		                	
-		                	${ jobboard.memberName }
-		                </td>
-		            </tr>
-		            
-		            <tr>
-		                <th>작성자</th>
-		                <td>${ jobboard.memberId }</td>
-		            </tr>
-		            <tr>
-    					<th>채용 사진</th>
-		                    <c:forEach var="file" items="${jobboard.files }">
-		                    	<img src="<%=cp%>/resources/uploadfiles/${file.userFileName }" style="width: 170px;height: 130px;"/></img><br />
-		                    </c:forEach>
-    				</tr>
-    				
-    				      
-		            <tr>
-		            	<th>마감일자</th>
-		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
-		            </tr>		         
-		            <tr>
-		            	<th>상세 모집 요강</th>
-		            	<td>
-		            	${fn:replace(jobboard.jobboardContent, cn, br)}
+	<jsp:include page="/WEB-INF/views/include/header.jsp" />
+	<div class="content-wrapper">
+		<div class="container">
+	
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="page-head-line">알바 채용정보</h4>
+				</div>
+			</div>
+			<div class="row">
+   
+				<div class="col-md-12">
+		            <div class="alert alert-success">
+		            	<h3 align="center"><b>${ jobboard.jobboardTitle }</b></h3>
+		            </div>
+                </div>
+                
+                <div class="col-md-12">
+                	<table border="0" style="width: 80%;text-align: left">
+	                	<tr>
+	                		<td colspan="8" style="width: 50%">
+	                			<c:forEach var="file" items="${jobboard.files }">
+									<img src="<%=cp%>/resources/uploadfiles/${file.userFileName }" style="width: 100%;height: 400px;"/></img><br />
+								</c:forEach>
+	                		</td>
+	                		<td style="padding-left: 20px;">
+	                			<h4><b>모집 정보</b></h4>
+                				<hr />
+                				<b>회사/점포명 </b>&nbsp;
+				                ${ jobboard.memberName }
+				                <br />
+				            	<b>성별</b> &nbsp;
+				            	<c:choose>
+		            				<c:when test="${ jobboard.jobboardGender eq 'male' }">남성</c:when>
+				            		<c:when test="${ jobboard.jobboardGender eq 'female' }">여성</c:when>
+				        			<c:otherwise>남여무관</c:otherwise>
+				        		</c:choose>
+				   				<br />
+				            	<b>모집연령</b>
+				            	<c:choose>
+				            		<c:when test="${ jobboard.jobboardAge eq 'none1' }">나이 무관</c:when>
+					            	<c:when test="${ jobboard.jobboardAge eq '1' }">10세 이상 20세 미만</c:when>
+					            	<c:when test="${ jobboard.jobboardAge eq '2' }">20세 이상 30세 미만</c:when>
+					            	<c:when test="${ jobboard.jobboardAge eq '3' }">30세 이상 40세 미만</c:when>
+					            	<c:when test="${ jobboard.jobboardAge eq '4' }">40세 이상 50세 미만</c:when>
+					            	<c:when test="${ jobboard.jobboardAge eq '5' }">50세 이상 60세 미만</c:when>
+					            	<c:when test="${ jobboard.jobboardAge eq '6' }">60세 이상 70세 미만</c:when>
+					            	<c:when test="${ jobboard.jobboardAge eq '7' }">70세 이상 80세 미만</c:when>
+					            	<c:when test="${ jobboard.jobboardAge eq '1' }">80세 이상</c:when>
+				            	</c:choose>
+				            	<br />
+				            	<b>경력정보</b>&nbsp;
+				            	<c:choose>
+					            	<c:when test="${ jobboard.jobboardCareer eq 'new' }">신입</c:when>
+					            	<c:otherwise>경력</c:otherwise>
+					            </c:choose>
+					            <br />
+					            <b>학력</b>&nbsp;
+				            	<c:choose>
+		            			<c:when test="${ jobboard.jobboardEducation eq 'grade0' }">초졸</c:when>
+				            	<c:when test="${ jobboard.jobboardEducation eq 'grade1' }">중졸</c:when>
+				            	<c:when test="${ jobboard.jobboardEducation eq 'grade2' }">고졸</c:when>
+				            	<c:when test="${ jobboard.jobboardEducation eq 'grade3' }">대졸</c:when>
+				            	<c:when test="${ jobboard.jobboardEducation eq 'grade4' }">초대졸</c:when>
+				        		<c:otherwise>학력 무관</c:otherwise>
+				        		</c:choose>
+								<br />
+				            	<b>모집인원</b>&nbsp;
+				            	${ jobboard.jobboardJoinNo }명
+				            	<br />
+								<b>급여</b>&nbsp;
+				            	<c:choose>
+			            			<c:when test="${ jobboard.jobboardPayment eq 'permonth' }">[월급]</c:when>
+					            	<c:when test="${ jobboard.jobboardPayment eq 'perweek' }">[주급]</c:when>
+					        		<c:otherwise>[시급]</c:otherwise>
+				        		</c:choose>
+							  	<fmt:formatNumber type="number" maxFractionDigits="3" value="${ jobboard.jobboardSalary }" />원
+				         		<br />
+				            	<b>채용 마감일자</b>&nbsp;
+				            	<fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/>
+				            	<br />
+				            	<b>담당자 전화번호</b>&nbsp;
+				            	${ jobboard.jobboardPhone }
+				            	<br />
+				            	<b>담당자 email</b>&nbsp;
+				            	${ jobboard.jobboardemail }
+				            	
+				            </td>
+				    	</tr>
+                	</table>
+                </div>
+                <br />
+                <div class="col-md-12">
+	                <h4><b>상세 모집 정보</b></h4>
+	                <hr />
+	                ${fn:replace(jobboard.jobboardContent, cn, br)}
+                </div>
+  				<br />
+                <div class="col-md-12">
+					<h4><b>회사 정보</b></h4>
+	                <hr />
+	                <b>회사/점포명 </b>&nbsp;
+				    ${ company.memberName }
+				    <br />
+				    <b>회사/점포 주소 </b>&nbsp;
+				    ${ company.memberAddress }
+				    <br />
+				    <b>회사/점포 홈페이지 </b>&nbsp;
+				    ${ company.homepage }
+				    <br />
+                </div>
 
-		            	
-		            	</td>
-		            </tr>
-		            <tr>
-		            	<th>나이</th>
-		            	<td>${ jobboard.jobboardAge }</td>
-		            </tr>
-		            <tr>
-		            	<th>모집인원</th>
-		            	<td>${ jobboard.jobboardJoinNo }</td>
-		            </tr>
-		            <tr>
-		            	<th>성별</th>
-		            	<td>${ jobboard.jobboardGender }</td>
-		            	</tr>
-		            <tr>
-		            	<th>경력정보</th>
-		            	<td>
-		            	<c:choose>
-		            	<c:when test="${ jobboard.jobboardCareer eq 'new' }">
-		            		신입
-		            	</c:when>
-		            	<c:otherwise>
-		            		경력
-		            	</c:otherwise>
-		            	</c:choose>
-		            	</td>
-		            </tr>
-		            
-		            <tr>
-		            	 <th>학력</th>
-		            	<td>
-		            	<c:choose>
-						
-            			<c:when test="${ jobboard.jobboardEducation eq 'grade0' }">
-		            		초졸
-		            	</c:when>
-		            	
-		            	<c:when test="${ jobboard.jobboardEducation eq 'grade1' }">
-		            		중졸
-		            	</c:when>
-		            	
-		            	<c:when test="${ jobboard.jobboardEducation eq 'grade2' }">
-		            		고졸
-		            	</c:when>
-		            	
-		            	<c:when test="${ jobboard.jobboardEducation eq 'grade3' }">
-		            		대졸
-		            	</c:when>
-		            	
-		            	<c:when test="${ jobboard.jobboardEducation eq 'grade4' }">
-		            		초대졸
-		            	</c:when>
-		            	
-		        		<c:otherwise>
-		        			학력 무관
-		        		</c:otherwise>
-		        		
-		        		</c:choose>
-		            	
-		            	</td>
-		            </tr>
-		             <tr>
-		            	<th>성별</th>
-		            	<td>
-		            		<c:choose>
-						
-            			<c:when test="${ jobboard.jobboardGender eq 'male' }">
-		            		남성
-		            	</c:when>
-		            	
-		            	<c:when test="${ jobboard.jobboardGender eq 'female' }">
-		            		여성
-		            	</c:when>
-		            	
-		        		<c:otherwise>
-		        			남여무관
-		        		</c:otherwise>
-		        		
-		        		</c:choose>
-		            	</td>
-		            </tr>
-		            
-		            
-		            <tr>
-		            	<th>모집연령</th>
-		            	<td>
-		            	<c:choose>
-		            	<c:when test="${ jobboard.jobboardAge eq 'none1' }">
-		            		나이 무관
-		            	</c:when>
-		            	<c:when test="${ jobboard.jobboardAge eq '1' }">
-		            		10세 이상 20세 미만
-		            	</c:when>
-		            	<c:when test="${ jobboard.jobboardAge eq '2' }">
-		            		20세 이상 30세 미만
-		            	</c:when>
-		            	<c:when test="${ jobboard.jobboardAge eq '3' }">
-		            		30세 이상 40세 미만
-		            	</c:when>
-		            	<c:when test="${ jobboard.jobboardAge eq '4' }">
-		            		40세 이상 50세 미만
-		            	</c:when>
-		            	<c:when test="${ jobboard.jobboardAge eq '5' }">
-		            		50세 이상 60세 미만
-		            	</c:when>
-		            	<c:when test="${ jobboard.jobboardAge eq '6' }">
-		            		60세 이상 70세 미만
-		            	</c:when>
-		            	<c:when test="${ jobboard.jobboardAge eq '7' }">
-		            		70세 이상 80세 미만
-		            	</c:when>
-		            	<c:when test="${ jobboard.jobboardAge eq '1' }">
-		            		80세 이상
-		            	</c:when>
-		            	</c:choose>
-		            	
-		            	</td>
-		            </tr>
-		             <tr>
-		            	<th>모집인원</th>
-		            	<td>${ jobboard.jobboardJoinNo }</td>
-		            </tr>
-		            
-		            <tr>
-		            	 <th>급여</th>
-		            	<td>
-		            	
-		            	<c:choose>
-						
-            			<c:when test="${ jobboard.jobboardPayment eq 'permonth' }">
-		            		월급
-		            	</c:when>
-		            	
-		            	<c:when test="${ jobboard.jobboardPayment eq 'perweek' }">
-		            		주급
-		            	</c:when>
-		            	
-		        		<c:otherwise>
-		        			시급
-		        		</c:otherwise>
-		        		
-		        		</c:choose>
-					
-					 / <fmt:formatNumber type="number" maxFractionDigits="3" value="${ jobboard.jobboardSalary }" />원
-		            	
-		            	</td>
-		            </tr>
-		            
-		            <tr>
-		            	<th>마감일자</th>
-		            	<td><fmt:formatDate value="${ jobboard.jobboardDeadLine}" type="date"/></td>
-		            </tr>
-		            
-		            
-		            <tr>
-		            	<th>전화번호</th>
-		            	<td>${ jobboard.jobboardPhone }</td>
-		            </tr>
-		            
-		            
-		            <tr>
-		            	<th>email</th>
-		            	<td>${ jobboard.jobboardemail }</td>
-		            </tr>
-		                 		           		         
-		            
-		        </table>
-		        <div class="buttons" style="margin: 40px 0 60px 0;">
-		        	
-		        	<c:if test="${ loginuser.memberType eq 'individual' }">
-		        	
-		        	[<a href="javascript:application('${loginuser.memberId}', ${ jobboard.jobboardNo })">지원하기</a>]
-
-		        	</c:if>
-		        	
-		        	<c:if test="${ (loginuser.memberType eq 'company') }">
-		        		<c:if test="${ (loginuser.memberId eq jobboard.memberId) }">
-		        			<a href="edit.action?jobboardNo=${ jobboard.jobboardNo }&memberId=${loginuser.memberId}">정보수정</a>
-		        		</c:if>
+				        
+				<div class="buttons" style="margin: 40px 0 60px 0;" align="center">
+					<c:if test="${ loginuser.memberType eq 'individual' }">
+				    	<a href="javascript:application('${loginuser.memberId}', ${ jobboard.jobboardNo })" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span>지원하기</a>
+				    </c:if>
+				    <c:if test="${ (loginuser.memberType eq 'company') }">
+				        <c:if test="${ (loginuser.memberId eq jobboard.memberId) }">
+				        	<a href="edit.action?jobboardNo=${ jobboard.jobboardNo }&memberId=${loginuser.memberId}" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span>정보수정</a>
+				        </c:if>
 					</c:if>
-		        	<input class="btn btn-info" type="button" value="취소" style="height:33px;width:55px;padding:3px 3px 3px 3px" onclick="location.href='list.action';" />
-		        </div>
-		    </div>
-		    </center>
-		</div>   
-	<div>
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-	</div>
+				</div>
+			</div>
+		</div>  
+		</div> 
+	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+
 
 </body>
 </html>
