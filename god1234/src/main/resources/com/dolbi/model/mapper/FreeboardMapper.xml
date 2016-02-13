@@ -61,6 +61,7 @@
 		SELECT <include refid="FreeboardColumns" /> 
 		FROM FREEBOARD
 		where f_type=#{freeboardtype}
+		order by f_no desc
 	</select>
 
 	<insert id="insertFreeboard" parameterType="Freeboard">

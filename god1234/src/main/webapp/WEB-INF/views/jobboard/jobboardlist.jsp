@@ -39,18 +39,18 @@
 	
 			<div class="row">
 				<div class="col-md-12">
-					<h4 class="page-head-line">최신 알바 채용정보</h4>
+					<h4 class="page-head-line">알바 채용정보</h4>
 				</div>
 			</div>
 			<div class="row">
-				<div style="padding: 70px 0 50px 0;text-align:center">
+				<div style="text-align:center">
 					<c:url var="writeform" value="/jobboard/register.action?memberId=${loginuser.memberId }" />		
 					<c:if test="${ loginuser.memberType eq 'company' }">
 		            	<a href="${ writeform }"class="btn btn-info"><span class="glyphicon glyphicon-chevron-down"></span>&nbsp;자료등록 </a>&nbsp;
 		        	</c:if>
 					 <a href="searchcategory.action" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> &nbsp;자료찾기</a>&nbsp;
 					<br /><br />
-					</div>
+				</div>
 					
 					
 					<div>
@@ -71,7 +71,7 @@
 						<tr style="height:20px;color:slategrey;">
 							<td style="padding-top:20px">${ jobboard.jobboardNo }</td>
 							<td style="text-align:left;padding-top:20px">
-								<a href="updatecount.action?jobboardNo=${ jobboard.jobboardNo }">${ jobboard.jobboardTitle }</a>
+								<a href="updatecount.action?jobboardNo=${ jobboard.jobboardNo }" style="text-decoration: none">${ jobboard.jobboardTitle }</a>
 							</td>
 		
 		

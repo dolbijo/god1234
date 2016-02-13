@@ -40,7 +40,7 @@ public class FreeboardController {
 		public String getFreeboardWriteForm(Freeboard freeboard) throws Exception {
 		   freeboardDao.insertFreeboard(freeboard);
 
-			return "redirect:/freeboard/list.action";
+			return "redirect:/freeboard/list.action?freeboardtype="+freeboard.getFreeboardtype();
 		}
 		
 	   @RequestMapping(value = "updatecount.action", method = RequestMethod.GET)

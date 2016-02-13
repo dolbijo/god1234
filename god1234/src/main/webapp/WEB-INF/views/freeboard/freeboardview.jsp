@@ -48,155 +48,141 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-		
-		<div style="padding-top:25px;text-align:center">
-		<div id="inputcontent">
-		    <div id="inputmain">
-		        <div class="inputsubtitle" style="margin: 40px 0 40px 0;font-size:16px;">알바TALK</div>
-		        <div align="center">
-		        <table style="width:1000px;"class="table table-hover">
-		            <tr>
-		                <th colspan="3">제목</th>
-		                <td colspan="3">${ freeboard.freeboardTitle}</td>
-		            </tr>
-		            <tr>
-		                <th style="width:66px">작성자</th>
-		                <td>${ freeboard.memberId}</td>
-		                <th style="width:66px">작성일</th>
-		                <td>${ freeboard.freeboardRegDate}</td>
-		                <th style="width:66px">조회수</th>
-		                <td>${ freeboard.freeboardReadCount}</td>
-		            </tr>
-		            
-		            <tr>
-		                <th colspan="3">질문</th>
-		                <td colspan="3">${fn:replace(freeboard.freeboardContent, cn, br)}</td>
-		            </tr>
-		        </table>
-		        </div>
-
-		        <div class="buttons" style="margin-top:50px">
-		        	
-		        	<a href="edit.action?freeboardno=${ freeboard.freeboardNo }"class="btn btn-info">정보수정</a>
-
-		        <c:if test="${ loginuser.memberId == freeboard.memberId }">
-		        	<input type="button" value="편집" style="height:34px;width:56px;" class="btn btn-info" />
-		        </c:if>
-		        	<input type="button" value="취소" style="height:34px;width:56px;" onclick="location.href='list.action';" class="btn btn-info" />
-		        </div>
-		    </div>
-		</div>   	
-	
-	</div>
-	
-
-	<br /><br />
-		<c:if test="${ loginuser.memberType eq 'individual' }">
-		<form id="commentform" action="writecomment.action" method="post">
-			<input type="hidden" name="freeboardNo" value="${ freeboard.freeboardNo}" />
-			<input type="hidden" name="memberId" value="${ loginuser.memberId}" />
-			<table style="width:700px;border:solid 1px;margin:0 auto">
-	            <tr>
-	                <td style="width:650px">	                	
-	                    <textarea name="content" style="width:650px" rows="3"></textarea>
-	                </td>
-	                <td style="width:50px;vertical-align:middle;padding-right:5px;padding-left:5px">
-	                
-	                	<a href="javascript:document.getElementById('commentform').submit();" style="text-decoration:none">
-	                		댓글등록
-	                	</a>
-	                
-	                </td>
-	            </tr>                    
-	        </table>
-        </form>   
-        </c:if>     
-        
-        <hr align="center" style="width:600px;" />
-        
-        <!-------------------------------------------------------->
-		<c:set var="commentlength" value="${fn:length(freeboard.comments) }"/>
-		<c:choose>
+	<div class="content-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="page-head-line">알바 이야기 나눔터</h4>
+				</div>
+			</div>
 			
-			<c:when test="${commentlength == 0 }">
-				<h4 id="nodata" style="text-align:center">
-	            	작성된 댓글이 없습니다.
-	        	</h4>
-			</c:when>
-			<c:otherwise>
-				<table style="width:700px;border:solid 1px;margin:0 auto">
-					<c:forEach var="comment" items="${ freeboard.comments }">
-					
-						<tr>
-			        		<td style="padding: 10px 10px 10px 10px;text-align:left;margin:5px;border-bottom: solid 1px">
-			        			<div id='commentview${comment.commentNo }'>
-				                    ${comment.memberId }&nbsp;&nbsp;
-				                    [ ${comment.regdate} ]
-				                    <br /><br />
-				                    <span>
-				                    	<c:choose>
-				                    		<c:when test="${ comment.content ne null }">
-				                    			${fn:replace(comment.content, cn, br)}
-				                    		</c:when>
-				                    		
-				                    	</c:choose>
-				                    </span>
-				                    <br /><br />
-				                    <c:set var="display" value=""/>
-				                    <c:choose>
-				                    <c:when test="${ loginuser.memberId eq comment.memberId  }">
-				                    	<c:set var="display" value="block"/>
-				                    </c:when>
-				                    <c:otherwise>
-				                    	<c:set var="display" value="none"/>
-				                    </c:otherwise>
-				                    </c:choose>
-				                    
-				                    <div style="display: ${display}">
-				                    	<a href="javascript:toggleCommentStatus(${comment.commentNo }, true);">편집</a>
-				                    	&nbsp;
-				                    	<a href="javascript:deleteComment(${comment.freeboardNo }, ${comment.commentNo })">삭제</a>
-				                     
-				                    </div>
-			                    </div>
-			                
-			                	<div id='commentedit${comment.commentNo }' style="display: none">
-									${comment.memberId }&nbsp;&nbsp; 
-									[${comment.regdate}] 
-									<br /><br />
-									<form id="commenteditform${comment.commentNo}" action="updatecomment.action" method="post">
-										<input type="hidden" name="freeboardNo" value="${ freeboard.freeboardNo}" />
-										<input type="hidden" name="commentNo" value="${comment.commentNo}" />
-										<textarea name="content" style="width: 700px" rows="3" maxlength="200">
-											
-					                    		<c:choose>
-				                    				<c:when test="${ comment.content ne null }">
-						                    			${fn:replace(comment.content, cn, br)}
-						                    		</c:when>
-						                    		
-				                    			</c:choose>
-				                    		
-										</textarea>
-									</form>
-									<br />
-								<div>
-									<a class="btn btn-default" href="javascript:document.getElementById('commenteditform${comment.commentNo }').submit();">수정</a> 
-									&nbsp; 
-									<a class="btn btn-default" href="javascript:toggleCommentStatus(${comment.commentNo }, false);">취소</a>
-								 
-								</div>
-							</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="alert alert-success">
+		            	<h3 align="center"><b>${ freeboard.freeboardTitle}</b></h3>
+		            </div>
+				</div>
 				
-							</td>
-			        	</tr>
-					</c:forEach>
-				</table>
-			</c:otherwise>
-		</c:choose>
-	
-		
-		<br /><br /><br /><br /><br />
-
+				<div class="col-md-12">
+					<table style="width: 80%;text-align: left;border: 0px">
+						<tr>
+			                <th style="width:66px">작성자</th>
+			                <td>${ freeboard.memberId}</td>
+			                <th style="width:66px">작성일</th>
+			                <td>${ freeboard.freeboardRegDate}</td>
+			                <th style="width:66px">조회수</th>
+			                <td>${ freeboard.freeboardReadCount}</td>
+		            	</tr>
+					</table>
+				</div>
+				
+				<div class="col-md-12">
+	               	<hr />
+	                ${fn:replace(freeboard.freeboardContent, cn, br)}
+                </div>
+                
+                <div class="buttons" style="margin: 40px 0 60px 0;" align="center">
+                	<c:if test="${ loginuser.memberId == freeboard.memberId }">
+		        		<input type="button" value="편집" class="btn btn-info" />
+		        	</c:if>
+                </div>
+			</div>
+			
+			<br /><br />
+			<div class="row">
+				<div class="col-md-12">
+					<hr />
+					<div class="form-group has-error">
+						<c:if test="${ loginuser.memberType eq 'individual' }">
+							<form id="commentform" action="writecomment.action" method="post" style="padding-left: 200px;padding-right: 200px;">
+								<input type="hidden" name="freeboardNo" value="${ freeboard.freeboardNo}" />
+								<input type="hidden" name="memberId" value="${ loginuser.memberId}" />
+								<table style="border:0px">
+									<tr>
+										<td>
+											<textarea name="content" style="width:650px" rows="3"></textarea>
+								        </td>
+								        <td style="padding-left: 20px;">
+								        	<a href="javascript:document.getElementById('commentform').submit();" class="btn btn-info">댓글등록</a>
+		        						</td>
+	        						</tr>
+	        					</table>
+	        				</form>   
+	       				 </c:if>
+       				 </div>
+        			<hr/>
+        		</div>
+        		
+        		<div class="col-md-12">
+        		<!-------------------------------------------------------->
+					<c:set var="commentlength" value="${fn:length(freeboard.comments) }"/>
+					<c:choose>
+						<c:when test="${commentlength == 0 }">
+							<h4 id="nodata" style="text-align:center">
+				            	작성된 댓글이 없습니다.
+				        	</h4>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="comment" items="${ freeboard.comments }">
+								<div class="panel panel-success" id='commentview${comment.commentNo }'>
+	                        		<div class="panel-heading">
+	                            		${comment.memberId }&nbsp;&nbsp;[ ${comment.regdate} ]
+	                        		</div>
+	                        		<div class="panel-body">
+	                        			<c:choose>
+								            <c:when test="${ comment.content ne null }">
+								            	${fn:replace(comment.content, cn, br)}
+								            </c:when>
+							            </c:choose>
+	                        		</div>
+	                        		<div class="panel-footer">
+	                            		<c:set var="display" value=""/>
+	                            		<c:choose>
+							            	<c:when test="${ loginuser.memberId eq comment.memberId  }">
+							            		<c:set var="display" value="block"/>
+							                </c:when>
+							                <c:otherwise>
+							                    <c:set var="display" value="none"/>
+							                </c:otherwise>
+							            </c:choose>
+							            <div style="display: ${display}">
+								            <a href="javascript:toggleCommentStatus(${comment.commentNo }, true);" class="btn btn-info">편집</a>
+								            &nbsp;
+								            <a href="javascript:deleteComment(${comment.freeboardNo }, ${comment.commentNo })" class="btn btn-info">삭제</a>
+							            </div>
+	                        		</div>
+	                    		</div>
+	                    		
+	                    		<div class="panel panel-primary" id='commentedit${comment.commentNo }' style="display: none">
+									<div class="panel-heading">
+										${comment.memberId }&nbsp;&nbsp;[${comment.regdate}] 
+									</div>
+									<div class="panel-body">
+										<div class="form-group has-error">
+											<form id="commenteditform${comment.commentNo}" action="updatecomment.action" method="post">
+												<input type="hidden" name="freeboardNo" value="${ freeboard.freeboardNo}" />
+												<input type="hidden" name="commentNo" value="${comment.commentNo}" />
+												<textarea name="content" style="width:650px" rows="3">
+											        <c:choose>
+										            	<c:when test="${ comment.content ne null }">${fn:replace(comment.content, cn, br)}</c:when>
+												    </c:choose>
+									            </textarea>
+											</form>
+										</div>
+									</div>
+									<div class="panel-footer">
+										<a class="btn btn-default" href="javascript:document.getElementById('commenteditform${comment.commentNo }').submit();" class="btn btn-info">수정</a> 
+												&nbsp; 
+										<a class="btn btn-default" href="javascript:toggleCommentStatus(${comment.commentNo }, false);" class="btn btn-info">취소</a>
+									</div>
+								</div>
+	                    	</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<c:import url="/WEB-INF/views/include/footer.jsp" />
 
