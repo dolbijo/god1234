@@ -57,7 +57,7 @@
                 </div>
                 
                 <div class="col-md-12">
-                	<table border="0" style="width: 80%;text-align: left">
+                	<table style="width: 80%;text-align: left;border:0px">
 	                	<tr>
 	                		<td colspan="8" style="width: 50%">
 	                			<c:forEach var="file" items="${jobboard.files }">

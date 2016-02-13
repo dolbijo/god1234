@@ -56,44 +56,82 @@
                                 <table class="table table-hover">
                                     <tbody>
                                     	<tr>
-                                            <td>아이디</td>
+                                            <td><b>아이디</b></td>
         									<td>${ loginuser.memberId }</td>
                                         </tr>
                                         <tr>
-                                            <td>이름</td>
+                                            <td><b>이름</b></td>
         									<td>${ member.memberName }</td>
                                         </tr>
                                         <tr>
-                                            <td>성별</td>
+                                            <td><b>성별</b></td>
         									<td>${ member.gender }</td>
                                         </tr>
                                         <tr>
-                                            <td>생년월일</td>
+                                            <td><b>생년월일</b></td>
         									<td>${ member.age }</td>
                                         </tr>
                                         <tr>
-                                            <td>전화번호</td>
-        									<td>${ member.phoneNo }</td>
+                                            <td><b>전화번호</b></td>
+        									<td>0${ member.phoneNo }</td>
                                         </tr>
                                         <tr>
-                                            <td>이메일</td>
+                                            <td><b>이메일</b></td>
         									<td>${ member.email }</td>
                                         </tr>
                                         <tr>
-                                            <td>주소</td>
+                                            <td><b>주소</b></td>
         									<td>${ member.memberAddress }</td>
                                         </tr>
                                         <tr>
-                                            <td>선호하는 직종</td>
+                                            <td><b>선호하는 직종</b></td>
         									<td>
         									<c:forEach var="likedcategory" items="${likedcategorylist }">
-        										${likedcategory.categoryName } | 
+        										<c:choose>
+	        										<c:when test="${likedcategory.categoryName eq 'service'}">
+	        											[서비스]
+	        										</c:when>
+	        										<c:when test="${likedcategory.categoryName eq 'sale'}">
+	        											[유통/판매]
+	        										</c:when>
+	        										<c:when test="${likedcategory.categoryName eq 'office'}">
+	        											[사무직]
+	        										</c:when>
+	        										<c:when test="${likedcategory.categoryName eq 'construction'}">
+	        											[건설/공사]
+	        										</c:when>
+	        										<c:when test="${likedcategory.categoryName eq 'production'}">
+	        											[운송]
+	        										</c:when>
+	        										<c:when test="${likedcategory.categoryName eq 'it'}">
+	        											[IT]
+	        										</c:when>
+	        										<c:when test="${likedcategory.categoryName eq 'design'}">
+	        											[디자인]
+	        										</c:when>
+	        										<c:when test="${likedcategory.categoryName eq 'education'}">
+	        											[교육]
+	        										</c:when>
+        										</c:choose>
         									</c:forEach>
         									</td>
                                         </tr>
                                         <tr>
                                         	<td colspan="2">
-                                        		[<a href="javascript:toggleCommentStatus(true);">수정</a>]
+                                        		<br />
+	                                        	<div align="center">
+									                <a href="javascript:toggleCommentStatus(true);" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span>개인정보 수정</a>
+									    			<c:choose>
+									            	<c:when test="${ resume eq '0' }">
+									            	<a href="resumeform.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span> &nbsp;이력서 등록 </a>&nbsp;
+									            	</c:when>
+									        		<c:otherwise>
+									        		<a href="resumeview.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span> &nbsp;이력서 관리 </a>&nbsp;
+									        		</c:otherwise>
+									        		</c:choose>
+									    			<a href="applicationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-list"></span> &nbsp;지원현황 </a>&nbsp;
+									    			<a href="recommendationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-thumbs-up"></span> &nbsp;맞춤알바정보 </a>&nbsp;
+									    		</div>
                                         	</td>
                                         </tr>
                                     </tbody>
@@ -106,38 +144,38 @@
                                 <table class="table table-hover">
                                     <tbody>
                                     	<tr>
-                                            <td>아이디</td>
+                                            <td><b>아이디</b></td>
         									<td>${ loginuser.memberId }</td>
                                         </tr>
                                         <tr>
-                                            <td>이름</td>
+                                            <td><b>이름</b></td>
         									<td><input type="text" class="form-control" name="memberName" value="${ loginuser.memberName }"/></td>
                                         </tr>
                                         <tr>
-                                            <td>성별</td>
+                                            <td><b>성별</b></td>
         									<td>
         										<input type="radio" class="form-control" name="gender" value="male" style="heignt:100px;width:20px;display: inline;">남자
                                 				<input type="radio" class="form-control" name="gender" value="female" style="heignt:100px;width:20px;display: inline;">여자
     										</td>
                                         </tr>
                                         <tr>
-                                            <td>생년월일</td>
+                                            <td><b>생년월일</b></td>
         									<td><input type="date" class="form-control" name="age" value="${ member.age }" /></td>
                                         </tr>
                                         <tr>
-                                            <td>전화번호</td>
+                                            <td><b>전화번호</b></td>
         									<td><input type="text" class="form-control" name="phoneNo" value="${ loginuser.phoneNo }" /></td>
                                         </tr>
                                         <tr>
-                                            <td>이메일</td>
+                                            <td><b>이메일</b></td>
         									<td><input type="text" class="form-control" name="email" value="${ loginuser.email }" /></td>
                                         </tr>
                                         <tr>
-                                            <td>주소</td>
+                                            <td><b>주소</b></td>
         									<td><input type="text" class="form-control" name="memberAddress" value="${ loginuser.memberAddress }"/></td>
                                         </tr>
                                         <tr>
-                                            <td>선호하는 직종</td>
+                                            <td><b>선호하는 직종</b></td>
         									<td>
         									<input type="checkbox" name="service" value="1">서비스
                                 			<input type="checkbox" name="sale" value="2">영업
@@ -154,8 +192,10 @@
                                         </tr>
                                         <tr>
                                         	<td colspan="2">
-                                        		[<a href="javascript:document.getElementById('individualditform').submit();">수정</a>]&nbsp;&nbsp;
-                                        		[<a href="javascript:toggleCommentStatus(false);">취소</a>]
+                                        		<div align="center">
+                                        			<a href="javascript:document.getElementById('individualditform').submit();" class="btn btn-info">수정</a>&nbsp;&nbsp;
+                                        			<a href="javascript:toggleCommentStatus(false);" class="btn btn-info">취소</a>
+                                        		</div>
                                         	</td>
                                         </tr>
                                     </tbody>
@@ -166,18 +206,6 @@
                     </div>
                     <!-- End  Hover Rows  -->
     			</div>
-    			<div style="padding-left: 760px;">
-    			<c:choose>
-            	<c:when test="${ resume eq '0' }">
-            	<a href="resumeform.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span> &nbsp;이력서 등록 </a>&nbsp;
-            	</c:when>
-        		<c:otherwise>
-        		<a href="resumeview.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span> &nbsp;이력서 관리 </a>&nbsp;
-        		</c:otherwise>
-        		</c:choose>
-    			<a href="applicationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-list"></span> &nbsp;지원현황 </a>&nbsp;
-    			<a href="recommendationlist.action?memberId=${ loginuser.memberId }" class="btn btn-info"><span class="glyphicon glyphicon-thumbs-up"></span> &nbsp;맞춤알바정보 </a>&nbsp;
-    		</div>
     		</div>
     	</div>
     </div>

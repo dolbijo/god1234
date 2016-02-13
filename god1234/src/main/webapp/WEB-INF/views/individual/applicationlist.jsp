@@ -33,47 +33,40 @@
     			<br />
     		<div class="row">
                 <div class="col-md-12">
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                	<thead>
-                                		<tr>
-        								<th>지원 날짜</th>
-        								<th>지원 공고</th>
-        								<th>담당자 열람유무</th>
-        								<th>취소하기</th>
-        								</tr>
-        							</thead>
-        							<c:forEach var="application" items="${applications }">
-        							<tbody>
-        								<tr>
-        								<td><fmt:formatDate value="${application.applicationRegdate }" type="date"/></td>
-        								<td>
-        									${application.jobboardNo }
-        									<a href="/dolbi/jobboard/view.action?jobboardNo=${application.jobboardNo }">${application.jobboardTitle }</a>
-        								</td>
-        								<td>
-        								<c:choose>
-        								<c:when test="${ application.isCheck eq 'false' }">
-        									미열람
-        								</c:when>
-        								<c:otherwise>
-        									열람
-        								</c:otherwise>
-        								</c:choose>
-        								
-        								</td>
-        								<td><a href="deleteapplication.action?applicationNo=${application.applicationNo }&memberId=${ loginuser.memberId }"class="btn btn-action"style="background-color:lightblue;">취소</a></td>
-										</tr>
-        							</tbody>
-        							</c:forEach>
-        						</table>
-        					</div>
-    					</div>
-    				</div>
-    			</div>
+                	<table class="table table-hover" style="width:1000px;height:10px" align="center">
+                    
+	                    <tr class="danger" style="height:30px;color:black;">
+		        			<th><b>지원 날짜</b></th>
+		        			<th><b>지원 공고</b></th>
+		        			<th><b>담당자 열람유무</b></th>
+		        			<th><b>취소하기</b></th>
+	        			</tr>
+        			
+	        			<c:forEach var="application" items="${applications }">
+	        			
+		        			<tr>
+			        			<td><fmt:formatDate value="${application.applicationRegdate }" type="date"/></td>
+			        			
+			        			<td>
+				        			${application.jobboardNo }
+				        			<a href="/dolbi/jobboard/view.action?jobboardNo=${application.jobboardNo }">${application.jobboardTitle }</a>
+			        			</td>
+			        			
+			        			<td>
+				        			<c:choose>
+				        			<c:when test="${ application.isCheck eq 'false' }">미열람</c:when>
+				        			<c:otherwise>열람</c:otherwise>
+				        			</c:choose>
+			        			</td>
+			        			
+			        			<td><a href="deleteapplication.action?applicationNo=${application.applicationNo }&memberId=${ loginuser.memberId }"class="btn btn-action"style="background-color:lightblue;">취소</a></td>
+							</tr>
+	        			</c:forEach>
+        			</table>
+        		</div>
     		</div>
     	</div>
+    </div>
     <c:import url="/WEB-INF/views/include/footer.jsp" />
 </body>
 </html>

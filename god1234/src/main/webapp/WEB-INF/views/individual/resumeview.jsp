@@ -16,7 +16,7 @@
         pageContext.setAttribute("br", "<br/>");  // <br> tag
  %>
 <!DOCTYPE html>
-
+<html>
 <head>
     	<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -38,108 +38,110 @@
     			</div>
     		</div>
     			<br />
-		<section class="featured">
-			<div class="container"> 
-    		          <div style="padding-top: 10px">
-    		          	<table>
-                                    <tr style="text-align: center;">
-                                    <td colspan="2">
-    									<td style="background-color:yellowgreen;width: 83px">이력서 제목</td>
-    									<td style="border: 1px solid;width:600px">${ resume.resumeTitle }</td>
-    								</tr>
-    								</table>
-    								</div>
-    								<div style="padding-top: 10px">
-    								<table border="1" style="width:800px; text-align:center">    								
-    								<tr>
-										<td width="30">이력서 사진</td>
-    									<td>이름</td>
-    									<td>${ loginuser.memberName }</td>
-    									<td>생년월일</td>
-    									<td><fmt:formatDate value="${ member.age}" type="date"/></td>
-    								</tr>
-    								<tr>
-    									<td rowspan="3" height="25"><img src="<%=cp%>/resources/resume/${ reAtt.resumeSavedFilename }" style="width: 170px;height: 130px;"/></td>
-    								</tr>
-    								<tr>
-    									<td>성별</td>
-    									<td>${ member.gender }</td>
-    									<td>전화번호</td>
-    									<td>${ loginuser.phoneNo }</td>
-    									
-    								</tr>
-    								<tr>
-    									<td>주소</td>
-    									<td colspan="3">${ loginuser.memberAddress }</td>
-    								</tr>
-    							</table>
-    						</div>
-    						<div style="margin-bottom: 15px">
-    							<table>
-    								<tr><td style="padding: 17px 0 10px 0; font-size:15px; color: steelblue">자기소개</td></tr>
-    								<tr><td style="width:800px;border:1px solid">${fn:replace(resume.selfintroduction, cn, br)}</td></tr>
-    							</table>
-    							</div>
-    							
-    							<div style="margin-bottom: 15px;">    						
-    							<table>
-    								<tr style="font-size: 15px">
-    									<td colspan="4" style="color: saddlebrown;">학력사항</td>
-    								</tr>
-    								<tr>
-    									<td>학교이름</td>
-    									<td>전공</td>
-    									<td>입학일자</td>
-    									<td>졸업일자</td>
-    								</tr>
-    								<c:forEach var="education" items="${ educations }">
-    								<tr>
-    									<td>${education.schoolName }</td>
-    									<td>${education.major }</td>
-    									<td><fmt:formatDate value="${education.edStartDate }" type="date"/></td>
-    									<td><fmt:formatDate value="${education.edEndDate }" type="date"/></td>
-    								</tr>
-    								</c:forEach>
-    							</table>
-    						</div>
-    						<div style="margin-bottom:15px">
-    							<table>
-    								<tr style="font-size:15px;">
-    									<td colspan="4" style="padding-top:10px;color:goldenrod">경력사항</td>
-    								</tr>
-    								<tr>
-    									<td>회사이름</td>
-    									<td>회사종류</td>
-    									<td>입사일자</td>
-    									<td>퇴사일자</td>
-    								</tr>
-    								<c:forEach var="career" items="${ careers }">
-    								<tr>
-    									<td>${career.companyName }</td>
-    									<td>${career.companyType }</td>
-    									<td><fmt:formatDate value="${career.caStartDate }" type="date"/></td>
-    									<td><fmt:formatDate value="${career.caEndDate }" type="date"/></td>
-    								</tr>
-    								</c:forEach>
-    							</table>
-    							</div>
-    							
-    						<div>
-    							<table>
-    								<tr>
-    									<td>이력서의 공개여부</td>
-    									<td>
-    										${resume.ispublic }
-    									</td>
-    								</tr>
-    							</table>
-    							
-							</div>
-							</div>		
-						</section>
-					</div>
+			<div class="row">	
+				<div class="col-md-12">
+    		    	<div class="alert alert-success">
+		    			<h3 align="center"><b>${ resume.resumeTitle }</b></h3>
+	    			</div>
+    			</div>
+    			
+    			<h4><b>인적사항</b></h4>
+	            <hr />
+    			<div class="col-md-12" align="center">
+    				<table border="1" style="width:800px; text-align:center">    								
+	    				<tr>
+							<td width="30">이력서 사진</td>
+		    				<td><b>이름</b></td>
+		    				<td>${ loginuser.memberName }</td>
+		    				<td><b>생년월일</b></td>
+		    				<td><fmt:formatDate value="${ member.age}" type="date"/></td>
+	    				</tr>
+	    				<tr>
+	    					<td rowspan="3" height="25"><img src="<%=cp%>/resources/resume/${ reAtt.resumeSavedFilename }" style="width: 170px;height: 130px;"/></td>
+	    				</tr>
+	    				<tr>
+		    				<td><b>성별</b></td>
+		    				<td>${ member.gender }</td>
+		    				<td><b>전화번호</b></td>
+		    				<td>0${ loginuser.phoneNo }</td>
+	    				</tr>
+	    				<tr>
+		    				<td><b>주소</b></td>
+		    				<td colspan="3">${ loginuser.memberAddress }</td>
+	    				</tr>
+    				</table>
+    			</div>
+    			
+    			<h4><b>자기소개</b></h4>
+    			<hr />
+    			<div class="col-md-12" align="center">
+		           	${fn:replace(resume.selfintroduction, cn, br)}
+    			</div>
+    				
+    			<h4><b>학력사항</b></h4>
+	            <hr />				
+    			<div class="col-md-12" align="center">   
+    				<table>
+	    				<tr>
+		    				<td><b>학교이름</b></td>
+		    				<td><b>전공</b></td>
+		    				<td><b>입학일자</b></td>
+		    				<td><b>졸업일자</b></td>
+	    				</tr>
+	    				<c:forEach var="education" items="${ educations }">
+	    				<tr>
+		    				<td>${education.schoolName }</td>
+		    				<td>${education.major }</td>
+		    				<td><fmt:formatDate value="${education.edStartDate }" type="date"/></td>
+		    				<td><fmt:formatDate value="${education.edEndDate }" type="date"/></td>
+	    				</tr>
+	    				</c:forEach>
+    				</table>
+    			</div>
+    			
+    			<h4><b>경력사항</b></h4>
+	            <hr />
+    			<div class="col-md-12" align="center">
+    				<table>
+	    				<tr>
+		    				<td><b>회사이름</b></td>
+		    				<td><b>회사종류</b></td>
+		    				<td><b>입사일자</b></td>
+		    				<td><b>퇴사일자</b></td>
+	    				</tr>
+	    				<c:forEach var="career" items="${ careers }">
+	    				<tr>
+		    				<td>${career.companyName }</td>
+		    				<td>${career.companyType }</td>
+		    				<td><fmt:formatDate value="${career.caStartDate }" type="date"/></td>
+		    				<td><fmt:formatDate value="${career.caEndDate }" type="date"/></td>
+	    				</tr>
+	    				</c:forEach>
+    				</table>
+    			</div>
+    						
+    			<br /><br />	
+    			<div class="col-md-12" align="center">
+    				<table>
+	    				<tr>
+		    				<td>
+		    				<c:choose>
+			            			<c:when test="${ resume.ispublic }">[공개된 이력서 입니다.]</c:when>
+					        		<c:otherwise>[비공개된 이력서 입니다.]</c:otherwise>
+				        	</c:choose>
+				        	<br /><br />	
+		    				</td>
+	    				</tr>
+	    				<tr>
+		    				<td>
+		    					<a href="#" class="btn btn-info"><span class="glyphicon glyphicon-list-alt"></span>이력서 수정</a>
+							</td>
+	    				</tr>
+    				</table>
 				</div>
-			
+			</div>		
+		</div>
+	</div>
 
     <c:import url="/WEB-INF/views/include/footer.jsp" />
     

@@ -36,7 +36,18 @@
     			
     			<c:set var="jobboards" value="jobboards${i }" />
     			<c:set var="categoryname" value="categoryname${i }" />
-    			[${requestScope[categoryname]}]
+    			<c:choose>
+		        	<c:when test="${requestScope[categoryname] eq 'service'}"><h4><b>서비스</b></h4></c:when>
+		        	<c:when test="${requestScope[categoryname] eq 'sale'}"><h4><b>유통/판매</b></h4></c:when>
+		        	<c:when test="${requestScope[categoryname] eq 'office'}"><h4><b>사무직</b></h4></c:when>
+		        	<c:when test="${requestScope[categoryname] eq 'construction'}"><h4><b>건설/공사</b></h4></c:when>
+		        	<c:when test="${requestScope[categoryname] eq 'production'}"><h4><b>운송</b></h4></c:when>
+		        	<c:when test="${requestScope[categoryname] eq 'it'}"><h4><b>IT</b></h4></c:when>
+		        	<c:when test="${requestScope[categoryname] eq 'design'}"><h4><b>디자인</b></h4></c:when>
+		        	<c:when test="${requestScope[categoryname] eq 'education'}"><h4><b>교육</b></h4></c:when>
+        		</c:choose>
+        		<hr />
+        		
 	    			<table class="table table-hover" style="width:1000px;height:10px" align="center">
 					<tr class="danger" style="height:30px;color:black;">
 						<th style="width:70px">번호</th>
@@ -83,20 +94,20 @@
 							<c:choose>
 							
 	            			<c:when test="${ jobboard.jobboardPayment eq 'permonth' }">
-			            		월급
+			            		[월급]
 			            	</c:when>
 			            	
 			            	<c:when test="${ jobboard.jobboardPayment eq 'perweek' }">
-			            		주급
+			            		[주급]
 			            	</c:when>
 			            	
 			        		<c:otherwise>
-			        			시급
+			        			[시급]
 			        		</c:otherwise>
 			        		
 			        		</c:choose>
 						
-						 / <fmt:formatNumber type="number" maxFractionDigits="3" value="${ jobboard.jobboardSalary }" />원</td>
+						  <fmt:formatNumber type="number" maxFractionDigits="3" value="${ jobboard.jobboardSalary }" />원</td>
 						<td>${ jobboard.jobboardReadCount }</td>
 						<td><fmt:formatDate value="${ jobboard.jobboardDeadLine }" type="date"/></td>
 	
