@@ -1,4 +1,4 @@
-﻿
+
 /*=============================================================
     Authour URL: www.designbootstrap.com
     
@@ -215,19 +215,19 @@ footer {
 /* DASHBOARD ICONS */
 
 .bk-clr-one {
-    background-color: #B9B739;
+    background-color: #ffffff;
 }
 
 .bk-clr-two {
-    background-color: #F94C4C;
+    background-color: #ffffff;
 }
 
 .bk-clr-three {
-    background-color: #119c7e;
+    background-color: #ffffff;
 }
 
 .bk-clr-four {
-    background-color: #b739b9;
+    background-color: #ffffff;
 }
 
 .dashboard-div-icon {
@@ -247,7 +247,7 @@ footer {
     border-radius: 5px;
     text-align: center;
     padding: 15px;
-    color: #fff;
+    color: #555;
     margin-bottom: 50px;
 }
 

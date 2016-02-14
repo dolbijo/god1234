@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 <head>
@@ -25,13 +26,25 @@
 				</div>
 			</div>
            
-			<div class="row">
+			<div class="row" align="center">
 			
 				<c:forEach var="newjobboard" items="${newjobboards }">
-					<div class="col-md-3 col-sm-3 col-xs-6">
-						<div class="dashboard-div-wrapper bk-clr-one">
+					<div class="col-md-3 col-sm-3 col-xs-6" style="width: 220px;">
+						<div style="width: 220px; height:100px;border:2px groove #6051AF;text-align: center">
 							<!-- 아이콘 하나 달아주기 -->
-							<h4><a href="/dolbi/jobboard/updatecount.action?jobboardNo=${ newjobboard.jobboardNo }">${newjobboard.jobboardTitle }</a> </h4>
+							<h4><b><a href="/dolbi/jobboard/updatecount.action?jobboardNo=${ newjobboard.jobboardNo }">
+							
+							<c:choose>
+	           					<c:when test="${fn:length(newjobboard.jobboardTitle) > 12}">
+	            					${fn:substring(newjobboard.jobboardTitle,0,11)}"/>....
+						        </c:when>
+						        <c:otherwise>
+						        	${newjobboard.jobboardTitle }
+						        </c:otherwise> 
+					        </c:choose>
+
+							</a></b></h4>
+						
 							<h5>${newjobboard.memberName } </h5>
 							<h5>
 							<c:choose>
@@ -61,10 +74,22 @@
 			<div class="row">
 			
 				<c:forEach var="popjobboard" items="${popjobboards }">
-					<div class="col-md-3 col-sm-3 col-xs-6">
-						<div class="dashboard-div-wrapper bk-clr-two">
+					<div class="col-md-3 col-sm-3 col-xs-6" style="width: 220px;">
+						<div style="width: 220px; height:100px;border:2px groove fuchsia ;text-align: center">
 							<!-- 아이콘 하나 달아주기 -->
-							<h4><a href="/dolbi/jobboard/updatecount.action?jobboardNo=${ popjobboard.jobboardNo }">${popjobboard.jobboardTitle }</a> </h4>
+							<h4><b><a href="/dolbi/jobboard/updatecount.action?jobboardNo=${ popjobboard.jobboardNo }">
+							
+							<c:choose>
+	           					<c:when test="${fn:length(popjobboard.jobboardTitle) > 12}">
+	            					${fn:substring(popjobboard.jobboardTitle,0,11)}"/>....
+						        </c:when>
+						        <c:otherwise>
+						        	${popjobboard.jobboardTitle }
+						        </c:otherwise> 
+					        </c:choose>
+							
+							</a></b></h4>
+							
 							<h5>${popjobboard.memberName } </h5>
 							<h5>
 							<c:choose>
@@ -92,12 +117,24 @@
 			</div>
 			
 			<div class="row">
-			
+				
 				<c:forEach var="albainfofreeboard" items="${albainfofreeboards }">
-					<div class="col-md-3 col-sm-3 col-xs-6">
-						<div class="dashboard-div-wrapper bk-clr-three">
-							<h4><a href="/dolbi/freeboard/updatecount.action?FreeboardNo=${ albainfofreeboard.freeboardNo }">${albainfofreeboard.freeboardTitle }</a> </h4>
-							<h4>${albainfofreeboard.memberId } </h4>
+					<div class="col-md-3 col-sm-3 col-xs-6" style="width: 220px;">
+						<div style="width: 220px; height:100px;border:2px groove olive;text-align: center">
+							<br />
+							<h4><b><a href="/dolbi/freeboard/updatecount.action?FreeboardNo=${ albainfofreeboard.freeboardNo }">
+							
+							<c:choose>
+	           					<c:when test="${fn:length(albainfofreeboard.freeboardTitle) > 12}">
+	            					${fn:substring(albainfofreeboard.freeboardTitle,0,11)}"/>....
+						        </c:when>
+						        <c:otherwise>
+						        	${albainfofreeboard.freeboardTitle }
+						        </c:otherwise> 
+					        </c:choose>
+							
+							</a></b> </h4>
+							<h5>${albainfofreeboard.memberId } </h5>
 						</div>
 					</div>
 				</c:forEach>
@@ -112,10 +149,22 @@
 			<div class="row">
 			
 				<c:forEach var="albawarningfreeboard" items="${albawarningfreeboards }">
-					<div class="col-md-3 col-sm-3 col-xs-6">
-						<div class="dashboard-div-wrapper bk-clr-four">
-							<h4><a href="/dolbi/freeboard/updatecount.action?FreeboardNo=${ albawarningfreeboard.freeboardNo }">${albawarningfreeboard.freeboardTitle }</a> </h4>
-							<h4>${albawarningfreeboard.memberId } </h4>
+					<div class="col-md-3 col-sm-3 col-xs-6" style="width: 220px;">
+						<div style="width: 220px; height:100px;border:2px groove blue;text-align: center">
+							<br />
+							<h4><b><a href="/dolbi/freeboard/updatecount.action?FreeboardNo=${ albawarningfreeboard.freeboardNo }">
+							
+							<c:choose>
+	           					<c:when test="${fn:length(albawarningfreeboard.freeboardTitle) > 12}">
+	            					${fn:substring(albawarningfreeboard.freeboardTitle,0,11)}"/>....
+						        </c:when>
+						        <c:otherwise>
+						        	${albawarningfreeboard.freeboardTitle }
+						        </c:otherwise> 
+					        </c:choose>
+							
+							</a></b> </h4>
+							<h5>${albawarningfreeboard.memberId } </h5>
 						</div>
 					</div>
 				</c:forEach>
@@ -130,10 +179,22 @@
 			<div class="row">
 			
 				<c:forEach var="albaexpfreeboard" items="${albaexpfreeboards }">
-					<div class="col-md-3 col-sm-3 col-xs-6">
-						<div class="dashboard-div-wrapper bk-clr-five">
-							<h4><a href="/dolbi/freeboard/updatecount.action?FreeboardNo=${ albaexpfreeboard.freeboardNo }">${albaexpfreeboard.freeboardTitle }</a> </h4>
-							<h4>${albaexpfreeboard.memberId } </h4>
+					<div class="col-md-3 col-sm-3 col-xs-6" style="width: 220px;">
+						<div style="width: 220px; height:100px;border:2px groove maroon;text-align: center">
+							<br />
+							<h4><b><a href="/dolbi/freeboard/updatecount.action?FreeboardNo=${ albaexpfreeboard.freeboardNo }">
+							
+							<c:choose>
+	           					<c:when test="${fn:length(albaexpfreeboard.freeboardTitle) > 12}">
+	            					${fn:substring(albaexpfreeboard.freeboardTitle,0,11)}"/>....
+						        </c:when>
+						        <c:otherwise>
+						        	${albaexpfreeboard.freeboardTitle }
+						        </c:otherwise> 
+					        </c:choose>
+							
+							</a> </b></h4>
+							<h5>${albaexpfreeboard.memberId } </h5>
 						</div>
 					</div>
 				</c:forEach>
