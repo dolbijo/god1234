@@ -36,7 +36,7 @@
 							
 							<c:choose>
 	           					<c:when test="${fn:length(newjobboard.jobboardTitle) > 12}">
-	            					${fn:substring(newjobboard.jobboardTitle,0,11)}"/>....
+	            					${fn:substring(newjobboard.jobboardTitle,0,11)}"....
 						        </c:when>
 						        <c:otherwise>
 						        	${newjobboard.jobboardTitle }
@@ -81,7 +81,7 @@
 							
 							<c:choose>
 	           					<c:when test="${fn:length(popjobboard.jobboardTitle) > 12}">
-	            					${fn:substring(popjobboard.jobboardTitle,0,11)}"/>....
+	            					${fn:substring(popjobboard.jobboardTitle,0,11)}"....
 						        </c:when>
 						        <c:otherwise>
 						        	${popjobboard.jobboardTitle }
@@ -126,7 +126,7 @@
 							
 							<c:choose>
 	           					<c:when test="${fn:length(albainfofreeboard.freeboardTitle) > 12}">
-	            					${fn:substring(albainfofreeboard.freeboardTitle,0,11)}"/>....
+	            					${fn:substring(albainfofreeboard.freeboardTitle,0,11)}"....
 						        </c:when>
 						        <c:otherwise>
 						        	${albainfofreeboard.freeboardTitle }
@@ -156,7 +156,7 @@
 							
 							<c:choose>
 	           					<c:when test="${fn:length(albawarningfreeboard.freeboardTitle) > 12}">
-	            					${fn:substring(albawarningfreeboard.freeboardTitle,0,11)}"/>....
+	            					${fn:substring(albawarningfreeboard.freeboardTitle,0,11)}"....
 						        </c:when>
 						        <c:otherwise>
 						        	${albawarningfreeboard.freeboardTitle }
@@ -186,7 +186,7 @@
 							
 							<c:choose>
 	           					<c:when test="${fn:length(albaexpfreeboard.freeboardTitle) > 12}">
-	            					${fn:substring(albaexpfreeboard.freeboardTitle,0,11)}"/>....
+	            					${fn:substring(albaexpfreeboard.freeboardTitle,0,11)}"....
 						        </c:when>
 						        <c:otherwise>
 						        	${albaexpfreeboard.freeboardTitle }
