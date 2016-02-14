@@ -68,7 +68,17 @@
                             </li>  
                            </c:when>
                            <c:when test="${loginuser.memberType eq 'admin' }">
-                              <li><a href="/dolbi/member/listusertype.action"><spring:message code="menu.member" /></a> </li>
+                              <li class="dropdown">
+                                  <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> -->
+                                   <a id="dLable" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                      <spring:message code="menu.member" />
+                                  </a>
+                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                  <li><a href="/dolbi/member/listindi.action"><spring:message code="menu.maindi" /></a></li>
+                               	  <li><a href="/dolbi/member/listcom.action"><spring:message code="menu.macom" /></a></li>
+                                  <li><a href="/dolbi/member/stats.action"><spring:message code="menu.stats" /></a></li>
+                                  </ul>
+                              </li>
                            </c:when>
                            <c:otherwise>
                               <li><a href="/dolbi/individual/individualmain.action?memberId=${ loginuser.memberId }"><spring:message code="menu.individual" /></a></li>

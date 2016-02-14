@@ -158,6 +158,15 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping(value = "stats.action", method = RequestMethod.GET)
+	public String statsmain() {
+		
+	
+		return "stats/stats";
+		
+	}
+	
+	
 	
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String update(@ModelAttribute("member") Member member) {

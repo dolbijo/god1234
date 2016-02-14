@@ -23,38 +23,41 @@
 	 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-        
-        <div id="content" style="padding-bottom: 100px;">
-        	<br /><br />
-        	<div style='text-align:center'>
-        		[&nbsp;<a href="register.action">사용자 등록</a>&nbsp;]
+	<div class="content-wrapper">
+	    <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="page-head-line">관리자 페이지-기업회원 관리</h4>
+				</div>
+			</div>    
+        	<div class="row">
+	        	<br /><br />        	
+	        	<table class="table table-hover" style="width:1000px;height:10px" align="center">
+	        		<tr class="danger" style="height:30px;color:black;">
+	        			<td>아이디</td>
+	        			<td>이름</td>
+	        			<td>주소</td>
+	        			<td>연락처</td>
+	        			<td>이메일</td>
+	        		</tr>        	
+	        		<c:forEach var="member" items="${ members }">
+	        		<tr style="height:30px">
+	        			<td>
+	        				<c:url value="viewcom.action" var="viewUrl">
+	        					<c:param name="memberid" value="${ member.memberId }" />
+	        				</c:url>
+	        				<a href="${ viewUrl }">${ member.memberId }</a>
+	        			</td>
+	        			<td>${ member.memberName }</td>
+	        			<td>${ member.memberAddress }</td>
+	        			<td>${ member.phoneNo }</td>
+	        			<td>${ member.email }</td>
+	        		</tr>
+	        		</c:forEach>
+	        	</table>
         	</div>
-        	<br /><br />        	
-        	<table border="1" align="center" width="700px" style="color:slategrey">
-        		<tr style="height:30px;background-color:orange">
-        			<td>아이디</td>
-        			<td>이름</td>
-        			<td>주소</td>
-        			<td>연락처</td>
-        			<td>이메일</td>
-        		</tr>        	
-        	<c:forEach var="member" items="${ members }">
-        		<tr style="height:30px">
-        			<td>
-        				<c:url value="viewcom.action" var="viewUrl">
-        					<c:param name="memberid" value="${ member.memberId }" />
-        				</c:url>
-        				<a href="${ viewUrl }">${ member.memberId }</a>
-        			</td>
-        			<td>${ member.memberName }</td>
-        			<td>${ member.memberAddress }</td>
-        			<td>${ member.phoneNo }</td>
-        			<td>${ member.email }</td>
-        		</tr>
-        	</c:forEach>
-        	</table>
-        	
         </div>
+    </div>
     <c:import url="/WEB-INF/views/include/footer.jsp" />
     
 </body>
