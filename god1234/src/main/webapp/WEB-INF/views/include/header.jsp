@@ -103,7 +103,7 @@
                            
                        </c:when>
                        <c:otherwise>
-                          <li><span><spring:message code="general.welcome" arguments="${ loginuser.memberId }" /></span></li>
+                          
                           <li><a href="/dolbi/account/logout.action"><span><spring:message code="menu.logout" /></a> </li>
                        </c:otherwise>
                        </c:choose>

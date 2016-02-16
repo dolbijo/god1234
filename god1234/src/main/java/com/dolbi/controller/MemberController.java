@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dolbi.common.Util;
 import com.dolbi.model.dao.MemberDao;
+import com.dolbi.model.dto.Application;
+import com.dolbi.model.dto.Category;
+import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 import com.dolbi.model.service.MemberService;
 
@@ -159,9 +162,21 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "stats.action", method = RequestMethod.GET)
-	public String statsmain() {
+	public String statsmain(Model model) {
 		
-	
+		//g1
+		List<Jobboard> groupJobbaordsCount= memberDao.getGroupJobbaordsCount();
+		
+		//g2
+		List<Application> groupApplication= memberDao.getGroupApplication();
+		
+		//g3
+		List<Category> groupCategory= memberDao.getGroupCategory();
+		
+		model.addAttribute("groupJobbaordsCount", groupJobbaordsCount);
+		model.addAttribute("groupApplication", groupApplication);
+		model.addAttribute("groupCategory", groupCategory);
+
 		return "stats/stats";
 		
 	}
@@ -177,7 +192,6 @@ public class MemberController {
 		
 		return "redirect:/member/view.action?memberid=" + member.getMemberId();
 	}
-
 
 }
 

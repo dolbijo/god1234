@@ -98,11 +98,7 @@
                                 
                                 <label class="control-label" for="success">이메일</label>
                                 <input type="text" class="form-control" id="email" name="email" style="margin-bottom:15px;"/>
-                                
-                                                            
-                                <label class="control-label" for="success">상세 모집 요강</label>
-                               <textarea name="content" class="form-control" style="width:580px" rows="15"></textarea>
-                                
+                       
                                 <label class="control-label" for="success">직종선택</label>
                                 <c:choose>
                                 <c:when test="${jobboardCaNo eq 1 }">

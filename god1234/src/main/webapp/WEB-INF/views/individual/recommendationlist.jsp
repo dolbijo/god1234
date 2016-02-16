@@ -65,7 +65,7 @@
 					<tr style="height:20px;color:slategrey;">
 						<td style="padding-top:20px">${ jobboard.jobboardNo }</td>
 						<td style="text-align:left;padding-top:20px">
-							<a href="updatecount.action?jobboardNo=${ jobboard.jobboardNo }" style="text-decoration: none">${ jobboard.jobboardTitle }</a>
+							<a href="/dolbi/jobboard/updatecount.action?jobboardNo=${ jobboard.jobboardNo }" style="text-decoration: none">${ jobboard.jobboardTitle }</a>
 						</td>
 	
 						<td>${ jobboard.memberName }</td>

@@ -61,7 +61,7 @@
 	                	<tr>
 	                		<td colspan="8" style="width: 50%">
 	                			<c:forEach var="file" items="${jobboard.files }">
-									<img src="<%=cp%>/resources/uploadfiles/${file.userFileName }" style="width: 100%;height: 400px;"/></img><br />
+									<img src="<%=cp%>/resources/uploadfiles/${file.savedFileName }" style="width: 100%;height: 400px;"/></img><br />
 								</c:forEach>
 	                		</td>
 	                		<td style="padding-left: 20px;">

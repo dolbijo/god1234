@@ -2,6 +2,9 @@ package com.dolbi.model.dao;
 
 import java.util.List;
 
+import com.dolbi.model.dto.Application;
+import com.dolbi.model.dto.Category;
+import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 
 public interface MemberDao {
@@ -27,5 +30,12 @@ public interface MemberDao {
 	Member getcomMemberview(String id);
 	
 	void insertCategory(String id, int categoryNo);
+
+	List<Jobboard> getGroupJobbaordsCount();
+
+	List<Application> getGroupApplication();
+
+	List<Category> getGroupCategory();
+	
 
 }

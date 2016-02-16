@@ -3,6 +3,9 @@ package com.dolbi.model.mapper;
 import java.util.HashMap;
 import java.util.List;
 
+import com.dolbi.model.dto.Application;
+import com.dolbi.model.dto.Category;
+import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 
 public interface MemberMapper {
@@ -22,5 +25,9 @@ public interface MemberMapper {
 	Member selectcomMemberview(String id);
 	
 	void insertCategory(HashMap<String, Object> params);
+	
+	List<Jobboard> selectGroupJobbaordsCount();
+	List<Application> selectGroupApplication();
+	List<Category> selectGroupCategory();
 
 }

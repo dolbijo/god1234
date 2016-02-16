@@ -25,7 +25,17 @@ public class Jobboard implements Serializable {
 	private String memberName;
 	private int jobboardPhone;
 	private String jobboardemail;
+	
+	private int groupPaymentCount;
 
+
+	public int getGroupPaymentCount() {
+		return groupPaymentCount;
+	}
+
+	public void setGroupPaymentCount(int groupPaymentCount) {
+		this.groupPaymentCount = groupPaymentCount;
+	}
 
 	private String categoryTag;
 

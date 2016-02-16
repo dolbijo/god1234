@@ -35,40 +35,67 @@
 				</div>
 			</div>    
 			<div class="row">
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Tabs
+                            	시스템 데이터 분석 / 관리 
                         </div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home" data-toggle="tab">Home</a>
+                                <li class="active"><a href="#g1" data-toggle="tab">Home</a>
                                 </li>
-                                <li class=""><a href="#profile" data-toggle="tab">Profile</a>
+                                <li class=""><a href="#g2" data-toggle="tab">Profile</a>
                                 </li>
-                                <li class=""><a href="#messages" data-toggle="tab">Messages</a>
+                                <li class=""><a href="#g3" data-toggle="tab">Messages</a>
                                 </li>
-                                <li class=""><a href="#settings" data-toggle="tab">Settings</a>
-                                </li>
+                                
                             </ul>
+                            
+                            <!--  
+                            	model.addAttribute("groupJobbaordsCount", groupJobbaordsCount);
+								model.addAttribute("groupApplication", groupApplication);
+								model.addAttribute("groupCategory", groupCategory);
+                            -->
 
                             <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home">
-                                    <h4>Home Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <div class="tab-pane fade active in" id="g1">
+                                	<table style="width:100%">
+                                		<tr>
+                                			<td>
+                                				기업이 사용하는 급료의 형태 <br />
+                                				<c:forEach var="gjc" items="${groupJobbaordsCount }">
+                                					<b>${gjc.jobboardPayment }</b> : ${gjc.groupPaymentCount }<br />
+                                				</c:forEach>
+                                			</td>
+                                			<td style="width:50%"><img src="<%=cp%>/resources/graph/g1.png" /></td>
+                                		</tr>
+                                	</table>
                                 </div>
-                                <div class="tab-pane fade" id="profile">
-                                    <h4>Profile Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <div class="tab-pane fade" id="g2">
+                                	<table style="width:100%">
+                                		<tr>
+                                			<td>
+                                				<c:forEach var="ga" items="${groupApplication }">
+                                					<b>${ga.applicationRegdate }</b> : ${gjc.groupDateCount }<br />
+                                				</c:forEach>
+                                			</td>
+                                			<td style="width:50%"><img src="<%=cp%>/resources/graph/g2.png" /></td>
+                                		</tr>
+                                	</table>
                                 </div>
-                                <div class="tab-pane fade" id="messages">
-                                    <h4>Messages Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <div class="tab-pane fade" id="g3">
+                                	<table style="width:100%">
+                                		<tr>
+                                			<td>
+                                				<c:forEach var="gc" items="${groupCategory }">
+                                					<b>${gc.categoryMap }</b> : ${gc.categoryName }<br />
+                                				</c:forEach>
+                                			</td>
+                                			<td style="width:50%"><img src="<%=cp%>/resources/graph/g3.png" /></td>
+                                		</tr>
+                                	</table>
                                 </div>
-                                <div class="tab-pane fade" id="settings">
-                                    <h4>Settings Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

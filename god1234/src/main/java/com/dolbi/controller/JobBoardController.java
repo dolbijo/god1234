@@ -62,7 +62,7 @@ public class JobBoardController {
 	public String getJobboardWriteForm(MultipartHttpServletRequest request) throws Exception {
 
 		//업로드된 파일을 저장할 경로 (가상경로 -> 물리경로) 추출
-		String path = request.getSession().getServletContext().getRealPath("/WEB-INF/uploadfiles");
+		String path = request.getSession().getServletContext().getRealPath("/resources/uploadfiles");
 		
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 		//Upload 객체 생성 및 파일이 아닌 데이터 저장

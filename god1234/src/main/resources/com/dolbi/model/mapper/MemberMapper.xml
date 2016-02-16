@@ -105,6 +105,33 @@
 		VALUES (#{likedcategoryNo}, #{id}, #{categoryNo})
 	</insert>
 	
+	<resultMap type="Jobboard" id="jobboardMap">
+		<id column="j_payment" property="jobboardPayment" />
+		<result column="count(j_no)" property="groupPaymentCount" />
+	</resultMap>
+	
+	<select id="selectGroupJobbaordsCount" resultMap="jobboardMap">
+		select j_payment, count(j_no) from jobboard group by j_payment
+	</select>
+	
+	<resultMap type="Category" id="categoryMap">
+		<id column="name" property="categoryName" />
+		<result column="count(id)" property="groupCategoryCount" />
+	</resultMap>
+	
+	<select id="selectGroupApplication" resultMap="applicationMap">
+		select a.name, count(a.id) from (select j.jc_name name, l.m_id id from jobcategory j, likedcategory l where j.jc_no = l.jc_no) a group by a.name
+	</select>
+	
+	<resultMap type="Application" id="applicationMap">
+		<id column="a_regdate" property="applicationRegdate" />
+		<result column="count(a_no)" property="groupDateCount" />
+	</resultMap>
+	
+	<select id="selectGroupCategory" resultMap="categoryMap">
+		select a_regdate, count(a_no) from application group by DATE_FORMAT(a_regdate,'%Y-%M-%d')
+	</select>
+	
 	
 </mapper>
 

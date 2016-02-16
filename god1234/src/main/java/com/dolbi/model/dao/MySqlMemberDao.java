@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import com.dolbi.model.dto.Application;
+import com.dolbi.model.dto.Category;
+import com.dolbi.model.dto.Jobboard;
 import com.dolbi.model.dto.Member;
 import com.dolbi.model.mapper.MemberMapper;
 
@@ -103,6 +106,31 @@ public class MySqlMemberDao implements MemberDao {
 		params.put("categoryNo", categoryNo);
 		
 		memberMapper.insertCategory(params);
+	}
+
+	@Override
+	public List<Jobboard> getGroupJobbaordsCount() {
+		
+
+		List<Jobboard> groupJobbaordsCount= memberMapper.selectGroupJobbaordsCount();
+
+		return groupJobbaordsCount;
+	}
+
+	@Override
+	public List<Application> getGroupApplication() {
+		
+		List<Application> groupApplication= memberMapper.selectGroupApplication();
+		
+		return groupApplication;
+	}
+
+	@Override
+	public List<Category> getGroupCategory() {
+		
+		List<Category> groupCategory= memberMapper.selectGroupCategory();
+		
+		return groupCategory;
 	}
 	
 }

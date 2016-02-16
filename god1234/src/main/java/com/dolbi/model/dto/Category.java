@@ -7,6 +7,16 @@ public class Category implements Serializable {
 	private int likedCategoryNo;
 	private int categoryNo;
 	private String categoryName;
+	
+	private int groupCategoryCount;
+
+	public int getGroupCategoryCount() {
+		return groupCategoryCount;
+	}
+
+	public void setGroupCategoryCount(int groupCategoryCount) {
+		this.groupCategoryCount = groupCategoryCount;
+	}
 
 	public int getLikedCategoryNo() {
 		return likedCategoryNo;

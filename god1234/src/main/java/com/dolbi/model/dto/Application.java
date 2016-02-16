@@ -12,6 +12,19 @@ public class Application implements Serializable {
 	private boolean isCheck;
 	private Date applicationRegdate;
 	
+	
+	
+	private int groupDateCount;
+
+	public int getGroupDateCount() {
+		return groupDateCount;
+	}
+	public void setGroupDateCount(int groupDateCount) {
+		this.groupDateCount = groupDateCount;
+	}
+	public void setCheck(boolean isCheck) {
+		this.isCheck = isCheck;
+	}
 	public int getApplicationNo() {
 		return applicationNo;
 	}
